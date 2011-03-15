@@ -1,0 +1,156 @@
+body { background-color: #333; color: #fff; }
+
+.hexmap { 
+	-moz-border-radius: 18px/*{cornerRadius}*/; 
+	-webkit-border-radius: 18px/*{cornerRadius}*/; 
+	border-radius: 18px/*{cornerRadius}*/; 
+	background-color: #272727;
+}
+
+.hex {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    z-index:10;
+}
+
+.rendering_layer {
+	position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.hex .img {
+    width: 72px;
+    height: 72px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#map_mask .img {
+position: absolute;
+	height:72px;
+	width: 72px;
+	z-index:30;
+}
+
+.unit {
+	z-index:20;
+}
+
+.damage {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	font-size: 50px;
+	color: white;
+	text-shadow: 2px 2px 8px #FF0000; /* horizontal-offset vertical-offset 'blur' colour */
+  -moz-text-shadow: 2px 2px 8px #FF0000;
+  -webkit-text-shadow: 2px 2px 8px #FF0000;
+	z-index: 40;
+	text-align: center;
+}
+
+.coord {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding: 10px 10px;
+	font-size: 25px;
+	color: white;
+	text-shadow: 2px 2px 8px #000; /* horizontal-offset vertical-offset 'blur' colour */
+  -moz-text-shadow: 2px 2px 8px #000;
+  -webkit-text-shadow: 2px 2px 8px #000;
+	z-index: 40;
+	text-align: center;
+}
+.hex_note {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding: 20px 20px;
+	font-size: 25px;
+	color: white;
+	text-shadow: 2px 2px 8px #000; /* horizontal-offset vertical-offset 'blur' colour */
+  -moz-text-shadow: 2px 2px 8px #000;
+  -webkit-text-shadow: 2px 2px 8px #000;
+	z-index: 40;
+	text-align: center;
+}
+.unit_health {
+	z-index:40;
+	position: absolute;
+	bottom: 12px;
+	right: 12px;
+	text-align: right;
+	vertical-align: bottom;
+}
+
+.cursor {
+	z-index:50;
+	display:none;
+}
+
+.selected_palette_row {
+    background-color: #FF00FF;
+}
+
+#hex_palette {
+    float: right;
+}
+
+.dialog {
+	display: none;
+}
+
+#loading {
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	background-color: #666611;
+	z-index: 1000;
+}
+#loading img {
+	position:absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.model_index {
+	margin-top: 20px;
+	border-right: solid 1px #aaa;
+}
+.model_index td {
+	vertical-align: top;
+	padding: 15px 15px 0px 0px;
+}
+.model_index td h2 {
+	margin-top: 0px;
+}
+.model_index th {
+	border-left: solid 1px #fff;
+	border-bottom: solid 1px #fff;
+}
+
+#admin_nav {
+	margin: 10px 0px;
+	padding: 10px 10px;
+	border: solid 1px #aaa;
+	display: inline-block;
+}
+
+ul.player_list, ul.game_list {
+	padding: 0px 0px 0px 20px;
+	list-style-image: url('/images/icons/control_stop.png');
+}
+
+.player_list li.player_turn {
+	list-style-image: url('/images/icons/control_play_red.png');
+}
+
+.player_list a, .player_list a:visited, .game_list a, .game_list a:visited {
+	color: blue;
+}

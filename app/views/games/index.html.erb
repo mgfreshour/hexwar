@@ -1,0 +1,22 @@
+<h1>Listing games</h1> <%= link_to 'New Game', new_game_path, :class=>:button %>
+<table class="model_index">
+  <tr>
+    <th>Game</th>
+    <th>Map</th>
+    <th></th>
+  </tr>
+
+<% @games.each do |game| %>
+  <tr>
+    <td>
+			<h2><%= game.name %></h2>
+			<%= render :partial => 'player_list', :locals => { :players=>game.game_players, :game=>game } %>		
+		</td>
+    <td><%= game.map.name %></td>
+    <td>
+			<%= link_to 'Play', game, :class=>:button %>
+    	<%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete, :class=>:button %>
+		</td>
+  </tr>
+<% end %>
+</table>

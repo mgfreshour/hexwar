@@ -1,0 +1,25 @@
+<h1><%= @player.name %></h1>
+
+<p>
+  <b>Games:</b>
+	<ul class="game_list">
+		<% @player.games.each do |game| %>
+			<li><h2><%= game.name %></h2>
+				<ul class="player_list">
+					<% game.game_players.each do |game_player| %>
+						<li>
+							<%= image_tag 'misc/flag-'+	game_player.team+'-icon.png'%><%= link_to game_player.player.name, game_player.player %>
+								<% if game_player.player == @current_player %>
+									<script type="text/javascript">
+										var current_player = '<%= game_player.team %>';
+									</script>
+									<%= image_tag 'icons/user.png' %>
+								<% end %>
+						</li>
+					<% end %>
+				</ul>
+			</li>
+		<% end %>
+	</ul>
+</p>
+

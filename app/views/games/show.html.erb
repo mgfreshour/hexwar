@@ -1,0 +1,36 @@
+<%= include_javascripts :game %>
+<div id="hexmap01" class="hexmap"></div>
+
+<div style="display:inline-block">
+	<%= @game.name %>
+	<%= render :partial => 'player_list', :locals => { :players=>@game.game_players, :game=>@game } %>
+</div>
+
+<script type="text/javascript">
+var map = null;
+var game = null;
+<%= load_js_map(@game.map, 'map').html_safe %>
+<%= load_js_turn_units(@game.current_turn, 'map').html_safe %>
+var current_player = '<%= @current_player_team %>';
+
+$(function() {
+	<%= load_js_current_turn(@game.current_turn).html_safe %>
+	game = new Game();
+	game.current_turn = current_turn_id;
+	game.id = <%= @game.id %>;
+
+	$('#endturn').click(function() {
+		game.endTurn();
+	});
+	
+	game.bindEvent('turn_ended', function() { 
+		top.location = '<%=root_url%>'; 
+	});
+});
+</script>
+
+<% if @game.current_turn.player == @current_player_team %>
+	<button type="button" id="endturn" class="button">End Turn</button>
+<% end %>
+
+<%= render 'layouts/preload' %>

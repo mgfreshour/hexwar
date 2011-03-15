@@ -1,0 +1,85 @@
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: inline-block;
+}
+
+.field label {
+	display: inline-block;
+	text-align: right;
+	width: 130px;
+	margin-right: 5px;
+}
+.field label img {
+	float: left;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+.toolbox_hex {
+    width: 72px;
+    height: 72px;
+    z-index:98;
+}
+
+.hex_palette_row, .unit_palette_row {
+    border: solid #000000 1px;
+		padding: 5px 0px 0px 5px;
+		margin: 0px 5px;
+		display: inline-block;
+		width: 165px;
+}
+
+.hex_palette_row .img, .unit_palette_row .img {
+	width: 72px;
+	height: 72px;
+	vertical-align: middle;
+	padding-right: 5px;
+}
+
+.hex_palette_row div, .unit_palette_row div {
+	display: inline-block;
+}

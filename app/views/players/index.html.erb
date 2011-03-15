@@ -1,0 +1,15 @@
+<h1>Listing players</h1>
+<%= link_to 'New Player', new_player_path, :class=>:button %>
+<table class="model_index">
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+
+<% @players.each do |player| %>
+  <tr>
+    <td><%= player.name %></td>
+    <td><%= link_to 'Show', player, :class=>:button %> <%= link_to 'Edit', edit_player_path(player), :class=>:button %> <%= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete, :class=>:button %></td>
+  </tr>
+<% end %>
+</table>

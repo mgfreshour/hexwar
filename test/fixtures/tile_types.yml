@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: dirt
+  img: MyString
+  position: 1
+
+two:
+  name: grass
+  img: MyString
+  position: 2
+
+
+# == Schema Information
+#
+# Table name: tile_types
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  img        :string(255)
+#  position   :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  img_x      :integer         default(0), not null
+#  img_y      :integer         default(0), not null
+#
+

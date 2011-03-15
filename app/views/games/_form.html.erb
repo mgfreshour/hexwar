@@ -1,0 +1,37 @@
+<%= form_for(@game) do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :map_id %>
+    <%= collection_select :game, :map_id, Map.find(:all), :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <% f.fields_for :game_players do |player_form| %>
+		<div class="field">
+			<%= player_form.label :team, image_tag("misc/flag-#{player_form.object.team}-icon.png")+"#{player_form.object.team.capitalize} Player" %>
+			<% if player_form.object.player == @current_player %>
+				<%= player_form.hidden_field :team %>
+				<%= player_form.collection_select :player_id, [@current_player], :id, :name %>
+			<% else %>
+				<%= player_form.hidden_field :team %>
+				<%= player_form.collection_select :player_id, @players, :id, :name, {:prompt => '--None--'} %>
+			<% end %>
+		</div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+# config/facebook.yml
+development:
+  app_id: YOUR APP ID
+  secret_key: YOUR SECRET
+test:
+  app_id: YOUR APP ID
+  secret_key: YOUR SECRET
+production:
+  app_id: YOUR APP ID
+  secret_key: YOUR SECRET
+

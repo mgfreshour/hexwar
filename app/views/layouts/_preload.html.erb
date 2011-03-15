@@ -1,0 +1,18 @@
+<div id="loading" class="loading">
+	<%= image_tag 'misc/loading-bar.gif' %>
+</div>
+
+<script type="text/javascript">
+	// Hide the loading mask once the document is ready
+	$(window).load(function () {
+		$('#loading').delay(100).fadeOut(100);
+		$('.preload').hide();
+	});
+</script>
+
+
+<% image_tag '/images/misc/hex-highlight.png', :class => 'preload' %>
+<% image_tag '/images/misc/mask.png', :class => 'preload' %> 
+<% image_tag '/images/units.png', :class=> 'preload' %>
+<% image_tag '/images/tiles.png', :class=> 'preload' %> 
+

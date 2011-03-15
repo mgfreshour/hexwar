@@ -1,0 +1,14 @@
+log/*.log
+tmp/**/*
+db/*.sqlite3
+doc/api
+doc/app
+vendor/bundle/*
+vendor/cache/*
+.bundle
+.DS_Store
+config/database.yml
+config/facebook.yml
+config/deploy.rb
+public/assets
+capistrano

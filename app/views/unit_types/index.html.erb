@@ -1,0 +1,21 @@
+<h1>Listing unit_types</h1>
+<%= link_to 'New Unit type', new_unit_type_path, :class=>:button %>
+
+<table class="model_index">
+  <tr>
+    <th>Name</th>
+    <th>Img</th>
+    <th></th>
+  </tr>
+
+<% @unit_types.each do |unit_type| %>
+  <tr>
+    <td><h2><%= unit_type.name %></h2></td>
+    <td><%=display_unit_img(unit_type).html_safe%></td>
+    <td><%= link_to 'Show', unit_type, :class=>:button %> <%= link_to 'Edit', edit_unit_type_path(unit_type), :class=>:button %> <%= link_to 'Destroy', unit_type, :confirm => 'Are you sure?', :method => :delete, :class=>:button %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

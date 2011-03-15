@@ -1,0 +1,18 @@
+<h1>Listing tile_types</h1>
+<%= link_to 'New Tile type', new_tile_type_path, :class=>:button %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Img</th>
+    <th></th>
+  </tr>
+
+<% @tile_types.each do |tile_type| %>
+  <tr>
+    <td><%= tile_type.name %></td>
+    <td><%=display_tile_img(tile_type).html_safe%></td>
+    <td><%= link_to 'Show', tile_type, :class=>:button %> <%= link_to 'Edit', edit_tile_type_path(tile_type), :class=>:button %> <%= link_to 'Destroy', tile_type, :confirm => 'Are you sure?', :method => :delete, :class=>:button %></td>
+  </tr>
+<% end %>
+</table>
+

@@ -1,0 +1,46 @@
+class Player < ActiveRecord::Base
+  has_many :game_players, :dependent => :destroy
+  has_many :games, :through => :game_players
+  validates :name, :presence=>true
+  validates :uid, :presence=>true
+  validates :provider, :presence=>true
+  
+  def self.create_with_omniauth(auth)  
+      create! do |user|  
+        user.provider = auth["provider"]  
+        user.uid = auth["uid"]  
+        user.name = auth["user_info"]["name"]  
+      end
+  end  
+end
+
+
+# == Schema Information
+#
+# Table name: players
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  user_id    :integer
+#  uid        :string(255)
+#  provider   :string(255)
+#  admin      :boolean
+#
+
+
+# == Schema Information
+#
+# Table name: players
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  user_id    :integer
+#  uid        :string(255)
+#  provider   :string(255)
+#  admin      :boolean
+#
+

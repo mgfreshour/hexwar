@@ -1,0 +1,49 @@
+<%= form_for(@turn_action) do |f| %>
+  <% if @turn_action.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@turn_action.errors.count, "error") %> prohibited this turn_action from being saved:</h2>
+
+      <ul>
+      <% @turn_action.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :turn_id %><br />
+    <%= f.text_field :turn_id %>
+  </div>
+  <div class="field">
+    <%= f.label :action %><br />
+    <%= f.text_field :action %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_x %><br />
+    <%= f.text_field :unit_x %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_y %><br />
+    <%= f.text_field :unit_y %>
+  </div>
+  <div class="field">
+    <%= f.label :target_x %><br />
+    <%= f.text_field :target_x %>
+  </div>
+  <div class="field">
+    <%= f.label :target_y %><br />
+    <%= f.text_field :target_y %>
+  </div>
+  <div class="field">
+    <%= f.label :param1 %><br />
+    <%= f.text_field :param1 %>
+  </div>
+  <div class="field">
+    <%= f.label :param2 %><br />
+    <%= f.text_field :param2 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hex Map Demo</title>
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-darkness/jquery-ui.css" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	<%= include_stylesheets(:common) %>
+	<%= include_javascripts(:rails) %>
+	<%= include_javascripts(:common) %>
+	<%= csrf_meta_tag %>
+	
+	<% if protect_against_forgery? %>
+		<script type="text/javascript">
+			var AUTH_TOKEN = <%=form_authenticity_token.inspect%>;
+			// Always send the authenticity_token with ajax
+			$(document).ajaxSend(function(event, request, settings) {
+			    if ( settings.type == 'post' ) {
+			        settings.data = (settings.data ? settings.data + "&" : "")
+			            + "authenticity_token=" + encodeURIComponent( AUTH_TOKEN );
+			    }
+			});
+		</script>
+	<% end %>
+	
+	<!-- Tell IE6 to go away-->
+	<!--[if lte IE 6]>
+	<script src="/ie6/warning.js"></script>
+	<script>$(function(){e("/ie6/")})</script>
+	<![endif]-->
+	
+</head>
+<body>
+	<script type="text/javascript">
+		<%= load_js_unit_types %>
+		<%= load_js_tile_types %>
+	</script>
+	
+	<script type="text/javascript">
+	$(function() {
+		$('.button').button();
+	})
+	</script>
+
+	<%= yield %>
+
+
+	<br />
+	<% if @current_player && @current_player.admin %>
+		<fieldset id="admin_nav">
+		    <legend>Admin - <%= @current_player.name %></legend>
+			<%= link_to 'Maps', maps_path, :class=>'button' %>
+			<%= link_to 'Games', games_path, :class=>'button' %>
+			<%= link_to 'Players', players_path, :class=>'button' %>
+			<%= link_to 'UnitTypes', unit_types_path, :class=>'button' %>
+			<%= link_to 'TileTypes', tile_types_path, :class=>'button' %>
+			<br />
+			<%= link_to "Sign Out", signout_path, :class=>'button' %>  
+			<br />
+
+			<textarea id="log" cols="90" rows="20"></textarea>
+		</fieldset>
+	<% end %>
+</body>
+</html>

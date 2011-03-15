@@ -1,0 +1,15 @@
+<h1>Listing maps</h1>
+<%= link_to 'New Map', new_map_path, :class=>:button %>
+<table class="model_index">
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+
+<% @maps.each do |map| %>
+  <tr>
+    <td><%= map.name %></td>
+		<td><%= link_to 'Show', map, :class=>:button %> <%= link_to 'Edit', edit_map_path(map), :class=>:button %> <%= link_to 'Destroy', map, :confirm => 'Are you sure?', :method => :delete, :class=>:button %></td>
+  </tr>
+<% end %>
+</table>

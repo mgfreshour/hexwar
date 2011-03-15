@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_map_path(@map), :class=>'button' %>
+
+<p>
+  <b>Name:</b>
+  <%= @map.name %>
+</p>
+<p>
+  <b># of Players:</b>
+  <%= @map.number_of_players %>
+</p>
+
+<p>
+  <b>Data:</b>
+	<div id="hexmap01" class="hexmap">
+	</div>
+
+	<script type="text/javascript">
+	var map = null;
+	<%= load_js_map(@map, 'map').html_safe %>
+	<%= load_js_map_units(@map, 'map').html_safe %>
+	$(function() {
+		mapview = new MapView($('#hexmap01'));
+		mapview.drawMap(map);
+	})
+	</script>
+</p>
+
+
+<%= render 'layouts/preload' %>

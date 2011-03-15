@@ -1,0 +1,40 @@
+package_assets:         on          # (on, off, always)
+embed_assets:           on          # (on, off, datauri)
+compress_assets:        on          # (on, off)
+gzip_assets:            on          # (on, off)
+javascript_compressor:  closure     # (yui, closure)
+
+
+javascripts:
+  rails:
+    - public/javascripts/rails.js
+  common:
+    - public/javascripts/utils/util.js
+    - public/javascripts/utils/hex.js
+    - public/javascripts/utils/observable.js
+    - public/javascripts/utils/array_2d.js
+    - public/javascripts/renderer/renderable_item.js
+    - public/javascripts/renderer/renderables_repository.js
+    - public/javascripts/renderer/irenderer.js
+    - public/javascripts/renderer/jquery_renderer.js
+    - public/javascripts/views/map_view.js
+    - public/javascripts/views/map_view_mask.js
+    - public/javascripts/models/map.js
+    - public/javascripts/models/tile.js
+    - public/javascripts/models/tile_type.js
+    - public/javascripts/models/unit.js
+    - public/javascripts/models/unit_type.js
+  game:
+    - public/javascripts/controllers/unit_controller.js
+    - public/javascripts/controllers/game_controller.js
+  mapeditor:
+    - public/javascripts/map_editor/toolbox.js
+    - public/javascripts/map_editor/new_dialog.js
+    - public/javascripts/map_editor/map_editor.js
+
+stylesheets:
+  common:
+    - public/stylesheets/hexwar.css
+    - public/stylesheets/map_editor.css
+
+
