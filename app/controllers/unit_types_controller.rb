@@ -6,6 +6,7 @@ class UnitTypesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.html { render :json => @unit_types }
       format.xml  { render :xml => @unit_types }
     end
   end

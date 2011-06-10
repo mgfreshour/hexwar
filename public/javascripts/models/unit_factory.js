@@ -7,6 +7,41 @@ function UnitFactory() {
 }
 
 /**
+ * Loads the tile types from server using ajax call
+ * @param {String} url
+ */
+UnitFactory.prototype.loadFromServer = function(url) {
+	url = url || '/unit_types';
+	
+	var successFunction = function(data, textStatus, jqXHR) {
+		var obj, move_costs, defense_bonuses;
+		for (var n=0; n < data.length; n++) {
+			obj = data[n].unit_type;
+			move_costs = [obj.move_cost_bridge_center , obj.move_cost_bridge_left , obj.move_cost_bridge_right , obj.move_cost_castle , obj.move_cost_city , obj.move_cost_desert , obj.move_cost_dirt
+			 , obj.move_cost_forest , obj.move_cost_grass , obj.move_cost_hills , obj.move_cost_mountains , obj.move_cost_oasis , obj.move_cost_path , obj.move_cost_swamp , obj.move_cost_water];
+			
+			defense_bonuses = [obj.defense_bonus_bridge_center , obj.defense_bonus_bridge_left , obj.defense_bonus_bridge_right , obj.defense_bonus_castle , obj.defense_bonus_city , obj.defense_bonus_desert
+			 , obj.defense_bonus_dirt , obj.defense_bonus_forest , obj.defense_bonus_grass , obj.defense_bonus_hills , obj.defense_bonus_mountains , obj.defense_bonus_oasis , obj.defense_bonus_path
+			 , obj.defense_bonus_swamp , obj.defense_bonus_water ];
+
+			this.createUnitType(obj.name, obj.img, obj.img_x, obj.img_y, obj.attack_range, obj.move_range, move_costs, defense_bonuses)
+	 	}
+	};
+	
+	$.ajax({ 
+		  type:'GET'
+		, async: false // I don't like this, but it's the quickest solution
+		, url:url
+		, dataType: 'json'
+		, success: successFunction.createDelegate(this)
+		, error: function() {
+			modalAlert("Loading Failed", "Something went horribly wrong while loading the tile data!!!");
+		}
+	});
+			
+}
+
+/**
  * Adds a unit type to the internal types array
  * @param {UnitType} unit_type
  * @return {Number} index of the added type
@@ -40,9 +75,15 @@ UnitFactory.prototype.createUnitType = function(name, img, img_x, img_y, range, 
  */
 UnitFactory.prototype.createUnit = function(type, team,x,y,health) {
 	if (typeof type == 'string') {
-		for (var n=this.unit_types.length-1; n >= 0; n--) {
-			if (this.unit_types[n].name == type) {
-				break;
+		var n=0;
+		// Is this really a number in a string?
+		if (!isNaN(parseFloat(type)) && isFinite(type)) {
+			n = parseFloat(type);
+		} else {
+			for (n=this.unit_types.length-1; n >= 0; n--) {
+				if (this.unit_types[n].name == type) {
+					break;
+				}
 			}
 		}
 		if (n >= 0) {

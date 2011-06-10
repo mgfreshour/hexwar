@@ -9,6 +9,7 @@ javascripts:
   rails:
     - public/javascripts/rails.js
   common:
+    - public/javascripts/library/closure/closure/goog/base.js
     - public/javascripts/utils/util.js
     - public/javascripts/utils/hex.js
     - public/javascripts/utils/observable.js
@@ -22,8 +23,11 @@ javascripts:
     - public/javascripts/models/map.js
     - public/javascripts/models/tile.js
     - public/javascripts/models/tile_type.js
+    - public/javascripts/models/tile_factory.js
     - public/javascripts/models/unit.js
     - public/javascripts/models/unit_type.js
+    - public/javascripts/models/unit_factory.js
+    - public/javascripts/utils/service_container.js
   game:
     - public/javascripts/controllers/unit_controller.js
     - public/javascripts/controllers/game_controller.js

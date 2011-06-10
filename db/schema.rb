@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(:version => 20110220013343) do
     t.text     "tile_data"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "height"
-    t.decimal  "width"
+    t.integer  "height"
+    t.integer  "width"
     t.text     "unit_data"
     t.integer  "number_of_players", :default => 2, :null => false
   end
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(:version => 20110220013343) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.string   "uid"
     t.string   "provider"
     t.boolean  "admin"
@@ -119,20 +118,9 @@ ActiveRecord::Schema.define(:version => 20110220013343) do
     t.integer  "defense_bonus_forest",        :default => 0, :null => false
     t.integer  "defense_bonus_hills",         :default => 0, :null => false
     t.integer  "defense_bonus_mountains",     :default => 0, :null => false
-    t.integer  "move_range",                  :default => 1, :null => false
+    t.integer  "move_range",                  :default => 2, :null => false
     t.integer  "img_x",                       :default => 0, :null => false
     t.integer  "img_y",                       :default => 0, :null => false
-  end
-
-  create_table "user_sessions", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "fb_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 end

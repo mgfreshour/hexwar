@@ -1,4 +1,3 @@
-
 /**
  * Class that handles drawing stuff on the screen.
  * @constructor
@@ -8,7 +7,7 @@
 function jQueryRenderer(screen) {
 	this.screen = screen
 	this.repos = new RenderablesRepository();
-	this.layers = new Array();
+	this.layers = new goog.structs.Map();
 }
 
 /** 
@@ -50,16 +49,16 @@ jQueryRenderer.prototype.removeItem = function(item) {
  * @inheritDoc 
  */
 jQueryRenderer.prototype.addLayer = function(layer_name) {
-	this.layers[layer_name] = $('<div id="rendering_layer_'+layer_name+'" class="rendering_layer"></div>');
-	this.screen.append(this.layers[layer_name]);
+	this.layers.set(layer_name, $('<div id="rendering_layer_'+layer_name+'" class="rendering_layer"></div>'));
+	this.screen.append(this.layers.get(layer_name));
 }
 
 /** 
  * @inheritDoc 
  */
 jQueryRenderer.prototype.clearLayer = function(layer_name) {
-	if (this.layers[layer_name] !== undefined) {
-		this.layers[layer_name].html('');
+	if (this.layers.containsKey(layer_name)) {
+		this.layers.get(layer_name).html('');
 	}
 }
 
@@ -67,9 +66,12 @@ jQueryRenderer.prototype.clearLayer = function(layer_name) {
  * @inheritDoc 
  */
 jQueryRenderer.prototype.clearScreen = function(layer_name) {
-	for (layer in this.layers) {
-		this.clearLayer(layer);
-	}
+	goog.structs.forEach(this.layers, function(val,key,layers) {
+		this.clearLayer(key);
+	}, this);
+	// for (layer in this.layers) {
+	// 	this.clearLayer(layer);
+	// }
 }
 
 /** 
@@ -90,11 +92,11 @@ jQueryRenderer.prototype.fadeOutAndRemove = function(item, duration, delay) {
  * @return {jQueryObject}
  */
 jQueryRenderer.prototype._getLayer = function(layer_name) {
-	if (this.layers[layer_name] == undefined) {
+	if (!this.layers.containsKey(layer_name)) {
 		this.addLayer(layer_name);
 	}
 	
-	return this.layers[layer_name];
+	return this.layers.get(layer_name);
 }
 
 /**

@@ -14,6 +14,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: unit_types
@@ -55,7 +56,7 @@ end
 #  defense_bonus_forest        :integer         default(0), not null
 #  defense_bonus_hills         :integer         default(0), not null
 #  defense_bonus_mountains     :integer         default(0), not null
-#  move_range                  :integer         default(1), not null
+#  move_range                  :integer         default(2), not null
 #  img_x                       :integer         default(0), not null
 #  img_y                       :integer         default(0), not null
 #

@@ -36,7 +36,7 @@ MapView.prototype.onClick = function(event) {
 			  event.pageX - this.container.offset().left
 			, event.pageY - this.container.offset().top);
 	
-	if (mapCoords.x < 0 || mapCoords.x >= map.width || mapCoords.y < 0 || mapCoords.y >= map.height) {
+	if (mapCoords.x < 0 || mapCoords.x >= this.map.width || mapCoords.y < 0 || mapCoords.y >= this.map.height) {
 		return;
 	}
 
@@ -95,8 +95,8 @@ MapView.prototype.drawDamages = function(array) {
  * @param {Number} y the map coordinate
  */
 MapView.prototype.drawLocation = function(x,y) {
-	this.drawTile(x, y, map.getTile(x,y));
-	this.drawUnit(x, y, map.getUnit(x,y));
+	this.drawTile(x, y, this.map.getTile(x,y));
+	this.drawUnit(x, y, this.map.getUnit(x,y));
 }
 
 /**
@@ -106,15 +106,15 @@ MapView.prototype.drawLocation = function(x,y) {
 MapView.prototype.drawMap = function(map) {
 	this.map = map;
 	
-	for (var y=0; y < map.height; y++) {
-		for (var x=0; x < map.width; x++) {
+	for (var y=0; y < this.map.height; y++) {
+		for (var x=0; x < this.map.width; x++) {
 			this.drawLocation(x,y);
 		}
 	}
 
 	// Resize the container
-	this.container.css('width', map.width*HEX_HEIGHT*0.75+HEX_HEIGHT*0.25);
-	this.container.css('height', map.height*HEX_HEIGHT + HEX_HEIGHT/2)
+	this.container.css('width', this.map.width*HEX_HEIGHT*0.75+HEX_HEIGHT*0.25);
+	this.container.css('height', this.map.height*HEX_HEIGHT + HEX_HEIGHT/2)
 }
 
 /**

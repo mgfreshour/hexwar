@@ -36,11 +36,9 @@ NewMapDialog.prototype.show = function show(cbFn) {
 					$('#dlg_map_name').addClass("ui-state-error");
 					return;
 				}
-				map = new Map($('#dlg_map_height').val(),  $('#dlg_map_width').val(), $('#dlg_map_name').val(), null);
-				mapview.clear();
-				map.generateNew();
-				mapview.drawMap(map);
-				if (cbFn) { cbFn(); }
+				var map = new Map($('#dlg_map_height').val(),  $('#dlg_map_width').val(), $('#dlg_map_name').val(), null);
+
+				if (cbFn) { cbFn(map); }
 				$( this ).dialog( "close" );
 			},
 			Cancel: function() {

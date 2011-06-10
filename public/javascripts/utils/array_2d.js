@@ -25,11 +25,15 @@ Array2d.prototype.generate = function(height, width, value) {
     this.height = height;
     this.width = width;
     for (var sy=0; sy < height; sy++) {
-            var row = [];
-            for (var sx=0; sx < width; sx++) {
-                    row.push(value);
-            }
-            this.data.push(row);
+			var row = [];
+			for (var sx=0; sx < width; sx++) {
+				if (typeof value == 'object') {
+					row.push($.extend(true, {}, value));
+				} else { // primitive.. hopefully  :)
+					row.push(value);
+				}
+			}
+			this.data.push(row);
     }
 }
 

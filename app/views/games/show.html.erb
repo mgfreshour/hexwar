@@ -7,10 +7,9 @@
 </div>
 
 <script type="text/javascript">
-var map = null;
 var game = null;
-<%= load_js_map(@game.map, 'map').html_safe %>
-<%= load_js_turn_units(@game.current_turn, 'map').html_safe %>
+var map = new Map;
+map.loadFromServer(<%=@game.map.id%>);
 var current_player = '<%= @current_player_team %>';
 
 $(function() {

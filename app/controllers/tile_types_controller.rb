@@ -6,6 +6,7 @@ class TileTypesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render :json => @tile_types }
       format.xml  { render :xml => @tile_types }
     end
   end

@@ -7,12 +7,68 @@
  * @param {Number} id is the id to be passed on saving
  */
 function Map(height, width, name, id) {
+	if (height != undefined) {
+		this.initialize(height, width, name, id);
+	}
+	
+	this.tile_factory = ServiceContainer.get('TileFactory');
+	this.unit_factory = ServiceContainer.get('UnitFactory');
+}
+
+/**
+ * ...
+ * @param {Number} height
+ * @param {Number} width
+ * @param {String} name
+ * @param {Number} id is the id to be passed on saving
+ */
+Map.prototype.initialize = function(height, width, name, id) {
 	this.width = width;
 	this.height = height;
 	this.name = name;
 	this.id = id;
 	this.tile_data = new Array2d(this.height, this.width);
 	this.unit_data = [];
+}
+
+/**
+ * Fills all the tile positions in the map with a single tile
+ * @param {Tile} tile
+ */
+Map.prototype.fill = function(tile) {
+	this.tile_data = new Array2d(this.height, this.width, tile);
+}
+
+/**
+ * ...
+ * @param {Number} id
+ */
+Map.prototype.loadFromServer = function(id) {
+	var url = '/maps/'+id;
+	var successFunction = function(data, textStatus, jqXHR) {
+		this.initialize(data.map.height, data.map.width, data.map.name, data.map.id);
+
+		goog.structs.forEach(data.map.tile_data, function(row, y) {
+			goog.structs.forEach(row, function(col, x) {
+				this.setTile(x,y, this.tile_factory.createTile(col.type_index));
+			}, this);
+		}, this);
+		
+		goog.structs.forEach(data.map.unit_data, function(unit) {
+			this.setUnit(unit.x, unit.y, this.unit_factory.createUnit(unit.type_index, unit.team));
+		},this);
+	};
+
+	$.ajax({ 
+		  type:'GET'
+		, async: false // I don't like this, but it's the quickest solution
+		, url:url
+		, dataType: 'json'
+		, success: successFunction.createDelegate(this)
+		, error: function() {
+			modalAlert("Loading Failed", "Something went horribly wrong while loading the tile data!!!");
+		}
+	});
 }
 
 /**
@@ -83,8 +139,8 @@ Map.prototype.setUnit = function(x,y, value) {
 Map.prototype.save = function() { 
 	var method = 'POST';
 	var url = '/maps';
-	if (map.id) {
-		url += '/'+map.id;
+	if (this.id) {
+		url += '/'+this.id;
 		method = 'PUT';
   }
 

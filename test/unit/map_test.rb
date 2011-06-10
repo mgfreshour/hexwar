@@ -9,6 +9,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: maps
@@ -18,8 +19,8 @@ end
 #  tile_data         :text
 #  created_at        :datetime
 #  updated_at        :datetime
-#  height            :decimal(, )
-#  width             :decimal(, )
+#  height            :integer
+#  width             :integer
 #  unit_data         :text
 #  number_of_players :integer         default(2), not null
 #

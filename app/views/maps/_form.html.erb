@@ -6,9 +6,14 @@
 <button id="btn_undo">Undo</button>
 <button id="btn_toolbox">Toolbox</button>
 <%= form_for(@map) do |f| %>
-<p>Name: <%= f.text_field :name %></p>
-<p># of Players <%= f.select :number_of_players, (2..4).to_a %></p>
+	<p>Name: <%= f.text_field :name %></p>
+	<p># of Players <%= f.select :number_of_players, (2..4).to_a %></p>
 <% end %>
 <div id="hexmap01" class="hexmap">
 </div>
 <div id="toolbox" title="Toolbox" class="dialog"></div>
+<script type="text/javascript">
+$(function() {
+	var maped = new MapEditor(map);
+})
+</script>

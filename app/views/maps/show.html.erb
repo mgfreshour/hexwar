@@ -17,13 +17,13 @@
 	</div>
 
 	<script type="text/javascript">
-	var map = null;
-	<%= load_js_map(@map, 'map').html_safe %>
-	<%= load_js_map_units(@map, 'map').html_safe %>
 	$(function() {
-		mapview = new MapView($('#hexmap01'));
+		var map = new Map;
+		map.loadFromServer(<%=@map.id%>);
+		
+		var mapview = new MapView($('#hexmap01'));
 		mapview.drawMap(map);
-	})
+	});
 	</script>
 </p>
 

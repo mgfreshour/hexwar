@@ -7,6 +7,34 @@ function TileFactory() {
 }
 
 /**
+ * Loads the tile types from server using ajax call
+ * @param {String} url
+ */
+TileFactory.prototype.loadFromServer = function(url) {
+	url = url || '/tile_types';
+	
+	var successFunction = function(data, textStatus, jqXHR) {
+		var obj;
+		for (var n=0; n < data.length; n++) {
+			obj = data[n].tile_type;
+			this.createTileType(obj.name, obj.img, obj.img_x, obj.img_y);
+	 	}
+	};
+	
+	$.ajax({ 
+		  type:'GET'
+		, async: false // I don't like this, but it's the quickest solution
+		, url:url
+		, dataType: 'json'
+		, success: successFunction.createDelegate(this)
+		, error: function() {
+			modalAlert("Loading Failed", "Something went horribly wrong while loading the tile data!!!");
+		}
+	});
+			
+}
+
+/**
  * Adds a tile type to the internal types array
  * @param {TileType} tile_type
  * @return {Number} index of the added type
@@ -36,9 +64,15 @@ TileFactory.prototype.createTileType = function(name, img, img_x, img_y) {
  */
 TileFactory.prototype.createTile = function(type) {
 	if (typeof type == 'string') {
-		for (var n=this.tile_types.length-1; n >= 0; n--) {
-			if (this.tile_types[n].name == type) {
-				break;
+		var n=0;
+		// Is this really a number in a string?
+		if (!isNaN(parseFloat(type)) && isFinite(type)) {
+			n = parseFloat(type);
+		} else {
+			for (n=this.tile_types.length-1; n >= 0; n--) {
+				if (this.tile_types[n].name == type) {
+					break;
+				}
 			}
 		}
 		if (n >= 0) {

@@ -1,8 +1,10 @@
 <script type="text/javascript">
-var map;
-<%= load_js_map(@map, 'map').html_safe %>
-<%= load_js_map_units(@map, 'map').html_safe %>
-map.number_of_players = <%= @map.number_of_players %>;
+	var map;
+	$(function() {
+		map = new Map;
+		map.loadFromServer(<%=@map.id%>);
+	});
+
 </script>
 
 <%= render 'form' %>
