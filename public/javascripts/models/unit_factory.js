@@ -17,14 +17,30 @@ UnitFactory.prototype.loadFromServer = function(url) {
 		var obj, move_costs, defense_bonuses;
 		for (var n=0; n < data.length; n++) {
 			obj = data[n].unit_type;
-			move_costs = [obj.move_cost_bridge_center , obj.move_cost_bridge_left , obj.move_cost_bridge_right , obj.move_cost_castle , obj.move_cost_city , obj.move_cost_desert , obj.move_cost_dirt
-			 , obj.move_cost_forest , obj.move_cost_grass , obj.move_cost_hills , obj.move_cost_mountains , obj.move_cost_oasis , obj.move_cost_path , obj.move_cost_swamp , obj.move_cost_water];
+			move_costs = {
+				  bridge_center: parseFloat(obj.move_cost_bridge_center)
+				, bridge_left: parseFloat(obj.move_cost_bridge_left )
+				, bridge_right: parseFloat(obj.move_cost_bridge_right) 
+				, castle: parseFloat(obj.move_cost_castle)
+				, city: parseFloat(obj.move_cost_city) 
+				, desert: parseFloat(obj.move_cost_desert) 
+				, dirt: parseFloat(obj.move_cost_dirt)
+				, forest: parseFloat(obj.move_cost_forest)
+				, grass: parseFloat(obj.move_cost_grass) 
+				, hills: parseFloat(obj.move_cost_hills)
+				, mountains: parseFloat(obj.move_cost_mountains)
+				, oasis: parseFloat(obj.move_cost_oasis)
+				, path: parseFloat(obj.move_cost_path)
+				, swamp: parseFloat(obj.move_cost_swamp)
+				, water: parseFloat(obj.move_cost_water)
+			};
 			
 			defense_bonuses = [obj.defense_bonus_bridge_center , obj.defense_bonus_bridge_left , obj.defense_bonus_bridge_right , obj.defense_bonus_castle , obj.defense_bonus_city , obj.defense_bonus_desert
 			 , obj.defense_bonus_dirt , obj.defense_bonus_forest , obj.defense_bonus_grass , obj.defense_bonus_hills , obj.defense_bonus_mountains , obj.defense_bonus_oasis , obj.defense_bonus_path
 			 , obj.defense_bonus_swamp , obj.defense_bonus_water ];
 
-			this.createUnitType(obj.name, obj.img, obj.img_x, obj.img_y, obj.attack_range, obj.move_range, move_costs, defense_bonuses)
+			this.createUnitType(obj.name, obj.img, parseFloat(obj.img_x), parseFloat(obj.img_y)
+					, parseFloat(obj.attack_range), parseFloat(obj.move_range), move_costs, defense_bonuses)
 	 	}
 	};
 	
@@ -35,7 +51,7 @@ UnitFactory.prototype.loadFromServer = function(url) {
 		, dataType: 'json'
 		, success: successFunction.createDelegate(this)
 		, error: function() {
-			modalAlert("Loading Failed", "Something went horribly wrong while loading the tile data!!!");
+			modalAlert("Something went horribly wrong while loading the unit data!!!", "Loading Failed");
 		}
 	});
 			
@@ -57,7 +73,7 @@ UnitFactory.prototype.addUnitType = function(unit_type) {
  * @param {String} img
  * @param {Number} img_x
  * @param {Number} img_y
- * @return {Number} index of the added type
+ * @return {Number} range
  */
 UnitFactory.prototype.createUnitType = function(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses) {
 	var type = new UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);

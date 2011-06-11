@@ -13,8 +13,4 @@ module GamesHelper
     
     out
   end
-  
-  def load_js_current_turn(turn)
-    "var current_turn_id=#{turn.id}"
-  end
 end

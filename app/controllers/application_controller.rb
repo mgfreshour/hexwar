@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private   
   def check_authentication
     @current_player ||= Player.find(session[:player_id]) if session[:player_id] 
-    
+
     redirect_to '/auth/facebook' unless @current_player
   end
   

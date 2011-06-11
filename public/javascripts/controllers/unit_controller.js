@@ -5,10 +5,11 @@
  * @param {Map} map
  * @param {MapView} mapview
  */
-function UnitController(game, map, mapview) {
+function UnitController(game, map, mapview, current_player) {
 	this.map = map;
 	this.game = game;
 	this.mapview = mapview;
+	this.current_player = current_player;
 	
 	this.addEventsToAllUnits();
 }
@@ -37,7 +38,7 @@ UnitController.prototype.attemptUnitAttack = function(unit) {
  * @return {Number} number of enemies that are attackable by unit
  */
 UnitController.prototype.maskForAttack = function(mask, unit) {
-	var attack_mask = new MapViewMask(map);
+	var attack_mask = new MapViewMask(this.map);
 	var enemy_found = false;
 	
 	var mask_callback = function(x,y, val) {
@@ -101,7 +102,7 @@ UnitController.prototype.onUnitMoveClick = function(x,y, unit, mask) {
  * @param {Unit} defender
  */
 UnitController.prototype.battle = function(attacker, defender) {
-	var mask = new MapViewMask(map);
+	var mask = new MapViewMask(this.map);
 	max_attack_range = Math.max(attacker.range, defender.range);
 	mask.generateDistanceMap(attacker.x, attacker.y, max_attack_range);
 	
@@ -129,7 +130,7 @@ UnitController.prototype.generateMoveMask = function(unit) {
 	
 	var callback = function(x,y,current_depth, prev_x, prev_y) {
 		mask.set(x,y,current_depth);
-		var hex_cost = unit.type.move_costs[map.getTile(x,y).type.name];
+		var hex_cost = unit.type.move_costs[this.map.getTile(x,y).type.name];
 		var zoc = zoc_map.get(x,y);
 		
 		
@@ -160,7 +161,7 @@ UnitController.prototype.generateMoveMask = function(unit) {
 			} // end from correct prev
 		} // end if/else no prev
 	};
-	Hex.walkAdjacent(unit.x,unit.y,  unit.type.move_range, callback, this.map.height, this.map.width);
+	Hex.walkAdjacent(unit.x,unit.y,  unit.type.move_range, callback.createDelegate(this), this.map.height, this.map.width);
 	
 	callback = function(x,y, value) {
 		if (value > unit.type.move_range || value == 0) {
@@ -168,6 +169,7 @@ UnitController.prototype.generateMoveMask = function(unit) {
 		}
 		return viewmask.mask_clear;
 	};
+	
 	
 	// DEBUG (comment out drawMask below)
 	//this.mapview.drawTextBitmap(move_mask.data);
@@ -178,6 +180,10 @@ UnitController.prototype.generateMoveMask = function(unit) {
 	viewmask.maskOccupied();
 	this.maskForAttack(viewmask, unit);
 
+	// DEBUG (comment out drawMask below)
+	//this.mapview.drawTextBitmap(viewmask.mask.data);
+
+	// Draw the mask!
 	this.mapview.drawMask(viewmask);
 	
 	return viewmask;
@@ -218,7 +224,7 @@ UnitController.prototype.generateZocMap = function(team) {
  */
 UnitController.prototype.attemptUnitSelect = function(x,y) {
 	var unit = this.map.getUnit(x,y);
-	if (unit && unit.team == current_player && !unit.acted) {
+	if (unit && unit.team == this.current_player && !unit.acted) {
 		var mask = this.generateMoveMask(unit);
 		
 		this.mapview.setDelegateClick(this.onUnitMoveClick.createDelegate(this, [unit, mask], true));

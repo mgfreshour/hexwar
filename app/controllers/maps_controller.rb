@@ -1,4 +1,7 @@
 class MapsController < ApplicationController
+  skip_filter :check_admin
+  before_filter :check_admin, :except=>:show
+  
   # GET /maps
   # GET /maps.xml
   def index

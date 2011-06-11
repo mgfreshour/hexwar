@@ -4,7 +4,7 @@
  * @param {String} title (optional) title of alert to use.  Defaulsts to 'Message'
  */
 function modalAlert(msg, title) {
-	title = title || 'Message';
+	title = title || 'Alert';
 	var dlg = $('<div title="'+title+'">'+msg+'</div>');
 	dlg.dialog({
 		modal: true,

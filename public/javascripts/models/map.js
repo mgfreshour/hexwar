@@ -50,12 +50,12 @@ Map.prototype.loadFromServer = function(id) {
 
 		goog.structs.forEach(data.map.tile_data, function(row, y) {
 			goog.structs.forEach(row, function(col, x) {
-				this.setTile(x,y, this.tile_factory.createTile(col.type_index));
+				this.setTile(parseFloat(x), parseFloat(y), this.tile_factory.createTile(col.type_index));
 			}, this);
 		}, this);
 		
 		goog.structs.forEach(data.map.unit_data, function(unit) {
-			this.setUnit(unit.x, unit.y, this.unit_factory.createUnit(unit.type_index, unit.team));
+			this.setUnit(parseFloat(unit.x), parseFloat(unit.y), this.unit_factory.createUnit(unit.type_index, unit.team));
 		},this);
 	};
 
@@ -66,7 +66,7 @@ Map.prototype.loadFromServer = function(id) {
 		, dataType: 'json'
 		, success: successFunction.createDelegate(this)
 		, error: function() {
-			modalAlert("Loading Failed", "Something went horribly wrong while loading the tile data!!!");
+			modalAlert("Something went horribly wrong while loading the map data!!!", "Loading Failed");
 		}
 	});
 }
@@ -105,6 +105,13 @@ Map.prototype.getUnit = function(x,y) {
 		}
 	}
 	return false;
+}
+
+/**
+ *
+ */
+Map.prototype.clearUnits = function() {
+	this.unit_data = [];
 }
 
 /**

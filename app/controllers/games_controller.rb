@@ -75,7 +75,7 @@ class GamesController < ApplicationController
       end
     end
   end
-  # 
+
   # # PUT /games/1
   # # PUT /games/1.xml
   # def update
@@ -109,15 +109,34 @@ class GamesController < ApplicationController
   end
   
   #
-  #
+  # GET /games/end_turn?id=1
   #
   def end_turn
-    @game = @current_player.games.find(params[:id])
+    if @current_player.admin
+      @game = Game.find(params[:id])
+    else
+      @game = @current_player.games.find(params[:id])
+    end
 
     @game.end_turn(params[:game_turn][:current_unit_data])
 
     respond_to do |format|
       format.json { render :json => true }
     end
-  end  
+  end
+  
+  #
+  # GET /games/get_turn?id=1
+  #
+  def get_turn
+    if @current_player.admin
+      @game = Game.find(params[:id])
+    else
+      @game = @current_player.games.find(params[:id])
+    end
+
+    respond_to do |format|
+      format.json { render :json => @game.current_turn }
+    end
+  end
 end

@@ -1,4 +1,7 @@
 class TileTypesController < ApplicationController
+  skip_filter :check_admin
+  before_filter :check_admin, :except=>:index
+  
   # GET /tile_types
   # GET /tile_types.xml
   def index

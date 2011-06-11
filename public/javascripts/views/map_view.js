@@ -58,7 +58,8 @@ MapView.prototype.drawTile = function(x, y, tile) {
 	this.renderer.drawItemToLayer('map', hex_pos.x, hex_pos.y, tile);
 	if (this.showCoords) {
 		var text = new RenderableItem();
-		text.text = x+','+y;
+		text.gfx_css_class = 'hex';
+		text.text = { text:x+','+y, css_class:'coord' };
 		this.renderer.drawItemToLayer('text', hex_pos.x, hex_pos.y, text);
 	}
 }
@@ -185,9 +186,11 @@ MapView.prototype.drawTextBitmap = function(bitmap) {
 	for (var y=0; y < this.map.height; y++) {
 		for (var x=0; x < this.map.width; x++) {
 			var hex_pos = this.calculateHexPosition(x,y);
-			var text = new RenderableItem('');
-			text.text = bitmap[y][x];
-			this.renderer.drawItemToLayer('text', hex_pos.x, hex_pos.y, text);
+			
+			var text = new RenderableItem();
+			text.gfx_css_class = 'hex';
+			text.text = { text: bitmap[y][x]+'', css_class: 'coord' };
+			this.renderer.drawItemToLayer('text', hex_pos.x, hex_pos.y, text);			
 		}
 	}
 }

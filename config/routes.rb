@@ -1,4 +1,7 @@
 HexGame::Application.routes.draw do
+  match '/games/end_turn' => 'games#end_turn'
+  match '/games/get_turn' => 'games#get_turn'
+
   resources :turn_actions
 
   resources :tile_types
@@ -15,8 +18,7 @@ HexGame::Application.routes.draw do
   
   match "/auth/:provider/callback" => "sessions#create" 
   match "/signout" => "sessions#destroy", :as => :signout 
-  
-  match '/games/end_turn' => 'games#end_turn'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

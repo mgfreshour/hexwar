@@ -1,4 +1,7 @@
 class UnitTypesController < ApplicationController
+  skip_filter :check_admin
+  before_filter :check_admin, :except=>:index
+  
   # GET /unit_types
   # GET /unit_types.xml
   def index

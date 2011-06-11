@@ -28,7 +28,7 @@ TileFactory.prototype.loadFromServer = function(url) {
 		, dataType: 'json'
 		, success: successFunction.createDelegate(this)
 		, error: function() {
-			modalAlert("Loading Failed", "Something went horribly wrong while loading the tile data!!!");
+			modalAlert("Something went horribly wrong while loading the tile data!!!", "Loading Failed");
 		}
 	});
 			
