@@ -35,12 +35,26 @@ UnitFactory.prototype.loadFromServer = function(url) {
 				, water: parseFloat(obj.move_cost_water)
 			};
 			
-			defense_bonuses = [obj.defense_bonus_bridge_center , obj.defense_bonus_bridge_left , obj.defense_bonus_bridge_right , obj.defense_bonus_castle , obj.defense_bonus_city , obj.defense_bonus_desert
-			 , obj.defense_bonus_dirt , obj.defense_bonus_forest , obj.defense_bonus_grass , obj.defense_bonus_hills , obj.defense_bonus_mountains , obj.defense_bonus_oasis , obj.defense_bonus_path
-			 , obj.defense_bonus_swamp , obj.defense_bonus_water ];
+			defense_bonuses = {
+          bridge_center:obj.defense_bonus_bridge_center
+        , bridge_left :obj.defense_bonus_bridge_left
+        , bridge_right:obj.defense_bonus_bridge_right
+        , castle:obj.defense_bonus_castle
+        , city:obj.defense_bonus_city
+        , desert:obj.defense_bonus_desert
+			  , dirt:obj.defense_bonus_dirt
+        , forest:obj.defense_bonus_forest
+        , grass:obj.defense_bonus_grass
+        , hills:obj.defense_bonus_hills
+        , mountains:obj.defense_bonus_mountains
+        , oasis:obj.defense_bonus_oasis
+        , path:obj.defense_bonus_path
+			  , swamp:obj.defense_bonus_swamp
+        , water:obj.defense_bonus_water
+      };
 
 			this.createUnitType(obj.name, obj.img, parseFloat(obj.img_x), parseFloat(obj.img_y), parseFloat(obj.attack_range)
-					, 12/*parseFloat(obj.attack_power)*/, 12/*parseFloat(obj.defense_power)*/, parseFloat(obj.move_range), move_costs, defense_bonuses)
+					, parseFloat(obj.attack_power), parseFloat(obj.defense_power), parseFloat(obj.move_range), move_costs, defense_bonuses)
 	 	}
 	};
 	

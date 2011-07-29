@@ -4,6 +4,7 @@
  * @param {Game} game
  * @param {Map} map
  * @param {MapView} mapview
+ * @param {String} current_player
  */
 function UnitController(game, map, mapview, current_player) {
 	this.map = map;
@@ -106,21 +107,24 @@ UnitController.prototype.battle = function(attacker, defender) {
 	var max_attack_range = Math.max(attacker.range, defender.range);
 	mask.generateDistanceMap(attacker.x, attacker.y, max_attack_range);
 	
-	//((Attack Strength + All bonuses) * HP of Attacker)*.05 – Defense Strength * 0.14  = Amount of HP lost
+	//((Attack Strength + All bonuses) * HP of Attacker)*.05 ï¿½ Defense Strength * 0.14  = Amount of HP lost
 	console.log(attacker);
 	console.log(defender);
 
 	var distance = mask.get(defender.x, defender.y);
+	var defender_bonus = defender.type.defense_bonuses[this.map.getTile(defender.x, defender.y).type.name];
+	var attacker_bonus = attacker.type.defense_bonuses[this.map.getTile(attacker.x, attacker.y).type.name];
 	var attacker_health_loss = 0;
 	var defender_health_loss = 0;
+
 	if (distance <= defender.range) {
-		attacker_health_loss = attacker.type.defense_power*.14 - defender.type.attack_power*defender.health*.05;
+		attacker_health_loss = (attacker_bonus + attacker.type.defense_power*.14) - defender.type.attack_power*defender.health*.05;
 		attacker_health_loss = attacker_health_loss * (Math.random()*.5+.75); // random chance to damage 75% - 125% of calc
 		attacker_health_loss = Math.round(attacker_health_loss);
 		attacker_health_loss = (attacker_health_loss > 0) ? 0 : attacker_health_loss;
 	}
 	if (distance <= attacker.range) {
-		defender_health_loss = defender.type.defense_power*.14 - attacker.type.attack_power*attacker.health*.05;
+		defender_health_loss = (defender_bonus + defender.type.defense_power*.14) - attacker.type.attack_power*attacker.health*.05;
 		defender_health_loss = defender_health_loss * (Math.random()*.5+.75);
 		defender_health_loss = Math.round(defender_health_loss);
 		defender_health_loss = (defender_health_loss > 0) ? 0 : defender_health_loss;
