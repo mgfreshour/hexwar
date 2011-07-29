@@ -36,7 +36,7 @@ GameController.prototype.loadTurnData = function(url) {
 	var successFunction = function(data, textStatus, jqXHR) {
 		var x,y, obj;
 		this.map.clearUnits();
-console.log(data);
+
 		goog.structs.forEach(data.game_turn.current_unit_data, function(unit) {
 			x = parseFloat(unit.x);
 			y = parseFloat(unit.y);
