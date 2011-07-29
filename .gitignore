@@ -12,4 +12,5 @@ config/facebook.yml
 config/deploy.rb
 public/assets
 Gemfile.lock
+nbproject
 capistrano
