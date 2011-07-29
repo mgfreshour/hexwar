@@ -9,14 +9,17 @@
  * @param {Array} move_costs
  * @param {Array} defense_bonuses
  */
-function UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses) {
+function UnitType(name, img, img_x, img_y, attack_range, attack_power, defense_power, move_range, move_costs, defense_bonuses) {
 	this.name = name;
 	this.img = {src:img, x:img_x, y:img_y};
-	this.starting_health = 10;
+	this.range = attack_range;
+	this.attack_power = attack_power;
+	this.defense_power = defense_power;
 	this.move_range = move_range;
-	this.range = range;
 	this.move_costs = move_costs;
 	this.defense_bonuses = defense_bonuses;
+
+	this.starting_health = 10;
 }
 
 

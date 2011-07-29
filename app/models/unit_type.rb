@@ -12,6 +12,8 @@ end
 
 
 
+
+
 # == Schema Information
 #
 # Table name: unit_types
@@ -56,5 +58,7 @@ end
 #  move_range                  :integer         default(2), not null
 #  img_x                       :integer         default(0), not null
 #  img_y                       :integer         default(0), not null
+#  attack_power                :integer
+#  defense_power               :integer
 #
 

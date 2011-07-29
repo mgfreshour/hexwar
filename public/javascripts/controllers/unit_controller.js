@@ -103,18 +103,32 @@ UnitController.prototype.onUnitMoveClick = function(x,y, unit, mask) {
  */
 UnitController.prototype.battle = function(attacker, defender) {
 	var mask = new MapViewMask(this.map);
-	max_attack_range = Math.max(attacker.range, defender.range);
+	var max_attack_range = Math.max(attacker.range, defender.range);
 	mask.generateDistanceMap(attacker.x, attacker.y, max_attack_range);
 	
+	//((Attack Strength + All bonuses) * HP of Attacker)*.05 – Defense Strength * 0.14  = Amount of HP lost
+	console.log(attacker);
+	console.log(defender);
+
 	var distance = mask.get(defender.x, defender.y);
+	var attacker_health_loss = 0;
+	var defender_health_loss = 0;
 	if (distance <= defender.range) {
-		attacker.changeHealth(-2);
+		attacker_health_loss = attacker.type.defense_power*.14 - defender.type.attack_power*defender.health*.05;
+		attacker_health_loss = attacker_health_loss * (Math.random()*.5+.75); // random chance to damage 75% - 125% of calc
+		attacker_health_loss = Math.round(attacker_health_loss);
+		attacker_health_loss = (attacker_health_loss > 0) ? 0 : attacker_health_loss;
 	}
-	if (distance > attacker.range) {
+	if (distance <= attacker.range) {
+		defender_health_loss = defender.type.defense_power*.14 - attacker.type.attack_power*attacker.health*.05;
+		defender_health_loss = defender_health_loss * (Math.random()*.5+.75);
+		defender_health_loss = Math.round(defender_health_loss);
+		defender_health_loss = (defender_health_loss > 0) ? 0 : defender_health_loss;
+	} else {
 		modalAlert('How the heck did you attack a unit out of range?');
-		return;
 	}
-	defender.changeHealth(-2);
+	defender.changeHealth(defender_health_loss);
+	attacker.changeHealth(attacker_health_loss);
 }
 
 /**

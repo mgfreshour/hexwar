@@ -39,8 +39,8 @@ UnitFactory.prototype.loadFromServer = function(url) {
 			 , obj.defense_bonus_dirt , obj.defense_bonus_forest , obj.defense_bonus_grass , obj.defense_bonus_hills , obj.defense_bonus_mountains , obj.defense_bonus_oasis , obj.defense_bonus_path
 			 , obj.defense_bonus_swamp , obj.defense_bonus_water ];
 
-			this.createUnitType(obj.name, obj.img, parseFloat(obj.img_x), parseFloat(obj.img_y)
-					, parseFloat(obj.attack_range), parseFloat(obj.move_range), move_costs, defense_bonuses)
+			this.createUnitType(obj.name, obj.img, parseFloat(obj.img_x), parseFloat(obj.img_y), parseFloat(obj.attack_range)
+					, 12/*parseFloat(obj.attack_power)*/, 12/*parseFloat(obj.defense_power)*/, parseFloat(obj.move_range), move_costs, defense_bonuses)
 	 	}
 	};
 	
@@ -73,10 +73,16 @@ UnitFactory.prototype.addUnitType = function(unit_type) {
  * @param {String} img
  * @param {Number} img_x
  * @param {Number} img_y
- * @return {Number} range
+ * @param {Number} attack_range
+ * @param {Number} attack_power
+ * @param {Number} move_range
+ * @param {!Object} move_costs
+ * @param {!Object} defense_bonuses
+ *
+ * @return {Number} Index of the newly added type
  */
-UnitFactory.prototype.createUnitType = function(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses) {
-	var type = new UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
+UnitFactory.prototype.createUnitType = function(name, img, img_x, img_y, attack_range, attack_power, defense_power, move_range, move_costs, defense_bonuses) {
+	var type = new UnitType(name, img, img_x, img_y, attack_range, attack_power, defense_power, move_range, move_costs, defense_bonuses);
 	return this.addUnitType(type);
 }
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110220013343) do
+ActiveRecord::Schema.define(:version => 20110729153110) do
 
   create_table "game_players", :force => true do |t|
     t.integer  "game_id"
@@ -121,6 +121,8 @@ ActiveRecord::Schema.define(:version => 20110220013343) do
     t.integer  "move_range",                  :default => 2, :null => false
     t.integer  "img_x",                       :default => 0, :null => false
     t.integer  "img_y",                       :default => 0, :null => false
+    t.integer  "attack_power"
+    t.integer  "defense_power"
   end
 
 end
