@@ -1,5 +1,8 @@
 <%= include_javascripts :mapeditor %>
-
+<script type="text/javascript">
+    <%= load_js_unit_types %>
+    <%= load_js_tile_types %>
+</script>
 <h1>Map Editor</h1>
 <%= link_to 'Back to List', maps_path %><br /><br />
 <button id="btn_save" >Save</button>

@@ -19,7 +19,7 @@ gem 'omniauth'
 gem 'acts_as_list'
 gem 'koala', "~>1.0.0"
 gem 'jammit'
-gem 'win32-open3', :platforms => [:mswin, :mingw]
+gem 'win32-open3-19', :platforms => [:mswin, :mingw]
 gem 'win32console', :platforms => [:mswin, :mingw]
 
 # Bundle gems for the local environment. Make sure to

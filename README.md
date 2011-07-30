@@ -12,13 +12,14 @@ Setting Up Development Environment
 ----------------------------------
 
 First, [install Ruby on Rails](http://guides.rubyonrails.org/getting_started.html)
+or simply [for windows](http://railsinstaller.org/).
 
-Next, you'll want to rename `config/database.yml.example` to plain ole `database.yml`.
+Next, you'll want to copy `config/database.yml.example` to plain ole `database.yml`.
 The dev settings in there should be fine.
 
-You'll also need to create a [Facebook App](http://developers.facebook.com/).  Set
-the address to *localhost*.  Rename `config/facebook.yml.example` and enter you apps
-data here.
+You'll also need to create a [Facebook App](https://developers.facebook.com/apps).  Set
+the **Site URL** to *http://localhost:3000/*.  Copy `config/facebook.yml.example` and 
+enter you app's data here.
 
 Finally, from within your project directory, run :
 
@@ -27,6 +28,7 @@ Finally, from within your project directory, run :
  *   `rake db:seed` This will add some seed data (for units and tiles) to your database.
  *   `rails s` This will start your test server!
 
-That should be all you need.  I'll _hopefully_ update these instructions soon as I try
-it on a fresh VM or two.
+Oh, and you might find it easiest to mark you accounts as admins. Use `rails dbconsole`
+then run `UPDATE players SET admin=1`.  The reason you'll probably need this is there
+are no seeded maps yet, and only admins can make new maps.
 

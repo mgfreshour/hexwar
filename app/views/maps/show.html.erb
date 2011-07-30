@@ -17,6 +17,9 @@
 	</div>
 
 	<script type="text/javascript">
+	<%= load_js_unit_types %>
+    <%= load_js_tile_types %>
+
 	$(function() {
 		var map = new Map;
 		map.loadFromServer(<%=@map.id%>);
