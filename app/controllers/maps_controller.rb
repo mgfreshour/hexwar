@@ -22,6 +22,7 @@ class MapsController < ApplicationController
       format.html # show.html.erb
       format.json { render :json => @map }
       format.xml  { render :xml => @map }
+      format.yaml { render :text => @map.to_yaml }
     end
   end
 
