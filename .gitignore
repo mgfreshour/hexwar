@@ -13,4 +13,5 @@ config/deploy.rb
 public/assets
 Gemfile.lock
 nbproject
+.project
 capistrano
