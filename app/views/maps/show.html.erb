@@ -21,7 +21,7 @@
     <%= load_js_tile_types %>
 
 	$(function() {
-		var map = new Map;
+		var map = new Hexwar.Map();
 		map.loadFromServer(<%=@map.id%>);
 		
 		var mapview = new MapView($('#hexmap01'));

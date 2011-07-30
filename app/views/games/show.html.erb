@@ -1,29 +1,27 @@
-<%= include_javascripts :game %>
-<div id="hexmap01" class="hexmap"></div>
-
+<%= include_javascripts :game %> <div id="hexmap01" class="hexmap"></div>
 <div style="display:inline-block">
 	<%= @game.name %>
 	<%= render :partial => 'player_list', :locals => { :players=>@game.game_players, :game=>@game } %>
 </div>
-
 <script type="text/javascript">
-$(function() {
-	var map = new Map();
-	map.loadFromServer(<%=@game.map.id%>);
-	var game = new GameController(map, <%=@game.id%>, <%=@game.current_turn.id%>, '<%=@current_player_team%>');
-
-	$('#endturn').click(function() {
-		game.endTurn();
-	});
+	$(function() {
+		var map = new Hexwar.Map;
+		map.loadFromServer(<%= @game.map.id%>);
+		var game = new GameController(map, <%= @game.id%>,<%= @game.current_turn.id%>, '<%= @current_player_team%>');
 	
-	game.bindEvent('turn_ended', function() { 
-		top.location = '<%=root_url%>'; 
+		$('#endturn').click(function() {
+			game.endTurn();
+		});
+	
+		game.bindEvent('turn_ended', function() {
+			top.location = '<%= root_url%>';
+		});
 	});
-});
 </script>
-
 <% if @game.current_turn.player == @current_player_team %>
-	<button type="button" id="endturn" class="button">End Turn</button>
+<button type="button" id="endturn" class="button">
+	End Turn
+</button>
 <% end %>
 
 <%= render 'layouts/preload' %>

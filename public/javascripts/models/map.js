@@ -1,3 +1,4 @@
+goog.provide('Hexwar.Map');
 /**
  * Represents a game map
  * @constructor
@@ -6,7 +7,7 @@
  * @param {String} name
  * @param {Number} id is the id to be passed on saving
  */
-function Map(height, width, name, id) {
+Hexwar.Map = function (height, width, name, id) {
 	if (height != undefined) {
 		this.initialize(height, width, name, id);
 	}
@@ -22,7 +23,7 @@ function Map(height, width, name, id) {
  * @param {String} name
  * @param {Number} id is the id to be passed on saving
  */
-Map.prototype.initialize = function(height, width, name, id) {
+Hexwar.Map.prototype.initialize = function(height, width, name, id) {
 	this.width = width;
 	this.height = height;
 	this.name = name;
@@ -35,7 +36,7 @@ Map.prototype.initialize = function(height, width, name, id) {
  * Fills all the tile positions in the map with a single tile
  * @param {Tile} tile
  */
-Map.prototype.fill = function(tile) {
+Hexwar.Map.prototype.fill = function(tile) {
 	this.tile_data = new Array2d(this.height, this.width, tile);
 }
 
@@ -43,7 +44,7 @@ Map.prototype.fill = function(tile) {
  * ...
  * @param {Number} id
  */
-Map.prototype.loadFromServer = function(id) {
+Hexwar.Map.prototype.loadFromServer = function(id) {
 	var url = '/maps/'+id;
 	var successFunction = function(data, textStatus, jqXHR) {
 		this.initialize(data.map.height, data.map.width, data.map.name, data.map.id);
@@ -77,7 +78,7 @@ Map.prototype.loadFromServer = function(id) {
  * @param {Number} y the map coordinate
  * @return {Tile}
  */
-Map.prototype.getTile = function(x,y) {
+Hexwar.Map.prototype.getTile = function(x,y) {
 	return this.tile_data.get(x,y);
 }
 
@@ -87,7 +88,7 @@ Map.prototype.getTile = function(x,y) {
  * @param {Number} y the map coordinate
  * @param {Tile} value
  */	
-Map.prototype.setTile = function(x,y, value) {
+Hexwar.Map.prototype.setTile = function(x,y, value) {
 	this.tile_data.set(x,y, value);
 }
 
@@ -98,7 +99,7 @@ Map.prototype.setTile = function(x,y, value) {
  * @param {Number} y the map coordinate
  * @return {Unit|Boolean} the unit if found or FALSE
  */
-Map.prototype.getUnit = function(x,y) {
+Hexwar.Map.prototype.getUnit = function(x,y) {
 	for (var n=0; n<this.unit_data.length; n++) {
 		if (this.unit_data[n].x == x && this.unit_data[n].y == y) {
 			return this.unit_data[n];
@@ -110,7 +111,7 @@ Map.prototype.getUnit = function(x,y) {
 /**
  *
  */
-Map.prototype.clearUnits = function() {
+Hexwar.Map.prototype.clearUnits = function() {
 	this.unit_data = [];
 }
 
@@ -119,7 +120,7 @@ Map.prototype.clearUnits = function() {
  * @todo this shouldn't know how to remove the graphics container
  * @param {Unit}
  */
-Map.prototype.removeUnit = function(unit) {
+Hexwar.Map.prototype.removeUnit = function(unit) {
 	var index = this.unit_data.indexOf(unit);
 	unit.gfx_container.remove();
 	this.unit_data.splice(index,1);
@@ -132,7 +133,7 @@ Map.prototype.removeUnit = function(unit) {
  * @param {Number} y the map coordinate
  * @param {Unit} unit
  */
-Map.prototype.setUnit = function(x,y, value) {
+Hexwar.Map.prototype.setUnit = function(x,y, value) {
 	var old_unit = this.getUnit(x,y);
 	if (old_unit) { this.removeUnit(old_unit); }
 	value.x = x;
@@ -143,7 +144,7 @@ Map.prototype.setUnit = function(x,y, value) {
 /**
  * Saves the map to the server
  */
-Map.prototype.save = function() { 
+Hexwar.Map.prototype.save = function() { 
 	var method = 'POST';
 	var url = '/maps';
 	if (this.id) {

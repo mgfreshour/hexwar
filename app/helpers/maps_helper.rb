@@ -1,7 +1,7 @@
 module MapsHelper
   def load_js_map(map, variable_name)
     #return if map.nil?
-  	out =  "#{variable_name} = new Map(#{map.height}, #{map.width}, '#{map.name}', #{map.id});
+  	out =  "#{variable_name} = new Hexwar.Map(#{map.height}, #{map.width}, '#{map.name}', #{map.id});
           	var row = null;"
 
   	map.tile_data.each do |key, row|

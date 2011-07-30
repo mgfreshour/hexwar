@@ -36,7 +36,7 @@ NewMapDialog.prototype.show = function show(cbFn) {
 					$('#dlg_map_name').addClass("ui-state-error");
 					return;
 				}
-				var map = new Map($('#dlg_map_height').val(),  $('#dlg_map_width').val(), $('#dlg_map_name').val(), null);
+				var map = new Hexwar.Map($('#dlg_map_height').val(),  $('#dlg_map_width').val(), $('#dlg_map_name').val(), null);
 
 				if (cbFn) { cbFn(map); }
 				$( this ).dialog( "close" );
