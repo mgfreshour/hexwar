@@ -32,7 +32,7 @@ Hexwar.MapView.prototype.setDelegateClick = function(fn) {
  * Handles a click to the map container, translating it to map coordinates and passing it on to the delegate
  * @param {jQuery.event} event
  */
-MapView.prototype.onClick = function(event) {
+Hexwar.MapView.prototype.onClick = function(event) {
 	var mapCoords = Hexwar.Hex.convertScreenToMapCoords(
 			  event.pageX - this.container.offset().left
 			, event.pageY - this.container.offset().top);
@@ -201,7 +201,7 @@ Hexwar.MapView.prototype.drawTextBitmap = function(bitmap) {
  * @param {Number} x the map coordinate
  * @param {Number} y the map coordinate
  */
-MapView.prototype.calculateHexPosition = function(x,y) {
+Hexwar.MapView.prototype.calculateHexPosition = function(x,y) {
 	hex_pos = Hexwar.Hex.calculateHexPosition(x,y);
 	hex_pos.x += this.container.offset().left;
 	hex_pos.y += this.container.offset().top;
