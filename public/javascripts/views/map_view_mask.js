@@ -80,7 +80,7 @@ MapViewMask.prototype.generateDistanceMap = function(x,y,max_depth, current_dept
 	var callback = function(x,y,current_depth) {
 		this.mask.set(x,y, current_depth);
 	}
-	Hex.walkAdjacent(x,y,max_depth, callback.createDelegate(this), this.map.height, this.map.width);
+	Hexwar.Hex.walkAdjacent(x,y,max_depth, callback.createDelegate(this), this.map.height, this.map.width);
 }
 
 /**

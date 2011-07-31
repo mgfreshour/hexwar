@@ -179,7 +179,7 @@ UnitController.prototype.generateMoveMask = function(unit) {
 			} // end from correct prev
 		} // end if/else no prev
 	};
-	Hex.walkAdjacent(unit.x,unit.y,  unit.type.move_range, callback.createDelegate(this), this.map.height, this.map.width);
+	Hexwar.Hex.walkAdjacent(unit.x,unit.y,  unit.type.move_range, callback.createDelegate(this), this.map.height, this.map.width);
 	
 	callback = function(x,y, value) {
 		if (value > unit.type.move_range || value == 0) {
@@ -219,7 +219,7 @@ UnitController.prototype.generateZocMap = function(team) {
 		if (this.map.unit_data[n].team != team) {
 			var x = this.map.unit_data[n].x,
 					y = this.map.unit_data[n].y;
-			var coords = Hex.getAdjacentCoords(x,y, this.map.height, this.map.width);
+			var coords = Hexwar.Hex.getAdjacentCoords(x,y, this.map.height, this.map.width);
 			zoc_map.setMulti(coords, 1);
 		}
 	}	

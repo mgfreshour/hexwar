@@ -1,8 +1,9 @@
+goog.provide('Hexwar.Hex');
 /**
  * Class that contains functions for working with a hex map
  * @constructor
  */
-function Hex() {
+Hexwar.Hex = function() {
 	
 }
 /**
@@ -10,13 +11,13 @@ function Hex() {
  * @const
  * @type {Number}
  */
-var HEX_HEIGHT = 72;
+Hexwar.Hex.HEX_HEIGHT = 72;
 /**
  * The length of one of the sides of a hex in pixels (all 6 sides should be equal).
  * @const
  * @type {Number}
  */
-var HEX_SIDE = HEX_HEIGHT / 2;
+Hexwar.Hex.HEX_SIDE = Hexwar.Hex.HEX_HEIGHT / 2;
 
 /**
  * Returns the X,Y coordinates of all valid adjacent hexii
@@ -26,7 +27,7 @@ var HEX_SIDE = HEX_HEIGHT / 2;
  * @param {Number} width is the width of 2d array representing the hex
  * @return {Array.<{x: number, y: number}>} array of {x, y} objects representing adjacent coordinates
  */
-Hex.getAdjacentCoords = function(x,y, height, width) {
+Hexwar.Hex.getAdjacentCoords = function(x,y, height, width) {
 	var possible = null;
 	if(x%2) {
 		possible = [
@@ -77,7 +78,7 @@ Hex.getAdjacentCoords = function(x,y, height, width) {
  * @param {Number} prev_x coordinate of the hex we're recursing from
  * @param {Number} prev_y coordinate of the hex we're recursing from
  */
-Hex.walkAdjacent = function(x,y,max_depth, callback, height, width, current_depth, bitmap, prev_x, prev_y) {
+Hexwar.Hex.walkAdjacent = function(x,y,max_depth, callback, height, width, current_depth, bitmap, prev_x, prev_y) {
 	current_depth = current_depth || 1;
 	max_depth = max_depth || 1;
 	prev_x = prev_x == undefined ? -1 : prev_x;
@@ -108,7 +109,7 @@ Hex.walkAdjacent = function(x,y,max_depth, callback, height, width, current_dept
  * @param {Number} screenY
  * @return {x: number, y: number} an {x,y} object of the coordinates containing screen point
  */
-Hex.convertScreenToMapCoords = function(screenX, screenY) {
+Hexwar.Hex.convertScreenToMapCoords = function(screenX, screenY) {
 	// ----------------------------------------------------------------------
  	// --- Determine coordinate of map div as we want the click coordinate as
 	// --- we want the mouse click relative to this div.
@@ -156,7 +157,7 @@ Hex.convertScreenToMapCoords = function(screenX, screenY) {
  * @param {Number} mapY
  * @return {x: number, y: number} an {x,y} object of the coordinates containing screen point
  */
-Hex.calculateHexPosition = function(mapX, mapY) {	
+Hexwar.Hex.calculateHexPosition = function(mapX, mapY) {	
 	return {
 		x: (mapX * HEX_SIDE * 1.5),
 	 	y: (mapY * HEX_HEIGHT + (mapX % 2) * HEX_HEIGHT / 2)
