@@ -169,26 +169,30 @@ Hexwar.Hex.convertArrayToScreenCoords = function(x,y) {
 	return {
 		x: (x * Hexwar.Hex.HEX_SIDE * 1.5),
 	 	y: (y * Hexwar.Hex.HEX_HEIGHT + (x % 2) * Hexwar.Hex.HEX_HEIGHT / 2)
-	};}
+	};
+}
 
 Hexwar.Hex.convertHexToArrayCoords = function(x, y) {
 	return {
-		  x: Math.floor((x+y)/2)
-		, y: y-x
-	}
+		  x: x + y
+		, y: Math.floor((x+y)/2) -y
+	};
 }
 
 Hexwar.Hex.convertArrayToHexCoords = function(x, y) {
 	return {
-		  x: x - Math.floor(y/2)
-		, y: x + Math.ceil(y/2)
+		  x: y + Math.ceil(x/2)
+		, y:-1*(y - Math.floor(x/2))
 	};
 }
 
 Hexwar.Hex.calculateDistanceHexSpace = function(a, b) {
 	var dx = b.x - a.x;
 	var dy = b.y - a.y;
-	var dist = (Math.abs(dx) + Math.abs(dy) + Math.abs(dx-dy)) / 2
-	
-	return dist;
+
+  if (Math.signum(dx) != Math.signum(dy)) {
+		return Math.max(Math.abs(dx), Math.abs(dy));
+	} else {
+		return Math.abs(dx) + Math.abs(dy);
+	}
 }
