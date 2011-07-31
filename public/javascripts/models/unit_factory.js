@@ -1,8 +1,9 @@
+goog.provide('Hexwar.UnitFactory');
 /**
  * Class knows how to make units
  * @constructor
  */
-function UnitFactory() {
+Hexwar.UnitFactory = function () {
 	this.unit_types = new Array();
 }
 
@@ -10,7 +11,7 @@ function UnitFactory() {
  * Loads the tile types from server using ajax call
  * @param {String} url
  */
-UnitFactory.prototype.loadFromServer = function(url) {
+Hexwar.UnitFactory.prototype.loadFromServer = function(url) {
 	url = url || '/unit_types';
 	
 	var successFunction = function(data, textStatus, jqXHR) {
@@ -73,10 +74,10 @@ UnitFactory.prototype.loadFromServer = function(url) {
 
 /**
  * Adds a unit type to the internal types array
- * @param {UnitType} unit_type
+ * @param {Hexwar.UnitType} unit_type
  * @return {Number} index of the added type
  */
-UnitFactory.prototype.addUnitType = function(unit_type) {
+Hexwar.UnitFactory.prototype.addUnitType = function(unit_type) {
 	this.unit_types.push(unit_type);
 	return this.unit_types.length-1;
 }
@@ -95,21 +96,21 @@ UnitFactory.prototype.addUnitType = function(unit_type) {
  *
  * @return {Number} Index of the newly added type
  */
-UnitFactory.prototype.createUnitType = function(name, img, img_x, img_y, attack_range, attack_power, defense_power, move_range, move_costs, defense_bonuses) {
-	var type = new UnitType(name, img, img_x, img_y, attack_range, attack_power, defense_power, move_range, move_costs, defense_bonuses);
+Hexwar.UnitFactory.prototype.createUnitType = function(name, img, img_x, img_y, attack_range, attack_power, defense_power, move_range, move_costs, defense_bonuses) {
+	var type = new Hexwar.UnitType(name, img, img_x, img_y, attack_range, attack_power, defense_power, move_range, move_costs, defense_bonuses);
 	return this.addUnitType(type);
 }
 
 /**
  * Creates a Unit based on Type
- * @param {Number|String|UnitType} type
+ * @param {Number|String|Hexwar.UnitType} type
  * @param {String} name ex. 'red', 'blue', 'green', 'white'
  * @param {Number} x
  * @param {Number} y
  * @param {Number} health
  * @return {Unit}
  */
-UnitFactory.prototype.createUnit = function(type, team,x,y,health) {
+Hexwar.UnitFactory.prototype.createUnit = function(type, team,x,y,health) {
 	if (typeof type == 'string') {
 		var n=0;
 		// Is this really a number in a string?
@@ -128,7 +129,7 @@ UnitFactory.prototype.createUnit = function(type, team,x,y,health) {
 		throw 'UnitFactory::createUnit() unable to find unit type - '+type;
 	} else if (typeof type == 'number') {
 		return this._createUnit(this.unit_types[type], team,x,y,health);
-	} else if (type instanceof  UnitType) {
+	} else if (type instanceof  Hexwar.UnitType) {
 		return this._createUnit(type, team,x,y,health);
 	} else {
 		throw 'UnitFactory::createUnit() unknown type - '+typeof type;
@@ -138,11 +139,11 @@ UnitFactory.prototype.createUnit = function(type, team,x,y,health) {
 /**
  * Creates an Unit of type
  * @protected
- * @param {UnitType} unit_type
- * @return {Unit}
+ * @param {Hexwar.UnitType} unit_type
+ * @return {Hexwar.Unit}
  */
-UnitFactory.prototype._createUnit = function(unit_type, team,x,y,health) {
-	var unit = new Unit(unit_type, health);
+Hexwar.UnitFactory.prototype._createUnit = function(unit_type, team,x,y,health) {
+	var unit = new Hexwar.Unit(unit_type, health);
 	unit.type_index = this.unit_types.indexOf(unit_type);
 	unit.img = new Array();
 	unit.img.push(unit_type.img);

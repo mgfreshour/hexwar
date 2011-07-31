@@ -1,19 +1,20 @@
+goog.provide('Hexwar.jQueryRenderer');
 /**
  * Class that handles drawing stuff on the screen.
  * @constructor
- * @implements {iRenderer}
+ * @implements {Hexwar.iRenderer}
  * @param {jQueryObject} screen the main container to render to
  */
-function jQueryRenderer(screen) {
+Hexwar.jQueryRenderer = function (screen) {
 	this.screen = screen
-	this.repos = new RenderablesRepository();
+	this.repos = new Hexwar.RenderablesRepository();
 	this.layers = new goog.structs.Map();
 }
 
 /** 
  * @inheritDoc 
  */
-jQueryRenderer.prototype.drawItemToLayer = function(layer_name, x, y, item)  {
+Hexwar.jQueryRenderer.prototype.drawItemToLayer = function(layer_name, x, y, item)  {
 	layer = this._getLayer(layer_name);
 	this._drawItem(item, layer, x, y);
 }
@@ -21,7 +22,7 @@ jQueryRenderer.prototype.drawItemToLayer = function(layer_name, x, y, item)  {
 /** 
  * @inheritDoc 
  */
-jQueryRenderer.prototype.hideItem = function(item) {
+Hexwar.jQueryRenderer.prototype.hideItem = function(item) {
 	if (item.gfx_container) {
 		item.gfx_container.hide();
 	}
@@ -30,7 +31,7 @@ jQueryRenderer.prototype.hideItem = function(item) {
 /** 
  * @inheritDoc 
  */
-jQueryRenderer.prototype.showItem = function(item) {
+Hexwar.jQueryRenderer.prototype.showItem = function(item) {
 	if (item.gfx_container) {
 		item.gfx_container.show();
 	}
@@ -39,7 +40,7 @@ jQueryRenderer.prototype.showItem = function(item) {
 /** 
  * @inheritDoc 
  */
-jQueryRenderer.prototype.removeItem = function(item) {
+Hexwar.jQueryRenderer.prototype.removeItem = function(item) {
 	if (item.gfx_container) {
 		item.gfx_container.remove();
 	}
@@ -48,7 +49,7 @@ jQueryRenderer.prototype.removeItem = function(item) {
 /** 
  * @inheritDoc 
  */
-jQueryRenderer.prototype.addLayer = function(layer_name) {
+Hexwar.jQueryRenderer.prototype.addLayer = function(layer_name) {
 	this.layers.set(layer_name, $('<div id="rendering_layer_'+layer_name+'" class="rendering_layer"></div>'));
 	this.screen.append(this.layers.get(layer_name));
 }
@@ -56,7 +57,7 @@ jQueryRenderer.prototype.addLayer = function(layer_name) {
 /** 
  * @inheritDoc 
  */
-jQueryRenderer.prototype.clearLayer = function(layer_name) {
+Hexwar.jQueryRenderer.prototype.clearLayer = function(layer_name) {
 	if (this.layers.containsKey(layer_name)) {
 		this.layers.get(layer_name).html('');
 	}
@@ -65,7 +66,7 @@ jQueryRenderer.prototype.clearLayer = function(layer_name) {
 /** 
  * @inheritDoc 
  */
-jQueryRenderer.prototype.clearScreen = function(layer_name) {
+Hexwar.jQueryRenderer.prototype.clearScreen = function(layer_name) {
 	goog.structs.forEach(this.layers, function(val,key,layers) {
 		this.clearLayer(key);
 	}, this);
@@ -77,7 +78,7 @@ jQueryRenderer.prototype.clearScreen = function(layer_name) {
 /** 
  * @inheritDoc 
  */
-jQueryRenderer.prototype.fadeOutAndRemove = function(item, duration, delay) {
+Hexwar.jQueryRenderer.prototype.fadeOutAndRemove = function(item, duration, delay) {
 	delay = delay !== undefined ? delay : 0;
 	duration = duration !== undefined ? duration : 500;
 	if (item.gfx_container) {
@@ -91,7 +92,7 @@ jQueryRenderer.prototype.fadeOutAndRemove = function(item, duration, delay) {
  * @param {String} layer_name
  * @return {jQueryObject}
  */
-jQueryRenderer.prototype._getLayer = function(layer_name) {
+Hexwar.jQueryRenderer.prototype._getLayer = function(layer_name) {
 	if (!this.layers.containsKey(layer_name)) {
 		this.addLayer(layer_name);
 	}
@@ -102,13 +103,13 @@ jQueryRenderer.prototype._getLayer = function(layer_name) {
 /**
  * Draw a RenderableItem to the screen
  * @private
- * @param {RenderableItem} item
+ * @param {Hexwar.RenderableItem} item
  * @param {jQueryObject} container the jquery item to draw into
  * @param {Number} screen_x
  * @param {Number} screen_y
  * @param {String} css_class the CSS class to apply to element
  */
-jQueryRenderer.prototype._drawItem = function(item, container, screen_x, screen_y) {
+Hexwar.jQueryRenderer.prototype._drawItem = function(item, container, screen_x, screen_y) {
 	if (item.gfx_container) {
 		item.gfx_container.animate({left: screen_x, top: screen_y}, 100);
 	} else {	
@@ -159,7 +160,7 @@ jQueryRenderer.prototype._drawItem = function(item, container, screen_x, screen_
  * @param {Number} screen_y
  * @return {jQueryObject} the jquery element that now represents the image
  */
-jQueryRenderer.prototype._drawImgDiv = function(img_src, container, img_x, img_y, screen_x, screen_y) {
+Hexwar.jQueryRenderer.prototype._drawImgDiv = function(img_src, container, img_x, img_y, screen_x, screen_y) {
 	var pos_style = '',
 			bg_pos = '';
 	if (screen_x != undefined && screen_y != undefined) {
@@ -183,7 +184,7 @@ jQueryRenderer.prototype._drawImgDiv = function(img_src, container, img_x, img_y
  * @param {Number} screen_y
  * @return {jQueryObject} the jquery element that now represents the image
  */
-jQueryRenderer.prototype._drawImg = function(img_src, container, screen_x, screen_y) {
+Hexwar.jQueryRenderer.prototype._drawImg = function(img_src, container, screen_x, screen_y) {
 	var pos_style = '',
 			bg_pos = '';
 	if (screen_x != undefined && screen_y != undefined) {
@@ -205,7 +206,7 @@ jQueryRenderer.prototype._drawImg = function(img_src, container, screen_x, scree
  * @param {Number} screen_y
  * @return {jQueryObject} the jquery element that now represents the image
  */
-jQueryRenderer.prototype._drawText = function(text, container, css_class, screen_x, screen_y) {
+Hexwar.jQueryRenderer.prototype._drawText = function(text, container, css_class, screen_x, screen_y) {
 	if (screen_x && screen_y) {
 		var pos_style = 'left:'+Math.round(screen_x)+'px; top:'+Math.round(screen_y)+'px;';
 	}

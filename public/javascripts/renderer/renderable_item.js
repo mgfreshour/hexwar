@@ -1,9 +1,9 @@
-
+goog.provide('Hexwar.RenderableItem');
 /**
  * Class that represents something that can be drawn on the screen
  * @constructor
  */
-function RenderableItem(img) {
+Hexwar.RenderableItem = function RenderableItem(img) {
 	if (img) {
 		if ($.isArray(img)) {
 			this.img = img;

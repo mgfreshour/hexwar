@@ -6,7 +6,7 @@ module UnitTypesHelper
     n = 0;
     unit_types.each do |unit|
       out += ', ' unless n == 0
-      out += "new UnitType('#{unit.name}','#{unit.img}', #{unit.img_x}, #{unit.img_y}, #{unit.attack_range}, #{unit.move_range},"
+      out += "new Hexwar.UnitType('#{unit.name}','#{unit.img}', #{unit.img_x}, #{unit.img_y}, #{unit.attack_range}, #{unit.move_range},"
       out += "{"
       @tile_types.each do |tile|
         out += ',' unless tile.position == 1

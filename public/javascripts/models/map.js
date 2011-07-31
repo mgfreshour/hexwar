@@ -12,8 +12,8 @@ Hexwar.Map = function (height, width, name, id) {
 		this.initialize(height, width, name, id);
 	}
 	
-	this.tile_factory = ServiceContainer.get('TileFactory');
-	this.unit_factory = ServiceContainer.get('UnitFactory');
+	this.tile_factory = Hexwar.ServiceContainer.get('TileFactory');
+	this.unit_factory = Hexwar.ServiceContainer.get('UnitFactory');
 }
 
 /**

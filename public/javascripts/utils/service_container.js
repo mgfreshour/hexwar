@@ -1,10 +1,13 @@
-
+goog.provide('Hexwar.ServiceContainer');
 var g_services = null;
 
-function ServiceContainer() {
+/**
+ * @constructor
+ */
+Hexwar.ServiceContainer = function () {
 }
 
-ServiceContainer.get = function(name) {
+Hexwar.ServiceContainer.get = function(name) {
 	if (!g_services) {
 		g_services = new goog.structs.Map();
 	}
@@ -14,7 +17,7 @@ ServiceContainer.get = function(name) {
 	switch (name) {
 		case 'TileFactory':
 			if(!g_services.containsKey('TileFactory')) {
-				obj = new TileFactory();
+				obj = new Hexwar.TileFactory();
 				obj.loadFromServer();
 				g_services.set('TileFactory', obj);
 			}
@@ -22,7 +25,7 @@ ServiceContainer.get = function(name) {
 
 		case 'UnitFactory':
 			if(!g_services.containsKey('UnitFactory')) {
-				obj = new UnitFactory();
+				obj = new Hexwar.UnitFactory();
 				obj.loadFromServer();
 				g_services.set('UnitFactory', obj);
 			}

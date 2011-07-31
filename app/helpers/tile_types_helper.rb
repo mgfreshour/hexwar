@@ -5,7 +5,7 @@ module TileTypesHelper
     n = 0;
     unit_types.each do |tile|
       out += ', ' unless n == 0
-      out += "new TileType('#{tile.name}','#{tile.img}', #{tile.img_x}, #{tile.img_y})"
+      out += "new Hexwar.TileType('#{tile.name}','#{tile.img}', #{tile.img_x}, #{tile.img_y})"
       n += 1
     end
     out += '];'

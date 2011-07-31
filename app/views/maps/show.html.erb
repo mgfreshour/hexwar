@@ -24,7 +24,7 @@
 		var map = new Hexwar.Map();
 		map.loadFromServer(<%=@map.id%>);
 		
-		var mapview = new MapView($('#hexmap01'));
+		var mapview = new Hexwar.MapView($('#hexmap01'));
 		mapview.drawMap(map);
 	});
 	</script>

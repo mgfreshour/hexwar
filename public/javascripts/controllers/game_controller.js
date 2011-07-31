@@ -1,36 +1,36 @@
-
+goog.provide('Hexwar.GameController');
 /**
  * Main class for plaing the game
  * @constructor
  * @extends Observable
  */
-function GameController(map, id, current_turn_id, current_player) {
+Hexwar.GameController = function (map, id, current_turn_id, current_player) {
 	this.map = map;
 	this.current_turn_id = current_turn_id;
 	this.id = id;
 	this.current_player= current_player;
 
-	this.tile_factory = ServiceContainer.get('TileFactory');
-	this.unit_factory = ServiceContainer.get('UnitFactory');
+	this.tile_factory = Hexwar.ServiceContainer.get('TileFactory');
+	this.unit_factory = Hexwar.ServiceContainer.get('UnitFactory');
 
 	this.loadTurnData();
 
-	this.mapview = new MapView($('#hexmap01'));
+	this.mapview = new Hexwar.MapView($('#hexmap01'));
 	this.mapview.drawMap(this.map);
 	
 	this.returnToNormalMode();
 	
-	this.unit_controller = new UnitController(this, this.map, this.mapview, this.current_player);
+	this.unit_controller = new Hexwar.UnitController(this, this.map, this.mapview, this.current_player);
 
 	// Call parent c'tors
 	this.Observable();
 }
-GameController.DeriveFrom(Observable);
+Hexwar.GameController.DeriveFrom(Observable);
 
 /**
  *
  */
-GameController.prototype.loadTurnData = function(url) {
+Hexwar.GameController.prototype.loadTurnData = function(url) {
 	url = url || '/games/get_turn?id='+this.id;
 	
 	var successFunction = function(data, textStatus, jqXHR) {
@@ -64,14 +64,14 @@ GameController.prototype.loadTurnData = function(url) {
  * @param {Number} x
  * @param {Number} y
  */
-GameController.prototype.onMapClick = function(x,y) {
+Hexwar.GameController.prototype.onMapClick = function(x,y) {
 	this.unit_controller.attemptUnitSelect(x,y);
 }
 
 /**
  * ...
  */
-GameController.prototype.returnToNormalMode = function() {
+Hexwar.GameController.prototype.returnToNormalMode = function() {
 	this.mapview.clearMask();
 	this.mapview.setDelegateClick(this.onMapClick.createDelegate(this));
 }
@@ -86,7 +86,7 @@ GameController.prototype.returnToNormalMode = function() {
  * @param {Number} target_y
  * @param {String} value
  */
-GameController.prototype.saveAction = function(x,y, action, target_x, target_y, value) {	
+Hexwar.GameController.prototype.saveAction = function(x,y, action, target_x, target_y, value) {	
   $.ajax({ 
 		  type:'post'
 		, url: '/turn_actions'
@@ -108,7 +108,7 @@ GameController.prototype.saveAction = function(x,y, action, target_x, target_y, 
 /**
  * ...
  */
-GameController.prototype.endTurn = function() {	
+Hexwar.GameController.prototype.endTurn = function() {	
 	var unit_data = [];
 	for (x=0; x < this.map.unit_data.length; x++) {
 		var u = this.map.unit_data[x];
@@ -118,7 +118,7 @@ GameController.prototype.endTurn = function() {
 		unit_data.push({ x: u.x, y: u.y, type_index: u.type_index , team: u.team, health: u.health });
 	}
 	
-  $.ajax({ 
+	$.ajax({ 
 		  type:'post'
 		, url: '/games/end_turn'
 		, data:{ 

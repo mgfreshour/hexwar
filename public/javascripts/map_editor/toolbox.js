@@ -1,9 +1,11 @@
-function Toolbox(container) {
+goog.provide('Hexwar.Toolbox');
+
+Hexwar.Toolbox = function (container) {
 	this.container = container;
-	this.renderer = new jQueryRenderer(container);
+	this.renderer = new Hexwar.jQueryRenderer(container);
 }
 
-Toolbox.prototype.initHexPalette = function initHexPalette() {
+Hexwar.Toolbox.prototype.initHexPalette = function initHexPalette() {
 		this.hexPalette.html('');
     for (var n=0; n < tile_types.length; n++) {
         var row = $('<div id="hex_palette_'+n+'" hex_id="'+n+'" class="hex_palette_row"></div');
@@ -18,11 +20,11 @@ Toolbox.prototype.initHexPalette = function initHexPalette() {
     }
 }
 
-Toolbox.prototype.getTeamSelection = function getTeamSelection() {
+Hexwar.Toolbox.prototype.getTeamSelection = function getTeamSelection() {
 	return $('input:radio[name=team_select]:checked').attr('id');
 }
 
-Toolbox.prototype.updateTeamOptions = function(number_of_players) {
+Hexwar.Toolbox.prototype.updateTeamOptions = function(number_of_players) {
 	$('input:radio#red').click();
 	switch(number_of_players) {
 		case '2':
@@ -39,7 +41,7 @@ Toolbox.prototype.updateTeamOptions = function(number_of_players) {
 	}
 }
 
-Toolbox.prototype.initUnitPalette = function initUnitPalette() {
+Hexwar.Toolbox.prototype.initUnitPalette = function initUnitPalette() {
 		var div_html = '<div id="team_select">'+
 				'<input type="radio" name="team_select" id="red" name="radio" checked="checked" /><label for="red"><img src="/images/misc/flag-red-icon.png" />Red Team</label>' +
 				'<input type="radio" name="team_select" id="green" name="radio" /><label for="green"><img src="/images/misc/flag-green-icon.png" />Green Team</label>' +
@@ -71,7 +73,7 @@ Toolbox.prototype.initUnitPalette = function initUnitPalette() {
     }
 }
 	
-Toolbox.prototype.show = function show() {
+Hexwar.Toolbox.prototype.show = function show() {
 	this.container.html('');
 	this.hexPalette = $('<div id="hex_palette"></div>');
 	this.unitPalette = $('<div id="unit_palette"></div>')

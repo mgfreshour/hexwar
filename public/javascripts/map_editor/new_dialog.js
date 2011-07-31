@@ -1,5 +1,6 @@
+goog.provide('Hexwar.NewMapDialog');
 
-function NewMapDialog() {
+Hexwar.NewMapDialog = function() {
 	this.html = '<div id="new_map_dialog" title="Create new map" class="dialog">' +
 		'<p class="validateTips">All form fields are required.</p>' +
 		//'<form>' +
@@ -25,7 +26,7 @@ function NewMapDialog() {
 	this.container = $(this.html);
 }
 
-NewMapDialog.prototype.show = function show(cbFn) {
+Hexwar.NewMapDialog.prototype.show = function show(cbFn) {
 	this.container.dialog({
 		height: 300,
 		width: 350,

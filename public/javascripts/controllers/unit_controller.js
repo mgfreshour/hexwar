@@ -1,12 +1,13 @@
+goog.provide('Hexwar.UnitController');
 /**
  * ...
  * @constructor
  * @param {Game} game
  * @param {Map} map
- * @param {MapView} mapview
+ * @param {MaHexwar.MapViewpView} mapview
  * @param {String} current_player
  */
-function UnitController(game, map, mapview, current_player) {
+Hexwar.UnitController = function (game, map, mapview, current_player) {
 	this.map = map;
 	this.game = game;
 	this.mapview = mapview;
@@ -20,8 +21,8 @@ function UnitController(game, map, mapview, current_player) {
  * @param {Unit} unit
  * @return {Boolean}
  */
-UnitController.prototype.attemptUnitAttack = function(unit) {
-		mask = new MapViewMask(this.map);
+Hexwar.UnitController.prototype.attemptUnitAttack = function(unit) {
+		mask = new Hexwar.MapViewMask(this.map);
 
 		if (this.maskForAttack(mask, unit)) {
 			mask.set(unit.x, unit.y, mask.mask_clear);
@@ -34,12 +35,12 @@ UnitController.prototype.attemptUnitAttack = function(unit) {
 
 /**
  * ...
- * @param {MapViewMask} mask
+ * @param {Hexwar.MapViewMask} mask
  * @param {Unit} unit
  * @return {Number} number of enemies that are attackable by unit
  */
-UnitController.prototype.maskForAttack = function(mask, unit) {
-	var attack_mask = new MapViewMask(this.map);
+Hexwar.UnitController.prototype.maskForAttack = function(mask, unit) {
+	var attack_mask = new Hexwar.MapViewMask(this.map);
 	var enemy_found = false;
 	
 	var mask_callback = function(x,y, val) {
@@ -65,9 +66,9 @@ UnitController.prototype.maskForAttack = function(mask, unit) {
  * @param {Number} x
  * @param {Number} y
  * @param {Unit} unit
- * @param {MapViewMask} mask
+ * @param {Hexwar.MapViewMask} mask
  */
-UnitController.prototype.onUnitMoveClick = function(x,y, unit, mask) {
+Hexwar.UnitController.prototype.onUnitMoveClick = function(x,y, unit, mask) {
 	this.mapview.hideCursor();
 
 	if (mask.get(x,y) == mask.mask_clear) {
@@ -102,8 +103,8 @@ UnitController.prototype.onUnitMoveClick = function(x,y, unit, mask) {
  * @param {Unit} attacker
  * @param {Unit} defender
  */
-UnitController.prototype.battle = function(attacker, defender) {
-	var mask = new MapViewMask(this.map);
+Hexwar.UnitController.prototype.battle = function(attacker, defender) {
+	var mask = new Hexwar.MapViewMask(this.map);
 	var max_attack_range = Math.max(attacker.range, defender.range);
 	mask.generateDistanceMap(attacker.x, attacker.y, max_attack_range);
 	
@@ -138,10 +139,10 @@ UnitController.prototype.battle = function(attacker, defender) {
 /**
  * ...
  * @param {Unit} unit
- * @return {MapViewMask}
+ * @return {Hexwar.MapViewMask}
  */
-UnitController.prototype.generateMoveMask = function(unit) {
-	var viewmask = new MapViewMask(this.map);	
+Hexwar.UnitController.prototype.generateMoveMask = function(unit) {
+	var viewmask = new Hexwar.MapViewMask(this.map);	
 	var mask = new Array2d(this.map.height, this.map.width);
 	var move_mask = new Array2d(this.map.height, this.map.width);
 	var zoc_map = this.generateZocMap(unit.team);
@@ -212,7 +213,7 @@ UnitController.prototype.generateMoveMask = function(unit) {
  * @param {String} team
  * @return {Array2d}
  */
-UnitController.prototype.generateZocMap = function(team) {
+Hexwar.UnitController.prototype.generateZocMap = function(team) {
 	var zoc_map = new Array2d(this.map.height, this.map.width);
 	
 	for (var n=0; n<this.map.unit_data.length; n++) {
@@ -240,7 +241,7 @@ UnitController.prototype.generateZocMap = function(team) {
  * @param {Number} y
  * @return {Boolean}
  */
-UnitController.prototype.attemptUnitSelect = function(x,y) {
+Hexwar.UnitController.prototype.attemptUnitSelect = function(x,y) {
 	var unit = this.map.getUnit(x,y);
 	if (unit && unit.team == this.current_player && !unit.acted) {
 		var mask = this.generateMoveMask(unit);
@@ -256,7 +257,7 @@ UnitController.prototype.attemptUnitSelect = function(x,y) {
  * ...
  * @todo this belongs in UnitFactory
  */
-UnitController.prototype.addEventsToAllUnits = function() {
+Hexwar.UnitController.prototype.addEventsToAllUnits = function() {
 	for (var n=0; n < this.map.unit_data.length; n++) {
 		var unit = this.map.unit_data[n];
 		
@@ -276,7 +277,7 @@ UnitController.prototype.addEventsToAllUnits = function() {
  * @param {Number} y
  * @param {Unit} unit
  */
-UnitController.prototype.logUnitMove = function (x,y, unit) {
+Hexwar.UnitController.prototype.logUnitMove = function (x,y, unit) {
 	log("Unit Move ("+unit.x+','+unit.y+") -> ("+x+','+y+')');
 	this.game.saveAction(unit.x, unit.y, 'move', x, y, 0);
 }
@@ -287,7 +288,7 @@ UnitController.prototype.logUnitMove = function (x,y, unit) {
  * @param {Number} delta
  * @param {Unit} unit
  */
-UnitController.prototype.logUnitChangeHealth = function(new_health, delta, unit) {
+Hexwar.UnitController.prototype.logUnitChangeHealth = function(new_health, delta, unit) {
 	log("Unit Health ("+unit.x+','+unit.y+") -> ("+delta+')');
 	this.game.saveAction(unit.x, unit.y, 'health_change', 0, 0, delta);
 }
@@ -296,7 +297,7 @@ UnitController.prototype.logUnitChangeHealth = function(new_health, delta, unit)
  * ...
  * @param {Unit} unit
  */
-UnitController.prototype.logUnitDeath = function(unit) {
+Hexwar.UnitController.prototype.logUnitDeath = function(unit) {
 	log("Unit Death ("+unit.x+','+unit.y+")");
 	this.game.saveAction(unit.x, unit.y, 'death', 0, 0, 0);
 }
@@ -307,7 +308,7 @@ UnitController.prototype.logUnitDeath = function(unit) {
  * @param {Number} y
  * @param {Unit} unit
  */
-UnitController.prototype.onUnitMove = function (x,y, unit) {
+Hexwar.UnitController.prototype.onUnitMove = function (x,y, unit) {
 		this.mapview.drawUnit(x,y, unit);
 }
 
@@ -317,7 +318,7 @@ UnitController.prototype.onUnitMove = function (x,y, unit) {
  * @param {Number} delta
  * @param {Unit} unit
  */
-UnitController.prototype.onUnitChangeHealth = function(new_health, delta, unit) {
+Hexwar.UnitController.prototype.onUnitChangeHealth = function(new_health, delta, unit) {
 	unit.text.div.html(new_health);
 	this.mapview.drawDamages([{x:unit.x,y:unit.y, text:delta}]);
 }
@@ -327,7 +328,7 @@ UnitController.prototype.onUnitChangeHealth = function(new_health, delta, unit) 
  * @todo this shouldn't be doing the fade!
  * @param {Unit} unit
  */
-UnitController.prototype.onUnitDeath = function(unit) {
+Hexwar.UnitController.prototype.onUnitDeath = function(unit) {
 	unit.gfx_container.fadeOut(500, function() { $(unit).remove(); });
 	// take this unit out of the unit list
 	idx = this.map.unit_data.indexOf(unit);

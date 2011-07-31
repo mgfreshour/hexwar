@@ -1,13 +1,13 @@
-
+goog.provide('Hexwar.Unit');
 /**
  * Class that represents a unit in the game
  * @contructor
- * @extends RenderableItem
+ * @extends Hexwar.RenderableItem
  * @extends Observable
- * @param {UnitType} type
+ * @param {Hexwar.UnitType} type
  * @param {Number} health
  */
-function Unit(type, health) {
+Hexwar.Unit = function (type, health) {
 	this.x = 0;
 	this.y = 0;
 	this.type = type;
@@ -21,15 +21,15 @@ function Unit(type, health) {
 	this.RenderableItem();
 	this.Observable();
 }
-Unit.DeriveFrom(RenderableItem);
-Unit.DeriveFrom(Observable);
+Hexwar.Unit.DeriveFrom(Hexwar.RenderableItem);
+Hexwar.Unit.DeriveFrom(Observable);
 
 /**
  * Changes unit's position
  * @param {Number} x
  * @param {Number} y
  */
-Unit.prototype.move = function(x,y) {
+Hexwar.Unit.prototype.move = function(x,y) {
 	this.notifyListeners('move', x,y, this);
 	this.x = x;
 	this.y = y;
@@ -40,7 +40,7 @@ Unit.prototype.move = function(x,y) {
  * @param {Number} delta the amount to change by
  * @returns {Boolean} true the unit still live, false this change killed it
  */
-Unit.prototype.changeHealth = function(delta) {
+Hexwar.Unit.prototype.changeHealth = function(delta) {
 	this.health += delta;
 	this.notifyListeners('health_change', this.health, delta, this);
 	

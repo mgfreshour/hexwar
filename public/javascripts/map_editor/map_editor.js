@@ -1,11 +1,16 @@
+goog.provide('Hexwar.MapEditor');
 
-function MapEditor(map) {
+/**
+ * 
+ * @param {Hexwar.Map} map
+ */
+Hexwar.MapEditor = function (map) {
 	this.map = map;
 	
-	this.tile_factory = ServiceContainer.get('TileFactory');
-	this.unit_factory = ServiceContainer.get('UnitFactory');
+	this.tile_factory = Hexwar.ServiceContainer.get('TileFactory');
+	this.unit_factory = Hexwar.ServiceContainer.get('UnitFactory');
 	
-	this.mapview = new MapView($('#hexmap01'));
+	this.mapview = new Hexwar.MapView($('#hexmap01'));
 	this.mapview.setDelegateClick(this.onMapClick.createDelegate(this));
 	
 	$("button").button();
@@ -16,7 +21,7 @@ function MapEditor(map) {
 		modalAlert("LOL!!  Did you really think I made an undo function in a javascript program? LOL!!", "You're an Idiot!");
 	});
 
-	this.tb = new Toolbox($('#toolbox'));
+	this.tb = new Hexwar.Toolbox($('#toolbox'));
 	this.tb.show();
 	$("#btn_toolbox").click(function(){ this.tb.show() }.createDelegate(this));
 	$("#map_number_of_players").change(function(){
@@ -27,7 +32,7 @@ function MapEditor(map) {
 	this.tb.updateTeamOptions($("#map_number_of_players").val());
 
 	if (!this.map) {
-		var newDlg = new NewMapDialog(); 
+		var newDlg = new Hexwar.NewMapDialog(); 
 		newDlg.show(function(map) { 
 			this.map = map;
 			this.map.fill(this.tile_factory.createTile(0));
@@ -45,7 +50,7 @@ function MapEditor(map) {
 	}.createDelegate(this));
 }
 
-MapEditor.prototype.onMapClick = function(x, y) {
+Hexwar.MapEditor.prototype.onMapClick = function(x, y) {
 	if (!this.tb.selectedItem) { return; }
 	
 	var index = this.tb.selectedItem.index;

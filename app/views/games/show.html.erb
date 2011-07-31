@@ -7,7 +7,7 @@
 	$(function() {
 		var map = new Hexwar.Map;
 		map.loadFromServer(<%= @game.map.id%>);
-		var game = new GameController(map, <%= @game.id%>,<%= @game.current_turn.id%>, '<%= @current_player_team%>');
+		var game = new Hexwar.GameController(map, <%= @game.id%>,<%= @game.current_turn.id%>, '<%= @current_player_team%>');
 	
 		$('#endturn').click(function() {
 			game.endTurn();

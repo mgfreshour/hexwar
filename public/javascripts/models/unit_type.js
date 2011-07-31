@@ -1,3 +1,4 @@
+goog.provide('Hexwar.UnitType');
 /**
  * Class that represents a type of unit
  * @param {String} name
@@ -9,7 +10,7 @@
  * @param {Array} move_costs
  * @param {Array} defense_bonuses
  */
-function UnitType(name, img, img_x, img_y, attack_range, attack_power, defense_power, move_range, move_costs, defense_bonuses) {
+Hexwar.UnitType = function (name, img, img_x, img_y, attack_range, attack_power, defense_power, move_range, move_costs, defense_bonuses) {
 	this.name = name;
 	this.img = {src:img, x:img_x, y:img_y};
 	this.range = attack_range;

@@ -1,8 +1,10 @@
+goog.provide('Hexwar.TileFactory');
+
 /**
  * Is responsible for creating Tile objects
  * @constructor
  */
-function TileFactory() {
+Hexwar.TileFactory = function () {
 	this.tile_types = new Array();
 }
 
@@ -10,7 +12,7 @@ function TileFactory() {
  * Loads the tile types from server using ajax call
  * @param {String} url
  */
-TileFactory.prototype.loadFromServer = function(url) {
+Hexwar.TileFactory.prototype.loadFromServer = function(url) {
 	url = url || '/tile_types';
 	
 	var successFunction = function(data, textStatus, jqXHR) {
@@ -36,10 +38,10 @@ TileFactory.prototype.loadFromServer = function(url) {
 
 /**
  * Adds a tile type to the internal types array
- * @param {TileType} tile_type
+ * @param {Hexwar.TileType} tile_type
  * @return {Number} index of the added type
  */
-TileFactory.prototype.addTileType = function(tile_type) {
+Hexwar.TileFactory.prototype.addTileType = function(tile_type) {
 	this.tile_types.push(tile_type);
 	return this.tile_types.length-1;
 }
@@ -52,17 +54,17 @@ TileFactory.prototype.addTileType = function(tile_type) {
  * @param {Number} img_y
  * @return {Number} index of the added type
  */
-TileFactory.prototype.createTileType = function(name, img, img_x, img_y) {
-	var type = new TileType(name, img, img_x, img_y);
+Hexwar.TileFactory.prototype.createTileType = function(name, img, img_x, img_y) {
+	var type = new Hexwar.TileType(name, img, img_x, img_y);
 	return this.addTileType(type);
 }
 
 /**
  * Creates a Tile based on Type
- * @param {Number|String|TileType} type
+ * @param {Number|String|Hexwar.TileType} type
  * @return {Tile}
  */
-TileFactory.prototype.createTile = function(type) {
+Hexwar.TileFactory.prototype.createTile = function(type) {
 	if (typeof type == 'string') {
 		var n=0;
 		// Is this really a number in a string?
@@ -81,7 +83,7 @@ TileFactory.prototype.createTile = function(type) {
 		throw 'TileFactory::createTile() unable to find tile type - '+type;
 	} else if (typeof type == 'number') {
 		return this._createTile(this.tile_types[type]);
-	} else if (type instanceof  TileType) {
+	} else if (type instanceof  Hexwar.TileType) {
 		return this._createTile(type);
 	} else {
 		throw 'TileFactory::createTile() unknown type - '+typeof type;
@@ -91,10 +93,10 @@ TileFactory.prototype.createTile = function(type) {
 /**
  * Creates an Tile of type
  * @protected
- * @param {TileType} tile_type
+ * @param {Hexwar.TileType} tile_type
  * @return {Tile}
  */
-TileFactory.prototype._createTile = function(tile_type) {
+Hexwar.TileFactory.prototype._createTile = function(tile_type) {
 	var tile = new Tile(tile_type);
 	tile.img = tile_type.img;
 	tile.gfx_css_class = 'hex';

@@ -1,9 +1,9 @@
-
+goog.provide('Hexwar.MapViewMask');
 /**
  * Represents a mask to be drawn over a map
  * @param {Map} map
  */
-function MapViewMask(map) {
+Hexwar.MapViewMask = function (map) {
 	this.map = map;
 	this.mask = null;
 	
@@ -18,12 +18,12 @@ function MapViewMask(map) {
  * The image for a black masked tile
  * @type {String}
  */
-MapViewMask.prototype.mask_img_black = '/images/misc/mask.png';
+Hexwar.MapViewMask.prototype.mask_img_black = '/images/misc/mask.png';
 /**
  * The image for a red masked tile
  * @type {String}
  */
-MapViewMask.prototype.mask_img_red = '/images/misc/mask-red.png';
+Hexwar.MapViewMask.prototype.mask_img_red = '/images/misc/mask-red.png';
 
 /**
  * Gets the value for a position
@@ -31,7 +31,7 @@ MapViewMask.prototype.mask_img_red = '/images/misc/mask-red.png';
  * @param {Number} y
  * @return {Number}
  */
-MapViewMask.prototype.get = function(x,y) {
+Hexwar.MapViewMask.prototype.get = function(x,y) {
 	return this.mask.get(x,y);
 }
 
@@ -41,7 +41,7 @@ MapViewMask.prototype.get = function(x,y) {
  * @param {Number} y
  * @param {Number} val
  */
-MapViewMask.prototype.set = function(x,y, val) {
+Hexwar.MapViewMask.prototype.set = function(x,y, val) {
 	this.mask.set(x,y,val);
 }
 
@@ -53,7 +53,7 @@ MapViewMask.prototype.set = function(x,y, val) {
  * @param {Function} mask_callback
  * @return {Number} the number of hexes masked
  */
-MapViewMask.prototype.unmaskAdjacent = function(x,y,max_depth, mask_callback) {
+Hexwar.MapViewMask.prototype.unmaskAdjacent = function(x,y,max_depth, mask_callback) {
 	this.generateDistanceMap(x,y,max_depth);
 	mask_callback = mask_callback || (function(x,y,val) { return this.mask_clear; }).createDelegate(this);
 	this.filterByCallback(mask_callback);
@@ -76,7 +76,7 @@ MapViewMask.prototype.unmaskAdjacent = function(x,y,max_depth, mask_callback) {
  * @param {Number} max_depth
  * @param {Number} current_depth
  */
-MapViewMask.prototype.generateDistanceMap = function(x,y,max_depth, current_depth) {
+Hexwar.MapViewMask.prototype.generateDistanceMap = function(x,y,max_depth, current_depth) {
 	var callback = function(x,y,current_depth) {
 		this.mask.set(x,y, current_depth);
 	}
@@ -87,16 +87,16 @@ MapViewMask.prototype.generateDistanceMap = function(x,y,max_depth, current_dept
  * Iterates through each value in the array and passes it to callback function, then sets the value to what the callback returned.
  * @param {Function}
  */
-MapViewMask.prototype.filterByCallback = function(callback) {
+Hexwar.MapViewMask.prototype.filterByCallback = function(callback) {
 	this.mask.filterByCallback(callback);
 }
 
 /**
  * Merges two another mask into this one
- * @param {MapViewMask} merger
+ * @param {Hexwar.MapViewMask} merger
  * @param {Array} values (optional) the values to merge over. Defaults to [ this.mask_clear, this.mask_red ].
  */
-MapViewMask.prototype.merge = function(merger, values) {
+Hexwar.MapViewMask.prototype.merge = function(merger, values) {
 	values = values || [ this.mask_clear, this.mask_red ];
 	
 	for (var y=0; y < this.map.height; y++) {
@@ -112,7 +112,7 @@ MapViewMask.prototype.merge = function(merger, values) {
  * Masks all hexes with a unit on it
  * @param {Number} value (optional) the value to mask with.  Defaults to this.mask_black
  */
-MapViewMask.prototype.maskOccupied = function(value) {
+Hexwar.MapViewMask.prototype.maskOccupied = function(value) {
 	value = value !== undefined ? value : this.mask_black;
 	for (n=0; n< this.map.unit_data.length; n++) {
 		this.mask.set(this.map.unit_data[n].x, this.map.unit_data[n].y, value);
@@ -125,7 +125,7 @@ MapViewMask.prototype.maskOccupied = function(value) {
  * @param {Number} fill (optional) Defaults to this.mask_clear
  * @param {Number} pad (optional) Defaults to this.mask_black
  */
-MapViewMask.prototype.generateMask = function(coords, fill, pad) {
+Hexwar.MapViewMask.prototype.generateMask = function(coords, fill, pad) {
 	if(fill == undefined) { fill = this.mask_clear; }
 	if(pad == undefined) { pad = this.mask_black; }
 	if(coords == null) { coords = []; }

@@ -1,21 +1,22 @@
+goog.provide('Hexwar.MapView');
 /**
  * Renders a map to a container
  * @constructor
  * @param {jQueryObject} container
  */
-function MapView(container) {
+Hexwar.MapView = function (container) {
 	this.container = container;
 	this.container.click(this.onClick.createDelegate(this));
 	this.container.mapview = this;
 	this.delegateClick = function(x, y) {};
 	this.selected = null;
-	this.renderer = new jQueryRenderer(container);
+	this.renderer = new Hexwar.jQueryRenderer(container);
 	this.renderer.addLayer('map');
 	this.renderer.addLayer('units');
 	this.renderer.addLayer('mask');
 	this.renderer.addLayer('text');
 	this.showCoords = false;
-	this.cursor = new RenderableItem('/images/misc/hex-highlight.png');
+	this.cursor = new Hexwar.RenderableItem('/images/misc/hex-highlight.png');
 	this.cursor.gfx_css_class = 'hex';
 }
 
@@ -23,7 +24,7 @@ function MapView(container) {
  * Sets the function to delegate a map click to
  * @param {Function} fn
  */
-MapView.prototype.setDelegateClick = function(fn) {
+Hexwar.MapView.prototype.setDelegateClick = function(fn) {
 	this.delegateClick = fn;
 }
 
@@ -52,12 +53,12 @@ MapView.prototype.onClick = function(event) {
  * @param {Number} y the map coordinate
  * @param {Tile} tile
  */
-MapView.prototype.drawTile = function(x, y, tile) {
+Hexwar.MapView.prototype.drawTile = function(x, y, tile) {
 	var hex_pos = this.calculateHexPosition(x,y);
 
 	this.renderer.drawItemToLayer('map', hex_pos.x, hex_pos.y, tile);
 	if (this.showCoords) {
-		var text = new RenderableItem();
+		var text = new Hexwar.RenderableItem();
 		text.gfx_css_class = 'hex';
 		text.text = { text:x+','+y, css_class:'coord' };
 		this.renderer.drawItemToLayer('text', hex_pos.x, hex_pos.y, text);
@@ -70,7 +71,7 @@ MapView.prototype.drawTile = function(x, y, tile) {
  * @param {Number} y the map coordinate
  * @param {Unit} unit
  */
-MapView.prototype.drawUnit = function(x, y, unit) {
+Hexwar.MapView.prototype.drawUnit = function(x, y, unit) {
 	var hex_pos = this.calculateHexPosition(x,y);
 	this.renderer.drawItemToLayer('units', hex_pos.x, hex_pos.y, unit);	
 }
@@ -79,10 +80,10 @@ MapView.prototype.drawUnit = function(x, y, unit) {
  * Draws fading text to represent damages to units
  * @param {Array.<{x: number, y: number, text:string}>} array
  */
-MapView.prototype.drawDamages = function(array) {
+Hexwar.MapView.prototype.drawDamages = function(array) {
 	for (n=0; n < array.length; n++) {
 		var hex_pos = this.calculateHexPosition(array[n].x,array[n].y);
-		var text = new RenderableItem();
+		var text = new Hexwar.RenderableItem();
 		text.gfx_css_class = 'hex';
 		text.text = {text:array[n].text, css_class: 'damage'};
 		this.renderer.drawItemToLayer('text', hex_pos.x, hex_pos.y, text);
@@ -95,7 +96,7 @@ MapView.prototype.drawDamages = function(array) {
  * @param {Number} x the map coordinate
  * @param {Number} y the map coordinate
  */
-MapView.prototype.drawLocation = function(x,y) {
+Hexwar.MapView.prototype.drawLocation = function(x,y) {
 	this.drawTile(x, y, this.map.getTile(x,y));
 	this.drawUnit(x, y, this.map.getUnit(x,y));
 }
@@ -104,7 +105,7 @@ MapView.prototype.drawLocation = function(x,y) {
  * Draws all hexes and units from the map
  * @param {Map} map
  */
-MapView.prototype.drawMap = function(map) {
+Hexwar.MapView.prototype.drawMap = function(map) {
 	this.map = map;
 	
 	for (var y=0; y < this.map.height; y++) {
@@ -121,14 +122,14 @@ MapView.prototype.drawMap = function(map) {
 /**
  * uh... think about the name
  */
-MapView.prototype.hideCursor = function() {
+Hexwar.MapView.prototype.hideCursor = function() {
 	this.renderer.hideItem(this.cursor);
 }
 
 /**
  * uh... think about the name
  */
-MapView.prototype.showCursor = function() {
+Hexwar.MapView.prototype.showCursor = function() {
 	this.renderer.showItem(this.cursor);
 }
 
@@ -137,7 +138,7 @@ MapView.prototype.showCursor = function() {
  * @param {Number} x the map coordinate
  * @param {Number} y the map coordinate
  */
-MapView.prototype.setCursor = function(x,y) {
+Hexwar.MapView.prototype.setCursor = function(x,y) {
 	var hexPos = this.calculateHexPosition(x, y);
 	this.showCursor();
 	this.renderer.drawItemToLayer('cursor', hexPos.x, hexPos.y, this.cursor);
@@ -147,15 +148,15 @@ MapView.prototype.setCursor = function(x,y) {
 /**
  * Clears all MapViewMasks currently showing
  */
-MapView.prototype.clearMask = function() {
+Hexwar.MapView.prototype.clearMask = function() {
 	this.renderer.clearLayer('mask');
 }
 
 /**
  * Draws a MapViewMask.  This also clears any previous masks
- * @param {MapViewMask} mask
+ * @param {Hexwar.MapViewMask} mask
  */
-MapView.prototype.drawMask = function(mask) {
+Hexwar.MapView.prototype.drawMask = function(mask) {
 	this.clearMask();
 	for (var y=0; y < this.map.height; y++) {
 		for (var x=0; x < this.map.width; x++) {
@@ -163,12 +164,12 @@ MapView.prototype.drawMask = function(mask) {
 			var mask_hex = null;
 			switch(mask.get(x,y)) {
 				case mask.mask_black:
-					mask_hex = new RenderableItem(mask.mask_img_black);
+					mask_hex = new Hexwar.RenderableItem(mask.mask_img_black);
 					mask_hex.gfx_css_class = 'hex';
 					this.renderer.drawItemToLayer('mask', hex_pos.x, hex_pos.y, mask_hex);
 					break;
 				case mask.mask_red:
-					mask_hex = new RenderableItem(mask.mask_img_red);
+					mask_hex = new Hexwar.RenderableItem(mask.mask_img_red);
 					mask_hex.gfx_css_class = 'hex';
 					this.renderer.drawItemToLayer('mask', hex_pos.x, hex_pos.y, mask_hex);
 					break;
@@ -182,12 +183,12 @@ MapView.prototype.drawMask = function(mask) {
  * @todo needs to use Array2d
  * @param {Array} bitmap
  */
-MapView.prototype.drawTextBitmap = function(bitmap) {
+Hexwar.MapView.prototype.drawTextBitmap = function(bitmap) {
 	for (var y=0; y < this.map.height; y++) {
 		for (var x=0; x < this.map.width; x++) {
 			var hex_pos = this.calculateHexPosition(x,y);
 			
-			var text = new RenderableItem();
+			var text = new Hexwar.RenderableItem();
 			text.gfx_css_class = 'hex';
 			text.text = { text: bitmap[y][x]+'', css_class: 'coord' };
 			this.renderer.drawItemToLayer('text', hex_pos.x, hex_pos.y, text);			
@@ -210,7 +211,7 @@ MapView.prototype.calculateHexPosition = function(x,y) {
 /**
  * Clears all drawings
  */
-MapView.prototype.clear = function clear() {
+Hexwar.MapView.prototype.clear = function clear() {
 	this.renderer.clearScreen();
 }
 
