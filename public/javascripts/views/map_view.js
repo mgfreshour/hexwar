@@ -32,7 +32,7 @@ Hexwar.MapView.prototype.setDelegateClick = function(fn) {
  * Handles a click to the map container, translating it to map coordinates and passing it on to the delegate
  * @param {jQuery.event} event
  */
-MapView.prototype.onClick = function(event) {
+Hexwar.MapView.prototype.onClick = function(event) {
 	var mapCoords = Hexwar.Hex.convertScreenToMapCoords(
 			  event.pageX - this.container.offset().left
 			, event.pageY - this.container.offset().top);
@@ -58,10 +58,15 @@ Hexwar.MapView.prototype.drawTile = function(x, y, tile) {
 
 	this.renderer.drawItemToLayer('map', hex_pos.x, hex_pos.y, tile);
 	if (this.showCoords) {
-		var text = new Hexwar.RenderableItem();
-		text.gfx_css_class = 'hex';
-		text.text = { text:x+','+y, css_class:'coord' };
-		this.renderer.drawItemToLayer('text', hex_pos.x, hex_pos.y, text);
+		var hex_space = new Hexwar.RenderableItem();
+		var array_space = new Hexwar.RenderableItem();
+		hex_space.gfx_css_class = 'hex';
+		array_space.gfx_css_class = 'hex';
+		var coords = Hexwar.Hex.convertArrayToHexCoords(x,y);
+		hex_space.text = { text:coords.x+','+coords.y, css_class:'coord' };
+		array_space.text = { text:x+','+y, css_class:'sub_coord' };
+		this.renderer.drawItemToLayer('text', hex_pos.x, hex_pos.y, hex_space);
+		this.renderer.drawItemToLayer('text', hex_pos.x, hex_pos.y, array_space);
 	}
 }
 
@@ -201,7 +206,7 @@ Hexwar.MapView.prototype.drawTextBitmap = function(bitmap) {
  * @param {Number} x the map coordinate
  * @param {Number} y the map coordinate
  */
-MapView.prototype.calculateHexPosition = function(x,y) {
+Hexwar.MapView.prototype.calculateHexPosition = function(x,y) {
 	hex_pos = Hexwar.Hex.calculateHexPosition(x,y);
 	hex_pos.x += this.container.offset().left;
 	hex_pos.y += this.container.offset().top;

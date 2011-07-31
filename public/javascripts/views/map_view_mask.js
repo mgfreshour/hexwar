@@ -77,10 +77,22 @@ Hexwar.MapViewMask.prototype.unmaskAdjacent = function(x,y,max_depth, mask_callb
  * @param {Number} current_depth
  */
 Hexwar.MapViewMask.prototype.generateDistanceMap = function(x,y,max_depth, current_depth) {
+	var a = Hexwar.Hex.convertArrayToHexCoords(x,y);
+	var b;
+	for (var y=0; y < this.map.height; y++) {
+		for (var x=0; x < this.map.width; x++) {
+			b = Hexwar.Hex.convertArrayToHexCoords(x,y);
+			this.mask.set(x,y, Hexwar.Hex.calculateDistanceHexSpace(a,b));
+		}
+	}
+	/*
 	var callback = function(x,y,current_depth) {
-		this.mask.set(x,y, current_depth);
+		if (this.mask.get(x,y) > current_depth) {
+			this.mask.set(x,y, current_depth);
+		}
 	}
 	Hexwar.Hex.walkAdjacent(x,y,max_depth, callback.createDelegate(this), this.map.height, this.map.width);
+	*/
 }
 
 /**

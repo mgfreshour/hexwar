@@ -203,7 +203,12 @@ Hexwar.UnitController.prototype.generateMoveMask = function(unit) {
 	//this.mapview.drawTextBitmap(viewmask.mask.data);
 
 	// Draw the mask!
-	this.mapview.drawMask(viewmask);
+	//this.mapview.drawMask(viewmask);
+	
+	distance_map = new Hexwar.MapViewMask(this.map);
+	distance_map.generateDistanceMap(unit.x, unit.y, 4);
+	this.mapview.drawTextBitmap(distance_map.mask.data);
+	return;
 	
 	return viewmask;
 }
