@@ -91,14 +91,14 @@ Hexwar.Hex.walkAdjacent = function(x,y,max_depth, callback, height, width, curre
 	if (current_depth-1 == max_depth) {
 		return;
 	}
-	var coords = Hex.getAdjacentCoords(x,y,height, width);
+	var coords = Hexwar.Hex.getAdjacentCoords(x,y,height, width);
 
 	// Walk thru the adjacent squares and recurse into their neighbors
 	for (var n=0; n < coords.length; n++) {
 		if (bitmap.get(coords[n].x,coords[n].y) >= current_depth-max_depth || bitmap.get(coords[n].x,coords[n].y) == 0) {
 			bitmap.set(coords[n].x,coords[n].y, current_depth);
 			callback(coords[n].x, coords[n].y, current_depth, prev_x, prev_y);
-			Hex.walkAdjacent(coords[n].x, coords[n].y, max_depth, callback, height, width, current_depth+1, bitmap, coords[n].x, coords[n].y);
+			Hexwar.Hex.walkAdjacent(coords[n].x, coords[n].y, max_depth, callback, height, width, current_depth+1, bitmap, coords[n].x, coords[n].y);
 		}
 	}
 }
@@ -121,8 +121,8 @@ Hexwar.Hex.convertScreenToMapCoords = function(screenX, screenY) {
 	// --- Convert mouse click to hex grid coordinate
 	// --- Code is from http://www-cs-students.stanford.edu/~amitp/Articles/GridToHex.html
 	// ----------------------------------------------------------------------
-	x = (posx - (HEX_HEIGHT/2)) / (HEX_HEIGHT * 0.75);
-	y = (posy - (HEX_HEIGHT/2)) / HEX_HEIGHT;
+	x = (posx - (Hexwar.Hex.HEX_HEIGHT/2)) / (Hexwar.Hex.HEX_HEIGHT * 0.75);
+	y = (posy - (Hexwar.Hex.HEX_HEIGHT/2)) / Hexwar.Hex.HEX_HEIGHT;
 	z = -0.5 * x - y;
 	y = -0.5 * x + y;
 
@@ -159,7 +159,7 @@ Hexwar.Hex.convertScreenToMapCoords = function(screenX, screenY) {
  */
 Hexwar.Hex.calculateHexPosition = function(mapX, mapY) {	
 	return {
-		x: (mapX * HEX_SIDE * 1.5),
-	 	y: (mapY * HEX_HEIGHT + (mapX % 2) * HEX_HEIGHT / 2)
+		x: (mapX * Hexwar.Hex.HEX_SIDE * 1.5),
+	 	y: (mapY * Hexwar.Hex.HEX_HEIGHT + (mapX % 2) * Hexwar.Hex.HEX_HEIGHT / 2)
 	};
 }

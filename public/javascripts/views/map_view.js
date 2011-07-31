@@ -114,8 +114,8 @@ MapView.prototype.drawMap = function(map) {
 	}
 
 	// Resize the container
-	this.container.css('width', this.map.width*HEX_HEIGHT*0.75+HEX_HEIGHT*0.25);
-	this.container.css('height', this.map.height*HEX_HEIGHT + HEX_HEIGHT/2)
+	this.container.css('width', this.map.width*Hexwar.Hex.HEX_HEIGHT*0.75+Hexwar.Hex.HEX_HEIGHT*0.25);
+	this.container.css('height', this.map.height*Hexwar.Hex.HEX_HEIGHT + Hexwar.Hex.HEX_HEIGHT/2)
 }
 
 /**
