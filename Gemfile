@@ -19,6 +19,7 @@ gem 'omniauth'
 gem 'acts_as_list'
 gem 'koala', '~>1.0.0'
 gem 'jammit'
+gem 'closure-compiler'
 gem 'win32-open3-19', :platforms => [:mswin, :mingw]
 gem 'win32console', :platforms => [:mswin, :mingw]
 gem 'rake', '~>0.9.2'
