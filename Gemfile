@@ -17,10 +17,11 @@ gem 'capistrano'
 # Bundle the extra gems:
 gem 'omniauth'
 gem 'acts_as_list'
-gem 'koala', "~>1.0.0"
+gem 'koala', '~>1.0.0'
 gem 'jammit'
 gem 'win32-open3-19', :platforms => [:mswin, :mingw]
 gem 'win32console', :platforms => [:mswin, :mingw]
+gem 'rake', '~>0.9.2'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
