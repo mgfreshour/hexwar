@@ -65,13 +65,7 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
  * @param {Number} y
  */
 Hexwar.GameController.prototype.onMapClick = function(x,y) {
-	//this.unit_controller.attemptUnitSelect(x,y);
-	
-	distance_map = new Hexwar.MapViewMask(this.map);
-	distance_map.generateDistanceMap(x, y, 4);
-	this.mapview.renderer.clearLayer('text');
-	this.mapview.drawTextBitmap(distance_map.mask.data);
-	return;
+	this.unit_controller.attemptUnitSelect(x,y);
 }
 
 /**
