@@ -1,8 +1,9 @@
 Hexwar
 ======
 
-Hexwar is a simple turn based, hexagon map, strategy game in the tradition of *Panzer
-General*, [*Uniwar*](http://uniwar.com), and [Battle for Wesnoth](www.wesnoth.org).
+Hexwar is a simple turn based, hexagon map, strategy game in the tradition of [Panzer
+General](http://en.wikipedia.org/wiki/Panzer_General), [*Uniwar*](http://uniwar.com),
+and [Battle for Wesnoth](www.wesnoth.org).
 
 It's backend is in Ruby on Rails, but most of game is written in pure javascript 
 with jQuery. The graphics are taken from the excellent opensourced game 
