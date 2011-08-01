@@ -127,14 +127,6 @@ Math.signum = function(x){
   else return 0;
 }
 
-/**
- * A temporary method for logging to a #log html element
- * @param {String} str string to log
- */
-function log(str) {
-	$('#log').val($('#log').val()+str+"\n");
-}
-
 //  IE doesn't have Array.indexOf(), so define a version here.
 if (!Array.indexOf) {
   Array.prototype.indexOf = function (obj, start) {

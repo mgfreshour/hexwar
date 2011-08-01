@@ -29,33 +29,32 @@
 	<script src="/ie6/warning.js"></script>
 	<script>$(function(){e("/ie6/")})</script>
 	<![endif]-->
-	
+  
+  <script type="text/javascript">
+    $(function() {
+      $('.button').button();
+    });
+  </script>
+
 </head>
 <body>
-	<script type="text/javascript">
-	$(function() {
-		$('.button').button();
-	})
-	</script>
+  <fieldset id="admin_nav">
+    <legend><%= @current_player.name %></legend>
+    <% if @current_player && @current_player.admin %>
+      <%= link_to 'Maps', maps_path, :class=>'button' %>
+      <%= link_to 'Players', players_path, :class=>'button' %>
+      <%= link_to 'UnitTypes', unit_types_path, :class=>'button' %>
+      <%= link_to 'TileTypes', tile_types_path, :class=>'button' %>
+    <% end %>
+    <%= link_to 'Games', games_path, :class=>'button' %>
+    <%= link_to "Sign Out", signout_path, :class=>'button' %> 
+    <br /> 
+  </fieldset>
+
+  <br />
 
 	<%= yield %>
 
 
-	<br />
-	<% if @current_player && @current_player.admin %>
-		<fieldset id="admin_nav">
-		    <legend>Admin - <%= @current_player.name %></legend>
-			<%= link_to 'Maps', maps_path, :class=>'button' %>
-			<%= link_to 'Games', games_path, :class=>'button' %>
-			<%= link_to 'Players', players_path, :class=>'button' %>
-			<%= link_to 'UnitTypes', unit_types_path, :class=>'button' %>
-			<%= link_to 'TileTypes', tile_types_path, :class=>'button' %>
-			<br />
-			<%= link_to "Sign Out", signout_path, :class=>'button' %>  
-			<br />
-
-			<textarea id="log" cols="90" rows="20"></textarea>
-		</fieldset>
-	<% end %>
 </body>
 </html>

@@ -96,7 +96,7 @@ Hexwar.GameController.prototype.saveAction = function(x,y, action, target_x, tar
 				}
 			 }
 		, success: function(data, textStatus, jqXHR) {
-			log('Action Save Successful');
+		  debug.log('Action Save Successful');
 		}
 		, error: function() {
 			modalAlert("Save Failed", "Something went horribly wrong!!!");
@@ -126,7 +126,7 @@ Hexwar.GameController.prototype.endTurn = function() {
 				, id: this.id
 			 }
 		, success: function(data, textStatus, jqXHR) {
-			log('Turn Ended Successfully');
+			debug.log('Turn Ended Successfully');
 			this.notifyListeners('turn_ended');
 		}.createDelegate(this)
 		, error: function() {

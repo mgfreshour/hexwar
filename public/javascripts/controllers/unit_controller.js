@@ -109,8 +109,8 @@ Hexwar.UnitController.prototype.battle = function(attacker, defender) {
 	mask.generateDistanceMap(attacker.x, attacker.y, max_attack_range);
 	
 	//((Attack Strength + All bonuses) * HP of Attacker)*.05 � Defense Strength * 0.14  = Amount of HP lost
-	console.log(attacker);
-	console.log(defender);
+	debug.log(attacker);
+	debug.log(defender);
 
 	var distance = mask.get(defender.x, defender.y);
 	var defender_bonus = defender.type.defense_bonuses[this.map.getTile(defender.x, defender.y).type.name];
@@ -278,7 +278,7 @@ Hexwar.UnitController.prototype.addEventsToAllUnits = function() {
  * @param {Unit} unit
  */
 Hexwar.UnitController.prototype.logUnitMove = function (x,y, unit) {
-	log("Unit Move ("+unit.x+','+unit.y+") -> ("+x+','+y+')');
+	debug.log("Unit Move ("+unit.x+','+unit.y+") -> ("+x+','+y+')');
 	this.game.saveAction(unit.x, unit.y, 'move', x, y, 0);
 }
 
@@ -289,7 +289,7 @@ Hexwar.UnitController.prototype.logUnitMove = function (x,y, unit) {
  * @param {Unit} unit
  */
 Hexwar.UnitController.prototype.logUnitChangeHealth = function(new_health, delta, unit) {
-	log("Unit Health ("+unit.x+','+unit.y+") -> ("+delta+')');
+	debug.log("Unit Health ("+unit.x+','+unit.y+") -> ("+delta+')');
 	this.game.saveAction(unit.x, unit.y, 'health_change', 0, 0, delta);
 }
 
@@ -298,7 +298,7 @@ Hexwar.UnitController.prototype.logUnitChangeHealth = function(new_health, delta
  * @param {Unit} unit
  */
 Hexwar.UnitController.prototype.logUnitDeath = function(unit) {
-	log("Unit Death ("+unit.x+','+unit.y+")");
+	debug.log("Unit Death ("+unit.x+','+unit.y+")");
 	this.game.saveAction(unit.x, unit.y, 'death', 0, 0, 0);
 }
 

@@ -11,6 +11,7 @@ javascripts:
     - public/javascripts/rails.js
   common:
     # Google Closure Library
+    - public/javascripts/library/ba-debug.js
     - public/javascripts/library/closure/closure/goog/base.js
     - public/javascripts/library/closure/closure/goog/deps.js
     - public/javascripts/library/closure/closure/goog/debug/error.js
