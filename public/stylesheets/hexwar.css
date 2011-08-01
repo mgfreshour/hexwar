@@ -65,6 +65,19 @@ position: absolute;
 	z-index: 40;
 	text-align: center;
 }
+.sub_coord {
+		position: absolute;
+		top: 20px;
+		left: 10px;
+		padding: 10px 10px;
+		font-size: 20px;
+		color: #DDDDDD;
+		text-shadow: 2px 2px 8px #000; /* horizontal-offset vertical-offset 'blur' colour */
+	  -moz-text-shadow: 2px 2px 8px #000;
+	  -webkit-text-shadow: 2px 2px 8px #000;
+		z-index: 40;
+		text-align: center;
+	}
 .hex_note {
 	position: absolute;
 	top: 0px;

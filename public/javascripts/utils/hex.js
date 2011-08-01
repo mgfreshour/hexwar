@@ -1,4 +1,5 @@
 goog.provide('Hexwar.Hex');
+
 /**
  * Class that contains functions for working with a hex map
  * @constructor
@@ -162,4 +163,36 @@ Hexwar.Hex.calculateHexPosition = function(mapX, mapY) {
 		x: (mapX * Hexwar.Hex.HEX_SIDE * 1.5),
 	 	y: (mapY * Hexwar.Hex.HEX_HEIGHT + (mapX % 2) * Hexwar.Hex.HEX_HEIGHT / 2)
 	};
+}
+
+Hexwar.Hex.convertArrayToScreenCoords = function(x,y) {
+	return {
+		x: (x * Hexwar.Hex.HEX_SIDE * 1.5),
+	 	y: (y * Hexwar.Hex.HEX_HEIGHT + (x % 2) * Hexwar.Hex.HEX_HEIGHT / 2)
+	};
+}
+
+Hexwar.Hex.convertHexToArrayCoords = function(x, y) {
+	return {
+		  x: x + y
+		, y: Math.floor((x+y)/2) -y
+	};
+}
+
+Hexwar.Hex.convertArrayToHexCoords = function(x, y) {
+	return {
+		  x: y + Math.ceil(x/2)
+		, y:-1*(y - Math.floor(x/2))
+	};
+}
+
+Hexwar.Hex.calculateDistanceHexSpace = function(a, b) {
+	var dx = b.x - a.x;
+	var dy = b.y - a.y;
+
+  if (Math.signum(dx) != Math.signum(dy)) {
+		return Math.max(Math.abs(dx), Math.abs(dy));
+	} else {
+		return Math.abs(dx) + Math.abs(dy);
+	}
 }
