@@ -226,7 +226,7 @@ human_griffin:
   move_cost_swamp: 1
   move_cost_path: 1
   move_cost_castle: 1
-  move_cost_water: 99
+  move_cost_water: 1
   move_cost_grass: 1
   defense_bonus_desert: 0
   defense_bonus_city: 0
