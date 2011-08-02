@@ -1,8 +1,26 @@
-<%= include_javascripts :game %> <div id="hexmap01" class="hexmap"></div>
-<div style="display:inline-block">
-	<%= @game.name %>
-	<%= render :partial => 'player_list', :locals => { :players=>@game.game_players, :game=>@game } %>
-</div>
+<%= include_javascripts :game %> 
+
+<table>
+  <tr>
+    <td>
+      <strong><%= @game.name %></strong>
+    </td>
+    <td style="float:right">
+      <%= image_tag 'icons/coins.png' %>9,843
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <div id="hexmap01" class="hexmap"></div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <%= render :partial => 'player_list', :locals => { :players=>@game.game_players, :game=>@game } %>
+    </td>
+  </tr>
+</table>
+
 <script type="text/javascript">
 	$(function() {
 		var map = new Hexwar.Map;

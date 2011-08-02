@@ -18,16 +18,26 @@
   <div class="field">
     <%= f.label :img %><br />
     <%= f.text_field :img %>
+    X <%= f.text_field :img_x %>
+    Y <%= f.text_field :img_y %>
   </div>
-	  <div class="field">
-	    <%= f.label :attack_range %>
-	    <%= f.select(:attack_range, (1..9).to_a) %>
-	  </div>
-		  <div class="field">
-		    <%= f.label :move_range %>
-		    <%= f.select(:move_range, (1..99).to_a) %>
-		  </div>
-
+  <div class="field">
+    <%= f.label :attack_range %>
+    <%= f.select(:attack_range, (1..9).to_a) %>
+  </div>
+  <div class="field">
+    <%= f.label :move_range %>
+    <%= f.select(:move_range, (1..9).to_a) %>
+  </div>
+  <div class="field">
+    <%= f.label :attack_power %>
+    <%= f.select(:attack_power, (1..99).to_a) %>
+  </div>
+  <div class="field">
+    <%= f.label :defense_power %>
+    <%= f.select(:defense_power, (1..99).to_a) %>
+  </div>
+  
 	<table class="model_index">
 		<tr><th></th><th>Move Cost</th><th>Defense Bonus</th></tr>
 		<% @tile_types.each do |tile_type| %>
