@@ -4,87 +4,102 @@ grass:
   img_x: 0
   img_y: 0  
   position: 1
+  ownable: false
 dirt:
   name: "dirt"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 72    
   position: 2
+  ownable: false
 city:
   name: "city"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 144 
   position: 3
+  ownable: true
 castle: 
   name: "castle"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 216
   position: 4
+  ownable: true
 water: 
   name: "water"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 288
   position: 5
+  ownable: false
 bridgeLeft:
   name: "bridge_left"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 360
   position: 6
+  ownable: false
 bridgeRight:
   name: "bridge_right"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 432
   position: 7
+  ownable: false
 bridgeCenter:
   name: "bridge_center"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 504
   position: 8
+  ownable: false
 path:
   name: "path"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 576
   position: 9
+  ownable: false
 swamp:
   name: "swamp"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 648
   position: 10
+  ownable: false
 desert: 
   name: "desert"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 720
   position: 11
+  ownable: false
 oasis: 
   name: "oasis"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 792
   position: 12
+  ownable: false
 forest:
   name: "forest"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 864
   position: 13
+  ownable: false
 hills:
   name: "hills"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 936
   position: 14
+  ownable: false
 mountains:
   name: "mountains"
   img: "/images/tiles.png"
   img_x: 0
   img_y: 1008
   position: 15
+  ownable: false

@@ -19,7 +19,7 @@ Hexwar.TileFactory.prototype.loadFromServer = function(url) {
 		var obj;
 		for (var n=0; n < data.length; n++) {
 			obj = data[n].tile_type;
-			this.createTileType(obj.name, obj.img, obj.img_x, obj.img_y);
+			this.createTileType(obj.name, obj.img, obj.img_x, obj.img_y, obj.ownable);
 	 	}
 	};
 	

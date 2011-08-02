@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110729153110) do
+ActiveRecord::Schema.define(:version => 20110802151528) do
 
   create_table "game_players", :force => true do |t|
     t.integer  "game_id"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20110729153110) do
     t.datetime "updated_at"
     t.integer  "img_x",      :default => 0, :null => false
     t.integer  "img_y",      :default => 0, :null => false
+    t.boolean  "ownable"
   end
 
   create_table "turn_actions", :force => true do |t|

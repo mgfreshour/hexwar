@@ -7,6 +7,7 @@ class TileType < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: tile_types
@@ -19,5 +20,6 @@ end
 #  updated_at :datetime
 #  img_x      :integer         default(0), not null
 #  img_y      :integer         default(0), not null
+#  ownable    :boolean
 #
 
