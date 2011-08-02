@@ -54,8 +54,8 @@ Hexwar.TileFactory.prototype.addTileType = function(tile_type) {
  * @param {Number} img_y
  * @return {Number} index of the added type
  */
-Hexwar.TileFactory.prototype.createTileType = function(name, img, img_x, img_y) {
-	var type = new Hexwar.TileType(name, img, img_x, img_y);
+Hexwar.TileFactory.prototype.createTileType = function(name, img, img_x, img_y, ownable) {
+	var type = new Hexwar.TileType(name, img, img_x, img_y, ownable);
 	return this.addTileType(type);
 }
 

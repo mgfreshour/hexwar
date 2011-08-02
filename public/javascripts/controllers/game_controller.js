@@ -34,15 +34,25 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
 	url = url || '/games/get_turn?id='+this.id;
 	
 	var successFunction = function(data, textStatus, jqXHR) {
-		var x,y, obj;
+		var x,y, unit, tile;
 		this.map.clearUnits();
 
 		goog.structs.forEach(data.game_turn.current_unit_data, function(unit) {
 			x = parseFloat(unit.x);
 			y = parseFloat(unit.y);
-			obj = this.unit_factory.createUnit(unit.type_index, unit.team, x, y, parseFloat(unit.health));
-			obj.acted = unit.team != data.game_turn.player
-			this.map.setUnit(x, y, obj);
+			unit = this.unit_factory.createUnit(unit.type_index, unit.team, x, y, parseFloat(unit.health));
+			unit.acted = unit.team != data.game_turn.player
+			
+			tile = this.map.getTile(x, y);
+
+      // Set the tile's owner
+      if (tile.type.ownable /* && unit.team != this.current_player*/) {
+        tile.owner = unit.team;
+        this.map.setTile(x,y,tile);
+      }
+    
+      // Add the unit to the playfield
+			this.map.setUnit(x, y, unit);
 		}, this);
 
 	};
@@ -110,8 +120,9 @@ Hexwar.GameController.prototype.saveAction = function(x,y, action, target_x, tar
  */
 Hexwar.GameController.prototype.endTurn = function() {	
 	var unit_data = [];
+	var u;
 	for (x=0; x < this.map.unit_data.length; x++) {
-		var u = this.map.unit_data[x];
+		u = this.map.unit_data[x];
 		// Set the unit to acted
 		u.acted = true;
 		// Save it!

@@ -11,13 +11,13 @@ Hexwar.MapView = function (container) {
 	this.delegateClick = function(x, y) {};
 	this.selected = null;
 	this.renderer = new Hexwar.jQueryRenderer(container);
-	this.renderer.addLayer('map');
+  this.renderer.addLayer('map');
+  this.renderer.addLayer('tile_owners');
 	this.renderer.addLayer('units');
 	this.renderer.addLayer('mask');
 	this.renderer.addLayer('text');
 	this.showCoords = false;
 	this.cursor = new Hexwar.RenderableItem('/images/misc/hex-highlight.png');
-	this.cursor.gfx_css_class = 'hex';
 }
 
 /**
@@ -57,11 +57,14 @@ Hexwar.MapView.prototype.drawTile = function(x, y, tile) {
 	var hex_pos = this.calculateHexPosition(x,y);
 
 	this.renderer.drawItemToLayer('map', hex_pos.x, hex_pos.y, tile);
+	
+	var owner = new Hexwar.RenderableItem();
+	owner.text = { text:tile.owner, css_class:'coord' };
+  this.renderer.drawItemToLayer('tile_owners', hex_pos.x, hex_pos.y, owner);
+  
 	if (this.showCoords) {
 		var hex_space = new Hexwar.RenderableItem();
 		var array_space = new Hexwar.RenderableItem();
-		hex_space.gfx_css_class = 'hex';
-		array_space.gfx_css_class = 'hex';
 		var coords = Hexwar.Hex.convertArrayToHexCoords(x,y);
 		hex_space.text = { text:coords.x+','+coords.y, css_class:'coord' };
 		array_space.text = { text:x+','+y, css_class:'sub_coord' };
@@ -89,7 +92,6 @@ Hexwar.MapView.prototype.drawDamages = function(array) {
 	for (n=0; n < array.length; n++) {
 		var hex_pos = this.calculateHexPosition(array[n].x,array[n].y);
 		var text = new Hexwar.RenderableItem();
-		text.gfx_css_class = 'hex';
 		text.text = {text:array[n].text, css_class: 'damage'};
 		this.renderer.drawItemToLayer('text', hex_pos.x, hex_pos.y, text);
 		this.renderer.fadeOutAndRemove(text, 500, 1000);
@@ -170,12 +172,10 @@ Hexwar.MapView.prototype.drawMask = function(mask) {
 			switch(mask.get(x,y)) {
 				case mask.mask_black:
 					mask_hex = new Hexwar.RenderableItem(mask.mask_img_black);
-					mask_hex.gfx_css_class = 'hex';
 					this.renderer.drawItemToLayer('mask', hex_pos.x, hex_pos.y, mask_hex);
 					break;
 				case mask.mask_red:
 					mask_hex = new Hexwar.RenderableItem(mask.mask_img_red);
-					mask_hex.gfx_css_class = 'hex';
 					this.renderer.drawItemToLayer('mask', hex_pos.x, hex_pos.y, mask_hex);
 					break;
 			}
@@ -194,7 +194,6 @@ Hexwar.MapView.prototype.drawTextBitmap = function(bitmap) {
 			var hex_pos = this.calculateHexPosition(x,y);
 			
 			var text = new Hexwar.RenderableItem();
-			text.gfx_css_class = 'hex';
 			text.text = { text: bitmap[y][x]+'', css_class: 'coord' };
 			this.renderer.drawItemToLayer('text', hex_pos.x, hex_pos.y, text);			
 		}

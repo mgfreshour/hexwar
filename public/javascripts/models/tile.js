@@ -7,5 +7,6 @@
 function Tile(type) {
 	this.type = type;
 	this.RenderableItem();
+	this.owner = '';
 }
 Tile.DeriveFrom(Hexwar.RenderableItem);

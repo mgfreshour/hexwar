@@ -13,5 +13,6 @@ Hexwar.RenderableItem = function RenderableItem(img) {
 	}
 	this.element_id = 0;
 	this.gfx_container = null;
+	this.gfx_css_class = 'hex';
 }
 

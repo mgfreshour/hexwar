@@ -84,6 +84,18 @@ Hexwar.Map.prototype.getTile = function(x,y) {
 
 /**
  * ...
+ * @param {Function} fn
+ */
+Hexwar.Map.prototype.forEachTile = function(fn) {
+  for (var x=0; x < this.width; x++) {
+    for (var y=0; y < this.height; y++) {
+      fn(this.tile_data.get(x,y), x, y);
+    }
+  }
+}
+
+/**
+ * ...
  * @param {Number} x the map coordinate
  * @param {Number} y the map coordinate
  * @param {Tile} value
