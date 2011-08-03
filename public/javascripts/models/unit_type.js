@@ -5,7 +5,9 @@ goog.provide('Hexwar.UnitType');
  * @param {String} img
  * @param {Number} img_x
  * @param {Number} img_y
- * @param {Number} range
+ * @param {Number} attack_range
+ * @param {Number} attack_power
+ * @param {Number} defense_power
  * @param {Number} move_range
  * @param {Array} move_costs
  * @param {Array} defense_bonuses

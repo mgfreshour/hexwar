@@ -90,6 +90,7 @@ Hexwar.UnitFactory.prototype.addUnitType = function(unit_type) {
  * @param {Number} img_y
  * @param {Number} attack_range
  * @param {Number} attack_power
+ * @param {Number} defense_power
  * @param {Number} move_range
  * @param {!Object} move_costs
  * @param {!Object} defense_bonuses
@@ -104,7 +105,7 @@ Hexwar.UnitFactory.prototype.createUnitType = function(name, img, img_x, img_y, 
 /**
  * Creates a Unit based on Type
  * @param {Number|String|Hexwar.UnitType} type
- * @param {String} name ex. 'red', 'blue', 'green', 'white'
+ * @param {String} team ex. 'red', 'blue', 'green', 'white'
  * @param {Number} x
  * @param {Number} y
  * @param {Number} health
@@ -140,6 +141,10 @@ Hexwar.UnitFactory.prototype.createUnit = function(type, team,x,y,health) {
  * Creates an Unit of type
  * @protected
  * @param {Hexwar.UnitType} unit_type
+ * @param {String} team
+ * @param {Number} x
+ * @param {Number} y
+ * @param {Number} health
  * @return {Hexwar.Unit}
  */
 Hexwar.UnitFactory.prototype._createUnit = function(unit_type, team,x,y,health) {

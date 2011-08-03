@@ -52,6 +52,7 @@ Hexwar.TileFactory.prototype.addTileType = function(tile_type) {
  * @param {String} img
  * @param {Number} img_x
  * @param {Number} img_y
+ * @param {Boolean} ownable
  * @return {Number} index of the added type
  */
 Hexwar.TileFactory.prototype.createTileType = function(name, img, img_x, img_y, ownable) {

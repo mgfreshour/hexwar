@@ -224,7 +224,7 @@ Hexwar.UnitController.prototype.generateZocMap = function(team) {
 			zoc_map.setMulti(coords, 1);
 		}
 	}	
-	for (var n=0; n<this.map.unit_data.length; n++) {
+	for (n=0; n<this.map.unit_data.length; n++) {
 			if (this.map.unit_data[n].team != team) {
 				x = this.map.unit_data[n].x;
 				y = this.map.unit_data[n].y;

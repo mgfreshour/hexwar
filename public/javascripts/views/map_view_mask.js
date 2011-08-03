@@ -60,8 +60,8 @@ Hexwar.MapViewMask.prototype.unmaskAdjacent = function(x,y,max_depth, mask_callb
 	
 	// count the number of unmasked
 	count = 0;
-	for (var y=0; y < this.map.height; y++) {
-		for (var x=0; x < this.map.width; x++) {
+	for (y=0; y < this.map.height; y++) {
+		for (x=0; x < this.map.width; x++) {
 			if(this.mask.get(x,y)) { count++; }
 		}
 	}

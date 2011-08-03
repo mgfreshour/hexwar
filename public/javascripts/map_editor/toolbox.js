@@ -61,7 +61,7 @@ Hexwar.Toolbox.prototype.initUnitPalette = function initUnitPalette() {
 
 		// The Unit List
     for (var n=0; n < unit_types.length; n++) {
-	    var row = $('<div id="unit_palette_'+n+'" unit_id="'+n+'" class="unit_palette_row"></div>');
+	    row = $('<div id="unit_palette_'+n+'" unit_id="'+n+'" class="unit_palette_row"></div>');
 			this.renderer._drawItem(unit_types[n], row,0,0,'toolbox_hex');
 			row.append('<br /><div>'+unit_types[n].name+'</div>');
        this.unitPalette.append(row);

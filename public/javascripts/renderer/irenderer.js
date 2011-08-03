@@ -28,8 +28,8 @@ Hexwar.iRenderer.prototype.clearScreen = function(layer_name) {}
 /**
  * Draws a RenderableItem to a layer
  * @param {String} layer_name
- * @param {Number} screen_x
- * @param {Number} screen_y
+ * @param {Number} x
+ * @param {Number} y
  * @param {Hexwar.RenderableItem} item
  */
 Hexwar.iRenderer.prototype.drawItemToLayer = function(layer_name, x, y, item) {}

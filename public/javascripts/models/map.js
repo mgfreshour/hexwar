@@ -145,12 +145,12 @@ Hexwar.Map.prototype.removeUnit = function(unit) {
  * @param {Number} y the map coordinate
  * @param {Unit} unit
  */
-Hexwar.Map.prototype.setUnit = function(x,y, value) {
+Hexwar.Map.prototype.setUnit = function(x,y, unit) {
 	var old_unit = this.getUnit(x,y);
 	if (old_unit) { this.removeUnit(old_unit); }
-	value.x = x;
-	value.y = y;
-	this.unit_data.push(value);
+	unit.x = x;
+	unit.y = y;
+	this.unit_data.push(unit);
 }
 
 /**

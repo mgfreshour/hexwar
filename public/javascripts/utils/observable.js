@@ -27,7 +27,7 @@ Observable.prototype.bindEvent = function(event_name, callback, scope){
 /**
  * Removes an observer from an event
  * @param {String} event_name is the name of the event to remove binding from.
- * @param {Function} callback is the function to remove.
+ * @param {Function} call_back is the function to remove.
  */
 Observable.prototype.unbindEvent = function(event_name, call_back){
 	event_name = event_name.toLowerCase();

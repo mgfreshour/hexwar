@@ -107,7 +107,6 @@ Hexwar.jQueryRenderer.prototype._getLayer = function(layer_name) {
  * @param {jQueryObject} container the jquery item to draw into
  * @param {Number} screen_x
  * @param {Number} screen_y
- * @param {String} css_class the CSS class to apply to element
  */
 Hexwar.jQueryRenderer.prototype._drawItem = function(item, container, screen_x, screen_y) {
 	if (item.gfx_container) {
