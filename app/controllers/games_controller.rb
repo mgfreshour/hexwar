@@ -117,7 +117,7 @@ class GamesController < ApplicationController
     else
       @game = @current_player.games.find(params[:id], :readonly => false)
     end
-logger.info "\n--------------------------------\n#{params[:game_winner].to_yaml}\n"
+
     unless params[:game_winner].blank?
       @game.save_current_turn(params[:game_turn])
       @game.game_winner = params[:game_winner]

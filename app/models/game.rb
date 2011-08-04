@@ -17,6 +17,7 @@ class Game < ActiveRecord::Base
     game_turn.start_unit_data = turn_data[:current_unit_data]
     game_turn.current_unit_data = turn_data[:current_unit_data]
     game_turn.current_tile_owner_data = turn_data[:current_tile_owner_data]
+    game_turn.resource_data = turn_data[:resource_data]
     game_turn.player = team
     game_turn.save
   end
@@ -24,6 +25,9 @@ class Game < ActiveRecord::Base
   def save_current_turn(turn_data)
     current_turn.current_unit_data = turn_data[:current_unit_data]
     current_turn.end_unit_data = turn_data[:current_unit_data]
+    logger.info "\n-----------------------------------------------------\n"
+    logger.info turn_data[:resource_data].to_yaml
+    current_turn.resource_data = turn_data[:resource_data]
     current_turn.save
   end
   

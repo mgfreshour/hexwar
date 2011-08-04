@@ -5,7 +5,9 @@ class GameTurn < ActiveRecord::Base
   serialize :current_unit_data
   serialize :end_unit_data
   serialize :current_tile_owner_data
+  serialize :resource_data
 end
+
 
 
 
@@ -24,5 +26,6 @@ end
 #  end_unit_data           :text
 #  player                  :string(255)
 #  current_tile_owner_data :text
+#  resource_data           :text
 #
 

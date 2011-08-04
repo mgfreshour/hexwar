@@ -9,6 +9,7 @@ Hexwar.GameController = function (map, id, current_turn_id, current_player) {
 	this.current_turn_id = current_turn_id;
 	this.id = id;
 	this.current_player= current_player;
+	this.resource_data = null;
 
 	this.tile_factory = Hexwar.ServiceContainer.get('TileFactory');
 	this.unit_factory = Hexwar.ServiceContainer.get('UnitFactory');
@@ -21,7 +22,7 @@ Hexwar.GameController = function (map, id, current_turn_id, current_player) {
 	this.returnToNormalMode();
 	
 	this.unit_controller = new Hexwar.UnitController(this, this.map, this.mapview, this.current_player);
-
+	
 	// Call parent c'tors
 	this.Observable();
 }
@@ -49,6 +50,7 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
 			}, this);
 		}
 
+		// Load the unit data if this is not a new game
 		if (data.game_turn.current_unit_data) {
 			this.map.clearUnits();
 			goog.structs.forEach(data.game_turn.current_unit_data, function(unit) {
@@ -60,7 +62,7 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
 				tile = this.map.getTile(x, y);
 
 	      // Set the tile's new owner
-	      if (tile.type.ownable /* && unit.team != this.current_player*/) {
+	      if (tile.type.ownable && unit.team != this.current_player) {
 	        tile.owner = unit.team;
 	        this.map.setTile(x,y,tile);
 	      }
@@ -70,7 +72,8 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
 			}, this);
 		}
 
-	};
+		this.updateGold(data.game_turn.resource_data);
+	}; // end successFunction()
 	
 	$.ajax({ 
 		  type:'GET'
@@ -82,6 +85,42 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
 			modalAlert("Something went horribly wrong while loading the turn data!!!", "Loading Failed");
 		}
 	});
+}
+
+/**
+ * ...
+ * @param {Object} resource_data
+ */
+Hexwar.GameController.prototype.updateGold = function(resource_data) {
+	this.resource_data = resource_data || {};
+
+	if (!this.resource_data[this.current_player]) {
+		this.resource_data[this.current_player] = 0;
+	}
+	// It come across as a string, let's fix that
+	else {
+		this.resource_data[this.current_player] = parseFloat(this.resource_data[this.current_player]);
+	}
+
+	// now, loop through all the ownable tiles and give current player
+	//  more based on what they own
+	this.map.forEachTile(function(tile,x,y) {
+    if (tile.type.ownable && tile.owner == this.current_player) {
+			this.resource_data[this.current_player] += 100;
+		}
+	}.createDelegate(this));
+	
+	console.log(this.resource_data);
+	
+	// Update the UI
+	this.updateResourceCounter();
+}
+
+/**
+ *
+ */
+Hexwar.GameController.prototype.updateResourceCounter = function() {	
+	$('#gold').html(this.resource_data[this.current_player]);
 }
 
 /**
@@ -193,6 +232,7 @@ Hexwar.GameController.prototype.endTurn = function() {
 					  game_turn: { 
 								current_unit_data: unit_data
 							, current_tile_owner_data: tile_owner_data
+							, resource_data: this.resource_data
 						}
 					, game_winner: game_winner ? game_winner : ''
 					, id: this.id
