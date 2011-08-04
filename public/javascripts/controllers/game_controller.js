@@ -184,10 +184,10 @@ Hexwar.GameController.prototype.checkForGameWinner = function() {
 		}
 	});
 	
-	var current_owner = false;
+	var current_owner;
 	var all_owned_by_one = true;
 	goog.structs.forEach(tile_owners_found, function(owner) {
-		if (current_owner == false) {
+		if (current_owner == undefined) {
 			current_owner = owner;
 		}
 		if (current_owner != owner) {
