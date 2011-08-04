@@ -14,6 +14,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: unit_types
@@ -60,5 +61,7 @@ end
 #  img_y                       :integer         default(0), not null
 #  attack_power                :integer
 #  defense_power               :integer
+#  move_cost_swamp_castle      :integer
+#  defense_bonus_swamp_castle  :integer
 #
 

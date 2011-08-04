@@ -14,7 +14,7 @@ test_map_001:
     \ '5':\n    type_index: '8'\n  '6':\n    type_index: '12'\n'4':\n  '0':\n    type_index:
     '9'\n  '1':\n    type_index: '9'\n  '2':\n    type_index: '0'\n  '3':\n    type_index:
     '8'\n  '4':\n    type_index: '8'\n  '5':\n    type_index: '12'\n  '6':\n    type_index:
-    '12'\n'5':\n  '0':\n    type_index: '9'\n  '1':\n    type_index: '9'\n  '2':\n
+    '12'\n'5':\n  '0':\n    type_index: '15'\n  '1':\n    type_index: '9'\n  '2':\n
     \   type_index: '9'\n  '3':\n    type_index: '8'\n  '4':\n    type_index: '12'\n
     \ '5':\n    type_index: '12'\n  '6':\n    type_index: '12'\n"
   created_at: '2011-07-30 16:17:31.116191'
@@ -27,5 +27,7 @@ test_map_001:
     \ team: red\n'4':\n  x: '1'\n  y: '3'\n  type_index: '6'\n  team: green\n'5':\n
     \ x: '0'\n  y: '3'\n  type_index: '6'\n  team: green\n'6':\n  x: '0'\n  y: '4'\n
     \ type_index: '6'\n  team: green\n'7':\n  x: '1'\n  y: '4'\n  type_index: '6'\n
-    \ team: green\n'8':\n  x: '2'\n  y: '5'\n  type_index: '6'\n  team: green\n"
+    \ team: green\n'8':\n  x: '2'\n  y: '5'\n  type_index: '6'\n  team: green\n'9':\n
+    \ x: '0'\n  y: '5'\n  type_index: '10'\n  team: green\n'10':\n  x: '1'\n  y: '0'\n
+    \ type_index: '1'\n  team: red\n"
   number_of_players: 2

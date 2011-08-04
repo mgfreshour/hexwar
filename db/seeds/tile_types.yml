@@ -103,3 +103,10 @@ mountains:
   img_y: 1008
   position: 15
   ownable: false
+swamp_castle:
+  name: "swamp_castle"
+  img: "/images/tiles.png"
+  img_x: 0
+  img_y: 1080
+  position: 16
+  ownable: true

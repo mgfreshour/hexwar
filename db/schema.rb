@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110804182752) do
+ActiveRecord::Schema.define(:version => 20110804194706) do
 
   create_table "game_players", :force => true do |t|
     t.integer  "game_id"
@@ -126,6 +126,8 @@ ActiveRecord::Schema.define(:version => 20110804182752) do
     t.integer  "img_y",                       :default => 0, :null => false
     t.integer  "attack_power"
     t.integer  "defense_power"
+    t.integer  "move_cost_swamp_castle"
+    t.integer  "defense_bonus_swamp_castle"
   end
 
 end

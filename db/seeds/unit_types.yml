@@ -23,6 +23,7 @@ human_peasant:
   move_cost_castle: 1
   move_cost_water: 99
   move_cost_grass: 1
+  move_cost_swamp_castle: 1
   defense_bonus_desert: 0
   defense_bonus_city: 0
   defense_bonus_hills: 0
@@ -38,6 +39,7 @@ human_peasant:
   defense_bonus_path: 0
   defense_bonus_mountains: 0
   defense_bonus_bridge_left: 0
+  defense_bonus_swamp_castle: 0
 
 human_archer:
   position: 2
@@ -64,6 +66,7 @@ human_archer:
   move_cost_castle: 1
   move_cost_water: 99
   move_cost_grass: 1
+  move_cost_swamp_castle: 1
   defense_bonus_desert: 0
   defense_bonus_city: 0
   defense_bonus_hills: 0
@@ -79,6 +82,7 @@ human_archer:
   defense_bonus_path: 0
   defense_bonus_mountains: 0
   defense_bonus_bridge_left: 0
+  defense_bonus_swamp_castle: 0
 
 human_fighter:
   position: 3
@@ -105,6 +109,7 @@ human_fighter:
   move_cost_castle: 1
   move_cost_water: 99
   move_cost_grass: 1
+  move_cost_swamp_castle: 1
   defense_bonus_desert: 0
   defense_bonus_city: 0
   defense_bonus_hills: 0
@@ -120,6 +125,7 @@ human_fighter:
   defense_bonus_path: 0
   defense_bonus_mountains: 0
   defense_bonus_bridge_left: 0
+  defense_bonus_swamp_castle: 0
 
 human_knight:
   position: 4
@@ -146,6 +152,7 @@ human_knight:
   move_cost_castle: 1
   move_cost_water: 99
   move_cost_grass: 1
+  move_cost_swamp_castle: 1
   defense_bonus_desert: 0
   defense_bonus_city: 0
   defense_bonus_hills: 0
@@ -161,6 +168,7 @@ human_knight:
   defense_bonus_path: 0
   defense_bonus_mountains: 0
   defense_bonus_bridge_left: 0
+  defense_bonus_swamp_castle: 0
 
 human_archmage:
   position: 5
@@ -187,6 +195,7 @@ human_archmage:
   move_cost_castle: 1
   move_cost_water: 99
   move_cost_grass: 1
+  move_cost_swamp_castle: 1
   defense_bonus_desert: 0
   defense_bonus_city: 0
   defense_bonus_hills: 0
@@ -202,6 +211,7 @@ human_archmage:
   defense_bonus_path: 0
   defense_bonus_mountains: 0
   defense_bonus_bridge_left: 0
+  defense_bonus_swamp_castle: 0
 
 human_griffin:
   position: 6
@@ -228,6 +238,7 @@ human_griffin:
   move_cost_castle: 1
   move_cost_water: 1
   move_cost_grass: 1
+  move_cost_swamp_castle: 1
   defense_bonus_desert: 0
   defense_bonus_city: 0
   defense_bonus_hills: 0
@@ -243,6 +254,7 @@ human_griffin:
   defense_bonus_path: 0
   defense_bonus_mountains: 0
   defense_bonus_bridge_left: 0
+  defense_bonus_swamp_castle: 0
 
 undead_peasant:
   position: 7
@@ -269,6 +281,7 @@ undead_peasant:
   move_cost_castle: 1
   move_cost_water: 99
   move_cost_grass: 1
+  move_cost_swamp_castle: 1
   defense_bonus_desert: 0
   defense_bonus_city: 0
   defense_bonus_hills: 0
@@ -284,6 +297,7 @@ undead_peasant:
   defense_bonus_path: 0
   defense_bonus_mountains: 0
   defense_bonus_bridge_left: 0
+  defense_bonus_swamp_castle: 0
 
 undead_archer:
   position: 8
@@ -310,6 +324,7 @@ undead_archer:
   move_cost_castle: 1
   move_cost_water: 99
   move_cost_grass: 1
+  move_cost_swamp_castle: 1
   defense_bonus_desert: 0
   defense_bonus_city: 0
   defense_bonus_hills: 0
@@ -325,6 +340,7 @@ undead_archer:
   defense_bonus_path: 0
   defense_bonus_mountains: 0
   defense_bonus_bridge_left: 0
+  defense_bonus_swamp_castle: 0
 
 undead_fighter:
   position: 9
@@ -351,6 +367,7 @@ undead_fighter:
   move_cost_castle: 1
   move_cost_water: 99
   move_cost_grass: 1
+  move_cost_swamp_castle: 1
   defense_bonus_desert: 0
   defense_bonus_city: 0
   defense_bonus_hills: 0
@@ -366,6 +383,7 @@ undead_fighter:
   defense_bonus_path: 0
   defense_bonus_mountains: 0
   defense_bonus_bridge_left: 0
+  defense_bonus_swamp_castle: 0
 
 undead_knight:
   position: 10
@@ -392,6 +410,7 @@ undead_knight:
   move_cost_castle: 1
   move_cost_water: 99
   move_cost_grass: 1
+  move_cost_swamp_castle: 1
   defense_bonus_desert: 0
   defense_bonus_city: 0
   defense_bonus_hills: 0
@@ -407,6 +426,7 @@ undead_knight:
   defense_bonus_path: 0
   defense_bonus_mountains: 0
   defense_bonus_bridge_left: 0
+  defense_bonus_swamp_castle: 0
 
 undead_necromancer:
   position: 11
@@ -433,6 +453,7 @@ undead_necromancer:
   move_cost_castle: 1
   move_cost_water: 99
   move_cost_grass: 1
+  move_cost_swamp_castle: 1
   defense_bonus_desert: 0
   defense_bonus_city: 0
   defense_bonus_hills: 0
@@ -448,6 +469,7 @@ undead_necromancer:
   defense_bonus_path: 0
   defense_bonus_mountains: 0
   defense_bonus_bridge_left: 0
+  defense_bonus_swamp_castle: 0
 
 undead_dragon:
   position: 12
@@ -474,6 +496,7 @@ undead_dragon:
   move_cost_castle: 1
   move_cost_water: 99
   move_cost_grass: 1
+  move_cost_swamp_castle: 1
   defense_bonus_desert: 0
   defense_bonus_city: 0
   defense_bonus_hills: 0
@@ -489,3 +512,4 @@ undead_dragon:
   defense_bonus_path: 0
   defense_bonus_mountains: 0
   defense_bonus_bridge_left: 0
+  defense_bonus_swamp_castle: 0
