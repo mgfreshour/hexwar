@@ -44,7 +44,7 @@ function activeRecordErrorsToString(obj) {
  *        this.y = 2;
  *    }
 */
-Function.prototype.DeriveFrom = function (fnSuper) {
+Function.prototype.DeriveFrom = function (fnSuper, super_name) {
     var prop;
     if (this == fnSuper) {
         alert("Error - cannot derive from self");
@@ -56,7 +56,8 @@ Function.prototype.DeriveFrom = function (fnSuper) {
             this.prototype[prop] = fnSuper.prototype[prop];
         }
     }
-    this.prototype[fnSuper.StName()] = fnSuper;
+		super_name = super_name || fnSuper.StName();
+    this.prototype[super_name] = fnSuper;
 }
 
 /**

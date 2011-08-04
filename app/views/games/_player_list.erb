@@ -1,8 +1,10 @@
 <ul class="player_list">
 	<% players.each do |game_player| %>
-		<li <%= 'class="player_turn"'.html_safe if game_player.team == game.current_turn.player %>>
+		<li>
+			<%= '<span class="ui-silk ui-silk-control-play"></span>'.html_safe if game_player.team == game.current_turn.player %>
 			<%= image_tag 'misc/flag-'+	game_player.team+'-icon.png'%><%= link_to game_player.player.name, game_player.player %>
-			<%= image_tag 'icons/user.png' if game_player.player == @current_player  %>
+			<%= '<span class="ui-silk ui-silk-user"></span>'.html_safe if game_player.player == @current_player  %>
+			
 		</li>
 	<% end %>
 </ul>

@@ -98,7 +98,7 @@ Hexwar.TileFactory.prototype.createTile = function(type) {
  * @return {Tile}
  */
 Hexwar.TileFactory.prototype._createTile = function(tile_type) {
-	var tile = new Tile(tile_type);
+	var tile = new Hexwar.Tile(tile_type);
 	tile.img = tile_type.img;
 	tile.gfx_css_class = 'hex';
 	tile.type_index = this.tile_types.indexOf(tile_type);

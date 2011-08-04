@@ -1,5 +1,5 @@
 package_assets:         on          # (on, off, always)
-embed_assets:           on          # (on, off, datauri)
+embed_assets:           off         # (on, off, datauri)
 compress_assets:        on          # (on, off)
 gzip_assets:            on          # (on, off)
 javascript_compressor:  closure     # (yui, closure)
@@ -42,10 +42,12 @@ javascripts:
     - public/javascripts/models/unit_type.js
     - public/javascripts/models/unit_factory.js
     - public/javascripts/utils/service_container.js
-  game:
+
+    # Game Controllers
     - public/javascripts/controllers/unit_controller.js
     - public/javascripts/controllers/game_controller.js
-  mapeditor:
+
+    # Map Editor stuff
     - public/javascripts/map_editor/toolbox.js
     - public/javascripts/map_editor/new_dialog.js
     - public/javascripts/map_editor/map_editor.js
@@ -54,5 +56,6 @@ stylesheets:
   common:
     - public/stylesheets/hexwar.css
     - public/stylesheets/map_editor.css
+    - public/stylesheets/silk-sprite.css
 
 

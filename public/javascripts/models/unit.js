@@ -21,7 +21,7 @@ Hexwar.Unit = function (type, health) {
 	this.RenderableItem();
 	this.Observable();
 }
-Hexwar.Unit.DeriveFrom(Hexwar.RenderableItem);
+Hexwar.Unit.DeriveFrom(Hexwar.RenderableItem, 'RenderableItem');
 Hexwar.Unit.DeriveFrom(Observable);
 
 /**

@@ -157,11 +157,7 @@ position: absolute;
 
 ul.player_list, ul.game_list {
 	padding: 0px 0px 0px 20px;
-	list-style-image: url('/images/icons/control_stop.png');
-}
-
-.player_list li.player_turn {
-	list-style-image: url('/images/icons/control_play_red.png');
+	list-style-type: none;
 }
 
 .player_list a, .player_list a:visited, .game_list a, .game_list a:visited {
