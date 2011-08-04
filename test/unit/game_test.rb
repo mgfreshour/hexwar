@@ -9,14 +9,16 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: games
 #
-#  id         :integer         not null, primary key
-#  map_id     :integer
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer         not null, primary key
+#  map_id      :integer
+#  name        :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  game_winner :string(255)
 #
 

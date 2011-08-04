@@ -24,7 +24,7 @@
 	$(function() {
 		var map = new Hexwar.Map;
 		map.loadFromServer(<%= @game.map.id%>);
-		var game = new Hexwar.GameController(map, <%= @game.id%>,<%= @game.current_turn.id%>, '<%= @current_player_team%>');
+		var game = new Hexwar.GameController(map, <%= @game.id%>,<%= @game.current_turn.id%>, '<%= @current_player_team %>');
 	
 		$('#endturn').click(function() {
 			game.endTurn();
@@ -33,12 +33,18 @@
 		game.bindEvent('turn_ended', function() {
 			top.location = '<%= root_url%>';
 		});
+		
+		<% if @game.game_winner %>
+			modalAlert("This Game has Ended.  <%=@game.game_winner.titleize%> has won!");
+		<% end %>
 	});
 </script>
-<% if @game.current_turn.player == @current_player_team %>
-<button type="button" id="endturn" class="button">
-	End Turn
-</button>
+<% if @game.current_turn.player == @current_player_team && !@game.game_winner %>
+	<button type="button" id="endturn" class="button">
+		End Turn
+	</button>
+<% else %>
+	<%= link_to 'Return to my Games', games_path, :class=>'button' %>
 <% end %>
 
 <%= render 'layouts/preload' %>

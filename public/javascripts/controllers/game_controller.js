@@ -35,36 +35,40 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
 	
 	var successFunction = function(data, textStatus, jqXHR) {
 		var x,y, unit, tile;
-		this.map.clearUnits();
 
 		// First mark all the previously owned tiles
-		goog.structs.forEach(data.game_turn.current_tile_owner_data, function(tile_owner){
-			x = parseFloat(tile_owner.x);
-			y = parseFloat(tile_owner.y);
-			tile = this.map.getTile(x, y);
-      if (tile.type.ownable) {
-        tile.owner = tile_owner.owner;
-        this.map.setTile(x,y,tile);
-      }
-		}, this);
+		if (data.game_turn.current_tile_owner_data) {
+			goog.structs.forEach(data.game_turn.current_tile_owner_data, function(tile_owner){
+				x = parseFloat(tile_owner.x);
+				y = parseFloat(tile_owner.y);
+				tile = this.map.getTile(x, y);
+	      if (tile.type.ownable) {
+	        tile.owner = tile_owner.owner;
+	        this.map.setTile(x,y,tile);
+	      }
+			}, this);
+		}
 
-		goog.structs.forEach(data.game_turn.current_unit_data, function(unit) {
-			x = parseFloat(unit.x);
-			y = parseFloat(unit.y);
-			unit = this.unit_factory.createUnit(unit.type_index, unit.team, x, y, parseFloat(unit.health));
-			unit.acted = unit.team != data.game_turn.player
+		if (data.game_turn.current_unit_data) {
+			this.map.clearUnits();
+			goog.structs.forEach(data.game_turn.current_unit_data, function(unit) {
+				x = parseFloat(unit.x);
+				y = parseFloat(unit.y);
+				unit = this.unit_factory.createUnit(unit.type_index, unit.team, x, y, parseFloat(unit.health));
+				unit.acted = unit.team != data.game_turn.player
 			
-			tile = this.map.getTile(x, y);
+				tile = this.map.getTile(x, y);
 
-      // Set the tile's new owner
-      if (tile.type.ownable /* && unit.team != this.current_player*/) {
-        tile.owner = unit.team;
-        this.map.setTile(x,y,tile);
-      }
+	      // Set the tile's new owner
+	      if (tile.type.ownable /* && unit.team != this.current_player*/) {
+	        tile.owner = unit.team;
+	        this.map.setTile(x,y,tile);
+	      }
     
-      // Add the unit to the playfield
-			this.map.setUnit(x, y, unit);
-		}, this);
+	      // Add the unit to the playfield
+				this.map.setUnit(x, y, unit);
+			}, this);
+		}
 
 	};
 	
@@ -160,13 +164,6 @@ Hexwar.GameController.prototype.checkForGameWinner = function() {
 }
 
 /**
- *
- */
-Hexwar.GameController.prototype.markGameOver = function() {
-	
-}
-
-/**
  * ...
  */
 Hexwar.GameController.prototype.endTurn = function() {	
@@ -185,6 +182,8 @@ Hexwar.GameController.prototype.endTurn = function() {
 			tile_owner_data.push({x:x, y:y, owner:tile.owner});
 		}
 	});
+
+	var game_winner = this.checkForGameWinner();
 	
 	var saveFunction = function() {
 		$.ajax({ 
@@ -195,6 +194,7 @@ Hexwar.GameController.prototype.endTurn = function() {
 								current_unit_data: unit_data
 							, current_tile_owner_data: tile_owner_data
 						}
+					, game_winner: game_winner ? game_winner : ''
 					, id: this.id
 				 }
 			, success: function(data, textStatus, jqXHR) {
@@ -206,11 +206,9 @@ Hexwar.GameController.prototype.endTurn = function() {
 			}
 		});
 	}.createDelegate(this);
-
-	var game_winner = this.checkForGameWinner();
 	
 	if (game_winner) {
-		modalAlert(game_winner+' Wins!', 'Game Over', function(){saveFunction(); this.markGameOver();}.createDelegate(this));
+		modalAlert(game_winner+' Wins!', 'Game Over', saveFunction);
 	} else {
 		saveFunction();
 	}

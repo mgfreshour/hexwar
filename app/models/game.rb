@@ -11,28 +11,33 @@ class Game < ActiveRecord::Base
     @current_turn ||= game_turns.find(:all, :order => "created_at DESC", :limit => 1).first
   end
   
-  def create_new_turn(team, unit_data, tile_owner_data)
+  def create_new_turn(team, turn_data)
     game_turn = GameTurn.new()
     game_turn.game = self
-    game_turn.start_unit_data = unit_data
-    game_turn.current_unit_data = unit_data
-    game_turn.current_tile_owner_data = tile_owner_data
+    game_turn.start_unit_data = turn_data[:current_unit_data]
+    game_turn.current_unit_data = turn_data[:current_unit_data]
+    game_turn.current_tile_owner_data = turn_data[:current_tile_owner_data]
     game_turn.player = team
     game_turn.save
   end
   
-  def end_turn(unit_data, tile_owner_data)
-    current_turn.current_unit_data = unit_data
-    current_turn.end_unit_data = unit_data
+  def save_current_turn(turn_data)
+    current_turn.current_unit_data = turn_data[:current_unit_data]
+    current_turn.end_unit_data = turn_data[:current_unit_data]
     current_turn.save
+  end
+  
+  def end_turn(turn_data)
+    save_current_turn(turn_data)
     
-    # Who plays next?
+    # Nope, stil going. Who plays next?
     player_order = { 'red' => 'green', 'green' => 'red' } if map.number_of_players == 2
     player_order = { 'red' => 'green', 'green' => 'blue', 'blue' => 'red' } if map.number_of_players == 3
     player_order = { 'red' => 'green', 'green' => 'blue', 'blue' => 'white', 'white' => 'red' } if map.number_of_players == 4
-    create_new_turn(player_order[current_turn.player], current_turn.current_unit_data, tile_owner_data)
+    create_new_turn(player_order[current_turn.player], turn_data)
   end
 end
+
 
 
 
@@ -40,10 +45,11 @@ end
 #
 # Table name: games
 #
-#  id         :integer         not null, primary key
-#  map_id     :integer
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer         not null, primary key
+#  map_id      :integer
+#  name        :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  game_winner :string(255)
 #
 

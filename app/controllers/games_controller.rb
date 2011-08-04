@@ -115,10 +115,16 @@ class GamesController < ApplicationController
     if @current_player.admin
       @game = Game.find(params[:id])
     else
-      @game = @current_player.games.find(params[:id])
+      @game = @current_player.games.find(params[:id], :readonly => false)
     end
-
-    @game.end_turn(params[:game_turn][:current_unit_data], params[:game_turn][:current_tile_owner_data])
+logger.info "\n--------------------------------\n#{params[:game_winner].to_yaml}\n"
+    unless params[:game_winner].blank?
+      @game.save_current_turn(params[:game_turn])
+      @game.game_winner = params[:game_winner]
+      @game.save
+    else
+      @game.end_turn(params[:game_turn])
+    end
 
     respond_to do |format|
       format.json { render :json => true }
