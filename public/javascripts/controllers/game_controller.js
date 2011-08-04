@@ -110,8 +110,6 @@ Hexwar.GameController.prototype.updateGold = function(resource_data) {
 		}
 	}.createDelegate(this));
 	
-	console.log(this.resource_data);
-	
 	// Update the UI
 	this.updateResourceCounter();
 }
