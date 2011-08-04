@@ -37,6 +37,17 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
 		var x,y, unit, tile;
 		this.map.clearUnits();
 
+		// First mark all the previously owned tiles
+		goog.structs.forEach(data.game_turn.current_tile_owner_data, function(tile_owner){
+			x = parseFloat(tile_owner.x);
+			y = parseFloat(tile_owner.y);
+			tile = this.map.getTile(x, y);
+      if (tile.type.ownable) {
+        tile.owner = tile_owner.owner;
+        this.map.setTile(x,y,tile);
+      }
+		}, this);
+
 		goog.structs.forEach(data.game_turn.current_unit_data, function(unit) {
 			x = parseFloat(unit.x);
 			y = parseFloat(unit.y);
@@ -45,7 +56,7 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
 			
 			tile = this.map.getTile(x, y);
 
-      // Set the tile's owner
+      // Set the tile's new owner
       if (tile.type.ownable /* && unit.team != this.current_player*/) {
         tile.owner = unit.team;
         this.map.setTile(x,y,tile);
@@ -114,34 +125,93 @@ Hexwar.GameController.prototype.saveAction = function(x,y, action, target_x, tar
 	});
 }
 
+/**
+ * 
+ * @todo - improve this algorithm
+ */
+Hexwar.GameController.prototype.checkForGameWinner = function() {
+	var tile_owners_found = [];
+	var ownable_tiles_found = 0;
+	
+	
+	this.map.forEachTile(function(tile,x,y) {
+		if (tile.type.ownable) {
+			ownable_tiles_found++;
+			tile_owners_found.push(tile.owner);
+		}
+	});
+	
+	var current_owner = false;
+	var all_owned_by_one = true;
+	goog.structs.forEach(tile_owners_found, function(owner) {
+		if (current_owner == false) {
+			current_owner = owner;
+		}
+		if (current_owner != owner) {
+			all_owned_by_one = false;
+		}
+	});
+	
+	if (all_owned_by_one) {
+		return current_owner;
+	}
+	
+	return false;
+}
+
+/**
+ *
+ */
+Hexwar.GameController.prototype.markGameOver = function() {
+	
+}
 
 /**
  * ...
  */
 Hexwar.GameController.prototype.endTurn = function() {	
 	var unit_data = [];
-	var u;
-	for (x=0; x < this.map.unit_data.length; x++) {
-		u = this.map.unit_data[x];
-		// Set the unit to acted
-		u.acted = true;
-		// Save it!
-		unit_data.push({ x: u.x, y: u.y, type_index: u.type_index , team: u.team, health: u.health });
-	}
+	var tile_owner_data = [];
 	
-	$.ajax({ 
-		  type:'post'
-		, url: '/games/end_turn'
-		, data:{ 
-				  game_turn: { current_unit_data: unit_data }
-				, id: this.id
-			 }
-		, success: function(data, textStatus, jqXHR) {
-			debug.log('Turn Ended Successfully');
-			this.notifyListeners('turn_ended');
-		}.createDelegate(this)
-		, error: function() {
-			modalAlert("Save Failed", "Something went horribly wrong!!!");
+	goog.structs.forEach(this.map.unit_data, function(unit) {
+		// Set the unit to acted
+		unit.acted = true;
+		// Save it!
+		unit_data.push({ x: unit.x, y: unit.y, type_index: unit.type_index , team: unit.team, health: unit.health });
+	}, this);
+	
+	this.map.forEachTile(function(tile,x,y) {
+		if (tile.type.ownable && tile.owner != '') {
+			tile_owner_data.push({x:x, y:y, owner:tile.owner});
 		}
 	});
+	
+	var saveFunction = function() {
+		$.ajax({ 
+			  type:'post'
+			, url: '/games/end_turn'
+			, data:{ 
+					  game_turn: { 
+								current_unit_data: unit_data
+							, current_tile_owner_data: tile_owner_data
+						}
+					, id: this.id
+				 }
+			, success: function(data, textStatus, jqXHR) {
+				debug.log('Turn Ended Successfully');
+				this.notifyListeners('turn_ended');
+			}.createDelegate(this)
+			, error: function() {
+				modalAlert("Save Failed", "Something went horribly wrong!!!");
+			}
+		});
+	}.createDelegate(this);
+
+	var game_winner = this.checkForGameWinner();
+	
+	if (game_winner) {
+		modalAlert(game_winner+' Wins!', 'Game Over', function(){saveFunction(); this.markGameOver();}.createDelegate(this));
+	} else {
+		saveFunction();
+	}
 }

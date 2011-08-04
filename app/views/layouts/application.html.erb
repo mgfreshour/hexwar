@@ -38,18 +38,20 @@
 
 </head>
 <body>
-  <fieldset id="admin_nav">
-    <legend><%= @current_player.name %></legend>
-    <% if @current_player && @current_player.admin %>
-      <%= link_to 'Maps', maps_path, :class=>'button' %>
-      <%= link_to 'Players', players_path, :class=>'button' %>
-      <%= link_to 'UnitTypes', unit_types_path, :class=>'button' %>
-      <%= link_to 'TileTypes', tile_types_path, :class=>'button' %>
-    <% end %>
-    <%= link_to 'Games', games_path, :class=>'button' %>
-    <%= link_to "Sign Out", signout_path, :class=>'button' %> 
-    <br /> 
-  </fieldset>
+	<% unless @current_player.nil? %>
+	  <fieldset id="admin_nav">
+	    <legend><%= @current_player.name %></legend>
+	    <% if @current_player && @current_player.admin %>
+	      <%= link_to 'Maps', maps_path, :class=>'button' %>
+	      <%= link_to 'Players', players_path, :class=>'button' %>
+	      <%= link_to 'UnitTypes', unit_types_path, :class=>'button' %>
+	      <%= link_to 'TileTypes', tile_types_path, :class=>'button' %>
+	    <% end %>
+	    <%= link_to 'Games', games_path, :class=>'button' %>
+	    <%= link_to "Sign Out", signout_path, :class=>'button' %> 
+	    <br /> 
+	  </fieldset>
+	<% end %>
 
   <br />
 

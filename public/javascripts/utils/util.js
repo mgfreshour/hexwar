@@ -2,13 +2,15 @@
  * Creates a style message box.  Replacement for window.alert()
  * @param {String} msg is the message to display
  * @param {String} title (optional) title of alert to use.  Defaulsts to 'Message'
+ * @param {Function} callback (optional) function to call after Ok has been hit.
  */
-function modalAlert(msg, title) {
+function modalAlert(msg, title, callback) {
 	title = title || 'Alert';
+	callback = callback || function(){};
 	var dlg = $('<div title="'+title+'">'+msg+'</div>');
 	dlg.dialog({
 		modal: true,
-		buttons: { Ok: function() { $( this ).dialog( "close" ); } }
+		buttons: { Ok: function() { $( this ).dialog( "close" ); callback(); } }
 	});
 }
 

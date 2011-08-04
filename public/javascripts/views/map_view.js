@@ -11,8 +11,8 @@ Hexwar.MapView = function (container) {
 	this.delegateClick = function(x, y) {};
 	this.selected = null;
 	this.renderer = new Hexwar.jQueryRenderer(container);
-  this.renderer.addLayer('map');
-  this.renderer.addLayer('tile_owners');
+	this.renderer.addLayer('map');
+	this.renderer.addLayer('tile_owners');
 	this.renderer.addLayer('units');
 	this.renderer.addLayer('mask');
 	this.renderer.addLayer('text');
@@ -34,7 +34,7 @@ Hexwar.MapView.prototype.setDelegateClick = function(fn) {
  */
 Hexwar.MapView.prototype.onClick = function(event) {
 	var mapCoords = Hexwar.Hex.convertScreenToMapCoords(
-			  event.pageX - this.container.offset().left
+				event.pageX - this.container.offset().left
 			, event.pageY - this.container.offset().top);
 	
 	if (mapCoords.x < 0 || mapCoords.x >= this.map.width || mapCoords.y < 0 || mapCoords.y >= this.map.height) {
@@ -60,8 +60,8 @@ Hexwar.MapView.prototype.drawTile = function(x, y, tile) {
 	
 	var owner = new Hexwar.RenderableItem();
 	owner.text = { text:tile.owner, css_class:'coord' };
-  this.renderer.drawItemToLayer('tile_owners', hex_pos.x, hex_pos.y, owner);
-  
+	this.renderer.drawItemToLayer('tile_owners', hex_pos.x, hex_pos.y, owner);
+	
 	if (this.showCoords) {
 		var hex_space = new Hexwar.RenderableItem();
 		var array_space = new Hexwar.RenderableItem();
@@ -81,7 +81,7 @@ Hexwar.MapView.prototype.drawTile = function(x, y, tile) {
  */
 Hexwar.MapView.prototype.drawUnit = function(x, y, unit) {
 	var hex_pos = this.calculateHexPosition(x,y);
-	this.renderer.drawItemToLayer('units', hex_pos.x, hex_pos.y, unit);	
+	this.renderer.drawItemToLayer('units', hex_pos.x, hex_pos.y, unit); 
 }
 
 /**
@@ -160,7 +160,7 @@ Hexwar.MapView.prototype.clearMask = function() {
 }
 
 /**
- * Draws a MapViewMask.  This also clears any previous masks
+ * Draws a MapViewMask.	 This also clears any previous masks
  * @param {Hexwar.MapViewMask} mask
  */
 Hexwar.MapView.prototype.drawMask = function(mask) {

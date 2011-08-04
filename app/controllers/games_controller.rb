@@ -118,7 +118,7 @@ class GamesController < ApplicationController
       @game = @current_player.games.find(params[:id])
     end
 
-    @game.end_turn(params[:game_turn][:current_unit_data])
+    @game.end_turn(params[:game_turn][:current_unit_data], params[:game_turn][:current_tile_owner_data])
 
     respond_to do |format|
       format.json { render :json => true }
