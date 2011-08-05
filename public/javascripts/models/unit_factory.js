@@ -17,42 +17,17 @@ Hexwar.UnitFactory.prototype.loadFromServer = function(url) {
 	var successFunction = function(data, textStatus, jqXHR) {
 		var obj, move_costs, defense_bonuses;
 		for (var n=0; n < data.length; n++) {
+			move_costs ={};
+			defense_bonuses={};
 			obj = data[n].unit_type;
-			move_costs = {
-				  bridge_center: parseFloat(obj.move_cost_bridge_center)
-				, bridge_left: parseFloat(obj.move_cost_bridge_left )
-				, bridge_right: parseFloat(obj.move_cost_bridge_right) 
-				, castle: parseFloat(obj.move_cost_castle)
-				, city: parseFloat(obj.move_cost_city) 
-				, desert: parseFloat(obj.move_cost_desert) 
-				, dirt: parseFloat(obj.move_cost_dirt)
-				, forest: parseFloat(obj.move_cost_forest)
-				, grass: parseFloat(obj.move_cost_grass) 
-				, hills: parseFloat(obj.move_cost_hills)
-				, mountains: parseFloat(obj.move_cost_mountains)
-				, oasis: parseFloat(obj.move_cost_oasis)
-				, path: parseFloat(obj.move_cost_path)
-				, swamp: parseFloat(obj.move_cost_swamp)
-				, water: parseFloat(obj.move_cost_water)
-			};
 			
-			defense_bonuses = {
-          bridge_center:obj.defense_bonus_bridge_center
-        , bridge_left :obj.defense_bonus_bridge_left
-        , bridge_right:obj.defense_bonus_bridge_right
-        , castle:obj.defense_bonus_castle
-        , city:obj.defense_bonus_city
-        , desert:obj.defense_bonus_desert
-			  , dirt:obj.defense_bonus_dirt
-        , forest:obj.defense_bonus_forest
-        , grass:obj.defense_bonus_grass
-        , hills:obj.defense_bonus_hills
-        , mountains:obj.defense_bonus_mountains
-        , oasis:obj.defense_bonus_oasis
-        , path:obj.defense_bonus_path
-			  , swamp:obj.defense_bonus_swamp
-        , water:obj.defense_bonus_water
-      };
+			goog.structs.forEach(obj.terrain_modifiers, function(terr_mod) {
+				move_costs[terr_mod.tile_type_name] = parseFloat(terr_mod.movement_cost);
+				if (terr_mod.defense_bonus > 0) {
+					debug.log(terr_mod.tile_type_name + ' ' +parseFloat(terr_mod.defense_bonus));
+				}
+				defense_bonuses[terr_mod.tile_type_name] = parseFloat(terr_mod.defense_bonus);
+			},this);		
 
 			this.createUnitType(obj.name, obj.img, parseFloat(obj.img_x), parseFloat(obj.img_y), parseFloat(obj.attack_range)
 					, parseFloat(obj.attack_power), parseFloat(obj.defense_power), parseFloat(obj.move_range), move_costs, defense_bonuses)

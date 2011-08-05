@@ -11,11 +11,11 @@
 
 <table class="model_index">
   <tr><th></th><th>Move Cost</th><th>Defense Bonus</th></tr>
-  <% @tile_types.each do |tile_type| %>
+  <% @unit_type.terrain_modifiers.each do |terr_mod| %>
     <tr>
-      <td><%= display_tile_img(tile_type).html_safe%></td>
-      <td><%= @unit_type.send('move_cost_'+tile_type.name)%></td>
-      <td><%= @unit_type.send('defense_bonus_'+tile_type.name)%></td>
+      <td><%= display_tile_img(terr_mod.tile_type).html_safe%></td>
+      <td><%= terr_mod.movement_cost %></td>
+      <td><%= terr_mod.defense_bonus %></td>
     </tr>
   <% end %>
 </table>

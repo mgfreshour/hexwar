@@ -6,6 +6,7 @@ class UnitType < ActiveRecord::Base
   validates :attack_range, :presence=>true, :numericality => {:greater_than_or_equal_to => 1}
   validates :move_range, :presence=>true, :numericality => {:greater_than_or_equal_to => 0}
   acts_as_list
+  has_many :terrain_modifiers
 end
 
 

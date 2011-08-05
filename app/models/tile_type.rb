@@ -4,6 +4,7 @@ class TileType < ActiveRecord::Base
   validates :img_x, :presence=>true, :numericality => {:greater_than_or_equal_to => 0}
   validates :img_y, :presence=>true, :numericality => {:greater_than_or_equal_to => 0}
   acts_as_list
+  has_many :terrain_modifiers
 end
 
 
