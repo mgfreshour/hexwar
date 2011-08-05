@@ -1,9 +1,11 @@
 <script type="text/javascript">
-    <%= load_js_unit_types %>
-    <%= load_js_tile_types %>
-
 	var map;
+		var tile_factory = Hexwar.ServiceContainer.get('TileFactory');
+		tile_types = tile_factory.tile_types;
+		var unit_factory = Hexwar.ServiceContainer.get('UnitFactory');
+		unit_types = unit_factory.unit_types;
 	$(function() {
+	
 		map = new Hexwar.Map();
 		map.loadFromServer(<%=@map.id%>);
 	});

@@ -76,6 +76,9 @@ class UnitTypesController < ApplicationController
 
     respond_to do |format|
       if @unit_type.update_attributes(params[:unit_type])
+        params[:terrain_modifiers].each_with_index do |terr_mod, index|
+          @unit_type.terrain_modifiers[index].update_attributes(terr_mod[1])
+        end
         format.html { redirect_to(unit_types_url, :notice => 'Unit type was successfully updated.') }
         format.xml  { head :ok }
       else
