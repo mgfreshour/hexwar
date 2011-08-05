@@ -23,9 +23,6 @@ Hexwar.UnitFactory.prototype.loadFromServer = function(url) {
 			
 			goog.structs.forEach(obj.terrain_modifiers, function(terr_mod) {
 				move_costs[terr_mod.tile_type_name] = parseFloat(terr_mod.movement_cost);
-				if (terr_mod.defense_bonus > 0) {
-					debug.log(terr_mod.tile_type_name + ' ' +parseFloat(terr_mod.defense_bonus));
-				}
 				defense_bonuses[terr_mod.tile_type_name] = parseFloat(terr_mod.defense_bonus);
 			},this);		
 
