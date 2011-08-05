@@ -4,11 +4,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.xml
   def index
-    if @current_player.admin
-      @games = Game.find(:all)
-    else
-      @games = @current_player.games.find(:all)
-    end
+    @games = @current_player.games.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
