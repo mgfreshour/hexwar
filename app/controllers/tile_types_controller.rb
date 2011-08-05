@@ -12,7 +12,7 @@ class TileTypesController < ApplicationController
     @tile_types = TileType.find(:all, :order=>:position)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { check_authentication } # index.html.erb
       format.json { render :json => @tile_types }
       format.xml  { render :xml => @tile_types }
     end

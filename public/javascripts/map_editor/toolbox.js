@@ -51,7 +51,7 @@ Hexwar.Toolbox.prototype.initUnitPalette = function initUnitPalette() {
 		this.unitPalette.html(div_html);
 	  $( "#team_select" ).buttonset();
 		// Create the Eraser
-		var row = '<div id="unit_palette_eraser" class="unit_palette_row"><img src="/images/icons/eraser.png" alt="eraser" /><div>Erase</div></div>';
+		var row = '<div id="unit_palette_eraser" class="unit_palette_row"><span class="ui-silk ui-silk-cross"></span><div>Erase</div></div>';
     this.unitPalette.append(row);
     $('#unit_palette_eraser').click({ me:this }, function(event) {
         $('.unit_palette_row').removeClass('selected_palette_row');

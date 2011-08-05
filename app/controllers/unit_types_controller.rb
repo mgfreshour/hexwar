@@ -12,8 +12,7 @@ class UnitTypesController < ApplicationController
     @unit_types = UnitType.find(:all, :order => "position")
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.html { render :html => @unit_types }
+      format.html  { check_authentication } # index.html.erb
       format.json { render :json => @unit_types }
       format.xml  { render :xml => @unit_types }
     end

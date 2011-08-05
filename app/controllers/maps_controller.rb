@@ -23,7 +23,7 @@ class MapsController < ApplicationController
     @map = Map.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html   { check_authentication } # show.html.erb
       format.json { render :json => @map }
       format.xml  { render :xml => @map }
       format.yaml { render :text => @map.to_yaml }
