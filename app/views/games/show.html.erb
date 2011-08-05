@@ -23,7 +23,7 @@
 <script type="text/javascript">
 	$(function() {
 		var map = new Hexwar.Map;
-		map.loadFromServer(<%= @game.map.id%>);
+		map.loadFromServer(<%= @game.map_id%>);
 		var game = new Hexwar.GameController(map, <%= @game.id%>,<%= @game.current_turn.id%>, '<%= @current_player_team %>');
 	
 		$('#endturn').click(function() {
