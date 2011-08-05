@@ -2,7 +2,7 @@ package_assets:         on          # (on, off, always)
 embed_assets:           off         # (on, off, datauri)
 compress_assets:        on          # (on, off)
 gzip_assets:            on          # (on, off)
-javascript_compressor:  closure     # (yui, closure)
+javascript_compressor:  yui     # (yui, closure)
 #compressor_options:
 #  compilation_level: "ADVANCED_OPTIMIZATIONS"
 
