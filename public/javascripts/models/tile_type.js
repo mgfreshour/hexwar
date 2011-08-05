@@ -1,4 +1,5 @@
-goog.provide('Hexwar.TileType');
+namespace('Hexwar.TileType');
+
 /**
  * Represents a type of map tile
  * @constructor

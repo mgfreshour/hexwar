@@ -1,4 +1,4 @@
-goog.provide('Hexwar.UnitController');
+namespace('Hexwar.UnitController');
 /**
  * ...
  * @constructor

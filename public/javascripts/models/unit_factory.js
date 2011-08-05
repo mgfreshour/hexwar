@@ -1,4 +1,4 @@
-goog.provide('Hexwar.UnitFactory');
+namespace('Hexwar.UnitFactory');
 /**
  * Class knows how to make units
  * @constructor
@@ -21,10 +21,10 @@ Hexwar.UnitFactory.prototype.loadFromServer = function(url) {
 			defense_bonuses={};
 			obj = data[n].unit_type;
 			
-			goog.structs.forEach(obj.terrain_modifiers, function(terr_mod) {
+			$.each(obj.terrain_modifiers, function(idx, terr_mod) {
 				move_costs[terr_mod.tile_type_name] = parseFloat(terr_mod.movement_cost);
 				defense_bonuses[terr_mod.tile_type_name] = parseFloat(terr_mod.defense_bonus);
-			},this);		
+			}.createDelegate(this));		
 
 			this.createUnitType(obj.name, obj.img, parseFloat(obj.img_x), parseFloat(obj.img_y), parseFloat(obj.attack_range)
 					, parseFloat(obj.attack_power), parseFloat(obj.defense_power), parseFloat(obj.move_range), move_costs, defense_bonuses)

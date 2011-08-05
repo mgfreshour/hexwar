@@ -1,4 +1,5 @@
-goog.provide('Hexwar.iRenderer');
+namespace('Hexwar.iRenderer');
+
 /**
  * Definese a class that can draw a RenderableItem
  * @interface

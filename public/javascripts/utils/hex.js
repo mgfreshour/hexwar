@@ -1,4 +1,4 @@
-goog.provide('Hexwar.Hex');
+namespace('Hexwar.Hex');
 
 /**
  * Class that contains functions for working with a hex map

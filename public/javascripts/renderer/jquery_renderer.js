@@ -1,4 +1,5 @@
-goog.provide('Hexwar.jQueryRenderer');
+namespace('Hexwar.jQueryRenderer');
+
 /**
  * Class that handles drawing stuff on the screen.
  * @constructor
@@ -8,7 +9,7 @@ goog.provide('Hexwar.jQueryRenderer');
 Hexwar.jQueryRenderer = function (screen) {
 	this.screen = screen
 	this.repos = new Hexwar.RenderablesRepository();
-	this.layers = new goog.structs.Map();
+	this.layers = {};
 }
 
 /** 
@@ -50,16 +51,16 @@ Hexwar.jQueryRenderer.prototype.removeItem = function(item) {
  * @inheritDoc 
  */
 Hexwar.jQueryRenderer.prototype.addLayer = function(layer_name) {
-	this.layers.set(layer_name, $('<div id="rendering_layer_'+layer_name+'" class="rendering_layer"></div>'));
-	this.screen.append(this.layers.get(layer_name));
+	this.layers[layer_name] = $('<div id="rendering_layer_'+layer_name+'" class="rendering_layer"></div>');
+	this.screen.append(this.layers[layer_name]);
 }
 
 /** 
  * @inheritDoc 
  */
 Hexwar.jQueryRenderer.prototype.clearLayer = function(layer_name) {
-	if (this.layers.containsKey(layer_name)) {
-		this.layers.get(layer_name).html('');
+	if (this.layers[layer_name] != undefined) {
+		this.layers[layer_name].html('');
 	}
 }
 
@@ -67,9 +68,9 @@ Hexwar.jQueryRenderer.prototype.clearLayer = function(layer_name) {
  * @inheritDoc 
  */
 Hexwar.jQueryRenderer.prototype.clearScreen = function(layer_name) {
-	goog.structs.forEach(this.layers, function(val,key,layers) {
+	$.each(this.layers, function(key, val) {
 		this.clearLayer(key);
-	}, this);
+	}.createDelegate(this));
 	// for (layer in this.layers) {
 	// 	this.clearLayer(layer);
 	// }
@@ -93,11 +94,11 @@ Hexwar.jQueryRenderer.prototype.fadeOutAndRemove = function(item, duration, dela
  * @return {jQueryObject}
  */
 Hexwar.jQueryRenderer.prototype._getLayer = function(layer_name) {
-	if (!this.layers.containsKey(layer_name)) {
+	if (this.layers[layer_name] == undefined) {
 		this.addLayer(layer_name);
 	}
 	
-	return this.layers.get(layer_name);
+	return this.layers[layer_name];
 }
 
 /**

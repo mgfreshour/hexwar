@@ -1,4 +1,4 @@
-goog.provide('Hexwar.NewMapDialog');
+namespace('Hexwar.NewMapDialog');
 
 Hexwar.NewMapDialog = function() {
 	this.html = '<div id="new_map_dialog" title="Create new map" class="dialog">' +

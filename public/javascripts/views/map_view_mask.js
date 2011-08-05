@@ -1,4 +1,5 @@
-goog.provide('Hexwar.MapViewMask');
+namespace('Hexwar.MapViewMask');
+
 /**
  * Represents a mask to be drawn over a map
  * @param {Map} map

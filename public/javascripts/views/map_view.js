@@ -1,4 +1,4 @@
-goog.provide('Hexwar.MapView');
+namespace('Hexwar.MapView');
 /**
  * Renders a map to a container
  * @constructor

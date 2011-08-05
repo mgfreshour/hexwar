@@ -1,4 +1,4 @@
-goog.provide('Hexwar.RenderablesRepository');
+namespace('Hexwar.RenderablesRepository');
 
 Hexwar.RenderablesRepository = function () {
 	this.items = new Array();

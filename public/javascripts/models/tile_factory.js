@@ -1,4 +1,4 @@
-goog.provide('Hexwar.TileFactory');
+namespace('Hexwar.TileFactory');
 
 /**
  * Is responsible for creating Tile objects

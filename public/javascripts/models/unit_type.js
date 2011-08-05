@@ -1,4 +1,5 @@
-goog.provide('Hexwar.UnitType');
+namespace('Hexwar.UnitType');
+
 /**
  * Class that represents a type of unit
  * @param {String} name

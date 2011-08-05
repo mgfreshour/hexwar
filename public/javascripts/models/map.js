@@ -1,4 +1,5 @@
-goog.provide('Hexwar.Map');
+namespace('Hexwar.Map');
+
 /**
  * Represents a game map
  * @constructor
@@ -49,15 +50,15 @@ Hexwar.Map.prototype.loadFromServer = function(id) {
 	var successFunction = function(data, textStatus, jqXHR) {
 		this.initialize(data.map.height, data.map.width, data.map.name, data.map.id);
 
-		goog.structs.forEach(data.map.tile_data, function(row, y) {
-			goog.structs.forEach(row, function(col, x) {
+		$.each(data.map.tile_data, function(y, row) {
+			$.each(row, function(x, col) {
 				this.setTile(parseFloat(x), parseFloat(y), this.tile_factory.createTile(col.type_index));
-			}, this);
-		}, this);
+			}.createDelegate(this));
+		}.createDelegate(this));
 		
-		goog.structs.forEach(data.map.unit_data, function(unit) {
+		$.each(data.map.unit_data, function(idx, unit) {
 			this.setUnit(parseFloat(unit.x), parseFloat(unit.y), this.unit_factory.createUnit(unit.type_index, unit.team));
-		},this);
+		}.createDelegate(this));
 	};
 
 	$.ajax({ 

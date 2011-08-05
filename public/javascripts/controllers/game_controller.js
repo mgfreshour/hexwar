@@ -1,4 +1,4 @@
-goog.provide('Hexwar.GameController');
+namespace('Hexwar.GameController');
 /**
  * Main class for plaing the game
  * @constructor
@@ -39,7 +39,7 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
 
 		// First mark all the previously owned tiles
 		if (data.game_turn.current_tile_owner_data) {
-			goog.structs.forEach(data.game_turn.current_tile_owner_data, function(tile_owner){
+			$.each(data.game_turn.current_tile_owner_data, function(idx, tile_owner){
 				x = parseFloat(tile_owner.x);
 				y = parseFloat(tile_owner.y);
 				tile = this.map.getTile(x, y);
@@ -47,13 +47,13 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
 	        tile.owner = tile_owner.owner;
 	        this.map.setTile(x,y,tile);
 	      }
-			}, this);
+			}.createDelegate(this));
 		}
 
 		// Load the unit data if this is not a new game
 		if (data.game_turn.current_unit_data) {
 			this.map.clearUnits();
-			goog.structs.forEach(data.game_turn.current_unit_data, function(unit) {
+			$.each(data.game_turn.current_unit_data, function(idx, unit) {
 				x = parseFloat(unit.x);
 				y = parseFloat(unit.y);
 				unit = this.unit_factory.createUnit(unit.type_index, unit.team, x, y, parseFloat(unit.health));
@@ -69,7 +69,7 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
     
 	      // Add the unit to the playfield
 				this.map.setUnit(x, y, unit);
-			}, this);
+			}.createDelegate(this));
 		}
 
 		this.updateGold(data.game_turn.resource_data);
@@ -184,7 +184,7 @@ Hexwar.GameController.prototype.checkForGameWinner = function() {
 	
 	var current_owner;
 	var all_owned_by_one = true;
-	goog.structs.forEach(tile_owners_found, function(owner) {
+	$.each(tile_owners_found, function(idx, owner) {
 		if (current_owner == undefined) {
 			current_owner = owner;
 		}
@@ -207,12 +207,12 @@ Hexwar.GameController.prototype.endTurn = function() {
 	var unit_data = [];
 	var tile_owner_data = [];
 	
-	goog.structs.forEach(this.map.unit_data, function(unit) {
+	$.each(this.map.unit_data, function(idx, unit) {
 		// Set the unit to acted
 		unit.acted = true;
 		// Save it!
 		unit_data.push({ x: unit.x, y: unit.y, type_index: unit.type_index , team: unit.team, health: unit.health });
-	}, this);
+	}.createDelegate(this));
 	
 	this.map.forEachTile(function(tile,x,y) {
 		if (tile.type.ownable && tile.owner != '') {

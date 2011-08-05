@@ -1,4 +1,5 @@
-goog.provide('Hexwar.Unit');
+namespace('Hexwar.Unit');
+
 /**
  * Class that represents a unit in the game
  * @contructor

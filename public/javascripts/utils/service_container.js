@@ -1,4 +1,4 @@
-goog.provide('Hexwar.ServiceContainer');
+namespace('Hexwar.ServiceContainer');
 var g_services = null;
 
 /**
@@ -9,26 +9,26 @@ Hexwar.ServiceContainer = function () {
 
 Hexwar.ServiceContainer.get = function(name) {
 	if (!g_services) {
-		g_services = new goog.structs.Map();
+		g_services = {};
 	}
 	
 	var obj = null;
 	
 	switch (name) {
 		case 'TileFactory':
-			if(!g_services.containsKey('TileFactory')) {
+			if(g_services.TileFactory == undefined) {
 				obj = new Hexwar.TileFactory();
 				obj.loadFromServer();
-				g_services.set('TileFactory', obj);
+				g_services.TileFactory = obj;
 			}
-			return g_services.get('TileFactory');
+			return g_services.TileFactory;
 
 		case 'UnitFactory':
-			if(!g_services.containsKey('UnitFactory')) {
+			if(g_services.UnitFactory == undefined) {
 				obj = new Hexwar.UnitFactory();
 				obj.loadFromServer();
-				g_services.set('UnitFactory', obj);
+				g_services.UnitFactory = obj;
 			}
-			return g_services.get('UnitFactory');
+			return g_services.UnitFactory;
 	}
 }

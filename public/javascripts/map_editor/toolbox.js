@@ -1,4 +1,4 @@
-goog.provide('Hexwar.Toolbox');
+namespace('Hexwar.Toolbox');
 
 Hexwar.Toolbox = function (container) {
 	this.container = container;

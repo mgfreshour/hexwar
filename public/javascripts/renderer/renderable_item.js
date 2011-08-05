@@ -1,4 +1,5 @@
-goog.provide('Hexwar.RenderableItem');
+namespace('Hexwar.RenderableItem');
+
 /**
  * Class that represents something that can be drawn on the screen
  * @constructor

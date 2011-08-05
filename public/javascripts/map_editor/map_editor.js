@@ -1,4 +1,4 @@
-goog.provide('Hexwar.MapEditor');
+namespace('Hexwar.MapEditor');
 
 /**
  * 

@@ -10,18 +10,8 @@ javascripts:
   rails:
     - public/javascripts/rails.js
   common:
-    # Google Closure Library
+    # External Libraries
     - public/javascripts/library/ba-debug.js
-    - public/javascripts/library/closure/closure/goog/base.js
-    - public/javascripts/library/closure/closure/goog/deps.js
-    - public/javascripts/library/closure/closure/goog/debug/error.js
-    - public/javascripts/library/closure/closure/goog/string/string.js
-    - public/javascripts/library/closure/closure/goog/asserts/asserts.js
-    - public/javascripts/library/closure/closure/goog/array/array.js
-    - public/javascripts/library/closure/closure/goog/iter/iter.js
-    - public/javascripts/library/closure/closure/goog/object/object.js
-    - public/javascripts/library/closure/closure/goog/structs/structs.js
-    - public/javascripts/library/closure/closure/goog/structs/map.js
 
     # Actual Hexwar stuff
     - public/javascripts/utils/util.js
