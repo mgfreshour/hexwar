@@ -17,7 +17,7 @@ gem 'capistrano'
 # Bundle the extra gems:
 gem 'omniauth'
 gem 'acts_as_list'
-gem 'koala', '~>1.0.0'
+gem 'koala', '~>1.1.0'
 gem 'jammit'
 gem 'closure-compiler'
 gem 'win32-open3-19', :platforms => [:mswin, :mingw]

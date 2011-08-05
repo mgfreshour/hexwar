@@ -17,6 +17,7 @@ HexGame::Application.routes.draw do
   resources :maps
   
   match "/auth/:provider/callback" => "sessions#create" 
+  match "/auth/failure" => "sessions#failure"
   match "/signout" => "sessions#destroy", :as => :signout 
 
 

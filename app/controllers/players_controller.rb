@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   skip_filter :check_admin
-  before_filter :check_admin, :except=>:show
+  before_filter :check_admin, :except=>[:show,:edit,:update]
   
   # GET /players
   # GET /players.xml
@@ -37,7 +37,11 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
-    @player = Player.find(params[:id])
+    if @current_player.admin
+      @player = Player.find(params[:id])
+    else
+      @player = @current_player
+    end
   end
 
   # POST /players
@@ -59,11 +63,16 @@ class PlayersController < ApplicationController
   # PUT /players/1
   # PUT /players/1.xml
   def update
-    @player = Player.find(params[:id])
+    if @current_player.admin
+      @player = Player.find(params[:id])
+    else
+      @player = @current_player
+      params[:player][:admin] = 0
+    end
 
     respond_to do |format|
       if @player.update_attributes(params[:player])
-        format.html { redirect_to(@player, :notice => 'Player was successfully updated.') }
+        format.html { redirect_to(root_url, :notice => 'Player was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

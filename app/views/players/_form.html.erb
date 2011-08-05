@@ -15,11 +15,18 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
+	<% if @current_player.admin %>
+		<div class="field">
+	    <%= f.label :admin %>
+	    <%= f.check_box :admin %>
+		</div>
+	<% end %>
 	<div class="field">
-    <%= f.label :admin %>
-    <%= f.check_box :admin %>
+    <%= f.label :notify_by_email, 'Notify me when it is my turn' %>
+    <%= f.check_box :notify_by_email %>
+		<%= @player.email %>
 	</div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Update', :class=>'button' %>
   </div>
 <% end %>
