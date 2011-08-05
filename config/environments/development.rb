@@ -22,5 +22,7 @@ HexGame::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+  
+  config.action_mailer.delivery_method = :sendmail
 end
 

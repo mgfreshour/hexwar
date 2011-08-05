@@ -69,7 +69,6 @@ class PlayersController < ApplicationController
       @player = @current_player
       params[:player][:admin] = 0
     end
-
     respond_to do |format|
       if @player.update_attributes(params[:player])
         format.html { redirect_to(root_url, :notice => 'Player was successfully updated.') }

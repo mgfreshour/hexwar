@@ -38,7 +38,11 @@ class Game < ActiveRecord::Base
     player_order = { 'red' => 'green', 'green' => 'red' } if map.number_of_players == 2
     player_order = { 'red' => 'green', 'green' => 'blue', 'blue' => 'red' } if map.number_of_players == 3
     player_order = { 'red' => 'green', 'green' => 'blue', 'blue' => 'white', 'white' => 'red' } if map.number_of_players == 4
-    create_new_turn(player_order[current_turn.player], turn_data)
+    next_player_team = player_order[current_turn.player]
+
+    create_new_turn(next_player_team, turn_data)
+    
+    next_player = game_players.find_by_team(next_player_team)
   end
 end
 

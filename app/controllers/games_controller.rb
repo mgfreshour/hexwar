@@ -119,7 +119,11 @@ class GamesController < ApplicationController
       @game.game_winner = params[:game_winner]
       @game.save
     else
-      @game.end_turn(params[:game_turn])
+      next_player = @game.end_turn(params[:game_turn])
+      
+      if (next_player.player.notify_by_email)
+        Notifier.notify_turn(next_player, request.host).deliver
+      end
     end
 
     respond_to do |format|
