@@ -32,3 +32,19 @@ maps_001:
     \ x: '0'\n  y: '5'\n  type_index: '10'\n  team: green\n'10':\n  x: '1'\n  y: '0'\n
     \ type_index: '1'\n  team: red\n"
   number_of_players: 2
+
+# == Schema Information
+#
+# Table name: maps
+#
+#  id                :integer         not null, primary key
+#  name              :string(255)
+#  tile_data         :text
+#  created_at        :datetime
+#  updated_at        :datetime
+#  height            :integer
+#  width             :integer
+#  unit_data         :text
+#  number_of_players :integer         default(2), not null
+#
+

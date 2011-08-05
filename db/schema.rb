@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110805145823) do
+ActiveRecord::Schema.define(:version => 20110805181214) do
 
   create_table "game_players", :force => true do |t|
     t.integer  "game_id"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(:version => 20110805145823) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "game_players", ["game_id"], :name => "game_id_idx"
+  add_index "game_players", ["player_id"], :name => "player_id_idx"
 
   create_table "game_turns", :force => true do |t|
     t.integer  "round_number"
@@ -32,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20110805145823) do
     t.text     "current_tile_owner_data"
     t.text     "resource_data"
   end
+
+  add_index "game_turns", ["game_id", "created_at"], :name => "game_order_id_idx"
 
   create_table "games", :force => true do |t|
     t.integer  "map_id"
@@ -61,6 +66,8 @@ ActiveRecord::Schema.define(:version => 20110805145823) do
     t.boolean  "admin"
   end
 
+  add_index "players", ["provider", "uid"], :name => "provider_uid_idx"
+
   create_table "terrain_modifiers", :force => true do |t|
     t.integer  "unit_type_id"
     t.integer  "tile_type_id"
@@ -70,6 +77,8 @@ ActiveRecord::Schema.define(:version => 20110805145823) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "terrain_modifiers", ["unit_type_id"], :name => "unit_type_idx"
 
   create_table "tile_types", :force => true do |t|
     t.string   "name"

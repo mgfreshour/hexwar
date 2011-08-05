@@ -14,23 +14,6 @@ class Player < ActiveRecord::Base
   end  
 end
 
-
-
-
-# == Schema Information
-#
-# Table name: players
-#
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#  uid        :string(255)
-#  provider   :string(255)
-#  admin      :boolean
-#
-
-
 # == Schema Information
 #
 # Table name: players
