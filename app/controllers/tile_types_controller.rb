@@ -1,6 +1,10 @@
 class TileTypesController < ApplicationController
+  skip_filter :check_authentication
+  before_filter :check_authentication, :except => [:index]
   skip_filter :check_admin
   before_filter :check_admin, :except=>:index
+  
+  caches_page :index, :if => Proc.new { |c| c.request.format.json? }
   
   # GET /tile_types
   # GET /tile_types.xml
@@ -45,6 +49,8 @@ class TileTypesController < ApplicationController
   # POST /tile_types.xml
   def create
     @tile_type = TileType.new(params[:tile_type])
+    
+    expire_page :action=>'index', :format=>'json'
 
     respond_to do |format|
       if @tile_type.save
@@ -61,6 +67,8 @@ class TileTypesController < ApplicationController
   # PUT /tile_types/1.xml
   def update
     @tile_type = TileType.find(params[:id])
+    
+    expire_page :action=>'index', :format=>'json'
 
     respond_to do |format|
       if @tile_type.update_attributes(params[:tile_type])
@@ -78,6 +86,8 @@ class TileTypesController < ApplicationController
   def destroy
     @tile_type = TileType.find(params[:id])
     @tile_type.destroy
+    
+    expire_page :action=>'index', :format=>'json'
 
     respond_to do |format|
       format.html { redirect_to(tile_types_url) }

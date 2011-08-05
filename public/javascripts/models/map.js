@@ -45,7 +45,7 @@ Hexwar.Map.prototype.fill = function(tile) {
  * @param {Number} id
  */
 Hexwar.Map.prototype.loadFromServer = function(id) {
-	var url = '/maps/'+id;
+	var url = '/maps/'+id+'.json';
 	var successFunction = function(data, textStatus, jqXHR) {
 		this.initialize(data.map.height, data.map.width, data.map.name, data.map.id);
 

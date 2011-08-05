@@ -13,7 +13,7 @@ Hexwar.TileFactory = function () {
  * @param {String} url
  */
 Hexwar.TileFactory.prototype.loadFromServer = function(url) {
-	url = url || '/tile_types';
+	url = url || '/tile_types.json';
 	
 	var successFunction = function(data, textStatus, jqXHR) {
 		var obj;

@@ -1,6 +1,10 @@
 class UnitTypesController < ApplicationController
+  skip_filter :check_authentication
+  before_filter :check_authentication, :except => [:index]
   skip_filter :check_admin
   before_filter :check_admin, :except=>:index
+  
+  caches_page :index, :if => Proc.new { |c| c.request.format.json? }
   
   # GET /unit_types
   # GET /unit_types.xml
@@ -50,6 +54,8 @@ class UnitTypesController < ApplicationController
   def create
     @unit_type = UnitType.new(params[:unit_type])
     @tile_types = TileType.find(:all, :order => :position)
+    
+    expire_page :action=>'index', :format=>'json'
 
     respond_to do |format|
       if @unit_type.save
@@ -67,6 +73,8 @@ class UnitTypesController < ApplicationController
   def update
     @unit_type = UnitType.find(params[:id])
     @tile_types = TileType.find(:all, :order => :position)
+    
+    expire_page :action=>'index', :format=>'json'
 
     respond_to do |format|
       if @unit_type.update_attributes(params[:unit_type])
@@ -84,6 +92,8 @@ class UnitTypesController < ApplicationController
   def destroy
     @unit_type = UnitType.find(params[:id])
     @unit_type.destroy
+    
+    expire_page :action=>'index', :format=>'json'
 
     respond_to do |format|
       format.html { redirect_to(unit_types_url) }

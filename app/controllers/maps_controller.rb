@@ -1,6 +1,10 @@
 class MapsController < ApplicationController
+  skip_filter :check_authentication
+  before_filter :check_authentication, :except => [:show]
   skip_filter :check_admin
   before_filter :check_admin, :except=>:show
+  
+  caches_page :show, :if => Proc.new { |c| c.request.format.json? }
   
   # GET /maps
   # GET /maps.xml
@@ -59,6 +63,8 @@ class MapsController < ApplicationController
   def destroy
     @map = Map.find(params[:id])
     @map.destroy
+    
+    expire_page :action=>'show', :id=>params[:id], :format=>'json'
 
     respond_to do |format|
       format.html { redirect_to(maps_url) }
@@ -69,6 +75,8 @@ class MapsController < ApplicationController
   private
   def save(params)
     @map = params[:id] ? Map.find(params[:id]) : Map.new(params[:map])
+    
+    expire_page :action=>'show', :id=>params[:id], :format=>'json'
 
     respond_to do |format|
       if @map.update_attributes(params[:map])
