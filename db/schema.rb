@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110804210639) do
+ActiveRecord::Schema.define(:version => 20110805145823) do
 
   create_table "game_players", :force => true do |t|
     t.integer  "game_id"
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(:version => 20110804210639) do
     t.boolean  "admin"
   end
 
+  create_table "terrain_modifiers", :force => true do |t|
+    t.integer  "unit_type_id"
+    t.integer  "tile_type_id"
+    t.integer  "defense_bonus"
+    t.integer  "movement_cost"
+    t.string   "tile_type_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tile_types", :force => true do |t|
     t.string   "name"
     t.string   "img"
@@ -91,44 +101,12 @@ ActiveRecord::Schema.define(:version => 20110804210639) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
-    t.integer  "attack_range",                :default => 1, :null => false
-    t.integer  "move_cost_grass",             :default => 1, :null => false
-    t.integer  "move_cost_dirt",              :default => 1, :null => false
-    t.integer  "move_cost_city",              :default => 1, :null => false
-    t.integer  "move_cost_castle",            :default => 1, :null => false
-    t.integer  "move_cost_water",             :default => 1, :null => false
-    t.integer  "move_cost_bridge_left",       :default => 1, :null => false
-    t.integer  "move_cost_bridge_right",      :default => 1, :null => false
-    t.integer  "move_cost_bridge_center",     :default => 1, :null => false
-    t.integer  "move_cost_path",              :default => 1, :null => false
-    t.integer  "move_cost_swamp",             :default => 1, :null => false
-    t.integer  "move_cost_desert",            :default => 1, :null => false
-    t.integer  "move_cost_oasis",             :default => 1, :null => false
-    t.integer  "move_cost_forest",            :default => 1, :null => false
-    t.integer  "move_cost_hills",             :default => 1, :null => false
-    t.integer  "move_cost_mountains",         :default => 1, :null => false
-    t.integer  "defense_bonus_grass",         :default => 0, :null => false
-    t.integer  "defense_bonus_dirt",          :default => 0, :null => false
-    t.integer  "defense_bonus_city",          :default => 0, :null => false
-    t.integer  "defense_bonus_castle",        :default => 0, :null => false
-    t.integer  "defense_bonus_water",         :default => 0, :null => false
-    t.integer  "defense_bonus_bridge_left",   :default => 0, :null => false
-    t.integer  "defense_bonus_bridge_right",  :default => 0, :null => false
-    t.integer  "defense_bonus_bridge_center", :default => 0, :null => false
-    t.integer  "defense_bonus_path",          :default => 0, :null => false
-    t.integer  "defense_bonus_swamp",         :default => 0, :null => false
-    t.integer  "defense_bonus_desert",        :default => 0, :null => false
-    t.integer  "defense_bonus_oasis",         :default => 0, :null => false
-    t.integer  "defense_bonus_forest",        :default => 0, :null => false
-    t.integer  "defense_bonus_hills",         :default => 0, :null => false
-    t.integer  "defense_bonus_mountains",     :default => 0, :null => false
-    t.integer  "move_range",                  :default => 2, :null => false
-    t.integer  "img_x",                       :default => 0, :null => false
-    t.integer  "img_y",                       :default => 0, :null => false
+    t.integer  "attack_range",  :default => 1, :null => false
+    t.integer  "move_range",    :default => 2, :null => false
+    t.integer  "img_x",         :default => 0, :null => false
+    t.integer  "img_y",         :default => 0, :null => false
     t.integer  "attack_power"
     t.integer  "defense_power"
-    t.integer  "move_cost_swamp_castle"
-    t.integer  "defense_bonus_swamp_castle"
   end
 
 end

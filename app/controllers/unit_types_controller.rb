@@ -13,8 +13,8 @@ class UnitTypesController < ApplicationController
 
     respond_to do |format|
       format.html  { check_authentication } # index.html.erb
-      format.json { render :json => @unit_types }
-      format.xml  { render :xml => @unit_types }
+      format.json { render :json => @unit_types.to_json(:include => :terrain_modifiers) }
+      format.xml  { render :xml => @unit_types.to_xml(:include => :terrain_modifiers) }
     end
   end
 
@@ -22,7 +22,6 @@ class UnitTypesController < ApplicationController
   # GET /unit_types/1.xml
   def show
     @unit_type = UnitType.find(params[:id])
-    @tile_types = TileType.find(:all, :order => :position)
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,0 +1,6 @@
+human_peasant_grass:
+  unit_type: human_peasant
+  tile_type: grass
+  defense_bonus: 0
+  movement_cost: 1
+  tile_type_name: grass
