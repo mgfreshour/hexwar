@@ -4,7 +4,7 @@ namespace('Hexwar.UnitController');
  * @constructor
  * @param {Game} game
  * @param {Map} map
- * @param {MaHexwar.MapViewpView} mapview
+ * @param {Hexwar.MapView} mapview
  * @param {String} current_player
  */
 Hexwar.UnitController = function (game, map, mapview, current_player) {

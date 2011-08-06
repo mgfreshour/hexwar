@@ -22,6 +22,7 @@ Hexwar.GameController = function (map, id, current_turn_id, current_player) {
 	this.returnToNormalMode();
 	
 	this.unit_controller = new Hexwar.UnitController(this, this.map, this.mapview, this.current_player);
+	this.store_controller = new Hexwar.StoreController(this, this.map, this.mapview, this.current_player);
 	
 	// Call parent c'tors
 	this.Observable();
@@ -127,7 +128,12 @@ Hexwar.GameController.prototype.updateResourceCounter = function() {
  * @param {Number} y
  */
 Hexwar.GameController.prototype.onMapClick = function(x,y) {
-	this.unit_controller.attemptUnitSelect(x,y);
+	if (this.unit_controller.attemptUnitSelect(x,y)) {
+		return;
+	}
+	if (this.store_controller.attemptStoreSelect(x,y)) {
+		return;
+	}
 }
 
 /**
