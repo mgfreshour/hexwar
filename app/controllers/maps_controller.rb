@@ -76,7 +76,9 @@ class MapsController < ApplicationController
   def save(params)
     @map = params[:id] ? Map.find(params[:id]) : Map.new(params[:map])
     
-    expire_page :action=>'show', :id=>params[:id], :format=>'json'
+    if params[:id]
+      expire_page :action=>'show', :id=>params[:id], :format=>'json'
+    end
 
     respond_to do |format|
       if @map.update_attributes(params[:map])
