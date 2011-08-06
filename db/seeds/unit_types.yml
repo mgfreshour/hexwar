@@ -1,515 +1,157 @@
-human_peasant:
-  position: 1
-  name: 'human peasant'
-  img: "/images/units.png"
-  img_x: 0
-  img_y: 0
-  attack_range: 1
-  attack_power: 12
-  defense_power: 12
-  move_range: 2
-  move_cost_bridge_center: 1
-  move_cost_bridge_right: 1
-  move_cost_oasis: 1
-  move_cost_forest: 1
-  move_cost_hills: 3
-  move_cost_dirt: 1
-  move_cost_bridge_left: 1
-  move_cost_mountains: 1
-  move_cost_desert: 1
-  move_cost_city: 1
-  move_cost_swamp: 1
-  move_cost_path: 1
-  move_cost_castle: 1
-  move_cost_water: 99
-  move_cost_grass: 1
-  move_cost_swamp_castle: 1
-  defense_bonus_desert: 0
-  defense_bonus_city: 0
-  defense_bonus_hills: 0
-  defense_bonus_castle: 0
-  defense_bonus_oasis: 0
-  defense_bonus_grass: 0
-  defense_bonus_swamp: 0
-  defense_bonus_bridge_center: 0
-  defense_bonus_forest: 0
-  defense_bonus_bridge_right: 0
-  defense_bonus_water: 0
-  defense_bonus_dirt: 0
-  defense_bonus_path: 0
-  defense_bonus_mountains: 0
-  defense_bonus_bridge_left: 0
-  defense_bonus_swamp_castle: 0
-
-human_archer:
-  position: 2
-  name: 'human archer'
-  img: "/images/units.png"
-  img_x: 0
-  img_y: 72
-  attack_range: 2
-  attack_power: 12
-  defense_power: 12
-  move_range: 2
-  move_cost_bridge_center: 1
-  move_cost_bridge_right: 1
-  move_cost_oasis: 1
-  move_cost_forest: 1
-  move_cost_hills: 3
-  move_cost_dirt: 1
-  move_cost_bridge_left: 1
-  move_cost_mountains: 1
-  move_cost_desert: 1
-  move_cost_city: 1
-  move_cost_swamp: 1
-  move_cost_path: 1
-  move_cost_castle: 1
-  move_cost_water: 99
-  move_cost_grass: 1
-  move_cost_swamp_castle: 1
-  defense_bonus_desert: 0
-  defense_bonus_city: 0
-  defense_bonus_hills: 0
-  defense_bonus_castle: 0
-  defense_bonus_oasis: 0
-  defense_bonus_grass: 0
-  defense_bonus_swamp: 0
-  defense_bonus_bridge_center: 0
-  defense_bonus_forest: 0
-  defense_bonus_bridge_right: 0
-  defense_bonus_water: 0
-  defense_bonus_dirt: 0
-  defense_bonus_path: 0
-  defense_bonus_mountains: 0
-  defense_bonus_bridge_left: 0
-  defense_bonus_swamp_castle: 0
-
-human_fighter:
-  position: 3
-  name: 'human fighter'
-  img: "/images/units.png"
-  img_x: 0
-  img_y: 144
-  attack_range: 1
-  attack_power: 12
-  defense_power: 12
-  move_range: 2
-  move_cost_bridge_center: 1
-  move_cost_bridge_right: 1
-  move_cost_oasis: 1
-  move_cost_forest: 1
-  move_cost_hills: 3
-  move_cost_dirt: 1
-  move_cost_bridge_left: 1
-  move_cost_mountains: 1
-  move_cost_desert: 1
-  move_cost_city: 1
-  move_cost_swamp: 1
-  move_cost_path: 1
-  move_cost_castle: 1
-  move_cost_water: 99
-  move_cost_grass: 1
-  move_cost_swamp_castle: 1
-  defense_bonus_desert: 0
-  defense_bonus_city: 0
-  defense_bonus_hills: 0
-  defense_bonus_castle: 0
-  defense_bonus_oasis: 0
-  defense_bonus_grass: 0
-  defense_bonus_swamp: 0
-  defense_bonus_bridge_center: 0
-  defense_bonus_forest: 0
-  defense_bonus_bridge_right: 0
-  defense_bonus_water: 0
-  defense_bonus_dirt: 0
-  defense_bonus_path: 0
-  defense_bonus_mountains: 0
-  defense_bonus_bridge_left: 0
-  defense_bonus_swamp_castle: 0
-
-human_knight:
-  position: 4
-  name: 'human knight'
-  img: "/images/units.png"
-  img_x: 0
-  img_y: 216
-  attack_range: 1
-  attack_power: 12
-  defense_power: 12
-  move_range: 4
-  move_cost_bridge_center: 1
-  move_cost_bridge_right: 1
-  move_cost_oasis: 1
-  move_cost_forest: 1
-  move_cost_hills: 3
-  move_cost_dirt: 1
-  move_cost_bridge_left: 1
-  move_cost_mountains: 1
-  move_cost_desert: 1
-  move_cost_city: 1
-  move_cost_swamp: 1
-  move_cost_path: 1
-  move_cost_castle: 1
-  move_cost_water: 99
-  move_cost_grass: 1
-  move_cost_swamp_castle: 1
-  defense_bonus_desert: 0
-  defense_bonus_city: 0
-  defense_bonus_hills: 0
-  defense_bonus_castle: 0
-  defense_bonus_oasis: 0
-  defense_bonus_grass: 0
-  defense_bonus_swamp: 0
-  defense_bonus_bridge_center: 0
-  defense_bonus_forest: 0
-  defense_bonus_bridge_right: 0
-  defense_bonus_water: 0
-  defense_bonus_dirt: 0
-  defense_bonus_path: 0
-  defense_bonus_mountains: 0
-  defense_bonus_bridge_left: 0
-  defense_bonus_swamp_castle: 0
-
-human_archmage:
-  position: 5
-  name: 'Archmage'
-  img: "/images/units.png"
-  img_x: 0
-  img_y: 288
-  attack_range: 1
-  attack_power: 12
-  defense_power: 12
-  move_range: 2
-  move_cost_bridge_center: 1
-  move_cost_bridge_right: 1
-  move_cost_oasis: 1
-  move_cost_forest: 1
-  move_cost_hills: 3
-  move_cost_dirt: 1
-  move_cost_bridge_left: 1
-  move_cost_mountains: 1
-  move_cost_desert: 1
-  move_cost_city: 1
-  move_cost_swamp: 1
-  move_cost_path: 1
-  move_cost_castle: 1
-  move_cost_water: 99
-  move_cost_grass: 1
-  move_cost_swamp_castle: 1
-  defense_bonus_desert: 0
-  defense_bonus_city: 0
-  defense_bonus_hills: 0
-  defense_bonus_castle: 0
-  defense_bonus_oasis: 0
-  defense_bonus_grass: 0
-  defense_bonus_swamp: 0
-  defense_bonus_bridge_center: 0
-  defense_bonus_forest: 0
-  defense_bonus_bridge_right: 0
-  defense_bonus_water: 0
-  defense_bonus_dirt: 0
-  defense_bonus_path: 0
-  defense_bonus_mountains: 0
-  defense_bonus_bridge_left: 0
-  defense_bonus_swamp_castle: 0
-
-human_griffin:
-  position: 6
-  name: 'Griffin Rider'
-  img: "/images/units.png"
-  img_x: 0
-  img_y: 360
-  attack_range: 1
-  attack_power: 12
-  defense_power: 12
-  move_range: 2
-  move_cost_bridge_center: 1
-  move_cost_bridge_right: 1
-  move_cost_oasis: 1
-  move_cost_forest: 1
-  move_cost_hills: 3
-  move_cost_dirt: 1
-  move_cost_bridge_left: 1
-  move_cost_mountains: 1
-  move_cost_desert: 1
-  move_cost_city: 1
-  move_cost_swamp: 1
-  move_cost_path: 1
-  move_cost_castle: 1
-  move_cost_water: 1
-  move_cost_grass: 1
-  move_cost_swamp_castle: 1
-  defense_bonus_desert: 0
-  defense_bonus_city: 0
-  defense_bonus_hills: 0
-  defense_bonus_castle: 0
-  defense_bonus_oasis: 0
-  defense_bonus_grass: 0
-  defense_bonus_swamp: 0
-  defense_bonus_bridge_center: 0
-  defense_bonus_forest: 0
-  defense_bonus_bridge_right: 0
-  defense_bonus_water: 0
-  defense_bonus_dirt: 0
-  defense_bonus_path: 0
-  defense_bonus_mountains: 0
-  defense_bonus_bridge_left: 0
-  defense_bonus_swamp_castle: 0
-
-undead_peasant:
-  position: 7
-  name: 'undead peasant :P'
-  img: "/images/units.png"
-  img_x: 0
-  img_y: 432
-  attack_range: 1
-  attack_power: 12
-  defense_power: 12
-  move_range: 2
-  move_cost_bridge_center: 1
-  move_cost_bridge_right: 1
-  move_cost_oasis: 1
-  move_cost_forest: 1
-  move_cost_hills: 3
-  move_cost_dirt: 1
-  move_cost_bridge_left: 1
-  move_cost_mountains: 1
-  move_cost_desert: 1
-  move_cost_city: 1
-  move_cost_swamp: 1
-  move_cost_path: 1
-  move_cost_castle: 1
-  move_cost_water: 99
-  move_cost_grass: 1
-  move_cost_swamp_castle: 1
-  defense_bonus_desert: 0
-  defense_bonus_city: 0
-  defense_bonus_hills: 0
-  defense_bonus_castle: 0
-  defense_bonus_oasis: 0
-  defense_bonus_grass: 0
-  defense_bonus_swamp: 0
-  defense_bonus_bridge_center: 0
-  defense_bonus_forest: 0
-  defense_bonus_bridge_right: 0
-  defense_bonus_water: 0
-  defense_bonus_dirt: 0
-  defense_bonus_path: 0
-  defense_bonus_mountains: 0
-  defense_bonus_bridge_left: 0
-  defense_bonus_swamp_castle: 0
-
-undead_archer:
-  position: 8
-  name: 'undead archer'
-  img: "/images/units.png"
-  img_x: 0
-  img_y: 504
-  attack_range: 1
-  attack_power: 12
-  defense_power: 12
-  move_range: 2
-  move_cost_bridge_center: 1
-  move_cost_bridge_right: 1
-  move_cost_oasis: 1
-  move_cost_forest: 1
-  move_cost_hills: 3
-  move_cost_dirt: 1
-  move_cost_bridge_left: 1
-  move_cost_mountains: 1
-  move_cost_desert: 1
-  move_cost_city: 1
-  move_cost_swamp: 1
-  move_cost_path: 1
-  move_cost_castle: 1
-  move_cost_water: 99
-  move_cost_grass: 1
-  move_cost_swamp_castle: 1
-  defense_bonus_desert: 0
-  defense_bonus_city: 0
-  defense_bonus_hills: 0
-  defense_bonus_castle: 0
-  defense_bonus_oasis: 0
-  defense_bonus_grass: 0
-  defense_bonus_swamp: 0
-  defense_bonus_bridge_center: 0
-  defense_bonus_forest: 0
-  defense_bonus_bridge_right: 0
-  defense_bonus_water: 0
-  defense_bonus_dirt: 0
-  defense_bonus_path: 0
-  defense_bonus_mountains: 0
-  defense_bonus_bridge_left: 0
-  defense_bonus_swamp_castle: 0
-
-undead_fighter:
-  position: 9
-  name: 'undead fighter'
-  img: "/images/units.png"
-  img_x: 0
-  img_y: 576
-  attack_range: 1
-  attack_power: 12
-  defense_power: 12
-  move_range: 2
-  move_cost_bridge_center: 1
-  move_cost_bridge_right: 1
-  move_cost_oasis: 1
-  move_cost_forest: 1
-  move_cost_hills: 3
-  move_cost_dirt: 1
-  move_cost_bridge_left: 1
-  move_cost_mountains: 1
-  move_cost_desert: 1
-  move_cost_city: 1
-  move_cost_swamp: 1
-  move_cost_path: 1
-  move_cost_castle: 1
-  move_cost_water: 99
-  move_cost_grass: 1
-  move_cost_swamp_castle: 1
-  defense_bonus_desert: 0
-  defense_bonus_city: 0
-  defense_bonus_hills: 0
-  defense_bonus_castle: 0
-  defense_bonus_oasis: 0
-  defense_bonus_grass: 0
-  defense_bonus_swamp: 0
-  defense_bonus_bridge_center: 0
-  defense_bonus_forest: 0
-  defense_bonus_bridge_right: 0
-  defense_bonus_water: 0
-  defense_bonus_dirt: 0
-  defense_bonus_path: 0
-  defense_bonus_mountains: 0
-  defense_bonus_bridge_left: 0
-  defense_bonus_swamp_castle: 0
-
-undead_knight:
+---
+unit_types_001:
+  id: 31504745
+  name: undead knight
+  img: /images/units.png
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
   position: 10
-  name: 'undead knight'
-  img: "/images/units.png"
+  attack_range: 1
+  move_range: 2
   img_x: 0
   img_y: 648
-  attack_range: 1
   attack_power: 12
   defense_power: 12
+unit_types_002:
+  id: 173342235
+  name: Griffin Rider
+  img: /images/units.png
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  position: 6
+  attack_range: 1
   move_range: 2
-  move_cost_bridge_center: 1
-  move_cost_bridge_right: 1
-  move_cost_oasis: 1
-  move_cost_forest: 1
-  move_cost_hills: 3
-  move_cost_dirt: 1
-  move_cost_bridge_left: 1
-  move_cost_mountains: 1
-  move_cost_desert: 1
-  move_cost_city: 1
-  move_cost_swamp: 1
-  move_cost_path: 1
-  move_cost_castle: 1
-  move_cost_water: 99
-  move_cost_grass: 1
-  move_cost_swamp_castle: 1
-  defense_bonus_desert: 0
-  defense_bonus_city: 0
-  defense_bonus_hills: 0
-  defense_bonus_castle: 0
-  defense_bonus_oasis: 0
-  defense_bonus_grass: 0
-  defense_bonus_swamp: 0
-  defense_bonus_bridge_center: 0
-  defense_bonus_forest: 0
-  defense_bonus_bridge_right: 0
-  defense_bonus_water: 0
-  defense_bonus_dirt: 0
-  defense_bonus_path: 0
-  defense_bonus_mountains: 0
-  defense_bonus_bridge_left: 0
-  defense_bonus_swamp_castle: 0
-
-undead_necromancer:
+  img_x: 0
+  img_y: 360
+  attack_power: 12
+  defense_power: 12
+unit_types_003:
+  id: 281547979
+  name: human knight
+  img: /images/units.png
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  position: 4
+  attack_range: 1
+  move_range: 4
+  img_x: 0
+  img_y: 216
+  attack_power: 12
+  defense_power: 12
+unit_types_004:
+  id: 288287154
+  name: necromancer
+  img: /images/units.png
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
   position: 11
-  name: 'necromancer'
-  img: "/images/units.png"
+  attack_range: 1
+  move_range: 2
   img_x: 0
   img_y: 720
-  attack_range: 1
   attack_power: 12
   defense_power: 12
+unit_types_005:
+  id: 360537346
+  name: undead fighter
+  img: /images/units.png
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  position: 9
+  attack_range: 1
   move_range: 2
-  move_cost_bridge_center: 1
-  move_cost_bridge_right: 1
-  move_cost_oasis: 1
-  move_cost_forest: 1
-  move_cost_hills: 3
-  move_cost_dirt: 1
-  move_cost_bridge_left: 1
-  move_cost_mountains: 1
-  move_cost_desert: 1
-  move_cost_city: 1
-  move_cost_swamp: 1
-  move_cost_path: 1
-  move_cost_castle: 1
-  move_cost_water: 99
-  move_cost_grass: 1
-  move_cost_swamp_castle: 1
-  defense_bonus_desert: 0
-  defense_bonus_city: 0
-  defense_bonus_hills: 0
-  defense_bonus_castle: 0
-  defense_bonus_oasis: 0
-  defense_bonus_grass: 0
-  defense_bonus_swamp: 0
-  defense_bonus_bridge_center: 0
-  defense_bonus_forest: 0
-  defense_bonus_bridge_right: 0
-  defense_bonus_water: 0
-  defense_bonus_dirt: 0
-  defense_bonus_path: 0
-  defense_bonus_mountains: 0
-  defense_bonus_bridge_left: 0
-  defense_bonus_swamp_castle: 0
-
-undead_dragon:
+  img_x: 0
+  img_y: 576
+  attack_power: 12
+  defense_power: 12
+unit_types_006:
+  id: 371587889
+  name: human peasant
+  img: /images/units.png
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  position: 1
+  attack_range: 1
+  move_range: 2
+  img_x: 0
+  img_y: 0
+  attack_power: 12
+  defense_power: 12
+unit_types_007:
+  id: 456097557
+  name: Archmage
+  img: /images/units.png
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  position: 5
+  attack_range: 1
+  move_range: 2
+  img_x: 0
+  img_y: 288
+  attack_power: 12
+  defense_power: 12
+unit_types_008:
+  id: 573650533
+  name: Bone Dragon
+  img: /images/units.png
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
   position: 12
-  name: 'Bone Dragon'
-  img: "/images/units.png"
+  attack_range: 1
+  move_range: 2
   img_x: 0
   img_y: 792
-  attack_range: 1
   attack_power: 12
   defense_power: 12
+unit_types_009:
+  id: 745484559
+  name: human archer
+  img: /images/units.png
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  position: 2
+  attack_range: 2
   move_range: 2
-  move_cost_bridge_center: 1
-  move_cost_bridge_right: 1
-  move_cost_oasis: 1
-  move_cost_forest: 1
-  move_cost_hills: 3
-  move_cost_dirt: 1
-  move_cost_bridge_left: 1
-  move_cost_mountains: 1
-  move_cost_desert: 1
-  move_cost_city: 1
-  move_cost_swamp: 1
-  move_cost_path: 1
-  move_cost_castle: 1
-  move_cost_water: 99
-  move_cost_grass: 1
-  move_cost_swamp_castle: 1
-  defense_bonus_desert: 0
-  defense_bonus_city: 0
-  defense_bonus_hills: 0
-  defense_bonus_castle: 0
-  defense_bonus_oasis: 0
-  defense_bonus_grass: 0
-  defense_bonus_swamp: 0
-  defense_bonus_bridge_center: 0
-  defense_bonus_forest: 0
-  defense_bonus_bridge_right: 0
-  defense_bonus_water: 0
-  defense_bonus_dirt: 0
-  defense_bonus_path: 0
-  defense_bonus_mountains: 0
-  defense_bonus_bridge_left: 0
-  defense_bonus_swamp_castle: 0
+  img_x: 0
+  img_y: 72
+  attack_power: 12
+  defense_power: 12
+unit_types_010:
+  id: 1028103333
+  name: undead archer
+  img: /images/units.png
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  position: 8
+  attack_range: 1
+  move_range: 2
+  img_x: 0
+  img_y: 504
+  attack_power: 12
+  defense_power: 12
+unit_types_011:
+  id: 1036757756
+  name: human fighter
+  img: /images/units.png
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  position: 3
+  attack_range: 1
+  move_range: 2
+  img_x: 0
+  img_y: 144
+  attack_power: 12
+  defense_power: 12
+unit_types_012:
+  id: 1049824471
+  name: undead peasant :P
+  img: /images/units.png
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  position: 7
+  attack_range: 1
+  move_range: 2
+  img_x: 0
+  img_y: 432
+  attack_power: 12
+  defense_power: 12

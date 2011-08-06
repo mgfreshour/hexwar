@@ -1,112 +1,161 @@
-grass:
-  name: "grass"
-  img: "/images/tiles.png"
-  img_x: 0
-  img_y: 0  
-  position: 1
-  ownable: false
-dirt:
-  name: "dirt"
-  img: "/images/tiles.png"
-  img_x: 0
-  img_y: 72    
-  position: 2
-  ownable: false
-city:
-  name: "city"
-  img: "/images/tiles.png"
-  img_x: 0
-  img_y: 144 
-  position: 3
-  ownable: true
-castle: 
-  name: "castle"
-  img: "/images/tiles.png"
-  img_x: 0
-  img_y: 216
-  position: 4
-  ownable: true
-water: 
-  name: "water"
-  img: "/images/tiles.png"
-  img_x: 0
-  img_y: 288
-  position: 5
-  ownable: false
-bridgeLeft:
-  name: "bridge_left"
-  img: "/images/tiles.png"
-  img_x: 0
-  img_y: 360
-  position: 6
-  ownable: false
-bridgeRight:
-  name: "bridge_right"
-  img: "/images/tiles.png"
-  img_x: 0
-  img_y: 432
-  position: 7
-  ownable: false
-bridgeCenter:
-  name: "bridge_center"
-  img: "/images/tiles.png"
+---
+tile_types_001:
+  id: 11642252
+  name: bridge_center
+  img: /images/tiles.png
+  position: 8
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 504
-  position: 8
-  ownable: false
-path:
-  name: "path"
-  img: "/images/tiles.png"
+  ownable: f
+tile_types_002:
+  id: 85130281
+  name: castle
+  img: /images/tiles.png
+  position: 4
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
   img_x: 0
-  img_y: 576
-  position: 9
-  ownable: false
-swamp:
-  name: "swamp"
-  img: "/images/tiles.png"
+  img_y: 216
+  ownable: t
+tile_types_003:
+  id: 133902567
+  name: swamp
+  img: /images/tiles.png
+  position: 10
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 648
-  position: 10
-  ownable: false
-desert: 
-  name: "desert"
-  img: "/images/tiles.png"
+  ownable: f
+tile_types_004:
+  id: 190089999
+  name: path
+  img: /images/tiles.png
+  position: 9
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  img_x: 0
+  img_y: 576
+  ownable: f
+tile_types_005:
+  id: 243448890
+  name: desert
+  img: /images/tiles.png
+  position: 11
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 720
-  position: 11
-  ownable: false
-oasis: 
-  name: "oasis"
-  img: "/images/tiles.png"
+  ownable: f
+tile_types_006:
+  id: 283317123
+  name: bridge_right
+  img: /images/tiles.png
+  position: 7
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
   img_x: 0
-  img_y: 792
-  position: 12
-  ownable: false
-forest:
-  name: "forest"
-  img: "/images/tiles.png"
+  img_y: 432
+  ownable: f
+tile_types_007:
+  id: 409461176
+  name: dirt
+  img: /images/tiles.png
+  position: 2
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
   img_x: 0
-  img_y: 864
-  position: 13
-  ownable: false
-hills:
-  name: "hills"
-  img: "/images/tiles.png"
-  img_x: 0
-  img_y: 936
-  position: 14
-  ownable: false
-mountains:
-  name: "mountains"
-  img: "/images/tiles.png"
-  img_x: 0
-  img_y: 1008
-  position: 15
-  ownable: false
-swamp_castle:
-  name: "swamp_castle"
-  img: "/images/tiles.png"
+  img_y: 72
+  ownable: f
+tile_types_008:
+  id: 554471142
+  name: swamp_castle
+  img: /images/tiles.png
+  position: 16
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 1080
-  position: 16
-  ownable: true
+  ownable: t
+tile_types_009:
+  id: 664982686
+  name: bridge_left
+  img: /images/tiles.png
+  position: 6
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  img_x: 0
+  img_y: 360
+  ownable: f
+tile_types_010:
+  id: 671981557
+  name: grass
+  img: /images/tiles.png
+  position: 1
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  img_x: 0
+  img_y: 0
+  ownable: f
+tile_types_011:
+  id: 677204918
+  name: forest
+  img: /images/tiles.png
+  position: 13
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  img_x: 0
+  img_y: 864
+  ownable: f
+tile_types_012:
+  id: 684148082
+  name: hills
+  img: /images/tiles.png
+  position: 14
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  img_x: 0
+  img_y: 936
+  ownable: f
+tile_types_013:
+  id: 760939060
+  name: city
+  img: /images/tiles.png
+  position: 3
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  img_x: 0
+  img_y: 144
+  ownable: t
+tile_types_014:
+  id: 888934789
+  name: mountains
+  img: /images/tiles.png
+  position: 15
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  img_x: 0
+  img_y: 1008
+  ownable: f
+tile_types_015:
+  id: 895394183
+  name: oasis
+  img: /images/tiles.png
+  position: 12
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  img_x: 0
+  img_y: 792
+  ownable: f
+tile_types_016:
+  id: 993203421
+  name: water
+  img: /images/tiles.png
+  position: 5
+  created_at: '2011-08-05 15:14:05'
+  updated_at: '2011-08-05 15:14:05'
+  img_x: 0
+  img_y: 288
+  ownable: f
