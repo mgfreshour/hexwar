@@ -140,6 +140,9 @@ class GamesController < ApplicationController
     else
       @game = @current_player.games.find(params[:id])
     end
+    
+    #delete alal the old actions taht should've belonged to this turn
+    TurnAction.delete_all(:game_turn_id => @game.current_turn.id)
 
     respond_to do |format|
       format.json { render :json => @game.current_turn }
