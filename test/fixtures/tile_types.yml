@@ -60,7 +60,7 @@ tile_types_005:
   is_store: f
   unit_types_available: !!null 
 tile_types_006:
-  id: 283317123
+  id: 7
   name: bridge_right
   img: /images/tiles.png
   position: 7

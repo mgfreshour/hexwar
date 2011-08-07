@@ -37,7 +37,7 @@ terrain_modifiers_005:
 terrain_modifiers_006:
   id: 6
   unit_type_id: 10
-  tile_type_id: 283317123
+  tile_type_id: 7
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_right
@@ -149,7 +149,7 @@ terrain_modifiers_021:
 terrain_modifiers_022:
   id: 22
   unit_type_id: 6
-  tile_type_id: 283317123
+  tile_type_id: 7
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_right
@@ -283,7 +283,7 @@ terrain_modifiers_037:
 terrain_modifiers_038:
   id: 38
   unit_type_id: 4
-  tile_type_id: 283317123
+  tile_type_id: 7
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_right
@@ -427,7 +427,7 @@ terrain_modifiers_053:
 terrain_modifiers_054:
   id: 54
   unit_type_id: 11
-  tile_type_id: 283317123
+  tile_type_id: 7
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_right
@@ -571,7 +571,7 @@ terrain_modifiers_069:
 terrain_modifiers_070:
   id: 70
   unit_type_id: 9
-  tile_type_id: 283317123
+  tile_type_id: 7
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_right
@@ -715,7 +715,7 @@ terrain_modifiers_085:
 terrain_modifiers_086:
   id: 86
   unit_type_id: 1
-  tile_type_id: 283317123
+  tile_type_id: 7
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_right
@@ -859,7 +859,7 @@ terrain_modifiers_101:
 terrain_modifiers_102:
   id: 102
   unit_type_id: 5
-  tile_type_id: 283317123
+  tile_type_id: 7
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_right
@@ -1003,7 +1003,7 @@ terrain_modifiers_117:
 terrain_modifiers_118:
   id: 118
   unit_type_id: 12
-  tile_type_id: 283317123
+  tile_type_id: 7
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_right
@@ -1147,7 +1147,7 @@ terrain_modifiers_133:
 terrain_modifiers_134:
   id: 134
   unit_type_id: 2
-  tile_type_id: 283317123
+  tile_type_id: 7
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_right
@@ -1291,7 +1291,7 @@ terrain_modifiers_149:
 terrain_modifiers_150:
   id: 150
   unit_type_id: 8
-  tile_type_id: 283317123
+  tile_type_id: 7
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_right
@@ -1435,7 +1435,7 @@ terrain_modifiers_165:
 terrain_modifiers_166:
   id: 166
   unit_type_id: 3
-  tile_type_id: 283317123
+  tile_type_id: 7
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_right
@@ -1579,7 +1579,7 @@ terrain_modifiers_181:
 terrain_modifiers_182:
   id: 182
   unit_type_id: 7
-  tile_type_id: 283317123
+  tile_type_id: 7
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_right
