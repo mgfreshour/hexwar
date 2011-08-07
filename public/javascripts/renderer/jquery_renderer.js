@@ -108,9 +108,10 @@ Hexwar.jQueryRenderer.prototype._getLayer = function(layer_name) {
  * @param {jQueryObject} container the jquery item to draw into
  * @param {Number} screen_x
  * @param {Number} screen_y
+ * @param {Boolean} force_redraw
  */
-Hexwar.jQueryRenderer.prototype._drawItem = function(item, container, screen_x, screen_y) {
-	if (item.gfx_container) {
+Hexwar.jQueryRenderer.prototype._drawItem = function(item, container, screen_x, screen_y, force_redraw) {
+	if (item.gfx_container && !force_redraw) {
 		item.gfx_container.animate({left: screen_x, top: screen_y}, 100);
 	} else {	
 		// --- Style values to position hex image in the right location

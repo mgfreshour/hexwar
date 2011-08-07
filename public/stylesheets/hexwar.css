@@ -19,6 +19,15 @@ body { background-color: #333; color: #fff; }
     z-index:10;
 }
 
+.unit_store_row {
+    width: 100px;
+    height: 90px;
+}		
+.unit_store_row .img {
+    width: 72px;
+    height: 72px;
+}
+
 .rendering_layer {
 	position: absolute;
     top: 0px;
