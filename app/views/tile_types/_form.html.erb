@@ -21,7 +21,18 @@
     X <%= f.text_field :img_x %>
     Y <%= f.text_field :img_y %>
   </div>
+	<div class="field">
+    <%= f.label :is_store %>
+    <%= f.check_box :is_store %>
+  </div>
+	<fieldset>
+		<legend>Units Available</legend>
+		<% @unit_types.each do |unit_type| %>
+			<input type="checkbox" name="tile_type[unit_types_available][<%=unit_type.position%>]" <%= 'checked="checked"' if @tile_type.unit_types_available.include?(unit_type.position.to_s) %> />
+			<%= unit_type.name %>
+		<% end %>
+	</fieldset>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save Tile Type', :class=>:button %>
   </div>
 <% end %>

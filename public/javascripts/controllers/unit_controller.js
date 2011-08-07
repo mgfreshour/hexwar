@@ -108,7 +108,7 @@ Hexwar.UnitController.prototype.battle = function(attacker, defender) {
 	var max_attack_range = Math.max(attacker.range, defender.range);
 	mask.generateDistanceMap(attacker.x, attacker.y, max_attack_range);
 	
-	//((Attack Strength + All bonuses) * HP of Attacker)*.05 � Defense Strength * 0.14  = Amount of HP lost
+	//((Attack Strength + All bonuses) * HP of Attacker)*.05  - Defense Strength * 0.14  = Amount of HP lost
 	debug.log(attacker);
 	debug.log(defender);
 

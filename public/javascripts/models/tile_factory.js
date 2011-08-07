@@ -19,7 +19,7 @@ Hexwar.TileFactory.prototype.loadFromServer = function(url) {
 		var obj;
 		for (var n=0; n < data.length; n++) {
 			obj = data[n].tile_type;
-			this.createTileType(obj.name, obj.img, obj.img_x, obj.img_y, obj.ownable);
+			this.createTileType(obj.name, obj.img, obj.img_x, obj.img_y, obj.ownable, obj.is_store, obj.unit_types_available);
 	 	}
 	};
 	
@@ -55,8 +55,8 @@ Hexwar.TileFactory.prototype.addTileType = function(tile_type) {
  * @param {Boolean} ownable
  * @return {Number} index of the added type
  */
-Hexwar.TileFactory.prototype.createTileType = function(name, img, img_x, img_y, ownable) {
-	var type = new Hexwar.TileType(name, img, img_x, img_y, ownable);
+Hexwar.TileFactory.prototype.createTileType = function(name, img, img_x, img_y, ownable, is_store, unit_types_available) {
+	var type = new Hexwar.TileType(name, img, img_x, img_y, ownable, is_store, unit_types_available);
 	return this.addTileType(type);
 }
 

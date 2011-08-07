@@ -1,3 +1,7 @@
+
+<%= link_to 'Edit', edit_tile_type_path(@tile_type), :class=>:button %>
+<%= link_to 'Listing', tile_types_path, :class=>:button %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -16,5 +20,15 @@
 </p>
 
 
-<%= link_to 'Edit', edit_tile_type_path(@tile_type) %> |
-<%= link_to 'Back', tile_types_path %>
+<div class="field">
+	<input type="checkbox" disabled="disabled" <%= 'checked="checked"' if @tile_type.is_store %> />
+  is store
+</div>
+<fieldset>
+	<legend>Units Available</legend>
+	<% @unit_types.each do |unit_type| %>
+		<input type="checkbox" disabled="disabled" <%= 'checked="checked"' if @tile_type.unit_types_available.include?(unit_type.position.to_s) %> />
+		<%= unit_type.name %>
+	<% end %>
+</fieldset>
+

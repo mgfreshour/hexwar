@@ -36,7 +36,8 @@ javascripts:
     # Game Controllers
     - public/javascripts/controllers/unit_controller.js
     - public/javascripts/controllers/game_controller.js
-    - public/javascripts/controllers/store_controller.js
+    - public/javascripts/controllers/unit_store_controller.js
+    - public/javascripts/views/unit_store_dialog.js
 
     # Map Editor stuff
     - public/javascripts/map_editor/toolbox.js

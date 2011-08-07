@@ -22,6 +22,7 @@ class TileTypesController < ApplicationController
   # GET /tile_types/1.xml
   def show
     @tile_type = TileType.find(params[:id])
+    @unit_types = UnitType.find(:all, :order=>:position)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -43,6 +44,7 @@ class TileTypesController < ApplicationController
   # GET /tile_types/1/edit
   def edit
     @tile_type = TileType.find(params[:id])
+    @unit_types = UnitType.find(:all, :order=>:position)
   end
 
   # POST /tile_types

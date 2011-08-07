@@ -155,3 +155,22 @@ unit_types_012:
   img_y: 432
   attack_power: 12
   defense_power: 12
+
+# == Schema Information
+#
+# Table name: unit_types
+#
+#  id            :integer         not null, primary key
+#  name          :string(255)
+#  img           :string(255)
+#  created_at    :datetime
+#  updated_at    :datetime
+#  position      :integer
+#  attack_range  :integer         default(1), not null
+#  move_range    :integer         default(2), not null
+#  img_x         :integer         default(0), not null
+#  img_y         :integer         default(0), not null
+#  attack_power  :integer
+#  defense_power :integer
+#
+

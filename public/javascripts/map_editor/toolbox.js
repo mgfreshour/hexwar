@@ -16,7 +16,7 @@ Hexwar.Toolbox.prototype.initHexPalette = function initHexPalette() {
             $('.hex_palette_row').removeClass('selected_palette_row');
             event.data.me.selectedItem = { type: 'tile', index: $(event.currentTarget).attr('hex_id') };
             $(event.currentTarget).addClass('selected_palette_row');
-        })
+        });
     }
 }
 

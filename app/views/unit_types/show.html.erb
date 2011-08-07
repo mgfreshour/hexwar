@@ -1,3 +1,5 @@
+<%= link_to 'Edit', edit_unit_type_path(@unit_type), :class=>:button %>
+<%= link_to 'Listing', unit_types_path, :class=>:button %>
 <p id="notice"><%= notice %></p>
 
 <%= @unit_type.name %>
@@ -19,7 +21,3 @@
     </tr>
   <% end %>
 </table>
-
-
-<%= link_to 'Edit', edit_unit_type_path(@unit_type) %> |
-<%= link_to 'Back', unit_types_path %>
