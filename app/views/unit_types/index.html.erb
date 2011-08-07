@@ -1,18 +1,35 @@
-<h1>Listing unit_types</h1>
+<h1>Listing Unit Types</h1>
 <%= link_to 'New Unit type', new_unit_type_path, :class=>:button %>
 
 <table class="model_index">
   <tr>
     <th>Name</th>
     <th>Img</th>
-    <th></th>
+    <th>price</th>
+    <th>attack range</th>
+    <th>move range</th>
+    <th>attack power</th>
+    <th>defense power</th>
+		<th colspan="20">Terrain modifiers</th>
   </tr>
 
 <% @unit_types.each do |unit_type| %>
   <tr>
-    <td><h2><%= unit_type.name %></h2></td>
+    <td><h2><%= unit_type.name %></h2>
+				<%= link_to 'Edit', edit_unit_type_path(unit_type), :class=>:button %>
+				<%= link_to 'Delete', unit_type, :confirm => 'Are you sure?', :method => :delete, :class=>:button %>
+		</td>
     <td><%=display_unit_img(unit_type).html_safe%></td>
-    <td><%= link_to 'Show', unit_type, :class=>:button %> <%= link_to 'Edit', edit_unit_type_path(unit_type), :class=>:button %> <%= link_to 'Destroy', unit_type, :confirm => 'Are you sure?', :method => :delete, :class=>:button %></td>
+		<td><%= unit_type.price%></td>
+	  <td><%= unit_type.attack_range%></td>
+	  <td><%= unit_type.move_range%></td>
+	  <td><%= unit_type.attack_power%></td>
+	  <td><%= unit_type.defense_power%></td>
+	  <% unit_type.terrain_modifiers.each do |terr_mod| %>
+	      <td><%= display_tile_img(terr_mod.tile_type).html_safe%>
+	      Move: <%= terr_mod.movement_cost %>
+	      Def: <%= terr_mod.defense_bonus %></td>
+	  <% end %>
   </tr>
 <% end %>
 </table>
