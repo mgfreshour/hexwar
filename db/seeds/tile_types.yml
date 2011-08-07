@@ -6,7 +6,7 @@ tile_types_001:
   position: 8
   img_x: 0
   img_y: 504
-  ownable: t
+  ownable: 0
   is_store: 0
   unit_types_available: !!null 
 tile_types_002:
@@ -26,7 +26,7 @@ tile_types_003:
   position: 10
   img_x: 0
   img_y: 648
-  ownable: t
+  ownable: 0
   is_store: 0
   unit_types_available: !!null 
 tile_types_004:
@@ -36,7 +36,7 @@ tile_types_004:
   position: 9
   img_x: 0
   img_y: 576
-  ownable: t
+  ownable: 0
   is_store: 0
   unit_types_available: !!null 
 tile_types_005:
@@ -46,7 +46,7 @@ tile_types_005:
   position: 11
   img_x: 0
   img_y: 720
-  ownable: t
+  ownable: 0
   is_store: 0
   unit_types_available: !!null 
 tile_types_006:
@@ -56,7 +56,7 @@ tile_types_006:
   position: 7
   img_x: 0
   img_y: 432
-  ownable: t
+  ownable: 0
   is_store: 0
   unit_types_available: !!null 
 tile_types_007:
@@ -66,7 +66,7 @@ tile_types_007:
   position: 2
   img_x: 0
   img_y: 72
-  ownable: t
+  ownable: 0
   is_store: 0
   unit_types_available: !!null 
 tile_types_008:
@@ -86,7 +86,7 @@ tile_types_009:
   position: 6
   img_x: 0
   img_y: 360
-  ownable: t
+  ownable: 0
   is_store: 0
   unit_types_available: !!null 
 tile_types_010:
@@ -96,7 +96,7 @@ tile_types_010:
   position: 1
   img_x: 0
   img_y: 0
-  ownable: t
+  ownable: 0
   is_store: 0
   unit_types_available: !!null 
 tile_types_011:
@@ -106,7 +106,7 @@ tile_types_011:
   position: 13
   img_x: 0
   img_y: 864
-  ownable: t
+  ownable: 0
   is_store: 0
   unit_types_available: !!null 
 tile_types_012:
@@ -116,7 +116,7 @@ tile_types_012:
   position: 14
   img_x: 0
   img_y: 936
-  ownable: t
+  ownable: 0
   is_store: 0
   unit_types_available: !!null 
 tile_types_013:
@@ -136,7 +136,7 @@ tile_types_014:
   position: 15
   img_x: 0
   img_y: 1008
-  ownable: t
+  ownable: 0
   is_store: 0
   unit_types_available: !!null 
 tile_types_015:
@@ -146,7 +146,7 @@ tile_types_015:
   position: 12
   img_x: 0
   img_y: 792
-  ownable: t
+  ownable: 0
   is_store: 0
   unit_types_available: !!null 
 tile_types_016:
@@ -156,6 +156,6 @@ tile_types_016:
   position: 5
   img_x: 0
   img_y: 288
-  ownable: t
+  ownable: 0
   is_store: 0
   unit_types_available: !!null 
