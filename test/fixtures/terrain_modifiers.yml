@@ -1,8 +1,8 @@
 ---
 terrain_modifiers_001:
   id: 1
-  unit_type_id: 31504745
-  tile_type_id: 11642252
+  unit_type_id: 10
+  tile_type_id: 8
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_center
@@ -10,8 +10,8 @@ terrain_modifiers_001:
   updated_at: '2011-08-05 15:36:14.945016'
 terrain_modifiers_002:
   id: 2
-  unit_type_id: 31504745
-  tile_type_id: 85130281
+  unit_type_id: 10
+  tile_type_id: 4
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: castle
@@ -19,8 +19,8 @@ terrain_modifiers_002:
   updated_at: '2011-08-07 17:59:17.720966'
 terrain_modifiers_003:
   id: 3
-  unit_type_id: 31504745
-  tile_type_id: 133902567
+  unit_type_id: 10
+  tile_type_id: 10
   defense_bonus: 1
   movement_cost: 1
   tile_type_name: swamp
@@ -28,8 +28,8 @@ terrain_modifiers_003:
   updated_at: '2011-08-07 17:59:17.730477'
 terrain_modifiers_004:
   id: 4
-  unit_type_id: 31504745
-  tile_type_id: 190089999
+  unit_type_id: 10
+  tile_type_id: 9
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: path
@@ -37,8 +37,8 @@ terrain_modifiers_004:
   updated_at: '2011-08-05 15:36:15.010458'
 terrain_modifiers_005:
   id: 5
-  unit_type_id: 31504745
-  tile_type_id: 243448890
+  unit_type_id: 10
+  tile_type_id: 11
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: desert
@@ -46,7 +46,7 @@ terrain_modifiers_005:
   updated_at: '2011-08-05 15:36:15.011525'
 terrain_modifiers_006:
   id: 6
-  unit_type_id: 31504745
+  unit_type_id: 10
   tile_type_id: 283317123
   defense_bonus: 0
   movement_cost: 1
@@ -55,8 +55,8 @@ terrain_modifiers_006:
   updated_at: '2011-08-05 15:36:15.012571'
 terrain_modifiers_007:
   id: 7
-  unit_type_id: 31504745
-  tile_type_id: 409461176
+  unit_type_id: 10
+  tile_type_id: 2
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: dirt
@@ -64,8 +64,8 @@ terrain_modifiers_007:
   updated_at: '2011-08-05 15:36:15.013628'
 terrain_modifiers_008:
   id: 8
-  unit_type_id: 31504745
-  tile_type_id: 554471142
+  unit_type_id: 10
+  tile_type_id: 16
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: swamp_castle
@@ -73,8 +73,8 @@ terrain_modifiers_008:
   updated_at: '2011-08-07 17:59:17.738703'
 terrain_modifiers_009:
   id: 9
-  unit_type_id: 31504745
-  tile_type_id: 664982686
+  unit_type_id: 10
+  tile_type_id: 6
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_left
@@ -82,8 +82,8 @@ terrain_modifiers_009:
   updated_at: '2011-08-05 15:36:15.015790'
 terrain_modifiers_010:
   id: 10
-  unit_type_id: 31504745
-  tile_type_id: 671981557
+  unit_type_id: 10
+  tile_type_id: 1
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: grass
@@ -91,8 +91,8 @@ terrain_modifiers_010:
   updated_at: '2011-08-05 15:36:15.016841'
 terrain_modifiers_011:
   id: 11
-  unit_type_id: 31504745
-  tile_type_id: 677204918
+  unit_type_id: 10
+  tile_type_id: 13
   defense_bonus: 1
   movement_cost: 2
   tile_type_name: forest
@@ -100,8 +100,8 @@ terrain_modifiers_011:
   updated_at: '2011-08-07 17:59:17.744142'
 terrain_modifiers_012:
   id: 12
-  unit_type_id: 31504745
-  tile_type_id: 684148082
+  unit_type_id: 10
+  tile_type_id: 14
   defense_bonus: 1
   movement_cost: 3
   tile_type_name: hills
@@ -109,8 +109,8 @@ terrain_modifiers_012:
   updated_at: '2011-08-07 17:59:17.748382'
 terrain_modifiers_013:
   id: 13
-  unit_type_id: 31504745
-  tile_type_id: 760939060
+  unit_type_id: 10
+  tile_type_id: 3
   defense_bonus: 1
   movement_cost: 1
   tile_type_name: city
@@ -118,8 +118,8 @@ terrain_modifiers_013:
   updated_at: '2011-08-07 17:59:17.753913'
 terrain_modifiers_014:
   id: 14
-  unit_type_id: 31504745
-  tile_type_id: 888934789
+  unit_type_id: 10
+  tile_type_id: 15
   defense_bonus: 2
   movement_cost: 4
   tile_type_name: mountains
@@ -127,8 +127,8 @@ terrain_modifiers_014:
   updated_at: '2011-08-07 17:59:17.758303'
 terrain_modifiers_015:
   id: 15
-  unit_type_id: 31504745
-  tile_type_id: 895394183
+  unit_type_id: 10
+  tile_type_id: 12
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: oasis
@@ -136,8 +136,8 @@ terrain_modifiers_015:
   updated_at: '2011-08-05 15:36:15.022031'
 terrain_modifiers_016:
   id: 16
-  unit_type_id: 31504745
-  tile_type_id: 993203421
+  unit_type_id: 10
+  tile_type_id: 5
   defense_bonus: 0
   movement_cost: 99
   tile_type_name: water
@@ -145,8 +145,8 @@ terrain_modifiers_016:
   updated_at: '2011-08-05 15:36:15.023075'
 terrain_modifiers_017:
   id: 17
-  unit_type_id: 173342235
-  tile_type_id: 11642252
+  unit_type_id: 6
+  tile_type_id: 8
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_center
@@ -154,8 +154,8 @@ terrain_modifiers_017:
   updated_at: '2011-08-05 15:36:15.024150'
 terrain_modifiers_018:
   id: 18
-  unit_type_id: 173342235
-  tile_type_id: 85130281
+  unit_type_id: 6
+  tile_type_id: 4
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: castle
@@ -163,8 +163,8 @@ terrain_modifiers_018:
   updated_at: '2011-08-05 15:36:15.025197'
 terrain_modifiers_019:
   id: 19
-  unit_type_id: 173342235
-  tile_type_id: 133902567
+  unit_type_id: 6
+  tile_type_id: 10
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: swamp
@@ -172,8 +172,8 @@ terrain_modifiers_019:
   updated_at: '2011-08-05 15:36:15.026228'
 terrain_modifiers_020:
   id: 20
-  unit_type_id: 173342235
-  tile_type_id: 190089999
+  unit_type_id: 6
+  tile_type_id: 9
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: path
@@ -181,8 +181,8 @@ terrain_modifiers_020:
   updated_at: '2011-08-05 15:36:15.027258'
 terrain_modifiers_021:
   id: 21
-  unit_type_id: 173342235
-  tile_type_id: 243448890
+  unit_type_id: 6
+  tile_type_id: 11
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: desert
@@ -190,7 +190,7 @@ terrain_modifiers_021:
   updated_at: '2011-08-05 15:36:15.028286'
 terrain_modifiers_022:
   id: 22
-  unit_type_id: 173342235
+  unit_type_id: 6
   tile_type_id: 283317123
   defense_bonus: 0
   movement_cost: 1
@@ -199,8 +199,8 @@ terrain_modifiers_022:
   updated_at: '2011-08-05 15:36:15.029313'
 terrain_modifiers_023:
   id: 23
-  unit_type_id: 173342235
-  tile_type_id: 409461176
+  unit_type_id: 6
+  tile_type_id: 2
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: dirt
@@ -208,8 +208,8 @@ terrain_modifiers_023:
   updated_at: '2011-08-05 15:36:15.030372'
 terrain_modifiers_024:
   id: 24
-  unit_type_id: 173342235
-  tile_type_id: 554471142
+  unit_type_id: 6
+  tile_type_id: 16
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: swamp_castle
@@ -217,8 +217,8 @@ terrain_modifiers_024:
   updated_at: '2011-08-05 15:36:15.031398'
 terrain_modifiers_025:
   id: 25
-  unit_type_id: 173342235
-  tile_type_id: 664982686
+  unit_type_id: 6
+  tile_type_id: 6
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_left
@@ -226,8 +226,8 @@ terrain_modifiers_025:
   updated_at: '2011-08-05 15:36:15.032418'
 terrain_modifiers_026:
   id: 26
-  unit_type_id: 173342235
-  tile_type_id: 671981557
+  unit_type_id: 6
+  tile_type_id: 1
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: grass
@@ -235,8 +235,8 @@ terrain_modifiers_026:
   updated_at: '2011-08-05 15:36:15.033447'
 terrain_modifiers_027:
   id: 27
-  unit_type_id: 173342235
-  tile_type_id: 677204918
+  unit_type_id: 6
+  tile_type_id: 13
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: forest
@@ -244,8 +244,8 @@ terrain_modifiers_027:
   updated_at: '2011-08-05 15:36:15.034470'
 terrain_modifiers_028:
   id: 28
-  unit_type_id: 173342235
-  tile_type_id: 684148082
+  unit_type_id: 6
+  tile_type_id: 14
   defense_bonus: 0
   movement_cost: 3
   tile_type_name: hills
@@ -253,8 +253,8 @@ terrain_modifiers_028:
   updated_at: '2011-08-05 15:36:15.035505'
 terrain_modifiers_029:
   id: 29
-  unit_type_id: 173342235
-  tile_type_id: 760939060
+  unit_type_id: 6
+  tile_type_id: 3
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: city
@@ -262,8 +262,8 @@ terrain_modifiers_029:
   updated_at: '2011-08-05 15:36:15.036528'
 terrain_modifiers_030:
   id: 30
-  unit_type_id: 173342235
-  tile_type_id: 888934789
+  unit_type_id: 6
+  tile_type_id: 15
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: mountains
@@ -271,8 +271,8 @@ terrain_modifiers_030:
   updated_at: '2011-08-05 15:36:15.037548'
 terrain_modifiers_031:
   id: 31
-  unit_type_id: 173342235
-  tile_type_id: 895394183
+  unit_type_id: 6
+  tile_type_id: 12
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: oasis
@@ -280,8 +280,8 @@ terrain_modifiers_031:
   updated_at: '2011-08-05 15:36:15.038572'
 terrain_modifiers_032:
   id: 32
-  unit_type_id: 173342235
-  tile_type_id: 993203421
+  unit_type_id: 6
+  tile_type_id: 5
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: water
@@ -289,8 +289,8 @@ terrain_modifiers_032:
   updated_at: '2011-08-05 15:36:15.039597'
 terrain_modifiers_033:
   id: 33
-  unit_type_id: 281547979
-  tile_type_id: 11642252
+  unit_type_id: 4
+  tile_type_id: 8
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_center
@@ -298,8 +298,8 @@ terrain_modifiers_033:
   updated_at: '2011-08-05 15:36:15.040632'
 terrain_modifiers_034:
   id: 34
-  unit_type_id: 281547979
-  tile_type_id: 85130281
+  unit_type_id: 4
+  tile_type_id: 4
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: castle
@@ -307,8 +307,8 @@ terrain_modifiers_034:
   updated_at: '2011-08-07 17:47:14.360684'
 terrain_modifiers_035:
   id: 35
-  unit_type_id: 281547979
-  tile_type_id: 133902567
+  unit_type_id: 4
+  tile_type_id: 10
   defense_bonus: 0
   movement_cost: 3
   tile_type_name: swamp
@@ -316,8 +316,8 @@ terrain_modifiers_035:
   updated_at: '2011-08-07 17:47:14.421133'
 terrain_modifiers_036:
   id: 36
-  unit_type_id: 281547979
-  tile_type_id: 190089999
+  unit_type_id: 4
+  tile_type_id: 9
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: path
@@ -325,8 +325,8 @@ terrain_modifiers_036:
   updated_at: '2011-08-05 15:36:15.043731'
 terrain_modifiers_037:
   id: 37
-  unit_type_id: 281547979
-  tile_type_id: 243448890
+  unit_type_id: 4
+  tile_type_id: 11
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: desert
@@ -334,7 +334,7 @@ terrain_modifiers_037:
   updated_at: '2011-08-05 15:36:15.044773'
 terrain_modifiers_038:
   id: 38
-  unit_type_id: 281547979
+  unit_type_id: 4
   tile_type_id: 283317123
   defense_bonus: 0
   movement_cost: 1
@@ -343,8 +343,8 @@ terrain_modifiers_038:
   updated_at: '2011-08-05 15:36:15.045853'
 terrain_modifiers_039:
   id: 39
-  unit_type_id: 281547979
-  tile_type_id: 409461176
+  unit_type_id: 4
+  tile_type_id: 2
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: dirt
@@ -352,8 +352,8 @@ terrain_modifiers_039:
   updated_at: '2011-08-05 15:36:15.046883'
 terrain_modifiers_040:
   id: 40
-  unit_type_id: 281547979
-  tile_type_id: 554471142
+  unit_type_id: 4
+  tile_type_id: 16
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: swamp_castle
@@ -361,8 +361,8 @@ terrain_modifiers_040:
   updated_at: '2011-08-05 15:36:15.047916'
 terrain_modifiers_041:
   id: 41
-  unit_type_id: 281547979
-  tile_type_id: 664982686
+  unit_type_id: 4
+  tile_type_id: 6
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_left
@@ -370,8 +370,8 @@ terrain_modifiers_041:
   updated_at: '2011-08-05 15:36:15.048938'
 terrain_modifiers_042:
   id: 42
-  unit_type_id: 281547979
-  tile_type_id: 671981557
+  unit_type_id: 4
+  tile_type_id: 1
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: grass
@@ -379,8 +379,8 @@ terrain_modifiers_042:
   updated_at: '2011-08-05 15:36:15.049961'
 terrain_modifiers_043:
   id: 43
-  unit_type_id: 281547979
-  tile_type_id: 677204918
+  unit_type_id: 4
+  tile_type_id: 13
   defense_bonus: 1
   movement_cost: 2
   tile_type_name: forest
@@ -388,8 +388,8 @@ terrain_modifiers_043:
   updated_at: '2011-08-07 17:47:14.432778'
 terrain_modifiers_044:
   id: 44
-  unit_type_id: 281547979
-  tile_type_id: 684148082
+  unit_type_id: 4
+  tile_type_id: 14
   defense_bonus: 1
   movement_cost: 2
   tile_type_name: hills
@@ -397,8 +397,8 @@ terrain_modifiers_044:
   updated_at: '2011-08-07 17:47:14.437527'
 terrain_modifiers_045:
   id: 45
-  unit_type_id: 281547979
-  tile_type_id: 760939060
+  unit_type_id: 4
+  tile_type_id: 3
   defense_bonus: 1
   movement_cost: 1
   tile_type_name: city
@@ -406,8 +406,8 @@ terrain_modifiers_045:
   updated_at: '2011-08-07 17:47:14.441524'
 terrain_modifiers_046:
   id: 46
-  unit_type_id: 281547979
-  tile_type_id: 888934789
+  unit_type_id: 4
+  tile_type_id: 15
   defense_bonus: 1
   movement_cost: 4
   tile_type_name: mountains
@@ -415,8 +415,8 @@ terrain_modifiers_046:
   updated_at: '2011-08-07 17:47:14.445451'
 terrain_modifiers_047:
   id: 47
-  unit_type_id: 281547979
-  tile_type_id: 895394183
+  unit_type_id: 4
+  tile_type_id: 12
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: oasis
@@ -424,8 +424,8 @@ terrain_modifiers_047:
   updated_at: '2011-08-05 15:36:15.055135'
 terrain_modifiers_048:
   id: 48
-  unit_type_id: 281547979
-  tile_type_id: 993203421
+  unit_type_id: 4
+  tile_type_id: 5
   defense_bonus: 0
   movement_cost: 99
   tile_type_name: water
@@ -433,8 +433,8 @@ terrain_modifiers_048:
   updated_at: '2011-08-05 15:36:15.056175'
 terrain_modifiers_049:
   id: 49
-  unit_type_id: 288287154
-  tile_type_id: 11642252
+  unit_type_id: 11
+  tile_type_id: 8
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_center
@@ -442,8 +442,8 @@ terrain_modifiers_049:
   updated_at: '2011-08-05 15:36:15.057218'
 terrain_modifiers_050:
   id: 50
-  unit_type_id: 288287154
-  tile_type_id: 85130281
+  unit_type_id: 11
+  tile_type_id: 4
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: castle
@@ -451,8 +451,8 @@ terrain_modifiers_050:
   updated_at: '2011-08-07 18:00:18.137674'
 terrain_modifiers_051:
   id: 51
-  unit_type_id: 288287154
-  tile_type_id: 133902567
+  unit_type_id: 11
+  tile_type_id: 10
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: swamp
@@ -460,8 +460,8 @@ terrain_modifiers_051:
   updated_at: '2011-08-05 15:36:15.059280'
 terrain_modifiers_052:
   id: 52
-  unit_type_id: 288287154
-  tile_type_id: 190089999
+  unit_type_id: 11
+  tile_type_id: 9
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: path
@@ -469,8 +469,8 @@ terrain_modifiers_052:
   updated_at: '2011-08-05 15:36:15.060345'
 terrain_modifiers_053:
   id: 53
-  unit_type_id: 288287154
-  tile_type_id: 243448890
+  unit_type_id: 11
+  tile_type_id: 11
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: desert
@@ -478,7 +478,7 @@ terrain_modifiers_053:
   updated_at: '2011-08-05 15:36:15.061369'
 terrain_modifiers_054:
   id: 54
-  unit_type_id: 288287154
+  unit_type_id: 11
   tile_type_id: 283317123
   defense_bonus: 0
   movement_cost: 1
@@ -487,8 +487,8 @@ terrain_modifiers_054:
   updated_at: '2011-08-05 15:36:15.062376'
 terrain_modifiers_055:
   id: 55
-  unit_type_id: 288287154
-  tile_type_id: 409461176
+  unit_type_id: 11
+  tile_type_id: 2
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: dirt
@@ -496,8 +496,8 @@ terrain_modifiers_055:
   updated_at: '2011-08-05 15:36:15.063392'
 terrain_modifiers_056:
   id: 56
-  unit_type_id: 288287154
-  tile_type_id: 554471142
+  unit_type_id: 11
+  tile_type_id: 16
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: swamp_castle
@@ -505,8 +505,8 @@ terrain_modifiers_056:
   updated_at: '2011-08-07 18:00:18.151834'
 terrain_modifiers_057:
   id: 57
-  unit_type_id: 288287154
-  tile_type_id: 664982686
+  unit_type_id: 11
+  tile_type_id: 6
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_left
@@ -514,8 +514,8 @@ terrain_modifiers_057:
   updated_at: '2011-08-05 15:36:15.065426'
 terrain_modifiers_058:
   id: 58
-  unit_type_id: 288287154
-  tile_type_id: 671981557
+  unit_type_id: 11
+  tile_type_id: 1
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: grass
@@ -523,8 +523,8 @@ terrain_modifiers_058:
   updated_at: '2011-08-05 15:36:15.066438'
 terrain_modifiers_059:
   id: 59
-  unit_type_id: 288287154
-  tile_type_id: 677204918
+  unit_type_id: 11
+  tile_type_id: 13
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: forest
@@ -532,8 +532,8 @@ terrain_modifiers_059:
   updated_at: '2011-08-07 18:00:18.158349'
 terrain_modifiers_060:
   id: 60
-  unit_type_id: 288287154
-  tile_type_id: 684148082
+  unit_type_id: 11
+  tile_type_id: 14
   defense_bonus: 2
   movement_cost: 3
   tile_type_name: hills
@@ -541,8 +541,8 @@ terrain_modifiers_060:
   updated_at: '2011-08-07 18:00:18.162418'
 terrain_modifiers_061:
   id: 61
-  unit_type_id: 288287154
-  tile_type_id: 760939060
+  unit_type_id: 11
+  tile_type_id: 3
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: city
@@ -550,8 +550,8 @@ terrain_modifiers_061:
   updated_at: '2011-08-07 18:00:18.167082'
 terrain_modifiers_062:
   id: 62
-  unit_type_id: 288287154
-  tile_type_id: 888934789
+  unit_type_id: 11
+  tile_type_id: 15
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: mountains
@@ -559,8 +559,8 @@ terrain_modifiers_062:
   updated_at: '2011-08-07 18:00:18.171858'
 terrain_modifiers_063:
   id: 63
-  unit_type_id: 288287154
-  tile_type_id: 895394183
+  unit_type_id: 11
+  tile_type_id: 12
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: oasis
@@ -568,8 +568,8 @@ terrain_modifiers_063:
   updated_at: '2011-08-05 15:36:15.071611'
 terrain_modifiers_064:
   id: 64
-  unit_type_id: 288287154
-  tile_type_id: 993203421
+  unit_type_id: 11
+  tile_type_id: 5
   defense_bonus: 0
   movement_cost: 99
   tile_type_name: water
@@ -577,8 +577,8 @@ terrain_modifiers_064:
   updated_at: '2011-08-05 15:36:15.072649'
 terrain_modifiers_065:
   id: 65
-  unit_type_id: 360537346
-  tile_type_id: 11642252
+  unit_type_id: 9
+  tile_type_id: 8
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_center
@@ -586,8 +586,8 @@ terrain_modifiers_065:
   updated_at: '2011-08-05 15:36:15.073706'
 terrain_modifiers_066:
   id: 66
-  unit_type_id: 360537346
-  tile_type_id: 85130281
+  unit_type_id: 9
+  tile_type_id: 4
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: castle
@@ -595,8 +595,8 @@ terrain_modifiers_066:
   updated_at: '2011-08-07 18:03:57.446896'
 terrain_modifiers_067:
   id: 67
-  unit_type_id: 360537346
-  tile_type_id: 133902567
+  unit_type_id: 9
+  tile_type_id: 10
   defense_bonus: 1
   movement_cost: 1
   tile_type_name: swamp
@@ -604,8 +604,8 @@ terrain_modifiers_067:
   updated_at: '2011-08-07 18:03:57.468005'
 terrain_modifiers_068:
   id: 68
-  unit_type_id: 360537346
-  tile_type_id: 190089999
+  unit_type_id: 9
+  tile_type_id: 9
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: path
@@ -613,8 +613,8 @@ terrain_modifiers_068:
   updated_at: '2011-08-05 15:36:15.076939'
 terrain_modifiers_069:
   id: 69
-  unit_type_id: 360537346
-  tile_type_id: 243448890
+  unit_type_id: 9
+  tile_type_id: 11
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: desert
@@ -622,7 +622,7 @@ terrain_modifiers_069:
   updated_at: '2011-08-05 15:36:15.078014'
 terrain_modifiers_070:
   id: 70
-  unit_type_id: 360537346
+  unit_type_id: 9
   tile_type_id: 283317123
   defense_bonus: 0
   movement_cost: 1
@@ -631,8 +631,8 @@ terrain_modifiers_070:
   updated_at: '2011-08-05 15:36:15.079030'
 terrain_modifiers_071:
   id: 71
-  unit_type_id: 360537346
-  tile_type_id: 409461176
+  unit_type_id: 9
+  tile_type_id: 2
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: dirt
@@ -640,8 +640,8 @@ terrain_modifiers_071:
   updated_at: '2011-08-05 15:36:15.080046'
 terrain_modifiers_072:
   id: 72
-  unit_type_id: 360537346
-  tile_type_id: 554471142
+  unit_type_id: 9
+  tile_type_id: 16
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: swamp_castle
@@ -649,8 +649,8 @@ terrain_modifiers_072:
   updated_at: '2011-08-07 18:03:57.476480'
 terrain_modifiers_073:
   id: 73
-  unit_type_id: 360537346
-  tile_type_id: 664982686
+  unit_type_id: 9
+  tile_type_id: 6
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_left
@@ -658,8 +658,8 @@ terrain_modifiers_073:
   updated_at: '2011-08-05 15:36:15.082056'
 terrain_modifiers_074:
   id: 74
-  unit_type_id: 360537346
-  tile_type_id: 671981557
+  unit_type_id: 9
+  tile_type_id: 1
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: grass
@@ -667,8 +667,8 @@ terrain_modifiers_074:
   updated_at: '2011-08-05 15:36:15.083065'
 terrain_modifiers_075:
   id: 75
-  unit_type_id: 360537346
-  tile_type_id: 677204918
+  unit_type_id: 9
+  tile_type_id: 13
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: forest
@@ -676,8 +676,8 @@ terrain_modifiers_075:
   updated_at: '2011-08-07 18:03:57.483692'
 terrain_modifiers_076:
   id: 76
-  unit_type_id: 360537346
-  tile_type_id: 684148082
+  unit_type_id: 9
+  tile_type_id: 14
   defense_bonus: 2
   movement_cost: 3
   tile_type_name: hills
@@ -685,8 +685,8 @@ terrain_modifiers_076:
   updated_at: '2011-08-07 18:03:57.488921'
 terrain_modifiers_077:
   id: 77
-  unit_type_id: 360537346
-  tile_type_id: 760939060
+  unit_type_id: 9
+  tile_type_id: 3
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: city
@@ -694,8 +694,8 @@ terrain_modifiers_077:
   updated_at: '2011-08-07 18:03:57.493188'
 terrain_modifiers_078:
   id: 78
-  unit_type_id: 360537346
-  tile_type_id: 888934789
+  unit_type_id: 9
+  tile_type_id: 15
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: mountains
@@ -703,8 +703,8 @@ terrain_modifiers_078:
   updated_at: '2011-08-07 18:03:57.497784'
 terrain_modifiers_079:
   id: 79
-  unit_type_id: 360537346
-  tile_type_id: 895394183
+  unit_type_id: 9
+  tile_type_id: 12
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: oasis
@@ -712,8 +712,8 @@ terrain_modifiers_079:
   updated_at: '2011-08-05 15:36:15.088144'
 terrain_modifiers_080:
   id: 80
-  unit_type_id: 360537346
-  tile_type_id: 993203421
+  unit_type_id: 9
+  tile_type_id: 5
   defense_bonus: 0
   movement_cost: 99
   tile_type_name: water
@@ -721,8 +721,8 @@ terrain_modifiers_080:
   updated_at: '2011-08-05 15:36:15.089146'
 terrain_modifiers_081:
   id: 81
-  unit_type_id: 371587889
-  tile_type_id: 11642252
+  unit_type_id: 1
+  tile_type_id: 8
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_center
@@ -730,8 +730,8 @@ terrain_modifiers_081:
   updated_at: '2011-08-05 15:36:15.090194'
 terrain_modifiers_082:
   id: 82
-  unit_type_id: 371587889
-  tile_type_id: 85130281
+  unit_type_id: 1
+  tile_type_id: 4
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: castle
@@ -739,8 +739,8 @@ terrain_modifiers_082:
   updated_at: '2011-08-06 16:49:52.642144'
 terrain_modifiers_083:
   id: 83
-  unit_type_id: 371587889
-  tile_type_id: 133902567
+  unit_type_id: 1
+  tile_type_id: 10
   defense_bonus: 0
   movement_cost: 3
   tile_type_name: swamp
@@ -748,8 +748,8 @@ terrain_modifiers_083:
   updated_at: '2011-08-06 16:50:45.922859'
 terrain_modifiers_084:
   id: 84
-  unit_type_id: 371587889
-  tile_type_id: 190089999
+  unit_type_id: 1
+  tile_type_id: 9
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: path
@@ -757,8 +757,8 @@ terrain_modifiers_084:
   updated_at: '2011-08-05 15:36:15.093203'
 terrain_modifiers_085:
   id: 85
-  unit_type_id: 371587889
-  tile_type_id: 243448890
+  unit_type_id: 1
+  tile_type_id: 11
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: desert
@@ -766,7 +766,7 @@ terrain_modifiers_085:
   updated_at: '2011-08-06 16:47:40.629283'
 terrain_modifiers_086:
   id: 86
-  unit_type_id: 371587889
+  unit_type_id: 1
   tile_type_id: 283317123
   defense_bonus: 0
   movement_cost: 1
@@ -775,8 +775,8 @@ terrain_modifiers_086:
   updated_at: '2011-08-05 15:36:15.095220'
 terrain_modifiers_087:
   id: 87
-  unit_type_id: 371587889
-  tile_type_id: 409461176
+  unit_type_id: 1
+  tile_type_id: 2
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: dirt
@@ -784,8 +784,8 @@ terrain_modifiers_087:
   updated_at: '2011-08-05 15:36:15.096235'
 terrain_modifiers_088:
   id: 88
-  unit_type_id: 371587889
-  tile_type_id: 554471142
+  unit_type_id: 1
+  tile_type_id: 16
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: swamp_castle
@@ -793,8 +793,8 @@ terrain_modifiers_088:
   updated_at: '2011-08-06 16:49:52.655738'
 terrain_modifiers_089:
   id: 89
-  unit_type_id: 371587889
-  tile_type_id: 664982686
+  unit_type_id: 1
+  tile_type_id: 6
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_left
@@ -802,8 +802,8 @@ terrain_modifiers_089:
   updated_at: '2011-08-05 15:36:15.098311'
 terrain_modifiers_090:
   id: 90
-  unit_type_id: 371587889
-  tile_type_id: 671981557
+  unit_type_id: 1
+  tile_type_id: 1
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: grass
@@ -811,8 +811,8 @@ terrain_modifiers_090:
   updated_at: '2011-08-05 15:36:15.099332'
 terrain_modifiers_091:
   id: 91
-  unit_type_id: 371587889
-  tile_type_id: 677204918
+  unit_type_id: 1
+  tile_type_id: 13
   defense_bonus: 2
   movement_cost: 2
   tile_type_name: forest
@@ -820,8 +820,8 @@ terrain_modifiers_091:
   updated_at: '2011-08-06 16:49:52.706936'
 terrain_modifiers_092:
   id: 92
-  unit_type_id: 371587889
-  tile_type_id: 684148082
+  unit_type_id: 1
+  tile_type_id: 14
   defense_bonus: 2
   movement_cost: 2
   tile_type_name: hills
@@ -829,8 +829,8 @@ terrain_modifiers_092:
   updated_at: '2011-08-06 16:49:52.711731'
 terrain_modifiers_093:
   id: 93
-  unit_type_id: 371587889
-  tile_type_id: 760939060
+  unit_type_id: 1
+  tile_type_id: 3
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: city
@@ -838,8 +838,8 @@ terrain_modifiers_093:
   updated_at: '2011-08-06 16:49:52.716491'
 terrain_modifiers_094:
   id: 94
-  unit_type_id: 371587889
-  tile_type_id: 888934789
+  unit_type_id: 1
+  tile_type_id: 15
   defense_bonus: 0
   movement_cost: 3
   tile_type_name: mountains
@@ -847,8 +847,8 @@ terrain_modifiers_094:
   updated_at: '2011-08-06 16:42:11.334586'
 terrain_modifiers_095:
   id: 95
-  unit_type_id: 371587889
-  tile_type_id: 895394183
+  unit_type_id: 1
+  tile_type_id: 12
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: oasis
@@ -856,8 +856,8 @@ terrain_modifiers_095:
   updated_at: '2011-08-05 15:36:15.104444'
 terrain_modifiers_096:
   id: 96
-  unit_type_id: 371587889
-  tile_type_id: 993203421
+  unit_type_id: 1
+  tile_type_id: 5
   defense_bonus: 1
   movement_cost: 99
   tile_type_name: water
@@ -865,8 +865,8 @@ terrain_modifiers_096:
   updated_at: '2011-08-06 16:47:40.651107'
 terrain_modifiers_097:
   id: 97
-  unit_type_id: 456097557
-  tile_type_id: 11642252
+  unit_type_id: 5
+  tile_type_id: 8
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_center
@@ -874,8 +874,8 @@ terrain_modifiers_097:
   updated_at: '2011-08-05 15:36:15.106472'
 terrain_modifiers_098:
   id: 98
-  unit_type_id: 456097557
-  tile_type_id: 85130281
+  unit_type_id: 5
+  tile_type_id: 4
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: castle
@@ -883,8 +883,8 @@ terrain_modifiers_098:
   updated_at: '2011-08-07 17:48:06.983018'
 terrain_modifiers_099:
   id: 99
-  unit_type_id: 456097557
-  tile_type_id: 133902567
+  unit_type_id: 5
+  tile_type_id: 10
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: swamp
@@ -892,8 +892,8 @@ terrain_modifiers_099:
   updated_at: '2011-08-07 17:56:58.262918'
 terrain_modifiers_100:
   id: 100
-  unit_type_id: 456097557
-  tile_type_id: 190089999
+  unit_type_id: 5
+  tile_type_id: 9
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: path
@@ -901,8 +901,8 @@ terrain_modifiers_100:
   updated_at: '2011-08-05 15:36:15.109496'
 terrain_modifiers_101:
   id: 101
-  unit_type_id: 456097557
-  tile_type_id: 243448890
+  unit_type_id: 5
+  tile_type_id: 11
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: desert
@@ -910,7 +910,7 @@ terrain_modifiers_101:
   updated_at: '2011-08-05 15:36:15.110546'
 terrain_modifiers_102:
   id: 102
-  unit_type_id: 456097557
+  unit_type_id: 5
   tile_type_id: 283317123
   defense_bonus: 0
   movement_cost: 1
@@ -919,8 +919,8 @@ terrain_modifiers_102:
   updated_at: '2011-08-05 15:36:15.111580'
 terrain_modifiers_103:
   id: 103
-  unit_type_id: 456097557
-  tile_type_id: 409461176
+  unit_type_id: 5
+  tile_type_id: 2
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: dirt
@@ -928,8 +928,8 @@ terrain_modifiers_103:
   updated_at: '2011-08-05 15:36:15.112584'
 terrain_modifiers_104:
   id: 104
-  unit_type_id: 456097557
-  tile_type_id: 554471142
+  unit_type_id: 5
+  tile_type_id: 16
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: swamp_castle
@@ -937,8 +937,8 @@ terrain_modifiers_104:
   updated_at: '2011-08-07 17:48:07.056236'
 terrain_modifiers_105:
   id: 105
-  unit_type_id: 456097557
-  tile_type_id: 664982686
+  unit_type_id: 5
+  tile_type_id: 6
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_left
@@ -946,8 +946,8 @@ terrain_modifiers_105:
   updated_at: '2011-08-05 15:36:15.114599'
 terrain_modifiers_106:
   id: 106
-  unit_type_id: 456097557
-  tile_type_id: 671981557
+  unit_type_id: 5
+  tile_type_id: 1
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: grass
@@ -955,8 +955,8 @@ terrain_modifiers_106:
   updated_at: '2011-08-05 15:36:15.115606'
 terrain_modifiers_107:
   id: 107
-  unit_type_id: 456097557
-  tile_type_id: 677204918
+  unit_type_id: 5
+  tile_type_id: 13
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: forest
@@ -964,8 +964,8 @@ terrain_modifiers_107:
   updated_at: '2011-08-07 17:48:07.061942'
 terrain_modifiers_108:
   id: 108
-  unit_type_id: 456097557
-  tile_type_id: 684148082
+  unit_type_id: 5
+  tile_type_id: 14
   defense_bonus: 2
   movement_cost: 3
   tile_type_name: hills
@@ -973,8 +973,8 @@ terrain_modifiers_108:
   updated_at: '2011-08-07 17:48:07.066015'
 terrain_modifiers_109:
   id: 109
-  unit_type_id: 456097557
-  tile_type_id: 760939060
+  unit_type_id: 5
+  tile_type_id: 3
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: city
@@ -982,8 +982,8 @@ terrain_modifiers_109:
   updated_at: '2011-08-07 17:48:07.070095'
 terrain_modifiers_110:
   id: 110
-  unit_type_id: 456097557
-  tile_type_id: 888934789
+  unit_type_id: 5
+  tile_type_id: 15
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: mountains
@@ -991,8 +991,8 @@ terrain_modifiers_110:
   updated_at: '2011-08-07 17:48:07.074060'
 terrain_modifiers_111:
   id: 111
-  unit_type_id: 456097557
-  tile_type_id: 895394183
+  unit_type_id: 5
+  tile_type_id: 12
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: oasis
@@ -1000,8 +1000,8 @@ terrain_modifiers_111:
   updated_at: '2011-08-05 15:36:15.120656'
 terrain_modifiers_112:
   id: 112
-  unit_type_id: 456097557
-  tile_type_id: 993203421
+  unit_type_id: 5
+  tile_type_id: 5
   defense_bonus: 0
   movement_cost: 99
   tile_type_name: water
@@ -1009,8 +1009,8 @@ terrain_modifiers_112:
   updated_at: '2011-08-05 15:36:15.121653'
 terrain_modifiers_113:
   id: 113
-  unit_type_id: 573650533
-  tile_type_id: 11642252
+  unit_type_id: 12
+  tile_type_id: 8
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_center
@@ -1018,8 +1018,8 @@ terrain_modifiers_113:
   updated_at: '2011-08-05 15:36:15.122660'
 terrain_modifiers_114:
   id: 114
-  unit_type_id: 573650533
-  tile_type_id: 85130281
+  unit_type_id: 12
+  tile_type_id: 4
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: castle
@@ -1027,8 +1027,8 @@ terrain_modifiers_114:
   updated_at: '2011-08-05 15:36:15.123670'
 terrain_modifiers_115:
   id: 115
-  unit_type_id: 573650533
-  tile_type_id: 133902567
+  unit_type_id: 12
+  tile_type_id: 10
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: swamp
@@ -1036,8 +1036,8 @@ terrain_modifiers_115:
   updated_at: '2011-08-05 15:36:15.124683'
 terrain_modifiers_116:
   id: 116
-  unit_type_id: 573650533
-  tile_type_id: 190089999
+  unit_type_id: 12
+  tile_type_id: 9
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: path
@@ -1045,8 +1045,8 @@ terrain_modifiers_116:
   updated_at: '2011-08-05 15:36:15.125693'
 terrain_modifiers_117:
   id: 117
-  unit_type_id: 573650533
-  tile_type_id: 243448890
+  unit_type_id: 12
+  tile_type_id: 11
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: desert
@@ -1054,7 +1054,7 @@ terrain_modifiers_117:
   updated_at: '2011-08-05 15:36:15.126694'
 terrain_modifiers_118:
   id: 118
-  unit_type_id: 573650533
+  unit_type_id: 12
   tile_type_id: 283317123
   defense_bonus: 0
   movement_cost: 1
@@ -1063,8 +1063,8 @@ terrain_modifiers_118:
   updated_at: '2011-08-05 15:36:15.127707'
 terrain_modifiers_119:
   id: 119
-  unit_type_id: 573650533
-  tile_type_id: 409461176
+  unit_type_id: 12
+  tile_type_id: 2
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: dirt
@@ -1072,8 +1072,8 @@ terrain_modifiers_119:
   updated_at: '2011-08-05 15:36:15.128708'
 terrain_modifiers_120:
   id: 120
-  unit_type_id: 573650533
-  tile_type_id: 554471142
+  unit_type_id: 12
+  tile_type_id: 16
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: swamp_castle
@@ -1081,8 +1081,8 @@ terrain_modifiers_120:
   updated_at: '2011-08-05 15:36:15.129713'
 terrain_modifiers_121:
   id: 121
-  unit_type_id: 573650533
-  tile_type_id: 664982686
+  unit_type_id: 12
+  tile_type_id: 6
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_left
@@ -1090,8 +1090,8 @@ terrain_modifiers_121:
   updated_at: '2011-08-05 15:36:15.130722'
 terrain_modifiers_122:
   id: 122
-  unit_type_id: 573650533
-  tile_type_id: 671981557
+  unit_type_id: 12
+  tile_type_id: 1
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: grass
@@ -1099,8 +1099,8 @@ terrain_modifiers_122:
   updated_at: '2011-08-05 15:36:15.131973'
 terrain_modifiers_123:
   id: 123
-  unit_type_id: 573650533
-  tile_type_id: 677204918
+  unit_type_id: 12
+  tile_type_id: 13
   defense_bonus: 0
   movement_cost: 2
   tile_type_name: forest
@@ -1108,8 +1108,8 @@ terrain_modifiers_123:
   updated_at: '2011-08-07 18:01:12.586976'
 terrain_modifiers_124:
   id: 124
-  unit_type_id: 573650533
-  tile_type_id: 684148082
+  unit_type_id: 12
+  tile_type_id: 14
   defense_bonus: 0
   movement_cost: 2
   tile_type_name: hills
@@ -1117,8 +1117,8 @@ terrain_modifiers_124:
   updated_at: '2011-08-07 18:01:12.597474'
 terrain_modifiers_125:
   id: 125
-  unit_type_id: 573650533
-  tile_type_id: 760939060
+  unit_type_id: 12
+  tile_type_id: 3
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: city
@@ -1126,8 +1126,8 @@ terrain_modifiers_125:
   updated_at: '2011-08-05 15:36:15.135509'
 terrain_modifiers_126:
   id: 126
-  unit_type_id: 573650533
-  tile_type_id: 888934789
+  unit_type_id: 12
+  tile_type_id: 15
   defense_bonus: 0
   movement_cost: 2
   tile_type_name: mountains
@@ -1135,8 +1135,8 @@ terrain_modifiers_126:
   updated_at: '2011-08-07 18:01:12.602976'
 terrain_modifiers_127:
   id: 127
-  unit_type_id: 573650533
-  tile_type_id: 895394183
+  unit_type_id: 12
+  tile_type_id: 12
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: oasis
@@ -1144,8 +1144,8 @@ terrain_modifiers_127:
   updated_at: '2011-08-05 15:36:15.137544'
 terrain_modifiers_128:
   id: 128
-  unit_type_id: 573650533
-  tile_type_id: 993203421
+  unit_type_id: 12
+  tile_type_id: 5
   defense_bonus: 0
   movement_cost: 99
   tile_type_name: water
@@ -1153,8 +1153,8 @@ terrain_modifiers_128:
   updated_at: '2011-08-05 15:36:15.138550'
 terrain_modifiers_129:
   id: 129
-  unit_type_id: 745484559
-  tile_type_id: 11642252
+  unit_type_id: 2
+  tile_type_id: 8
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_center
@@ -1162,8 +1162,8 @@ terrain_modifiers_129:
   updated_at: '2011-08-06 16:51:54.782957'
 terrain_modifiers_130:
   id: 130
-  unit_type_id: 745484559
-  tile_type_id: 85130281
+  unit_type_id: 2
+  tile_type_id: 4
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: castle
@@ -1171,8 +1171,8 @@ terrain_modifiers_130:
   updated_at: '2011-08-06 16:51:54.796988'
 terrain_modifiers_131:
   id: 131
-  unit_type_id: 745484559
-  tile_type_id: 133902567
+  unit_type_id: 2
+  tile_type_id: 10
   defense_bonus: 0
   movement_cost: 3
   tile_type_name: swamp
@@ -1180,8 +1180,8 @@ terrain_modifiers_131:
   updated_at: '2011-08-06 16:51:54.801816'
 terrain_modifiers_132:
   id: 132
-  unit_type_id: 745484559
-  tile_type_id: 190089999
+  unit_type_id: 2
+  tile_type_id: 9
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: path
@@ -1189,8 +1189,8 @@ terrain_modifiers_132:
   updated_at: '2011-08-05 15:36:15.142602'
 terrain_modifiers_133:
   id: 133
-  unit_type_id: 745484559
-  tile_type_id: 243448890
+  unit_type_id: 2
+  tile_type_id: 11
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: desert
@@ -1198,7 +1198,7 @@ terrain_modifiers_133:
   updated_at: '2011-08-05 15:36:15.143615'
 terrain_modifiers_134:
   id: 134
-  unit_type_id: 745484559
+  unit_type_id: 2
   tile_type_id: 283317123
   defense_bonus: 0
   movement_cost: 1
@@ -1207,8 +1207,8 @@ terrain_modifiers_134:
   updated_at: '2011-08-05 15:36:15.144642'
 terrain_modifiers_135:
   id: 135
-  unit_type_id: 745484559
-  tile_type_id: 409461176
+  unit_type_id: 2
+  tile_type_id: 2
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: dirt
@@ -1216,8 +1216,8 @@ terrain_modifiers_135:
   updated_at: '2011-08-05 15:36:15.145956'
 terrain_modifiers_136:
   id: 136
-  unit_type_id: 745484559
-  tile_type_id: 554471142
+  unit_type_id: 2
+  tile_type_id: 16
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: swamp_castle
@@ -1225,8 +1225,8 @@ terrain_modifiers_136:
   updated_at: '2011-08-06 16:51:54.809732'
 terrain_modifiers_137:
   id: 137
-  unit_type_id: 745484559
-  tile_type_id: 664982686
+  unit_type_id: 2
+  tile_type_id: 6
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_left
@@ -1234,8 +1234,8 @@ terrain_modifiers_137:
   updated_at: '2011-08-05 15:36:15.148114'
 terrain_modifiers_138:
   id: 138
-  unit_type_id: 745484559
-  tile_type_id: 671981557
+  unit_type_id: 2
+  tile_type_id: 1
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: grass
@@ -1243,8 +1243,8 @@ terrain_modifiers_138:
   updated_at: '2011-08-05 15:36:15.149161'
 terrain_modifiers_139:
   id: 139
-  unit_type_id: 745484559
-  tile_type_id: 677204918
+  unit_type_id: 2
+  tile_type_id: 13
   defense_bonus: 2
   movement_cost: 2
   tile_type_name: forest
@@ -1252,8 +1252,8 @@ terrain_modifiers_139:
   updated_at: '2011-08-06 16:51:54.817512'
 terrain_modifiers_140:
   id: 140
-  unit_type_id: 745484559
-  tile_type_id: 684148082
+  unit_type_id: 2
+  tile_type_id: 14
   defense_bonus: 2
   movement_cost: 2
   tile_type_name: hills
@@ -1261,8 +1261,8 @@ terrain_modifiers_140:
   updated_at: '2011-08-06 16:51:54.822150'
 terrain_modifiers_141:
   id: 141
-  unit_type_id: 745484559
-  tile_type_id: 760939060
+  unit_type_id: 2
+  tile_type_id: 3
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: city
@@ -1270,8 +1270,8 @@ terrain_modifiers_141:
   updated_at: '2011-08-05 15:36:15.152200'
 terrain_modifiers_142:
   id: 142
-  unit_type_id: 745484559
-  tile_type_id: 888934789
+  unit_type_id: 2
+  tile_type_id: 15
   defense_bonus: 3
   movement_cost: 3
   tile_type_name: mountains
@@ -1279,8 +1279,8 @@ terrain_modifiers_142:
   updated_at: '2011-08-06 16:51:54.827357'
 terrain_modifiers_143:
   id: 143
-  unit_type_id: 745484559
-  tile_type_id: 895394183
+  unit_type_id: 2
+  tile_type_id: 12
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: oasis
@@ -1288,8 +1288,8 @@ terrain_modifiers_143:
   updated_at: '2011-08-05 15:36:15.154238'
 terrain_modifiers_144:
   id: 144
-  unit_type_id: 745484559
-  tile_type_id: 993203421
+  unit_type_id: 2
+  tile_type_id: 5
   defense_bonus: 0
   movement_cost: 99
   tile_type_name: water
@@ -1297,8 +1297,8 @@ terrain_modifiers_144:
   updated_at: '2011-08-05 15:36:15.155269'
 terrain_modifiers_145:
   id: 145
-  unit_type_id: 1028103333
-  tile_type_id: 11642252
+  unit_type_id: 8
+  tile_type_id: 8
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_center
@@ -1306,8 +1306,8 @@ terrain_modifiers_145:
   updated_at: '2011-08-05 15:36:15.156297'
 terrain_modifiers_146:
   id: 146
-  unit_type_id: 1028103333
-  tile_type_id: 85130281
+  unit_type_id: 8
+  tile_type_id: 4
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: castle
@@ -1315,8 +1315,8 @@ terrain_modifiers_146:
   updated_at: '2011-08-07 17:50:01.612055'
 terrain_modifiers_147:
   id: 147
-  unit_type_id: 1028103333
-  tile_type_id: 133902567
+  unit_type_id: 8
+  tile_type_id: 10
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: swamp
@@ -1324,8 +1324,8 @@ terrain_modifiers_147:
   updated_at: '2011-08-07 17:50:01.622551'
 terrain_modifiers_148:
   id: 148
-  unit_type_id: 1028103333
-  tile_type_id: 190089999
+  unit_type_id: 8
+  tile_type_id: 9
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: path
@@ -1333,8 +1333,8 @@ terrain_modifiers_148:
   updated_at: '2011-08-05 15:36:15.159309'
 terrain_modifiers_149:
   id: 149
-  unit_type_id: 1028103333
-  tile_type_id: 243448890
+  unit_type_id: 8
+  tile_type_id: 11
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: desert
@@ -1342,7 +1342,7 @@ terrain_modifiers_149:
   updated_at: '2011-08-05 15:36:15.160312'
 terrain_modifiers_150:
   id: 150
-  unit_type_id: 1028103333
+  unit_type_id: 8
   tile_type_id: 283317123
   defense_bonus: 0
   movement_cost: 1
@@ -1351,8 +1351,8 @@ terrain_modifiers_150:
   updated_at: '2011-08-05 15:36:15.161309'
 terrain_modifiers_151:
   id: 151
-  unit_type_id: 1028103333
-  tile_type_id: 409461176
+  unit_type_id: 8
+  tile_type_id: 2
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: dirt
@@ -1360,8 +1360,8 @@ terrain_modifiers_151:
   updated_at: '2011-08-05 15:36:15.162315'
 terrain_modifiers_152:
   id: 152
-  unit_type_id: 1028103333
-  tile_type_id: 554471142
+  unit_type_id: 8
+  tile_type_id: 16
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: swamp_castle
@@ -1369,8 +1369,8 @@ terrain_modifiers_152:
   updated_at: '2011-08-07 17:50:01.632071'
 terrain_modifiers_153:
   id: 153
-  unit_type_id: 1028103333
-  tile_type_id: 664982686
+  unit_type_id: 8
+  tile_type_id: 6
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_left
@@ -1378,8 +1378,8 @@ terrain_modifiers_153:
   updated_at: '2011-08-05 15:36:15.164384'
 terrain_modifiers_154:
   id: 154
-  unit_type_id: 1028103333
-  tile_type_id: 671981557
+  unit_type_id: 8
+  tile_type_id: 1
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: grass
@@ -1387,8 +1387,8 @@ terrain_modifiers_154:
   updated_at: '2011-08-05 15:36:15.165423'
 terrain_modifiers_155:
   id: 155
-  unit_type_id: 1028103333
-  tile_type_id: 677204918
+  unit_type_id: 8
+  tile_type_id: 13
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: forest
@@ -1396,8 +1396,8 @@ terrain_modifiers_155:
   updated_at: '2011-08-07 17:50:01.637474'
 terrain_modifiers_156:
   id: 156
-  unit_type_id: 1028103333
-  tile_type_id: 684148082
+  unit_type_id: 8
+  tile_type_id: 14
   defense_bonus: 2
   movement_cost: 3
   tile_type_name: hills
@@ -1405,8 +1405,8 @@ terrain_modifiers_156:
   updated_at: '2011-08-07 17:50:01.641689'
 terrain_modifiers_157:
   id: 157
-  unit_type_id: 1028103333
-  tile_type_id: 760939060
+  unit_type_id: 8
+  tile_type_id: 3
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: city
@@ -1414,8 +1414,8 @@ terrain_modifiers_157:
   updated_at: '2011-08-07 17:50:01.646812'
 terrain_modifiers_158:
   id: 158
-  unit_type_id: 1028103333
-  tile_type_id: 888934789
+  unit_type_id: 8
+  tile_type_id: 15
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: mountains
@@ -1423,8 +1423,8 @@ terrain_modifiers_158:
   updated_at: '2011-08-07 17:50:01.651369'
 terrain_modifiers_159:
   id: 159
-  unit_type_id: 1028103333
-  tile_type_id: 895394183
+  unit_type_id: 8
+  tile_type_id: 12
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: oasis
@@ -1432,8 +1432,8 @@ terrain_modifiers_159:
   updated_at: '2011-08-05 15:36:15.170499'
 terrain_modifiers_160:
   id: 160
-  unit_type_id: 1028103333
-  tile_type_id: 993203421
+  unit_type_id: 8
+  tile_type_id: 5
   defense_bonus: 0
   movement_cost: 99
   tile_type_name: water
@@ -1441,8 +1441,8 @@ terrain_modifiers_160:
   updated_at: '2011-08-05 15:36:15.171533'
 terrain_modifiers_161:
   id: 161
-  unit_type_id: 1036757756
-  tile_type_id: 11642252
+  unit_type_id: 3
+  tile_type_id: 8
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_center
@@ -1450,8 +1450,8 @@ terrain_modifiers_161:
   updated_at: '2011-08-05 15:36:15.172556'
 terrain_modifiers_162:
   id: 162
-  unit_type_id: 1036757756
-  tile_type_id: 85130281
+  unit_type_id: 3
+  tile_type_id: 4
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: castle
@@ -1459,8 +1459,8 @@ terrain_modifiers_162:
   updated_at: '2011-08-06 16:52:48.381466'
 terrain_modifiers_163:
   id: 163
-  unit_type_id: 1036757756
-  tile_type_id: 133902567
+  unit_type_id: 3
+  tile_type_id: 10
   defense_bonus: 0
   movement_cost: 3
   tile_type_name: swamp
@@ -1468,8 +1468,8 @@ terrain_modifiers_163:
   updated_at: '2011-08-06 16:52:48.390998'
 terrain_modifiers_164:
   id: 164
-  unit_type_id: 1036757756
-  tile_type_id: 190089999
+  unit_type_id: 3
+  tile_type_id: 9
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: path
@@ -1477,8 +1477,8 @@ terrain_modifiers_164:
   updated_at: '2011-08-05 15:36:15.175655'
 terrain_modifiers_165:
   id: 165
-  unit_type_id: 1036757756
-  tile_type_id: 243448890
+  unit_type_id: 3
+  tile_type_id: 11
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: desert
@@ -1486,7 +1486,7 @@ terrain_modifiers_165:
   updated_at: '2011-08-05 15:36:15.176679'
 terrain_modifiers_166:
   id: 166
-  unit_type_id: 1036757756
+  unit_type_id: 3
   tile_type_id: 283317123
   defense_bonus: 0
   movement_cost: 1
@@ -1495,8 +1495,8 @@ terrain_modifiers_166:
   updated_at: '2011-08-05 15:36:15.177700'
 terrain_modifiers_167:
   id: 167
-  unit_type_id: 1036757756
-  tile_type_id: 409461176
+  unit_type_id: 3
+  tile_type_id: 2
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: dirt
@@ -1504,8 +1504,8 @@ terrain_modifiers_167:
   updated_at: '2011-08-05 15:36:15.178757'
 terrain_modifiers_168:
   id: 168
-  unit_type_id: 1036757756
-  tile_type_id: 554471142
+  unit_type_id: 3
+  tile_type_id: 16
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: swamp_castle
@@ -1513,8 +1513,8 @@ terrain_modifiers_168:
   updated_at: '2011-08-06 16:52:48.398844'
 terrain_modifiers_169:
   id: 169
-  unit_type_id: 1036757756
-  tile_type_id: 664982686
+  unit_type_id: 3
+  tile_type_id: 6
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_left
@@ -1522,8 +1522,8 @@ terrain_modifiers_169:
   updated_at: '2011-08-05 15:36:15.180800'
 terrain_modifiers_170:
   id: 170
-  unit_type_id: 1036757756
-  tile_type_id: 671981557
+  unit_type_id: 3
+  tile_type_id: 1
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: grass
@@ -1531,8 +1531,8 @@ terrain_modifiers_170:
   updated_at: '2011-08-05 15:36:15.181822'
 terrain_modifiers_171:
   id: 171
-  unit_type_id: 1036757756
-  tile_type_id: 677204918
+  unit_type_id: 3
+  tile_type_id: 13
   defense_bonus: 2
   movement_cost: 2
   tile_type_name: forest
@@ -1540,8 +1540,8 @@ terrain_modifiers_171:
   updated_at: '2011-08-06 16:52:48.404701'
 terrain_modifiers_172:
   id: 172
-  unit_type_id: 1036757756
-  tile_type_id: 684148082
+  unit_type_id: 3
+  tile_type_id: 14
   defense_bonus: 2
   movement_cost: 2
   tile_type_name: hills
@@ -1549,8 +1549,8 @@ terrain_modifiers_172:
   updated_at: '2011-08-06 16:52:48.408700'
 terrain_modifiers_173:
   id: 173
-  unit_type_id: 1036757756
-  tile_type_id: 760939060
+  unit_type_id: 3
+  tile_type_id: 3
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: city
@@ -1558,8 +1558,8 @@ terrain_modifiers_173:
   updated_at: '2011-08-06 16:52:48.414645'
 terrain_modifiers_174:
   id: 174
-  unit_type_id: 1036757756
-  tile_type_id: 888934789
+  unit_type_id: 3
+  tile_type_id: 15
   defense_bonus: 3
   movement_cost: 3
   tile_type_name: mountains
@@ -1567,8 +1567,8 @@ terrain_modifiers_174:
   updated_at: '2011-08-06 16:52:48.418833'
 terrain_modifiers_175:
   id: 175
-  unit_type_id: 1036757756
-  tile_type_id: 895394183
+  unit_type_id: 3
+  tile_type_id: 12
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: oasis
@@ -1576,8 +1576,8 @@ terrain_modifiers_175:
   updated_at: '2011-08-05 15:36:15.186967'
 terrain_modifiers_176:
   id: 176
-  unit_type_id: 1036757756
-  tile_type_id: 993203421
+  unit_type_id: 3
+  tile_type_id: 5
   defense_bonus: 0
   movement_cost: 99
   tile_type_name: water
@@ -1585,8 +1585,8 @@ terrain_modifiers_176:
   updated_at: '2011-08-05 15:36:15.187993'
 terrain_modifiers_177:
   id: 177
-  unit_type_id: 1049824471
-  tile_type_id: 11642252
+  unit_type_id: 7
+  tile_type_id: 8
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_center
@@ -1594,8 +1594,8 @@ terrain_modifiers_177:
   updated_at: '2011-08-05 15:36:15.189017'
 terrain_modifiers_178:
   id: 178
-  unit_type_id: 1049824471
-  tile_type_id: 85130281
+  unit_type_id: 7
+  tile_type_id: 4
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: castle
@@ -1603,8 +1603,8 @@ terrain_modifiers_178:
   updated_at: '2011-08-07 17:49:19.796725'
 terrain_modifiers_179:
   id: 179
-  unit_type_id: 1049824471
-  tile_type_id: 133902567
+  unit_type_id: 7
+  tile_type_id: 10
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: swamp
@@ -1612,8 +1612,8 @@ terrain_modifiers_179:
   updated_at: '2011-08-07 17:49:19.806257'
 terrain_modifiers_180:
   id: 180
-  unit_type_id: 1049824471
-  tile_type_id: 190089999
+  unit_type_id: 7
+  tile_type_id: 9
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: path
@@ -1621,8 +1621,8 @@ terrain_modifiers_180:
   updated_at: '2011-08-05 15:36:15.192075'
 terrain_modifiers_181:
   id: 181
-  unit_type_id: 1049824471
-  tile_type_id: 243448890
+  unit_type_id: 7
+  tile_type_id: 11
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: desert
@@ -1630,7 +1630,7 @@ terrain_modifiers_181:
   updated_at: '2011-08-05 15:36:15.193124'
 terrain_modifiers_182:
   id: 182
-  unit_type_id: 1049824471
+  unit_type_id: 7
   tile_type_id: 283317123
   defense_bonus: 0
   movement_cost: 1
@@ -1639,8 +1639,8 @@ terrain_modifiers_182:
   updated_at: '2011-08-05 15:36:15.194151'
 terrain_modifiers_183:
   id: 183
-  unit_type_id: 1049824471
-  tile_type_id: 409461176
+  unit_type_id: 7
+  tile_type_id: 2
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: dirt
@@ -1648,8 +1648,8 @@ terrain_modifiers_183:
   updated_at: '2011-08-05 15:36:15.195188'
 terrain_modifiers_184:
   id: 184
-  unit_type_id: 1049824471
-  tile_type_id: 554471142
+  unit_type_id: 7
+  tile_type_id: 16
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: swamp_castle
@@ -1657,8 +1657,8 @@ terrain_modifiers_184:
   updated_at: '2011-08-07 17:49:19.815316'
 terrain_modifiers_185:
   id: 185
-  unit_type_id: 1049824471
-  tile_type_id: 664982686
+  unit_type_id: 7
+  tile_type_id: 6
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: bridge_left
@@ -1666,8 +1666,8 @@ terrain_modifiers_185:
   updated_at: '2011-08-05 15:36:15.197252'
 terrain_modifiers_186:
   id: 186
-  unit_type_id: 1049824471
-  tile_type_id: 671981557
+  unit_type_id: 7
+  tile_type_id: 1
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: grass
@@ -1675,8 +1675,8 @@ terrain_modifiers_186:
   updated_at: '2011-08-05 15:36:15.198264'
 terrain_modifiers_187:
   id: 187
-  unit_type_id: 1049824471
-  tile_type_id: 677204918
+  unit_type_id: 7
+  tile_type_id: 13
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: forest
@@ -1684,8 +1684,8 @@ terrain_modifiers_187:
   updated_at: '2011-08-07 17:49:19.820695'
 terrain_modifiers_188:
   id: 188
-  unit_type_id: 1049824471
-  tile_type_id: 684148082
+  unit_type_id: 7
+  tile_type_id: 14
   defense_bonus: 2
   movement_cost: 3
   tile_type_name: hills
@@ -1693,8 +1693,8 @@ terrain_modifiers_188:
   updated_at: '2011-08-07 17:49:19.824638'
 terrain_modifiers_189:
   id: 189
-  unit_type_id: 1049824471
-  tile_type_id: 760939060
+  unit_type_id: 7
+  tile_type_id: 3
   defense_bonus: 2
   movement_cost: 1
   tile_type_name: city
@@ -1702,8 +1702,8 @@ terrain_modifiers_189:
   updated_at: '2011-08-07 17:49:19.828855'
 terrain_modifiers_190:
   id: 190
-  unit_type_id: 1049824471
-  tile_type_id: 888934789
+  unit_type_id: 7
+  tile_type_id: 15
   defense_bonus: 3
   movement_cost: 1
   tile_type_name: mountains
@@ -1711,8 +1711,8 @@ terrain_modifiers_190:
   updated_at: '2011-08-07 17:49:19.832967'
 terrain_modifiers_191:
   id: 191
-  unit_type_id: 1049824471
-  tile_type_id: 895394183
+  unit_type_id: 7
+  tile_type_id: 12
   defense_bonus: 0
   movement_cost: 1
   tile_type_name: oasis
@@ -1720,8 +1720,8 @@ terrain_modifiers_191:
   updated_at: '2011-08-05 15:36:15.203378'
 terrain_modifiers_192:
   id: 192
-  unit_type_id: 1049824471
-  tile_type_id: 993203421
+  unit_type_id: 7
+  tile_type_id: 5
   defense_bonus: 0
   movement_cost: 99
   tile_type_name: water

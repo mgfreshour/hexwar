@@ -1,6 +1,6 @@
 ---
 unit_types_001:
-  id: 31504745
+  id: 10
   name: undead knight
   img: /images/units.png
   created_at: '2011-08-05 15:14:05'
@@ -14,7 +14,7 @@ unit_types_001:
   defense_power: 9
   price: 500
 unit_types_002:
-  id: 173342235
+  id: 6
   name: Griffin Rider
   img: /images/units.png
   created_at: '2011-08-05 15:14:05'
@@ -28,7 +28,7 @@ unit_types_002:
   defense_power: 9
   price: 1000
 unit_types_003:
-  id: 281547979
+  id: 4
   name: human knight
   img: /images/units.png
   created_at: '2011-08-05 15:14:05'
@@ -42,7 +42,7 @@ unit_types_003:
   defense_power: 12
   price: 500
 unit_types_004:
-  id: 288287154
+  id: 11
   name: necromancer
   img: /images/units.png
   created_at: '2011-08-05 15:14:05'
@@ -56,7 +56,7 @@ unit_types_004:
   defense_power: 3
   price: 700
 unit_types_005:
-  id: 360537346
+  id: 9
   name: undead fighter
   img: /images/units.png
   created_at: '2011-08-05 15:14:05'
@@ -70,7 +70,7 @@ unit_types_005:
   defense_power: 5
   price: 400
 unit_types_006:
-  id: 371587889
+  id: 1
   name: human peasant
   img: /images/units.png
   created_at: '2011-08-05 15:14:05'
@@ -84,7 +84,7 @@ unit_types_006:
   defense_power: 5
   price: 100
 unit_types_007:
-  id: 456097557
+  id: 5
   name: Archmage
   img: /images/units.png
   created_at: '2011-08-05 15:14:05'
@@ -98,7 +98,7 @@ unit_types_007:
   defense_power: 3
   price: 700
 unit_types_008:
-  id: 573650533
+  id: 12
   name: Bone Dragon
   img: /images/units.png
   created_at: '2011-08-05 15:14:05'
@@ -112,7 +112,7 @@ unit_types_008:
   defense_power: 15
   price: 1000
 unit_types_009:
-  id: 745484559
+  id: 2
   name: human archer
   img: /images/units.png
   created_at: '2011-08-05 15:14:05'
@@ -126,7 +126,7 @@ unit_types_009:
   defense_power: 5
   price: 200
 unit_types_010:
-  id: 1028103333
+  id: 8
   name: undead archer
   img: /images/units.png
   created_at: '2011-08-05 15:14:05'
@@ -140,7 +140,7 @@ unit_types_010:
   defense_power: 5
   price: 150
 unit_types_011:
-  id: 1036757756
+  id: 3
   name: human fighter
   img: /images/units.png
   created_at: '2011-08-05 15:14:05'
@@ -154,7 +154,7 @@ unit_types_011:
   defense_power: 9
   price: 300
 unit_types_012:
-  id: 1049824471
+  id: 7
   name: undead peasant :P
   img: /images/units.png
   created_at: '2011-08-05 15:14:05'

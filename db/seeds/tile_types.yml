@@ -1,193 +1,161 @@
 ---
 tile_types_001:
-  id: 11642252
+  id: 8
   name: bridge_center
   img: /images/tiles.png
   position: 8
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 504
-  ownable: f
-  is_store: f
+  ownable: t
+  is_store: 0
   unit_types_available: !!null 
 tile_types_002:
-  id: 85130281
+  id: 4
   name: castle
   img: /images/tiles.png
   position: 4
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-07 17:44:02.166296'
   img_x: 0
   img_y: 216
-  ownable: t
-  is_store: t
+  ownable: 1
+  is_store: 1
   unit_types_available: '3,4,5,6'
 tile_types_003:
-  id: 133902567
+  id: 10
   name: swamp
   img: /images/tiles.png
   position: 10
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 648
-  ownable: f
-  is_store: f
+  ownable: t
+  is_store: 0
   unit_types_available: !!null 
 tile_types_004:
-  id: 190089999
+  id: 9
   name: path
   img: /images/tiles.png
   position: 9
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 576
-  ownable: f
-  is_store: f
+  ownable: t
+  is_store: 0
   unit_types_available: !!null 
 tile_types_005:
-  id: 243448890
+  id: 11
   name: desert
   img: /images/tiles.png
   position: 11
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 720
-  ownable: f
-  is_store: f
+  ownable: t
+  is_store: 0
   unit_types_available: !!null 
 tile_types_006:
   id: 283317123
   name: bridge_right
   img: /images/tiles.png
   position: 7
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 432
-  ownable: f
-  is_store: f
+  ownable: t
+  is_store: 0
   unit_types_available: !!null 
 tile_types_007:
-  id: 409461176
+  id: 2
   name: dirt
   img: /images/tiles.png
   position: 2
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 72
-  ownable: f
-  is_store: f
+  ownable: t
+  is_store: 0
   unit_types_available: !!null 
 tile_types_008:
-  id: 554471142
+  id: 16
   name: swamp_castle
   img: /images/tiles.png
   position: 16
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-07 17:45:02.045079'
   img_x: 0
   img_y: 1080
-  ownable: t
-  is_store: t
+  ownable: 1
+  is_store: 1
   unit_types_available: '7,8,9,10,11,12'
 tile_types_009:
-  id: 664982686
+  id: 6
   name: bridge_left
   img: /images/tiles.png
   position: 6
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 360
-  ownable: f
-  is_store: f
+  ownable: t
+  is_store: 0
   unit_types_available: !!null 
 tile_types_010:
-  id: 671981557
+  id: 1
   name: grass
   img: /images/tiles.png
   position: 1
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-06 23:16:59.581671'
   img_x: 0
   img_y: 0
-  ownable: f
-  is_store: f
+  ownable: t
+  is_store: 0
   unit_types_available: !!null 
 tile_types_011:
-  id: 677204918
+  id: 13
   name: forest
   img: /images/tiles.png
   position: 13
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 864
-  ownable: f
-  is_store: f
+  ownable: t
+  is_store: 0
   unit_types_available: !!null 
 tile_types_012:
-  id: 684148082
+  id: 14
   name: hills
   img: /images/tiles.png
   position: 14
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 936
-  ownable: f
-  is_store: f
+  ownable: t
+  is_store: 0
   unit_types_available: !!null 
 tile_types_013:
-  id: 760939060
+  id: 3
   name: city
   img: /images/tiles.png
   position: 3
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-07 17:44:26.810000'
   img_x: 0
   img_y: 144
-  ownable: t
-  is_store: t
+  ownable: 1
+  is_store: 1
   unit_types_available: '1,2'
 tile_types_014:
-  id: 888934789
+  id: 15
   name: mountains
   img: /images/tiles.png
   position: 15
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 1008
-  ownable: f
-  is_store: f
+  ownable: t
+  is_store: 0
   unit_types_available: !!null 
 tile_types_015:
-  id: 895394183
+  id: 12
   name: oasis
   img: /images/tiles.png
   position: 12
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 792
-  ownable: f
-  is_store: f
+  ownable: t
+  is_store: 0
   unit_types_available: !!null 
 tile_types_016:
-  id: 993203421
+  id: 5
   name: water
   img: /images/tiles.png
   position: 5
-  created_at: '2011-08-05 15:14:05'
-  updated_at: '2011-08-05 15:14:05'
   img_x: 0
   img_y: 288
-  ownable: f
-  is_store: f
+  ownable: t
+  is_store: 0
   unit_types_available: !!null 
