@@ -15,11 +15,19 @@ class SessionsController < ApplicationController
     
     player = Player.find_by_provider_and_uid(auth["provider"], auth["uid"]) || Player.create_with_omniauth(auth)
     
+    save = false;
+
+    if player.real_name.nil?
+      player.real_name = player.name
+      save = true
+    end
 
     if player.email.nil?
       player.email = profile['email']
-      player.save
+      save = true
     end
+
+    player.save if save
     
     session[:player_id] = player.id  
     if player.notify_by_email.nil?

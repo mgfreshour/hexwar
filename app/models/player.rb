@@ -15,6 +15,7 @@ class Player < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: players
@@ -28,5 +29,6 @@ end
 #  admin           :boolean
 #  email           :string(255)
 #  notify_by_email :boolean
+#  real_name       :string(255)
 #
 
