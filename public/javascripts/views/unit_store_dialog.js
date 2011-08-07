@@ -25,8 +25,15 @@ Hexwar.UnitStoreDialog.prototype.show = function(x,y, unit_types_available) {
 	}.createDelegate(this));
 	html += '<input type="button" id="unit_store_dialog_buy" value="Buy" />';
 	this.container.html(html);
-	this.container.dialog({ modal: false, width: 300, position: 'center' });
+	this.container.dialog({ modal: false, width: 300, position: 'center', beforeClose: this.onClose.createDelegate(this) });
 	$('#unit_store_dialog_buy').click(this.onBuyClick.createDelegate(this, [x,y]));
+}
+
+/**
+ * ...
+ */
+Hexwar.UnitStoreDialog.prototype.onClose = function() {
+	this.unit_store_controller.onDialogClose();
 }
 
 /**

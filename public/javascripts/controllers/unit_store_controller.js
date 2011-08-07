@@ -57,3 +57,10 @@ Hexwar.UnitStoreController.prototype.buyUnit = function(x,y, type_id) {
 	}
 	this.game.returnToNormalMode();
 }
+
+/**
+ * ...
+ */
+Hexwar.UnitStoreController.prototype.onDialogClose = function() {
+	this.game.returnToNormalMode();
+}
