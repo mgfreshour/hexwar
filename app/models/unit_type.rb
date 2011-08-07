@@ -1,6 +1,7 @@
 class UnitType < ActiveRecord::Base
   validates :name, :presence=>true
   validates :img, :presence=>true
+  validates :price, :presence=>true, :numericality => {:greater_than_or_equal_to => 0}
   validates :img_x, :presence=>true, :numericality => {:greater_than_or_equal_to => 0}
   validates :img_y, :presence=>true, :numericality => {:greater_than_or_equal_to => 0}
   validates :attack_range, :presence=>true, :numericality => {:greater_than_or_equal_to => 1}
@@ -8,6 +9,9 @@ class UnitType < ActiveRecord::Base
   acts_as_list
   has_many :terrain_modifiers
 end
+
+
+
 
 
 
@@ -33,5 +37,6 @@ end
 #  img_y         :integer         default(0), not null
 #  attack_power  :integer
 #  defense_power :integer
+#  price         :integer         default(100), not null
 #
 

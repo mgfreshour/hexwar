@@ -16,17 +16,16 @@ Hexwar.UnitStoreDialog = function(unit_store_controller, unit_types) {
  * ...
  */
 Hexwar.UnitStoreDialog.prototype.show = function(x,y, unit_types_available) {
-	var html = '', name;
+	var html = '';
 	$.each(unit_types_available, function(idx, unit_idx){
 		unit_idx--;
-		name = this.unit_types[unit_idx].name;
 		
 		html += '<input type="radio" value="'+unit_idx+'" name="unit_store_dialog_radio" id="unit_store_dialog_'+unit_idx+'">';
-		html += '<label for="unit_store_dialog_'+unit_idx+'">'+name+'</lable><br />';
+		html += '<label for="unit_store_dialog_'+unit_idx+'">'+this.unit_types[unit_idx].name +' ('+this.unit_types[unit_idx].price+' gold)'+'</label><br />';
 	}.createDelegate(this));
 	html += '<input type="button" id="unit_store_dialog_buy" value="Buy" />';
 	this.container.html(html);
-	this.container.dialog({ modal: false, width: 200, position: 'center' });
+	this.container.dialog({ modal: false, width: 300, position: 'center' });
 	$('#unit_store_dialog_buy').click(this.onBuyClick.createDelegate(this, [x,y]));
 }
 

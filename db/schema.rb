@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110806224722) do
+ActiveRecord::Schema.define(:version => 20110807012434) do
 
   create_table "game_players", :force => true do |t|
     t.integer  "game_id"
@@ -88,10 +88,10 @@ ActiveRecord::Schema.define(:version => 20110806224722) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "img_x",                :default => 0, :null => false
-    t.integer  "img_y",                :default => 0, :null => false
+    t.integer  "img_x",                :default => 0,     :null => false
+    t.integer  "img_y",                :default => 0,     :null => false
     t.boolean  "ownable"
-    t.boolean  "is_store"
+    t.boolean  "is_store",             :default => false, :null => false
     t.string   "unit_types_available"
   end
 
@@ -114,12 +114,13 @@ ActiveRecord::Schema.define(:version => 20110806224722) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
-    t.integer  "attack_range",  :default => 1, :null => false
-    t.integer  "move_range",    :default => 2, :null => false
-    t.integer  "img_x",         :default => 0, :null => false
-    t.integer  "img_y",         :default => 0, :null => false
+    t.integer  "attack_range",  :default => 1,   :null => false
+    t.integer  "move_range",    :default => 2,   :null => false
+    t.integer  "img_x",         :default => 0,   :null => false
+    t.integer  "img_y",         :default => 0,   :null => false
     t.integer  "attack_power"
     t.integer  "defense_power"
+    t.integer  "price",         :default => 100, :null => false
   end
 
 end

@@ -5,6 +5,7 @@
 <%= @unit_type.name %>
 <%=display_unit_img(@unit_type).html_safe%>
 <table>
+	<tr><th>price</th><td><%= @unit_type.price%></td></tr>
   <tr><th>attack_range</th><td><%= @unit_type.attack_range%></td></tr>
   <tr><th>move_range</th><td><%= @unit_type.move_range%></td></tr>
   <tr><th>attack_power</th><td><%= @unit_type.attack_power%></td></tr>

@@ -11,6 +11,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: tile_types
@@ -24,7 +25,7 @@ end
 #  img_x                :integer         default(0), not null
 #  img_y                :integer         default(0), not null
 #  ownable              :boolean
-#  is_store             :boolean
+#  is_store             :boolean         default(FALSE), not null
 #  unit_types_available :string(255)
 #
 

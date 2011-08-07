@@ -19,6 +19,9 @@ end
 
 
 
+
+
+
 # == Schema Information
 #
 # Table name: unit_types
@@ -35,5 +38,6 @@ end
 #  img_y         :integer         default(0), not null
 #  attack_power  :integer
 #  defense_power :integer
+#  price         :integer         default(100), not null
 #
 

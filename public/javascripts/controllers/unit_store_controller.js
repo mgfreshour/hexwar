@@ -43,9 +43,17 @@ Hexwar.UnitStoreController.prototype.attemptStoreSelect = function(x,y) {
  * @param {Integer} type_id
  */
 Hexwar.UnitStoreController.prototype.buyUnit = function(x,y, type_id) {
-	var new_unit = this.game.unit_factory.createUnit(type_id, this.current_player, x, y);
-	new_unit.acted = true;
-	this.map.setUnit(x, y, new_unit);
-	this.mapview.drawUnit(x, y, new_unit);
+	var price = this.game.unit_factory.unit_types[type_id].price;
+	var gold = this.game.getGold();
+	if (gold >= price) {
+		var new_unit = this.game.unit_factory.createUnit(type_id, this.current_player, x, y);
+		this.game.setGold(gold-price);
+		new_unit.acted = true;
+		this.map.setUnit(x, y, new_unit);
+		this.mapview.drawUnit(x, y, new_unit);
+		this.game.saveAction(x,y,'buy_unit',0,0,type_id);
+	} else {
+		modalAlert('You have '+gold+' gold and that unit costs '+price+'.  That really doesn`t work :^)');
+	}
 	this.game.returnToNormalMode();
 }

@@ -13,8 +13,9 @@ namespace('Hexwar.UnitType');
  * @param {Array} move_costs
  * @param {Array} defense_bonuses
  */
-Hexwar.UnitType = function (name, img, img_x, img_y, attack_range, attack_power, defense_power, move_range, move_costs, defense_bonuses) {
+Hexwar.UnitType = function (name, price, img, img_x, img_y, attack_range, attack_power, defense_power, move_range, move_costs, defense_bonuses) {
 	this.name = name;
+	this.price = price;
 	this.img = {src:img, x:img_x, y:img_y};
 	this.range = attack_range;
 	this.attack_power = attack_power;

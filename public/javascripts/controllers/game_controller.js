@@ -124,6 +124,17 @@ Hexwar.GameController.prototype.getGold = function() {
 }
 
 /**
+ * ...
+ * @return {Integer}
+ */
+Hexwar.GameController.prototype.setGold = function(gold) {
+	this.resource_data[this.current_player] = gold;
+	
+	// Update the UI
+	this.updateResourceCounter();
+}
+
+/**
  *
  */
 Hexwar.GameController.prototype.updateResourceCounter = function() {	
