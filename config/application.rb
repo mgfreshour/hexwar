@@ -48,3 +48,10 @@ module Facebook
   APP_ID = CONFIG['app_id']
   SECRET = CONFIG['secret_key']
 end
+
+module Gmail
+  CONFIG = YAML.load_file(Rails.root.join("config/gmail.yml"))[Rails.env]
+  DOMAIN = CONFIG['domain']
+  USERNAME = CONFIG['username']
+  PASSWORD = CONFIG['password']
+end

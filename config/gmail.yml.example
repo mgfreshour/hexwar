@@ -1,0 +1,13 @@
+# config/gmail.yml
+development:
+  domain: YOUR DOMAIN
+  username: YOUR USERNAME
+  password: YOUR PASSWORD
+test:
+  domain: YOUR DOMAIN
+  username: YOUR USERNAME
+  password: YOUR PASSWORD
+production:
+  domain: YOUR DOMAIN
+  username: YOUR USERNAME
+  password: YOUR PASSWORD

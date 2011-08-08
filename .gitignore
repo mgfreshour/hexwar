@@ -9,6 +9,7 @@ vendor/cache/*
 .DS_Store
 config/database.yml
 config/facebook.yml
+config/gmail.yml
 config/deploy.rb
 public/assets
 Gemfile.lock
