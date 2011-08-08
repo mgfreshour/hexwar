@@ -83,7 +83,7 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
 		, dataType: 'json'
 		, success: successFunction.createDelegate(this)
 		, error: function() {
-			modalAlert("Something went horribly wrong while loading the turn data!!!", "Loading Failed");
+			modalAlert("Something went horribly wrong while loading the turn data!!!", "Loading Failed", function(){top.location='/';});
 		}
 	});
 }
@@ -232,6 +232,8 @@ Hexwar.GameController.prototype.endTurn = function() {
 	var unit_data = [];
 	var tile_owner_data = [];
 	
+	$('#loading').show();
+
 	$.each(this.map.unit_data, function(idx, unit) {
 		// Set the unit to acted
 		unit.acted = true;
@@ -265,7 +267,7 @@ Hexwar.GameController.prototype.endTurn = function() {
 				this.notifyListeners('turn_ended');
 			}.createDelegate(this)
 			, error: function() {
-				modalAlert("Save Failed", "Something went horribly wrong!!!");
+				modalAlert("Save Failed", "Something went horribly wrong!!!", function(){top.location = '/'});
 			}
 		});
 	}.createDelegate(this);
