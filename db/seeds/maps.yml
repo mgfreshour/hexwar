@@ -15,8 +15,8 @@ maps_001:
     \ '5':\n    type_index: '8'\n  '6':\n    type_index: '12'\n'4':\n  '0':\n    type_index:
     '9'\n  '1':\n    type_index: '9'\n  '2':\n    type_index: '0'\n  '3':\n    type_index:
     '8'\n  '4':\n    type_index: '8'\n  '5':\n    type_index: '12'\n  '6':\n    type_index:
-    '12'\n'5':\n  '0':\n    type_index: '15'\n  '1':\n    type_index: '9'\n  '2':\n
-    \   type_index: '9'\n  '3':\n    type_index: '8'\n  '4':\n    type_index: '12'\n
+    '12'\n'5':\n  '0':\n    type_index: '15'\n  '1':\n    type_index: '15'\n  '2':\n
+    \   type_index: '15'\n  '3':\n    type_index: '8'\n  '4':\n    type_index: '12'\n
     \ '5':\n    type_index: '12'\n  '6':\n    type_index: '12'\n"
   created_at: '2011-07-30 16:17:31.116191'
   updated_at: '2011-07-30 16:17:31.116191'
