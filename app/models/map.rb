@@ -6,6 +6,7 @@ class Map < ActiveRecord::Base
   validates :height, :presence=>true, :numericality => {:greater_than_or_equal_to => 2}
   validates :width, :presence=>true, :numericality => {:greater_than_or_equal_to => 2}
   validates :number_of_players, :presence=>true, :numericality=>{:greater_than_or_equal_to=>2, :less_than_or_equal_to=>4}
+  validates :unit_data, :length => {:minimum => 1, :message => 'You must have units on the map! (otherwise it will be a rather boring game)'}
 end
 
 
