@@ -126,7 +126,9 @@ Hexwar.UnitFactory.prototype._createUnit = function(unit_type, team,x,y,health) 
 	unit.img.push(unit_type.img);
 	unit.img.push({src:'/images/misc/flag-'+team+'.png', x:0, y:0 });
 	unit.gfx_css_class = 'hex';
-	unit.text = { text: unit.health, css_class: 'unit_health' };
+	unit.text = new Array();
+	unit.text.push({ text: unit.health, css_class: 'unit_health' });
+	unit.text.push({ text: '*', css_class: 'unit_acted' });
 	
 	unit.team = team;
 	unit.x = x;

@@ -113,6 +113,15 @@ position: absolute;
 	text-align: right;
 	vertical-align: bottom;
 }
+.unit_acted {
+	z-index:40;
+	font-size: 20px;
+	position: absolute;
+	top: 4px;
+	left: 9px;
+	text-align: right;
+	vertical-align: bottom;
+}
 
 .cursor {
 	z-index:50;

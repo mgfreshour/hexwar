@@ -74,7 +74,7 @@ Hexwar.UnitController.prototype.onUnitMoveClick = function(x,y, unit, mask) {
 	if (mask.get(x,y) == mask.mask_clear) {
 		// They clicked a movable location
 		unit.move(x,y);
-		unit.acted = true;
+		unit.setActed(true);
 	
 		// See if they can attack now.
 		if (this.attemptUnitAttack(unit)) {
@@ -85,7 +85,7 @@ Hexwar.UnitController.prototype.onUnitMoveClick = function(x,y, unit, mask) {
 		// The're attacking!
 		enemy = this.map.getUnit(x,y);
 		this.battle(unit, enemy);
-		unit.acted = true;
+		unit.setActed(true);
 	} 
 	else if (mask.get(x,y) == mask.mask_black) {
 		if (this.attemptUnitSelect(x,y)) {
@@ -243,7 +243,7 @@ Hexwar.UnitController.prototype.generateZocMap = function(team) {
  */
 Hexwar.UnitController.prototype.attemptUnitSelect = function(x,y) {
 	var unit = this.map.getUnit(x,y);
-	if (unit && unit.team == this.current_player && !unit.acted) {
+	if (unit && unit.team == this.current_player && !unit.getActed()) {
 		var mask = this.generateMoveMask(unit);
 		
 		this.mapview.setDelegateClick(this.onUnitMoveClick.createDelegate(this, [unit, mask], true));
@@ -264,6 +264,8 @@ Hexwar.UnitController.prototype.addEventsToAllUnits = function() {
 		unit.bindEvent('death', this.onUnitDeath, this);
 		unit.bindEvent('health_change', this.onUnitChangeHealth, this);
 		unit.bindEvent('move', this.onUnitMove, this);
+		unit.bindEvent('unit_acted', this.onUnitActed, this);
+		unit.setActed(unit.getActed());
 		
 		unit.bindEvent('death', this.logUnitDeath, this);
 		unit.bindEvent('health_change', this.logUnitChangeHealth, this);
@@ -319,7 +321,7 @@ Hexwar.UnitController.prototype.onUnitMove = function (x,y, unit) {
  * @param {Unit} unit
  */
 Hexwar.UnitController.prototype.onUnitChangeHealth = function(new_health, delta, unit) {
-	unit.text.div.html(new_health);
+	unit.text[0].div.html(new_health);
 	this.mapview.drawDamages([{x:unit.x,y:unit.y, text:delta}]);
 }
 
@@ -333,4 +335,17 @@ Hexwar.UnitController.prototype.onUnitDeath = function(unit) {
 	// take this unit out of the unit list
 	idx = this.map.unit_data.indexOf(unit);
 	this.map.unit_data.splice(idx,1);
+}
+
+/**
+ *
+ * @param {Boolean} acted
+ * @param {Hexwar.Unit} unit
+ */
+Hexwar.UnitController.prototype.onUnitActed = function(acted, unit) {
+	if (acted) {
+		unit.text[1].div.html('');
+	} else {
+		unit.text[1].div.html('*');		
+	}
 }

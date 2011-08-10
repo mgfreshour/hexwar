@@ -138,7 +138,7 @@ Hexwar.jQueryRenderer.prototype._drawItem = function(item, container, screen_x, 
 		if (item.text) {
 			if ($.isArray(item.text)) {
 				for (n=0; n<item.text.length; n++) {
-					item[n].text.div = this._drawText(item.text[n].text, item.gfx_container, item.text[n].css_class);
+					item.text[n].div = this._drawText(item.text[n].text, item.gfx_container, item.text[n].css_class);
 				}
 			} else {	
 				item.text.div = this._drawText(item.text.text, item.gfx_container, item.text.css_class);

@@ -17,6 +17,7 @@ Hexwar.Unit = function (type, health) {
 	this.health = health || type.starting_health;
 	this.range = type.range;
 	this.alive = true;
+	this.acted = false;
 	
 	// Call parent c'tors
 	this.RenderableItem();
@@ -24,6 +25,21 @@ Hexwar.Unit = function (type, health) {
 }
 Hexwar.Unit.DeriveFrom(Hexwar.RenderableItem, 'RenderableItem');
 Hexwar.Unit.DeriveFrom(Observable);
+
+/**
+ *
+ */
+Hexwar.Unit.prototype.setActed = function(acted) {
+	this.notifyListeners('unit_acted', acted, this);
+	this.acted = acted;
+}
+
+/**
+ *
+ */
+Hexwar.Unit.prototype.getActed = function() {
+	return this.acted;
+}
 
 /**
  * Changes unit's position

@@ -58,7 +58,7 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
 				x = parseFloat(unit.x);
 				y = parseFloat(unit.y);
 				unit = this.unit_factory.createUnit(unit.type_index, unit.team, x, y, parseFloat(unit.health));
-				unit.acted = unit.team != data.game_turn.player
+				unit.setActed(unit.team != data.game_turn.player);
 			
 				tile = this.map.getTile(x, y);
 
@@ -236,7 +236,7 @@ Hexwar.GameController.prototype.endTurn = function() {
 
 	$.each(this.map.unit_data, function(idx, unit) {
 		// Set the unit to acted
-		unit.acted = true;
+		unit.setActed(true);
 		// Save it!
 		unit_data.push({ x: unit.x, y: unit.y, type_index: unit.type_index , team: unit.team, health: unit.health });
 	}.createDelegate(this));
