@@ -244,6 +244,7 @@ Hexwar.GameController.prototype.healNonActedUnits = function() {
 Hexwar.GameController.prototype.endTurn = function() {
 	this.healNonActedUnits();
 
+	// give some time for the healed unit animation to happen
 	setTimeout(this._saveTurn.createDelegate(this), 1000);
 }
 
