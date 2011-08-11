@@ -69,3 +69,11 @@ Hexwar.Unit.prototype.changeHealth = function(delta) {
 	}
 	return this.alive;
 }
+
+/**
+ *
+ * @return {Number} the current health of the unit
+ */
+Hexwar.Unit.prototype.getHealth = function() {
+	return this.health;
+}

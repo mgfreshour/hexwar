@@ -173,7 +173,8 @@ Hexwar.GameController.prototype.returnToNormalMode = function() {
  * @param {Number} target_y
  * @param {String} value
  */
-Hexwar.GameController.prototype.saveAction = function(x,y, action, target_x, target_y, value) {	
+Hexwar.GameController.prototype.saveAction = function(x,y, action, target_x, target_y, value) {
+	/*
   $.ajax({ 
 		  type:'post'
 		, url: '/turn_actions'
@@ -189,6 +190,7 @@ Hexwar.GameController.prototype.saveAction = function(x,y, action, target_x, tar
 			modalAlert("Save Failed", "Something went horribly wrong!!!");
 		}
 	});
+	*/
 }
 
 /**
@@ -235,6 +237,10 @@ Hexwar.GameController.prototype.endTurn = function() {
 	$('#loading').show();
 
 	$.each(this.map.unit_data, function(idx, unit) {
+		// Heal the unit if they haven't acted
+		if (!unit.getActed() && unit.getHealth() < unit.type.starting_health) {
+			unit.changeHealth(+1);
+		}
 		// Set the unit to acted
 		unit.setActed(true);
 		// Save it!
