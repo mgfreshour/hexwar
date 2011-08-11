@@ -227,22 +227,36 @@ Hexwar.GameController.prototype.checkForGameWinner = function() {
 	return false;
 }
 
+Hexwar.GameController.prototype.healNonActedUnits = function() {
+	$.each(this.map.unit_data, function(idx, unit) {
+		// Heal the unit if they haven't acted
+		if (!unit.getActed() && unit.getHealth() < unit.type.starting_health) {
+			this.map.unit_data[idx].changeHealth(+1);
+		}
+		// Set the unit to acted
+		this.map.unit_data[idx].setActed(true);
+	}.createDelegate(this));
+}
+
 /**
  * ...
  */
-Hexwar.GameController.prototype.endTurn = function() {	
+Hexwar.GameController.prototype.endTurn = function() {
+	this.healNonActedUnits();
+
+	setTimeout(this._saveTurn.createDelegate(this), 1000);
+}
+
+/**
+ * ...
+ */
+Hexwar.GameController.prototype._saveTurn = function() {
 	var unit_data = [];
 	var tile_owner_data = [];
 	
 	$('#loading').show();
 
 	$.each(this.map.unit_data, function(idx, unit) {
-		// Heal the unit if they haven't acted
-		if (!unit.getActed() && unit.getHealth() < unit.type.starting_health) {
-			unit.changeHealth(+1);
-		}
-		// Set the unit to acted
-		unit.setActed(true);
 		// Save it!
 		unit_data.push({ x: unit.x, y: unit.y, type_index: unit.type_index , team: unit.team, health: unit.health });
 	}.createDelegate(this));

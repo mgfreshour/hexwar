@@ -89,12 +89,16 @@ Hexwar.MapView.prototype.drawUnit = function(x, y, unit) {
  * @param {Array.<{x: number, y: number, text:string}>} array
  */
 Hexwar.MapView.prototype.drawDamages = function(array) {
+	var hex_pos, text, render_item, css_class;
 	for (n=0; n < array.length; n++) {
-		var hex_pos = this.calculateHexPosition(array[n].x,array[n].y);
-		var text = new Hexwar.RenderableItem();
-		text.text = {text:array[n].text, css_class: 'damage'};
-		this.renderer.drawItemToLayer('text', hex_pos.x, hex_pos.y, text);
-		this.renderer.fadeOutAndRemove(text, 500, 1000);
+		hex_pos = this.calculateHexPosition(array[n].x,array[n].y);
+		render_item = new Hexwar.RenderableItem();
+		text = array[n].text;
+		css_class = text > 0 ? 'healing' : 'damage';
+		text = text > 0 ? '+'+text : text;
+		render_item.text = {text:text, css_class: css_class};
+		this.renderer.drawItemToLayer('text', hex_pos.x, hex_pos.y, render_item);
+		this.renderer.fadeOutAndRemove(render_item, 500, 1000);
 	}
 }
 
