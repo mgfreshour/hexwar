@@ -8,10 +8,11 @@ javascript_compressor:  yui     # (yui, closure)
 
 javascripts:
   rails:
-    - public/javascripts/rails.js
+    - public/javascripts/library/rails.js
   common:
     # External Libraries
     - public/javascripts/library/ba-debug.js
+    - public/javascripts/library/jquery.pnotify.min.js
 
     # Actual Hexwar stuff
     - public/javascripts/utils/util.js
@@ -47,6 +48,7 @@ javascripts:
 stylesheets:
   common:
     - public/stylesheets/hexwar.css
+    - public/stylesheets/jquery.pnotify.default.css
     - public/stylesheets/map_editor.css
     - public/stylesheets/silk-sprite.css
 

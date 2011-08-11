@@ -59,7 +59,18 @@
 	    <br /> 
 	  </fieldset>
 	<% end %>
-
+<a value="Test Notice" id="test_notice_button" class="button">Test Notice</a>
+<script type="text/javascript">
+$(function(){
+	$('#test_notice_button').click(function(){
+		var msg = 'It is your turn on ...<br /><a href="">Click Here to Play</a>';
+		$.pnotify({   pnotify_title: 'Your Turn'
+					, pnotify_text: msg
+					, pnotify_hide: false
+					, pnotify_shadow: true });
+	});
+});
+</script>
 	<br />
 
 	<%= yield %>
