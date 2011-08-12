@@ -34,12 +34,40 @@ Hexwar.UnitStoreDialog.prototype.show = function(x,y, unit_types_available) {
 	
 	button_set.buttonset();
 	this.container.append(button_set);
-	var button = $('<br /><input type="button" id="unit_store_dialog_buy" value="Buy" />');
-	button.button();
-	this.container.append(button);
+	this.container.append($('<br /><input type="button" id="unit_store_dialog_buy" value="Buy" class="button" />'));
+	this.container.append($('<input type="button" id="unit_store_dialog_cancel" value="Cancel" class="button" />'));
+	$('.button').button();
+	
+	this.container.append('<br /><div id="unit_store_dialog_stats"></div>');
 
-	this.container.dialog({ modal: false, width: 350, position: 'center', beforeClose: this.onClose.createDelegate(this) });
+	this.container.dialog({ modal: false, width: 350, position: 'topcenter', beforeClose: this.onClose.createDelegate(this) });
 	$('#unit_store_dialog_buy').click(this.onBuyClick.createDelegate(this, [x,y]));
+	$('#unit_store_dialog_cancel').click(this.close.createDelegate(this));
+	
+
+		
+	$('[name=unit_store_dialog_radio]').change(this.updateUnitStats.createDelegate(this));
+}
+
+/**
+ * ...
+ */
+Hexwar.UnitStoreDialog.prototype.updateUnitStats = function() {
+	var unit_idx = $('[name=unit_store_dialog_radio]:checked').val();
+	var stats = 
+			'<table>'
+		+ '<tr><th>Attack Power</th><td>'+this.unit_types[unit_idx].attack_power + '</td>'	
+		+ '<td>&nbsp</td><th>Attack Range</th><td>'+this.unit_types[unit_idx].range + '</td></tr>'
+		+ '<tr><th>Defense Power</th><td>'+this.unit_types[unit_idx].defense_power + '</td>'
+		+ '<td>&nbsp</td><th>Move Range</th><td>'+this.unit_types[unit_idx].move_range + '</td></tr>'
+		+'</table>';
+	stats += '<hr />';
+	stats += '<table><tr><th>Terrain Type</th><th>Defense Bonus</th><th>Move Cost</th></tr>';
+	$.each(this.unit_types[unit_idx].defense_bonuses, function(name, bonus){
+		stats += '<tr align="center"><td>'+name+'</td><td>'+bonus+'</td><td>'+this.unit_types[unit_idx].move_costs[name]+'</td></tr>';
+	}.createDelegate(this));
+	stats += '</table>';
+	$('#unit_store_dialog_stats').html(stats);
 }
 
 /**
