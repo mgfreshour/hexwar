@@ -119,13 +119,13 @@ Hexwar.UnitController.prototype.battle = function(attacker, defender) {
 	var defender_health_loss = 0;
 
 	if (distance <= defender.range) {
-		attacker_health_loss = (attacker_bonus + attacker.type.defense_power*.14) - defender.type.attack_power*defender.health*.05;
+		attacker_health_loss = (attacker_bonus + attacker.type.defense_power)*.14 - defender.type.attack_power*defender.health*.05;
 		attacker_health_loss = attacker_health_loss * (Math.random()*.5+.75); // random chance to damage 75% - 125% of calc
 		attacker_health_loss = Math.round(attacker_health_loss);
 		attacker_health_loss = (attacker_health_loss > 0) ? 0 : attacker_health_loss;
 	}
 	if (distance <= attacker.range) {
-		defender_health_loss = (defender_bonus + defender.type.defense_power*.14) - attacker.type.attack_power*attacker.health*.05;
+		defender_health_loss = (defender_bonus + defender.type.defense_power)*.14 - attacker.type.attack_power*attacker.health*.05;
 		defender_health_loss = defender_health_loss * (Math.random()*.5+.75);
 		defender_health_loss = Math.round(defender_health_loss);
 		defender_health_loss = (defender_health_loss > 0) ? 0 : defender_health_loss;
