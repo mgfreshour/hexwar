@@ -24,6 +24,8 @@ Hexwar.GameController = function (map, id, current_turn_id, current_player) {
 	this.unit_controller = new Hexwar.UnitController(this, this.map, this.mapview, this.current_player);
 	this.unit_store_controller = new Hexwar.UnitStoreController(this, this.map, this.mapview, this.current_player);
 	
+	this.turn_actions = [];
+
 	// Call parent c'tors
 	this.Observable();
 }
@@ -174,23 +176,7 @@ Hexwar.GameController.prototype.returnToNormalMode = function() {
  * @param {String} value
  */
 Hexwar.GameController.prototype.saveAction = function(x,y, action, target_x, target_y, value) {
-	/*
-  $.ajax({ 
-		  type:'post'
-		, url: '/turn_actions'
-		, data:{ 
-				turn_action: {
-					unit_x:x, unit_y:y, action:action, target_x: target_x, target_y: target_y, value: value, game_turn_id: this.current_turn_id
-				}
-			 }
-		, success: function(data, textStatus, jqXHR) {
-		  debug.log('Action Save Successful');
-		}
-		, error: function() {
-			modalAlert("Save Failed", "Something went horribly wrong!!!");
-		}
-	});
-	*/
+	this.turn_actions.push({ unit_x:x, unit_y:y, action:action, target_x: target_x, target_y: target_y, value: value });
 }
 
 /**
