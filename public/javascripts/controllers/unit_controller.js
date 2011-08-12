@@ -125,13 +125,14 @@ Hexwar.UnitController.prototype.battle = function(attacker, defender) {
 		attacker_health_loss = (attacker_health_loss > 0) ? 0 : attacker_health_loss;
 	}
 	if (distance <= attacker.range) {
-		defender_health_loss = (defender_bonus + defender.type.defense_power)*.14 - attacker.type.attack_power*attacker.health*.05;
+		defender_health_loss = (defender_bonus + defender.type.defense_power)*.14 - (attacker.type.attack_power+defender.getTimesAttacked()*2)*attacker.health*.05;
 		defender_health_loss = defender_health_loss * (Math.random()*.5+.75);
 		defender_health_loss = Math.round(defender_health_loss);
 		defender_health_loss = (defender_health_loss > 0) ? 0 : defender_health_loss;
 	} else {
 		modalAlert('How the heck did you attack a unit out of range?');
 	}
+	defender.incrementTimesAttacked();
 	defender.changeHealth(defender_health_loss);
 	attacker.changeHealth(attacker_health_loss);
 }

@@ -18,6 +18,7 @@ Hexwar.Unit = function (type, health) {
 	this.range = type.range;
 	this.alive = true;
 	this.acted = false;
+	this.times_attacked = 0;
 	
 	// Call parent c'tors
 	this.RenderableItem();
@@ -76,4 +77,18 @@ Hexwar.Unit.prototype.changeHealth = function(delta) {
  */
 Hexwar.Unit.prototype.getHealth = function() {
 	return this.health;
+}
+
+/**
+ *
+ */
+Hexwar.Unit.prototype.incrementTimesAttacked = function() {
+	this.times_attacked++;
+}
+
+/**
+ *
+ */
+Hexwar.Unit.prototype.getTimesAttacked = function() {
+	return this.times_attacked;
 }
