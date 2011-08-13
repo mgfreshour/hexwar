@@ -31,7 +31,7 @@
 
 <fieldset id="conversation">
 	<legend>Conversation</legend>
-	<div id="conversation_entries"></div>
+	<div id="conversation_entries" style="overflow:auto; height:200px"></div>
 	<br />
 	<%= form_for(@game.messages.new, :remote=>true) do |f| %>
 		<%= f.hidden_field :game_id, :value=>@game.id %>
