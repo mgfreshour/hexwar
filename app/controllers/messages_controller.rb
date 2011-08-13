@@ -80,7 +80,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.update_attributes(params[:message])
-        format.html { redirect_to(@message, :notice => 'Message was successfully updated.') }
+        format.html { redirect_to(messages_url, :notice => 'Message was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

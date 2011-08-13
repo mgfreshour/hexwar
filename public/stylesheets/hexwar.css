@@ -182,7 +182,7 @@ body { background-color: #333; color: #fff; }
 }
 
 #admin_nav {
-	margin: 10px 0px;
+	margin: 0px 0px;
 	padding: 10px 10px;
 	border: solid 1px #aaa;
 	display: inline-block;

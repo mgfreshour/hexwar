@@ -4,26 +4,22 @@
 
 <br />
 
-<table>
+<table class="model_index">
   <tr>
+    <th width="170px">Title</th>
     <th>Text</th>
-    <th>Title</th>
-    <th>Player</th>
-    <th>Game</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @messages.each do |message| %>
   <tr>
-    <td><%= message.text %></td>
-    <td><%= message.title %></td>
-    <td><%= message.player_id %></td>
-    <td><%= message.game_id %></td>
-    <td><%= link_to 'Show', message, :class=>'button' %></td>
-    <td><%= link_to 'Edit', edit_message_path(message), :class=>'button' %></td>
-    <td><%= link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete, :class=>'button' %></td>
+  	<td><%= message.title %><br />
+				By : <%= message.player.name %> <%= message.updated_at.strftime('%m/%d/%Y %H:%M%Z') %><br />
+        <%= link_to 'Edit', edit_message_path(message), :class=>'button' %>
+        <%= link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete, :class=>'button' %>
+		</td>
+    <td><pre><%= message.text %></pre></td>
+    <td>
+		</td>
   </tr>
 <% end %>
 </table>
