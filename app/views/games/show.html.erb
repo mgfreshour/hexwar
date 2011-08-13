@@ -14,9 +14,18 @@
     </td>
   </tr>
   <tr>
-    <td colspan="2">
+    <td>
       <%= render :partial => 'player_list', :locals => { :players=>@game.game_players, :game=>@game } %>
     </td>
+		<td>
+			<% if @game.current_turn.player == @current_player_team && !@game.game_winner %>
+				<button type="button" id="endturn" class="button">
+					End Turn
+				</button>
+			<% else %>
+				<%= link_to 'Return to my Games', games_path, :class=>'button' %>
+			<% end %>
+		</td>
   </tr>
 </table>
 
@@ -39,12 +48,6 @@
 		<% end %>
 	});
 </script>
-<% if @game.current_turn.player == @current_player_team && !@game.game_winner %>
-	<button type="button" id="endturn" class="button">
-		End Turn
-	</button>
-<% else %>
-	<%= link_to 'Return to my Games', games_path, :class=>'button' %>
-<% end %>
+
 
 <%= render 'layouts/preload' %>

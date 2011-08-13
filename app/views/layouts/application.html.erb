@@ -62,25 +62,27 @@
 	    <br /> 
 	  </fieldset>
 	<% end %>
-<a value="Test Notice" id="test_notice_button" class="button">Test Notice</a>
-<script type="text/javascript">
-$(function(){
-	$('#test_notice_button').click(function(){
-		var msg = 'It is your turn on ...<br /><a href="">Click Here to Play</a>';
-		$.pnotify({   pnotify_title: 'Your Turn'
-					, pnotify_text: msg
-					, pnotify_hide: false
-					, pnotify_shadow: true });
-	});
-});
-</script>
+
+	<% if notice %>
+		<script type="text/javascript">
+			$(function(){
+				$.pnotify({   pnotify_title: 'Your Turn'
+							, pnotify_text: '<%= notice %>'
+							, pnotify_hide: true
+							, pnotify_shadow: true });
+			});
+		</script>
+	<% end %>
+	
 	<br />
-<% @current_player.messages.each do |message| %>
-	<fieldset id="message<%= message.id %>"><legend><%= message.title %></legend>
-		<pre style="background:#333"><%= message.text %></pre><br />	
-		<%= link_to 'Mark Read', {:id => message.id, :controller=>:messages, :action=>:mark_read}, :class=>'button', :remote => true %>
-	</fieldset>
-<% end %>
+	
+	<% @current_player.messages.each do |message| %>
+		<fieldset id="message<%= message.id %>"><legend><%= message.title %></legend>
+			<pre style="background:#333"><%= message.text %></pre><br />	
+			<%= link_to 'Mark Read', {:id => message.id, :controller=>:messages, :action=>:mark_read}, :class=>'button', :remote => true %>
+		</fieldset>
+	<% end %>
+	
 	<%= yield %>
 
 	</div>
