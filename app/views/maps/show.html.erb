@@ -13,16 +13,10 @@
 
 <p>
   <b>Data:</b>
-	<div id="hexmap01" class="hexmap">
-	</div>
+	<div id="hexmap01" class="hexmap"></div>
 
 	<script type="text/javascript">
 	$(function() {
-		var tile_factory = Hexwar.ServiceContainer.get('TileFactory');
-		tile_types = tile_factory.tile_types;
-		var unit_factory = Hexwar.ServiceContainer.get('UnitFactory');
-		unit_types = unit_factory.unit_types;
-
 		var map = new Hexwar.Map();
 		map.loadFromServer(<%=@map.id%>);
 		

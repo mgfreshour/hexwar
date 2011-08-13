@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :map_id %>
-    <%= collection_select :game, :map_id, Map.find(:all), :id, :name %>
+    <%= f.collection_select :map_id, Map.find(:all), :id, :name %>
   </div>
   <div class="field">
     <%= f.label :name %>
@@ -35,3 +35,26 @@
     <%= f.submit 'Create New Game', :class=>:button %>
   </div>
 <% end %>
+
+
+<div id="hexmap01" class="hexmap"></div>
+
+<script type="text/javascript">
+$(function() {
+	var update_map_preview = function() {
+		var map_value = $('#game_map_id option:selected').val();
+
+		$('#hexmap01').html('');
+
+		var map = new Hexwar.Map();
+		map.loadFromServer(map_value);
+
+		var mapview = new Hexwar.MapView($('#hexmap01'));
+		mapview.drawMap(map);
+	}
+
+	$('#game_map_id').change(update_map_preview);
+
+	update_map_preview();
+});
+</script>
