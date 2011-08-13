@@ -15,7 +15,9 @@
     <td><%= game.map.name %></td>
     <td>
 			<%= link_to 'Play', game, :class=>:button %>
-    	<%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete, :class=>:button %>
+			<% unless game.game_winner.nil? || game.game_winner.empty? %>
+    		<%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete, :class=>:button %>
+			<% end %>
 		</td>
   </tr>
 <% end %>
