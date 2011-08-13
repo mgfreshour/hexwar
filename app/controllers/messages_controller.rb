@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   skip_filter :check_admin
-  before_filter :check_admin, :except=>[:show,:index,:mark_read]
+  before_filter :check_admin, :except=>[:create,:mark_read]
   
   # GET /messages/1/mark_read
   def mark_read
@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.xml
   def index
-    @messages = Message.all
+    @messages = Message.find_all_by_game_id(nil)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -54,16 +54,22 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.xml
   def create
-    @message = Message.new(params[:message])
+    if @current_player.admin && params[:message][:game_id].nil?
+      @message = Message.new(params[:message])
+      
+      Player.find(:all).each do |player|
+        MessageViewer.create :player=>player, :message=>@message
+      end
+    else
+        @game = @current_player.games.find(params[:message][:game_id])
+        @message = @game.messages.new(params[:message])
+    end
     
     @message.player = @current_player
-    
-    Player.find(:all).each do |player|
-      MessageViewer.create :player=>player, :message=>@message
-    end
 
     respond_to do |format|
       if @message.save
+        format.js
         format.html { redirect_to(messages_url, :notice => 'Message was successfully created.') }
         format.xml  { render :xml => @message, :status => :created, :location => @message }
       else

@@ -29,6 +29,17 @@
   </tr>
 </table>
 
+<fieldset id="conversation">
+	<legend>Conversation</legend>
+	<div id="conversation_entries"></div>
+	<br />
+	<%= form_for(@game.messages.new, :remote=>true) do |f| %>
+		<%= f.hidden_field :game_id, :value=>@game.id %>
+		<%= f.text_field :text %>
+		<%= f.submit 'Post', :class=>'button'%>
+	<% end %>
+</fieldset>
+
 <script type="text/javascript">
 	$(function() {
 		var map = new Hexwar.Map;
@@ -46,6 +57,8 @@
 		<% if @game.game_winner %>
 			modalAlert("This Game has Ended.  <%=@game.game_winner.titleize%> has won!");
 		<% end %>
+		
+		<%= populateGameConversationJS(@game) %>
 	});
 </script>
 

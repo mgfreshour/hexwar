@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110813001539) do
+ActiveRecord::Schema.define(:version => 20110813105047) do
 
   create_table "game_players", :force => true do |t|
     t.integer  "game_id"
@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(:version => 20110813001539) do
     t.datetime "updated_at"
   end
 
+  add_index "message_viewers", ["player_id"], :name => "index_message_viewers_on_player_id"
+
   create_table "messages", :force => true do |t|
     t.text     "text",       :default => "Message Text", :null => false
     t.string   "title"
@@ -72,6 +74,8 @@ ActiveRecord::Schema.define(:version => 20110813001539) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "messages", ["game_id", "created_at"], :name => "index_messages_on_game_id_and_created_at"
 
   create_table "players", :force => true do |t|
     t.string   "name"

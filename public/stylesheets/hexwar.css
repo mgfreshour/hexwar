@@ -199,3 +199,7 @@ ul.player_list, ul.game_list {
 
 input#unit_type_img_x,input#unit_type_img_y { width: 30px }
 input#tile_type_img_x,input#tile_type_img_y { width: 30px }
+
+#conversation #message_text {
+	width: 80%;
+}
