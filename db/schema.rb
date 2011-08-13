@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110807222258) do
+ActiveRecord::Schema.define(:version => 20110813001539) do
 
   create_table "game_players", :force => true do |t|
     t.integer  "game_id"
@@ -55,6 +55,22 @@ ActiveRecord::Schema.define(:version => 20110807222258) do
     t.integer  "width"
     t.text     "unit_data"
     t.integer  "number_of_players", :default => 2, :null => false
+  end
+
+  create_table "message_viewers", :force => true do |t|
+    t.integer  "player_id"
+    t.integer  "message_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.text     "text",       :default => "Message Text", :null => false
+    t.string   "title"
+    t.integer  "player_id",                              :null => false
+    t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "players", :force => true do |t|

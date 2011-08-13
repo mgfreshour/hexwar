@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  text: MyText
+  title: MyString
+  player_id: 1
+  game_id: 1
+
+two:
+  text: MyText
+  title: MyString
+  player_id: 1
+  game_id: 1
+
+# == Schema Information
+#
+# Table name: messages
+#
+#  id         :integer         not null, primary key
+#  text       :text            default("Message Text"), not null
+#  title      :string(255)
+#  player_id  :integer         not null
+#  game_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+

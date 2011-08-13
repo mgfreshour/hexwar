@@ -1,6 +1,8 @@
 class Player < ActiveRecord::Base
   has_many :game_players, :dependent => :destroy
   has_many :games, :through => :game_players
+  has_many :message_viewers, :dependent => :destroy
+  has_many :messages, :through => :message_viewers
   validates :name, :presence=>true
   validates :uid, :presence=>true
   validates :provider, :presence=>true

@@ -1,6 +1,9 @@
 HexGame::Application.routes.draw do
+  resources :messages
+
   match '/games/end_turn' => 'games#end_turn'
   match '/games/get_turn' => 'games#get_turn'
+  match '/messages/:id/mark_read' => 'messages#mark_read'
 
   resources :turn_actions
 

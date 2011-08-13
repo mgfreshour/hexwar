@@ -1,0 +1,30 @@
+<h1>Listing messages</h1>
+
+<%= link_to 'New Message', new_message_path, :class=>'button' %>
+
+<br />
+
+<table>
+  <tr>
+    <th>Text</th>
+    <th>Title</th>
+    <th>Player</th>
+    <th>Game</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @messages.each do |message| %>
+  <tr>
+    <td><%= message.text %></td>
+    <td><%= message.title %></td>
+    <td><%= message.player_id %></td>
+    <td><%= message.game_id %></td>
+    <td><%= link_to 'Show', message, :class=>'button' %></td>
+    <td><%= link_to 'Edit', edit_message_path(message), :class=>'button' %></td>
+    <td><%= link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete, :class=>'button' %></td>
+  </tr>
+<% end %>
+</table>
+

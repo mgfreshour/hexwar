@@ -52,6 +52,7 @@
 	      <%= link_to 'Players', players_path, :class=>'button' %>
 	      <%= link_to 'UnitTypes', unit_types_path, :class=>'button' %>
 	      <%= link_to 'TileTypes', tile_types_path, :class=>'button' %>
+	      <%= link_to 'Messages', messages_path, :class=>'button' %>
 	    <% end %>
 	    <%= link_to 'Games', games_path, :class=>'button' %>
 		<%= link_to 'Settings', edit_player_path(@current_player), :class=>'button' %>
@@ -72,7 +73,12 @@ $(function(){
 });
 </script>
 	<br />
-
+<% @current_player.messages.each do |message| %>
+	<fieldset id="message<%= message.id %>"><legend><%= message.title %></legend>
+		<%= message.text %>
+		<%= link_to 'Mark Read', {:id => message.id, :controller=>:messages, :action=>:mark_read}, :class=>'button', :remote => true %>
+	</fieldset>
+<% end %>
 	<%= yield %>
 
 	</div>
