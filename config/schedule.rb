@@ -18,6 +18,6 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-every 1.hour do
+every 1.hours do
   rake 'game:turn_notification'
 end

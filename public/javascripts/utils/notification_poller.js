@@ -7,7 +7,7 @@ namespace('Hexwar.NotificationPoller');
  */
 Hexwar.NotificationPoller = function(player_id) {
 	this.player_id = player_id;
-	this.interval_seconds = 20;
+	this.interval_seconds = 60;
 	
 	setInterval(this.poll.createDelegate(this), this.interval_seconds*1000);
 }
