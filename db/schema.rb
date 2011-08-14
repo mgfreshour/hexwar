@@ -134,11 +134,13 @@ ActiveRecord::Schema.define(:version => 20110813233724) do
     t.integer  "game_id"
     t.string   "game_name"
     t.string   "player_email"
+    t.boolean  "notify_by_email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "turn_notifications", ["player_id"], :name => "index_turn_notifications_on_player_id"
+  add_index "turn_notifications", ["updated_at", "notify_by_email"], :name => "index_turn_notifications_on_updated_at_and_notify_by_email"
 
   create_table "unit_types", :force => true do |t|
     t.string   "name"

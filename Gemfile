@@ -23,6 +23,7 @@ gem 'closure-compiler'
 gem 'win32-open3-19', :platforms => [:mswin, :mingw]
 gem 'win32console', :platforms => [:mswin, :mingw]
 gem 'rake', '~>0.9.2'
+gem 'whenever'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

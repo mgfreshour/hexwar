@@ -1,4 +1,4 @@
-Hey, it's your turn in <%= @game.name %>.  Play it at <%= game_url(@game, :host=>@host) %>.
+Hey, it's your turn in <%= @game_name %>.  Play it at <%= game_url(@game_id, :host=>@host) %>.
 <br />
 <br />
-You can disable future notifications from <%= link_to 'Your Settings', edit_player_url(@player, :host=>@host)%>
+You can disable future notifications from <%= link_to 'Your Settings', edit_player_url(@player_id, :host=>@host)%>

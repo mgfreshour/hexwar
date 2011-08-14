@@ -45,6 +45,16 @@ class Game < ActiveRecord::Base
     create_new_turn(next_player_team, turn_data)
     
     next_player = game_players.find_by_team(next_player_team)
+    create_notifications(next_player)
+  end
+  
+  def create_notifications(next_player)    
+    turn_notification = TurnNotification.new
+    turn_notification.player = next_player.player
+    turn_notification.game = self
+    unless turn_notification.save
+      raise 'Failed to create turn notification!'
+    end
   end
 end
 

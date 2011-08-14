@@ -119,18 +119,7 @@ class GamesController < ApplicationController
       @game.game_winner = params[:game_winner]
       @game.save
     else
-      next_player = @game.end_turn(params[:game_turn])
-      
-      turn_notification = TurnNotification.new
-      turn_notification.player = next_player.player
-      turn_notification.game = @game
-      unless turn_notification.save
-        raise 'Failed to create turn notification!'
-      end
-      
-      if (next_player.player.notify_by_email)
-        Notifier.notify_turn(next_player, request.host).deliver
-      end
+      @game.end_turn(params[:game_turn])
     end
 
     respond_to do |format|

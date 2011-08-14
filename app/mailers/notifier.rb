@@ -6,11 +6,13 @@ class Notifier < ActionMailer::Base
   #
   #   en.notifier.notify_turn.subject
   #
-  def notify_turn (game_player, host)
-    @game = game_player.game
+  def notify_turn (game_name, game_id, player_email, player_id, host='hexwar.mgfstudios.com')
+    @game_name = game_name
+    @game_id = game_id
+    @player_email = player_email
+    @player_id = player_id
     @host = host
-    @player = game_player.player
 
-    mail :to => game_player.player.email, :subject=>'Hexwar : It is your Turn on '+@game.name+'!!'
+    mail :to => player_email, :subject=>'Hexwar : It is your Turn on '+@game_name+'!!'
   end
 end

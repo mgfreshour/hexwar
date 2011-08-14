@@ -5,10 +5,12 @@ class CreateTurnNotifications < ActiveRecord::Migration
       t.integer :game_id
       t.string :game_name
       t.string :player_email
+      t.boolean :notify_by_email
       t.timestamps
     end
     
     add_index :turn_notifications, :player_id
+    add_index :turn_notifications, [:updated_at, :notify_by_email]
   end
 
   def self.down
