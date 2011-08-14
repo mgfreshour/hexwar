@@ -10,7 +10,7 @@ class Game < ActiveRecord::Base
   validates :map, :presence=>true, :associated=>true
   
   def current_turn
-    @current_turn ||= game_turns.find(:all, :order => "created_at DESC", :limit => 1).first
+    @current_turn ||= self.game_turns.find(:all, :order => "created_at DESC", :limit => 1).first
   end
   
   def create_new_turn(team, turn_data)
@@ -33,7 +33,13 @@ class Game < ActiveRecord::Base
     current_turn.save
   end
   
-  def end_turn(turn_data)
+  def end_turn(current_player, turn_data)
+    # make sure it's your turn to end
+    if current_player.game_players.find_by_game_id(self.id).team != current_turn.player
+      raise 'Problem, end turn - '+current_player.game_players.find_by_game_id(self.id).player+' != '+current_turn.player
+    end
+
+    current_turn.player
     save_current_turn(turn_data)
     
     # Nope, stil going. Who plays next?
@@ -54,6 +60,12 @@ class Game < ActiveRecord::Base
     turn_notification.game = self
     unless turn_notification.save
       raise 'Failed to create turn notification!'
+    end
+  end
+  
+  def clear_notifications(current_player)
+    if current_player.game_players.find_by_game_id(self.id).team == current_turn.player
+      TurnNotification.delete_all(['player_id=? AND game_id=?', current_player.id, self.id])
     end
   end
 end

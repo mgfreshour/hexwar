@@ -119,7 +119,7 @@ class GamesController < ApplicationController
       @game.game_winner = params[:game_winner]
       @game.save
     else
-      @game.end_turn(params[:game_turn])
+      @game.end_turn(@current_player, params[:game_turn])
     end
 
     respond_to do |format|
@@ -149,10 +149,9 @@ class GamesController < ApplicationController
     else
       @game = @current_player.games.find(params[:id])
     end
-    
-    #delete alal the old actions taht should've belonged to this turn
-    TurnAction.delete_all(:game_turn_id => @game.current_turn.id)
 
+    @game.clear_notifications(@current_player)
+    
     respond_to do |format|
       format.json { render :json => @game.current_turn }
     end
