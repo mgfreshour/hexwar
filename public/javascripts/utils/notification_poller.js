@@ -18,7 +18,7 @@ Hexwar.NotificationPoller.prototype.poll = function(url) {
 		if (data.length) {
 			$.each(data, function(idx, note){
 				var title = 'Your Turn on '+note.turn_notification.game_name,
-						  msg = '<a href="games/'+note.turn_notification.game_id+'">Click Here to Play</a>';
+						  msg = '<a href="/games/'+note.turn_notification.game_id+'">Click Here to Play</a>';
 				Hexwar.UI.notify(msg,title, false);
 			});
 		}
