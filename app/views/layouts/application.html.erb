@@ -37,7 +37,9 @@
   
   <script type="text/javascript">
     $(function() {
-      $('.button').button();
+    	$('.button').button();
+
+		var notifier = new Hexwar.NotificationPoller(<%= @current_player.id %>);
     });
   </script>
 
@@ -66,10 +68,7 @@
 	<% if notice %>
 		<script type="text/javascript">
 			$(function(){
-				$.pnotify({   pnotify_title: 'Notice'
-							, pnotify_text: '<%= notice %>'
-							, pnotify_hide: true
-							, pnotify_shadow: true });
+				Hexwar.UI.notify('<%= notice %>');
 			});
 		</script>
 	<% end %>

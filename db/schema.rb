@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110813105047) do
+ActiveRecord::Schema.define(:version => 20110813233724) do
 
   create_table "game_players", :force => true do |t|
     t.integer  "game_id"
@@ -128,6 +128,17 @@ ActiveRecord::Schema.define(:version => 20110813105047) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "turn_notifications", :force => true do |t|
+    t.integer  "player_id"
+    t.integer  "game_id"
+    t.string   "game_name"
+    t.string   "player_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "turn_notifications", ["player_id"], :name => "index_turn_notifications_on_player_id"
 
   create_table "unit_types", :force => true do |t|
     t.string   "name"

@@ -16,6 +16,8 @@ javascripts:
 
     # Actual Hexwar stuff
     - public/javascripts/utils/util.js
+    - public/javascripts/utils/ui.js
+    - public/javascripts/utils/notification_poller.js
     - public/javascripts/utils/hex.js
     - public/javascripts/utils/observable.js
     - public/javascripts/utils/array_2d.js

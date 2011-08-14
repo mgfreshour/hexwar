@@ -121,6 +121,13 @@ class GamesController < ApplicationController
     else
       next_player = @game.end_turn(params[:game_turn])
       
+      turn_notification = TurnNotification.new
+      turn_notification.player = next_player.player
+      turn_notification.game = @game
+      unless turn_notification.save
+        raise 'Failed to create turn notification!'
+      end
+      
       if (next_player.player.notify_by_email)
         Notifier.notify_turn(next_player, request.host).deliver
       end
@@ -129,6 +136,19 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.json { render :json => true }
     end
+  end
+  
+  # 
+  # GET /games/is_it_my_turn?player_id=1
+  #
+  def is_it_my_turn
+    turn_notifications = @current_player.turn_notifications.find(:all)
+
+    respond_to do |format|
+      format.json { render :json => turn_notifications }
+    end
+    
+    @current_player.turn_notifications.destroy_all()
   end
   
   #

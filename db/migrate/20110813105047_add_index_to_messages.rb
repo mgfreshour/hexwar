@@ -5,7 +5,7 @@ class AddIndexToMessages < ActiveRecord::Migration
   end
 
   def self.down
-    add_index :messages, :name=>'game_id_idx'
-    add_index :message_viewers, :name=>'player_id_idx'
+    remove_index :messages, :name=>'game_id_idx'
+    remove_index :message_viewers, :name=>'player_id_idx'
   end
 end

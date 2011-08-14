@@ -5,6 +5,7 @@ class Game < ActiveRecord::Base
   accepts_nested_attributes_for :game_players, :reject_if => proc { |attributes| attributes[:player_id].blank? }
   has_many :players, :through => :game_players
   has_many :messages
+  has_many :turn_notifications
   validates :name, :presence=>true
   validates :map, :presence=>true, :associated=>true
   

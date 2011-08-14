@@ -3,6 +3,7 @@ class Player < ActiveRecord::Base
   has_many :games, :through => :game_players
   has_many :message_viewers, :dependent => :destroy
   has_many :messages, :through => :message_viewers
+  has_many :turn_notifications
   validates :name, :presence=>true
   validates :uid, :presence=>true
   validates :provider, :presence=>true
