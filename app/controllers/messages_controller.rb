@@ -58,7 +58,7 @@ class MessagesController < ApplicationController
       @message = Message.new(params[:message])
       
       Player.find(:all).each do |player|
-        MessageViewer.create :player=>player, :message=>@message
+        @message.message_viewers << MessageViewer.new(:player=>player)
       end
     else
         @game = @current_player.games.find(params[:message][:game_id])
