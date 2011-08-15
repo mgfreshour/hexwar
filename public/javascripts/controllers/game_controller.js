@@ -217,7 +217,8 @@ Hexwar.GameController.prototype.healNonActedUnits = function() {
 	$.each(this.map.unit_data, function(idx, unit) {
 		// Heal the unit if they haven't acted
 		if (!unit.getActed() && unit.getHealth() < unit.type.starting_health) {
-			this.map.unit_data[idx].changeHealth(+1);
+			var heal_amt = unit.getHealth()+2 > unit.type.starting_health ? 1 : 2;
+			this.map.unit_data[idx].changeHealth(heal_amt);
 		}
 		// Set the unit to acted
 		this.map.unit_data[idx].setActed(true);
