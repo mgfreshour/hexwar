@@ -14,7 +14,12 @@
 		</td>
     <td><%= game.map.name %></td>
     <td>
-			<%= link_to 'Play', game, :class=>:button %>
+			<% if game.is_players_turn(@current_player) %>
+				<%= link_to 'Play', game, :class=>:button %>
+			<% else %>
+				<%= link_to 'View', game, :class=>:button %>
+			<% end %>
+
 			<% unless game.game_winner.nil? || game.game_winner.empty? %>
     		<%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete, :class=>:button %>
 			<% end %>

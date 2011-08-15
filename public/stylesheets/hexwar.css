@@ -194,7 +194,7 @@ ul.player_list, ul.game_list {
 }
 
 .player_list a, .player_list a:visited, .game_list a, .game_list a:visited {
-	color: blue;
+	color: white;
 }
 
 input#unit_type_img_x,input#unit_type_img_y { width: 30px }

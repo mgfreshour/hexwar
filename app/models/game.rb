@@ -9,6 +9,16 @@ class Game < ActiveRecord::Base
   validates :name, :presence=>true
   validates :map, :presence=>true, :associated=>true
   
+  def is_players_turn(player)
+    self.game_players.each do |game_player|
+      if game_player.player == player && game_player.team == self.current_turn.player
+        return true
+      end
+    end
+    
+    return false
+  end
+  
   def current_turn
     @current_turn ||= self.game_turns.find(:all, :order => "created_at DESC", :limit => 1).first
   end
