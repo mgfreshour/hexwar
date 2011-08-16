@@ -49,50 +49,34 @@
 
 </head>
 <body>
-	<table>
-	  <tr>
-		<td id="facebook_canvas">
-		 <fieldset id="admin_nav">
-			<legend><%= @current_player.name %></legend>
-			<%= link_to 'Games', games_path, :class=>'button' %>
-			<%= link_to 'My Profile', edit_player_path(@current_player), :class=>'button' %>
-			<%= link_to 'Sign Out', signout_path, :class=>'button' %>
+	<div id="facebook_canvas">
+	<fieldset id="admin_nav">
+		<legend><%= @current_player.name %></legend>
+		<%= link_to 'Games', games_path, :class=>'button' %>
+		<%= link_to 'My Profile', edit_player_path(@current_player), :class=>'button' %>
+		<%= link_to 'Sign Out', signout_path, :class=>'button' %>
 
-			<% if @current_player && @current_player.admin %>
-				<br />
-				<%= link_to 'Maps', maps_path, :class=>'button' %>
-				<%= link_to 'Players', players_path, :class=>'button' %>
-				<%= link_to 'UnitTypes', unit_types_path, :class=>'button' %>
-				<%= link_to 'TileTypes', tile_types_path, :class=>'button' %>
-				<%= link_to 'Messages', messages_path, :class=>'button' %>
-			<% end %>
-			<br /> 
-		 </fieldset>
-	
-		<br />
-	
-		<% @current_player.messages.each do |message| %>
-			<fieldset id="message<%= message.id %>"><legend><%= message.title %></legend>
-				<pre style="background:#333"><%= message.text %></pre><br />	
-				<%= link_to 'Mark Read', {:id => message.id, :controller=>:messages, :action=>:mark_read}, :class=>'button', :remote => true %>
-			</fieldset>
+		<% if @current_player && @current_player.admin %>
+			<br />
+			<%= link_to 'Maps', maps_path, :class=>'button' %>
+			<%= link_to 'Players', players_path, :class=>'button' %>
+			<%= link_to 'UnitTypes', unit_types_path, :class=>'button' %>
+			<%= link_to 'TileTypes', tile_types_path, :class=>'button' %>
+			<%= link_to 'Messages', messages_path, :class=>'button' %>
 		<% end %>
-	
-		<%= yield %>
+		<br /> 
+	</fieldset>
 
-	</td>
-	<% if false && Rails.env != 'development' %>
-	<td>
-		<script type="text/javascript"><!--
-			google_ad_client = "<%=GoogleAdsense::CLIENT%>";
-			google_ad_slot = "<%=GoogleAdsense::SLOT%>";
-			google_ad_width = 120;
-			google_ad_height = 600;
-		//--></script>
-		<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-	</td>
+	<br />
+
+	<% @current_player.messages.each do |message| %>
+		<fieldset id="message<%= message.id %>"><legend><%= message.title %></legend>
+			<pre style="background:#333"><%= message.text %></pre><br />	
+			<%= link_to 'Mark Read', {:id => message.id, :controller=>:messages, :action=>:mark_read}, :class=>'button', :remote => true %>
+		</fieldset>
 	<% end %>
-	<tr>
-	</table>
+
+	<%= yield %>
+	</div>
 </body>
 </html>
