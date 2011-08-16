@@ -11,6 +11,7 @@ config/database.yml
 config/facebook.yml
 config/gmail.yml
 config/deploy.rb
+config/google_adsense.yml
 public/assets
 Gemfile.lock
 nbproject

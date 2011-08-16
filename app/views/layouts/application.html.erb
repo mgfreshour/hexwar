@@ -49,7 +49,9 @@
 
 </head>
 <body>
-	<!--<div id="facebook_canvas">-->
+	<table>
+	  <tr>
+		<td id="facebook_canvas">
 		 <fieldset id="admin_nav">
 			<legend><%= @current_player.name %></legend>
 			<%= link_to 'Games', games_path, :class=>'button' %>
@@ -78,6 +80,19 @@
 	
 		<%= yield %>
 
-	<!--</div>-->
+	</td>
+	<% if Rails.env != 'development' %>
+	<td>
+		<script type="text/javascript"><!--
+			google_ad_client = "<%=GoogleAdsense::CLIENT%>";
+			google_ad_slot = "<%=GoogleAdsense::SLOT%>";
+			google_ad_width = 120;
+			google_ad_height = 600;
+		//--></script>
+		<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+	</td>
+	<% end %>
+	<tr>
+	</table>
 </body>
 </html>

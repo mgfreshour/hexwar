@@ -55,3 +55,9 @@ module Gmail
   USERNAME = CONFIG['username']
   PASSWORD = CONFIG['password']
 end
+
+module GoogleAdsense
+  CONFIG = YAML.load_file(Rails.root.join("config/google_adsense.yml"))[Rails.env]
+  CLIENT = CONFIG['google_ad_client']
+  SLOT = CONFIG['google_ad_slot']
+end
