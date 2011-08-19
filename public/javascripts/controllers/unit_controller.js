@@ -262,16 +262,24 @@ Hexwar.UnitController.prototype.addEventsToAllUnits = function() {
 	for (var n=0; n < this.map.unit_data.length; n++) {
 		var unit = this.map.unit_data[n];
 		
-		unit.bindEvent('death', this.onUnitDeath, this);
-		unit.bindEvent('health_change', this.onUnitChangeHealth, this);
-		unit.bindEvent('move', this.onUnitMove, this);
-		unit.bindEvent('unit_acted', this.onUnitActed, this);
-		unit.setActed(unit.getActed());
-		
-		unit.bindEvent('death', this.logUnitDeath, this);
-		unit.bindEvent('health_change', this.logUnitChangeHealth, this);
-		unit.bindEvent('move', this.logUnitMove, this);
+		this.addEventsToUnit(unit);
 	}
+}
+
+/**
+ * ...
+ * @todo this belongs in UnitFactory
+ */
+Hexwar.UnitController.prototype.addEventsToUnit = function(unit) {
+	unit.bindEvent('death', this.onUnitDeath, this);
+	unit.bindEvent('health_change', this.onUnitChangeHealth, this);
+	unit.bindEvent('move', this.onUnitMove, this);
+	unit.bindEvent('unit_acted', this.onUnitActed, this);
+	unit.setActed(unit.getActed());
+	
+	unit.bindEvent('death', this.logUnitDeath, this);
+	unit.bindEvent('health_change', this.logUnitChangeHealth, this);
+	unit.bindEvent('move', this.logUnitMove, this);
 }
 
 /**

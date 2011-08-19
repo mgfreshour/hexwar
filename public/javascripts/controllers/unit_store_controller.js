@@ -48,10 +48,11 @@ Hexwar.UnitStoreController.prototype.buyUnit = function(x,y, type_id) {
 	if (gold >= price) {
 		var new_unit = this.game.unit_factory.createUnit(type_id, this.current_player, x, y);
 		this.game.setGold(gold-price);
-		new_unit.setActed(true);
 		this.map.setUnit(x, y, new_unit);
 		this.mapview.drawUnit(x, y, new_unit);
 		this.game.saveAction(x,y,'buy_unit',0,0,type_id);
+		this.game.unit_controller.addEventsToUnit(new_unit);
+		new_unit.setActed(true);
 	} else {
 		modalAlert('You have '+gold+' gold and that unit costs '+price+'.  That really doesn`t work :^)');
 	}
