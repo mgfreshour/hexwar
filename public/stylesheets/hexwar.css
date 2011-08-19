@@ -3,6 +3,7 @@ body { background-color: #333; color: #fff; }
 #facebook_canvas {
 	width:760px;
 	border: solid 1px white;
+	display:inline-block;
 }
 
 .hexmap { 
