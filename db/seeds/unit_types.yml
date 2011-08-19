@@ -8,8 +8,8 @@ unit_types_001:
   move_range: 4
   img_x: 0
   img_y: 648
-  attack_power: 12
-  defense_power: 9
+  attack_power: 18
+  defense_power: 12
   price: 500
 
 unit_types_002:
@@ -18,7 +18,7 @@ unit_types_002:
   img: /images/units.png
   position: 6
   attack_range: 1
-  move_range: 3
+  move_range: 4
   img_x: 0
   img_y: 360
   attack_power: 12
@@ -33,21 +33,21 @@ unit_types_003:
   move_range: 4
   img_x: 0
   img_y: 216
-  attack_power: 12
-  defense_power: 12
+  attack_power: 15
+  defense_power: 15
   price: 500
 unit_types_004:
   id: 11
   name: necromancer
   img: /images/units.png
   position: 11
-  attack_range: 2
+  attack_range: 3
   move_range: 2
   img_x: 0
   img_y: 720
-  attack_power: 12
-  defense_power: 3
-  price: 700
+  attack_power: 15
+  defense_power: 0
+  price: 1000
 unit_types_005:
   id: 9
   name: undead fighter
@@ -81,20 +81,20 @@ unit_types_007:
   move_range: 2
   img_x: 0
   img_y: 288
-  attack_power: 10
-  defense_power: 3
-  price: 700
+  attack_power: 12
+  defense_power: 5
+  price: 1000
 unit_types_008:
   id: 12
-  name: Bone Dragon
+  name: bone dragon
   img: /images/units.png
   position: 12
   attack_range: 1
   move_range: 2
   img_x: 0
   img_y: 792
-  attack_power: 15
-  defense_power: 15
+  attack_power: 20
+  defense_power: 20
   price: 1000
 unit_types_009:
   id: 2
