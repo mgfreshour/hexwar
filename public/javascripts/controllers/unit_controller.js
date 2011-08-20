@@ -257,7 +257,10 @@ Hexwar.UnitController.prototype.attemptUnitSelect = function(x,y) {
 			this.mapview.setCursor(x,y);
 			return true;
 		}
+	} else {
+		this.selected_unit = null;
 	}
+	
 	return false;
 }
 
