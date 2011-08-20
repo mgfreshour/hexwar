@@ -1,9 +1,19 @@
-body { background-color: #333; color: #fff; }
+body { 
+	background-color: #333; 
+	color: #fff;
+	margin: 0px;
+	padding: 0px;
+}
 
 #facebook_canvas {
-	width:760px;
+/*	width:760px;*/
+	margin:0px;
 	border: solid 1px white;
 	display:inline-block;
+}
+
+.button a:visited {
+	color:white;
 }
 
 .hexmap { 
