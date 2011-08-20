@@ -15,6 +15,10 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
+	<div class="field">
+    <%= f.label :available_for_random %>
+    <%= f.check_box :available_for_random %>
+	</div>
 	<% if @current_player.admin %>
 		<div class="field">
 	    <%= f.label :admin %>

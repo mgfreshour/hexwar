@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110820183919) do
+ActiveRecord::Schema.define(:version => 20110820214125) do
 
   create_table "game_players", :force => true do |t|
     t.integer  "game_id"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20110820183919) do
     t.string   "email"
     t.boolean  "notify_by_email"
     t.string   "real_name"
+    t.boolean  "available_for_random"
   end
 
   add_index "players", ["provider", "uid"], :name => "provider_uid_idx"

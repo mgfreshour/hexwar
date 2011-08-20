@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+  skip_filter :need_to_update_profile
   skip_filter :check_admin
   before_filter :check_admin, :except=>[:show,:edit,:update]
   

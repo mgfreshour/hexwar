@@ -30,11 +30,8 @@ class SessionsController < ApplicationController
     player.save if save
     
     session[:player_id] = player.id  
-    if player.notify_by_email.nil?
-      redirect_to edit_player_path(player)
-    else
-      redirect_to root_url
-    end
+
+    redirect_to root_url
   end
   
   def failure

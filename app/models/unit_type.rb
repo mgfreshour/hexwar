@@ -24,6 +24,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: unit_types
@@ -41,7 +42,7 @@ end
 #  hard_attack_power :integer
 #  defense_power     :integer
 #  price             :integer         default(100), not null
-#  defense_type      :string(255)
+#  defense_type      :string(255)     default("soft"), not null
 #  soft_attack_power :integer
 #
 
