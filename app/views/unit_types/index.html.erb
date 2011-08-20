@@ -18,17 +18,19 @@
 <% @unit_types.each do |unit_type| %>
   <tr>
     <td><h2><%= unit_type.name %></h2>
+			<% if (@current_player.admin) %>
 				<%= link_to 'Edit', edit_unit_type_path(unit_type), :class=>:button %>
 				<%= link_to 'Delete', unit_type, :confirm => 'Are you sure?', :method => :delete, :class=>:button %>
+			<% end %>
 		</td>
     <td><%=display_unit_img(unit_type).html_safe%></td>
-		<td><%= unit_type.price%></td>
-	  <td><%= unit_type.attack_range%></td>
-	  <td><%= unit_type.move_range%></td>
-	  <td><%= unit_type.hard_attack_power%></td>
-	  <td><%= unit_type.soft_attack_power%></td>
-	  <td><%= unit_type.defense_type%></td>
-	  <td><%= unit_type.defense_power%></td>
+		<td style="text-align:center"><%= unit_type.price%></td>
+	  <td style="text-align:center"><%= unit_type.attack_range%></td>
+	  <td style="text-align:center"><%= unit_type.move_range%></td>
+	  <td style="text-align:center"><%= unit_type.hard_attack_power%></td>
+	  <td style="text-align:center"><%= unit_type.soft_attack_power%></td>
+	  <td style="text-align:center"><%= unit_type.defense_type%></td>
+	  <td style="text-align:center"><%= unit_type.defense_power%></td>
 	  <% unit_type.terrain_modifiers.each do |terr_mod| %>
 	      <td><%= display_tile_img(terr_mod.tile_type).html_safe%>
 	      Move: <%= terr_mod.movement_cost %>
@@ -39,4 +41,37 @@
 </table>
 
 <br />
-
+<h2>Approximate Battle Outcomes</h2>
+<p>
+	(Defender Health Loss / Attacker Health Loss)<br />
+	Calculated with <b>no</b> bonuses.  The in-game formula is :<br />
+  ((Attack Strength + bonuses) * HP of Attacker)*.05  - (Defense Strength + bonues) * 0.14  = Amount of HP lost
+</p>
+<table class="model_index">
+	<tr>
+		<th>X</th>
+		<% @unit_types.each do |unit_type| %>
+			<th><%=display_unit_img(unit_type).html_safe%></th>
+		<%end%>
+	</tr>
+	<% @unit_types.each do |attacker| %>
+		<tr>
+			<th><%=display_unit_img(attacker).html_safe%></th>
+			<% @unit_types.each do |defender| %>
+			<td style="text-align:center">
+				<% if (defender.defense_type == 'soft') %>
+					<%= (attacker.soft_attack_power*10*0.05 - defender.defense_power*0.14).round %>
+				<% else # hard %>
+						<%= (attacker.hard_attack_power*10*0.05 - defender.defense_power*0.14).round %>
+				<% end %>
+				/				
+				<% if (attacker.defense_type == 'soft') %>
+					<%= (defender.soft_attack_power*10*0.05 - attacker.defense_power*0.14).round %>
+				<% else # hard %>
+					<%= (defender.hard_attack_power*10*0.05 - attacker.defense_power*0.14).round %>
+				<% end %>
+			</td>
+			<%end%>
+		</tr>
+	<%end%>
+</table>

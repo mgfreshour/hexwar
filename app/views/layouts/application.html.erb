@@ -52,7 +52,8 @@
 	<div id="facebook_canvas">
 	<fieldset id="admin_nav">
 		<legend><%= @current_player.name %></legend>
-		<%= link_to 'Games', games_path, :class=>'button' %>
+		<%= link_to 'My Games', games_path, :class=>'button' %>
+		<%= link_to 'View Unit Types', unit_types_path, :class=>'button' %>
 		<%= link_to 'My Profile', edit_player_path(@current_player), :class=>'button' %>
 		<%= link_to 'Sign Out', signout_path, :class=>'button' %>
 
@@ -60,7 +61,6 @@
 			<br />
 			<%= link_to 'Maps', maps_path, :class=>'button' %>
 			<%= link_to 'Players', players_path, :class=>'button' %>
-			<%= link_to 'UnitTypes', unit_types_path, :class=>'button' %>
 			<%= link_to 'TileTypes', tile_types_path, :class=>'button' %>
 			<%= link_to 'Messages', messages_path, :class=>'button' %>
 		<% end %>

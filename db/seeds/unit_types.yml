@@ -54,7 +54,7 @@ human_knight:
   img_x: 0
   img_y: 216
   soft_attack_power: 17
-  hard_attack_power: 915
+  hard_attack_power: 15
   defense_power: 15
   defense_type: hard
   price: 500
