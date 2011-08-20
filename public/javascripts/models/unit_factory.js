@@ -26,8 +26,10 @@ Hexwar.UnitFactory.prototype.loadFromServer = function(url) {
 				defense_bonuses[terr_mod.tile_type_name] = parseFloat(terr_mod.defense_bonus);
 			}.createDelegate(this));		
 
-			this.createUnitType(obj.name, parseFloat(obj.price), obj.img, parseFloat(obj.img_x), parseFloat(obj.img_y), parseFloat(obj.attack_range)
-					, parseFloat(obj.attack_power), parseFloat(obj.defense_power), parseFloat(obj.move_range), move_costs, defense_bonuses)
+			this.createUnitType(obj.name, parseFloat(obj.price), obj.img, parseFloat(obj.img_x), parseFloat(obj.img_y)
+					, parseFloat(obj.attack_range), parseFloat(obj.hard_attack_power), parseFloat(obj.soft_attack_power)
+					, obj.defense_type, parseFloat(obj.defense_power)
+					, parseFloat(obj.move_range), move_costs, defense_bonuses)
 	 	}
 	};
 	
@@ -69,8 +71,8 @@ Hexwar.UnitFactory.prototype.addUnitType = function(unit_type) {
  *
  * @return {Number} Index of the newly added type
  */
-Hexwar.UnitFactory.prototype.createUnitType = function(name, price, img, img_x, img_y, attack_range, attack_power, defense_power, move_range, move_costs, defense_bonuses) {
-	var type = new Hexwar.UnitType(name, price, img, img_x, img_y, attack_range, attack_power, defense_power, move_range, move_costs, defense_bonuses);
+Hexwar.UnitFactory.prototype.createUnitType = function(name, price, img, img_x, img_y, attack_range, hard_attack_power, soft_attack_power, defense_type, defense_power, move_range, move_costs, defense_bonuses) {
+	var type = new Hexwar.UnitType(name, price, img, img_x, img_y, attack_range, hard_attack_power, soft_attack_power, defense_type, defense_power, move_range, move_costs, defense_bonuses);
 	return this.addUnitType(type);
 }
 

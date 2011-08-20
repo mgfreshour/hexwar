@@ -42,7 +42,7 @@ Hexwar.UnitController.prototype.attemptUnitAttack = function(unit) {
 Hexwar.UnitController.prototype.maskForAttack = function(mask, unit) {
 	var attack_mask = new Hexwar.MapViewMask(this.map);
 	var enemy_found = false;
-	
+
 	var mask_callback = function(x,y, val) {
 		var enemy = this.map.getUnit(x,y);
 		if (val) {
@@ -109,23 +109,23 @@ Hexwar.UnitController.prototype.battle = function(attacker, defender) {
 	mask.generateDistanceMap(attacker.x, attacker.y, max_attack_range);
 	
 	//((Attack Strength + All bonuses) * HP of Attacker)*.05  - Defense Strength * 0.14  = Amount of HP lost
-	debug.log(attacker);
-	debug.log(defender);
 
-	var distance = mask.get(defender.x, defender.y);
-	var defender_bonus = defender.type.defense_bonuses[this.map.getTile(defender.x, defender.y).type.name];
-	var attacker_bonus = attacker.type.defense_bonuses[this.map.getTile(attacker.x, attacker.y).type.name];
-	var attacker_health_loss = 0;
-	var defender_health_loss = 0;
+	var distance = mask.get(defender.x, defender.y),
+	    defender_bonus = defender.type.defense_bonuses[this.map.getTile(defender.x, defender.y).type.name],
+	    attacker_bonus = attacker.type.defense_bonuses[this.map.getTile(attacker.x, attacker.y).type.name],
+	    attacker_health_loss = 0,
+	    defender_health_loss = 0;
 
 	if (distance <= defender.range) {
-		attacker_health_loss = (attacker_bonus + attacker.type.defense_power)*.14 - defender.type.attack_power*defender.health*.05;
+		attacker_health_loss = (attacker_bonus + attacker.type.defense_power)*.14 
+												 - defender.type[attacker.type.defense_type+'_attack_power']*defender.health*.05;
 		attacker_health_loss = attacker_health_loss * (Math.random()*.5+.75); // random chance to damage 75% - 125% of calc
 		attacker_health_loss = Math.round(attacker_health_loss);
 		attacker_health_loss = (attacker_health_loss > 0) ? 0 : attacker_health_loss;
 	}
 	if (distance <= attacker.range) {
-		defender_health_loss = (defender_bonus + defender.type.defense_power)*.14 - (attacker.type.attack_power+defender.getTimesAttacked()*2)*attacker.health*.05;
+		defender_health_loss = (defender_bonus + defender.type.defense_power)*.14 
+												 - (attacker.type[defender.type.defense_type+'_attack_power']+defender.getTimesAttacked()*2)*attacker.health*.05;
 		defender_health_loss = defender_health_loss * (Math.random()*.5+.75);
 		defender_health_loss = Math.round(defender_health_loss);
 		defender_health_loss = (defender_health_loss > 0) ? 0 : defender_health_loss;

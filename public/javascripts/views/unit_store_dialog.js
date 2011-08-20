@@ -54,19 +54,7 @@ Hexwar.UnitStoreDialog.prototype.show = function(x,y, unit_types_available) {
  */
 Hexwar.UnitStoreDialog.prototype.updateUnitStats = function() {
 	var unit_idx = $('[name=unit_store_dialog_radio]:checked').val();
-	var stats = 
-			'<table>'
-		+ '<tr><th>Attack Power</th><td>'+this.unit_types[unit_idx].attack_power + '</td>'	
-		+ '<td>&nbsp</td><th>Attack Range</th><td>'+this.unit_types[unit_idx].range + '</td></tr>'
-		+ '<tr><th>Defense Power</th><td>'+this.unit_types[unit_idx].defense_power + '</td>'
-		+ '<td>&nbsp</td><th>Move Range</th><td>'+this.unit_types[unit_idx].move_range + '</td></tr>'
-		+'</table>';
-	stats += '<hr />';
-	stats += '<table><tr><th>Terrain Type</th><th>Defense Bonus</th><th>Move Cost</th></tr>';
-	$.each(this.unit_types[unit_idx].defense_bonuses, function(name, bonus){
-		stats += '<tr align="center"><td>'+name+'</td><td>'+bonus+'</td><td>'+this.unit_types[unit_idx].move_costs[name]+'</td></tr>';
-	}.createDelegate(this));
-	stats += '</table>';
+	var stats = Hexwar.UnitStatsTable(this.unit_types[unit_idx]);
 	$('#unit_store_dialog_stats').html(stats);
 }
 

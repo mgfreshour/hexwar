@@ -42,6 +42,7 @@ javascripts:
     - public/javascripts/controllers/unit_store_controller.js
     - public/javascripts/views/unit_store_dialog.js
     - public/javascripts/views/unit_stats_dialog.js
+    - public/javascripts/views/unit_stats_table.js
 
     # Map Editor stuff
     - public/javascripts/map_editor/toolbox.js

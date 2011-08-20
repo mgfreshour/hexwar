@@ -8,7 +8,9 @@
     <th>price</th>
     <th>attack range</th>
     <th>move range</th>
-    <th>attack power</th>
+    <th>attack power against hard</th>
+    <th>attack power against soft</th>
+		<th>defense type</th>
     <th>defense power</th>
 		<th colspan="20">Terrain modifiers</th>
   </tr>
@@ -23,7 +25,9 @@
 		<td><%= unit_type.price%></td>
 	  <td><%= unit_type.attack_range%></td>
 	  <td><%= unit_type.move_range%></td>
-	  <td><%= unit_type.attack_power%></td>
+	  <td><%= unit_type.hard_attack_power%></td>
+	  <td><%= unit_type.soft_attack_power%></td>
+	  <td><%= unit_type.defense_type%></td>
 	  <td><%= unit_type.defense_power%></td>
 	  <% unit_type.terrain_modifiers.each do |terr_mod| %>
 	      <td><%= display_tile_img(terr_mod.tile_type).html_safe%>

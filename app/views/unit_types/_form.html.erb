@@ -27,17 +27,25 @@
     X <%= f.text_field :img_x %>
     Y <%= f.text_field :img_y %>
   </div>
+	<div class="field">
+    <%= f.label :move_range %>
+    <%= f.select(:move_range, (1..9).to_a) %>
+  </div>
   <div class="field">
     <%= f.label :attack_range %>
     <%= f.select(:attack_range, (1..9).to_a) %>
   </div>
   <div class="field">
-    <%= f.label :move_range %>
-    <%= f.select(:move_range, (1..9).to_a) %>
+    <%= f.label :hard_attack_power %>
+    <%= f.select(:hard_attack_power, (1..99).to_a) %>
   </div>
   <div class="field">
-    <%= f.label :attack_power %>
-    <%= f.select(:attack_power, (1..99).to_a) %>
+    <%= f.label :soft_attack_power %>
+    <%= f.select(:soft_attack_power, (1..99).to_a) %>
+  </div>
+  <div class="field">
+    <%= f.label :defense_type %>
+    <%= f.select(:defense_type, ['hard','soft']) %>
   </div>
   <div class="field">
     <%= f.label :defense_power %>

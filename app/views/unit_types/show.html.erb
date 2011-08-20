@@ -5,11 +5,13 @@
 <%= @unit_type.name %>
 <%=display_unit_img(@unit_type).html_safe%>
 <table>
-	<tr><th>price</th><td><%= @unit_type.price%></td></tr>
-  <tr><th>attack_range</th><td><%= @unit_type.attack_range%></td></tr>
-  <tr><th>move_range</th><td><%= @unit_type.move_range%></td></tr>
-  <tr><th>attack_power</th><td><%= @unit_type.attack_power%></td></tr>
-  <tr><th>defense_power</th><td><%= @unit_type.defense_power%></td></tr>
+	<tr><th>Price</th><td><%= @unit_type.price%>gp</td></tr>
+  <tr><th>Attack Range</th><td><%= @unit_type.attack_range%></td></tr>
+  <tr><th>Attack Power Against Hard</th><td><%= @unit_type.hard_attack_power%></td></tr>
+  <tr><th>Attack Power Against Soft</th><td><%= @unit_type.soft_attack_power%></td></tr>
+  <tr><th>Move Range</th><td><%= @unit_type.move_range%></td></tr>
+  <tr><th>Defense Type</th><td><%= @unit_type.defense_type%></td></tr>
+  <tr><th>Defense Power</th><td><%= @unit_type.defense_power%></td></tr>
 </table>
 
 <table class="model_index">
