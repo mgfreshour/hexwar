@@ -244,12 +244,19 @@ Hexwar.UnitController.prototype.generateZocMap = function(team) {
  */
 Hexwar.UnitController.prototype.attemptUnitSelect = function(x,y) {
 	var unit = this.map.getUnit(x,y);
-	if (unit && unit.team == this.current_player && !unit.getActed()) {
-		var mask = this.generateMoveMask(unit);
+	if (unit) {
+		if (unit == this.selected_unit) {
+			var dlg = new Hexwar.UnitStatsDialog();
+			dlg.show(unit.type);
+		}
+		this.selected_unit = unit;
+		if (unit.team == this.current_player && !unit.getActed()) {
+			var mask = this.generateMoveMask(unit);
 		
-		this.mapview.setDelegateClick(this.onUnitMoveClick.createDelegate(this, [unit, mask], true));
-		this.mapview.setCursor(x,y);
-		return true;
+			this.mapview.setDelegateClick(this.onUnitMoveClick.createDelegate(this, [unit, mask], true));
+			this.mapview.setCursor(x,y);
+			return true;
+		}
 	}
 	return false;
 }
