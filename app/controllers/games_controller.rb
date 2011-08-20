@@ -59,8 +59,22 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.xml
   def create
-    @game = Game.new(params[:game])
     @players = Player.find(:all, :conditions => ["id <> #{@current_player.id}"])
+    available_for_random = []
+    @players.each do |player|
+      if player.available_for_random
+        available_for_random << player
+      end
+    end
+
+    params[:game][:game_players_attributes].each_pair do |idx,game_player|
+      # Random player?
+      if game_player[:player_id].blank?
+        params[:game][:game_players_attributes][idx][:player_id] = available_for_random[rand(available_for_random.length)].id
+      end
+    end
+    
+    @game = Game.new(params[:game])
 
     respond_to do |format|
       if @game.save && @game.create_new_turn('red', @game.map.unit_data)

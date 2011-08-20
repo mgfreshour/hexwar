@@ -27,7 +27,7 @@
 				<%= player_form.collection_select :player_id, [@current_player], :id, :name %>
 			<% else %>
 				<%= player_form.hidden_field :team %>
-				<%= player_form.collection_select :player_id, @players, :id, :name, {:prompt => '--None--'} %>
+				<%= player_form.collection_select :player_id, [Player.new({:id=>'', :name=>'Random Player'})] +  @players, :id, :name %>
 			<% end %>
 		</div>
   <% end %>
