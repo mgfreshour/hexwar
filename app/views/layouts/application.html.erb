@@ -54,6 +54,11 @@
 		<script type="text/javascript">
 		    $(function() {
 				var notifier = new Hexwar.NotificationPoller(<%= @current_player.id %>);
+				
+				$('#btn_invite_friends').click(function(){
+					FB.ui({method: 'apprequests'
+						, message: 'Turn based strategy game!.'});
+				})
 		    });
 	  	</script>
 
@@ -62,6 +67,7 @@
 			<%= link_to 'My Games', games_path, :class=>'button' %>
 			<%= link_to 'View Unit Types', unit_types_path, :class=>'button' %>
 			<%= link_to 'My Profile', edit_player_path(@current_player), :class=>'button' %>
+			<button id="btn_invite_friends" class="button">Invite Friends</button>
 			<%= link_to 'Sign Out', signout_path, :class=>'button' %>
 
 			<% if @current_player && @current_player.admin %>
@@ -100,7 +106,7 @@
 
 	<%= yield %>
 	</div>
-	<% if Rails.env != 'development' %>
+	<% if false && Rails.env != 'development' %>
 		<div style="width:120px; height:600px; margin-top:30px; display:inline-block;vertical-align:top">
 			<script type="text/javascript"><!--
 				google_ad_client = "<%=GoogleAdsense::CLIENT%>";
