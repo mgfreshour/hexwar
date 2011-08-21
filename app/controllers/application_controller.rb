@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   
   private   
   def check_authentication
-    if session[:expires] && session[:expires] < Time.now
+    if session[:expires].nil? || session[:expires] < Time.now
       session[:player_id] = nil
     end
 
