@@ -11,6 +11,9 @@ body {
 	border: solid 1px white;
 	display:inline-block;
 }
+a, a:visited {
+	color:white;
+}
 
 .button a:visited {
 	color:white;

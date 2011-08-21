@@ -8,11 +8,11 @@ class Player < ActiveRecord::Base
   validates :uid, :presence=>true
   validates :provider, :presence=>true
   
-  def self.create_with_omniauth(auth)      
+  def self.create_with_omniauth(provider, user_id, name)      
     create! do |user|  
-      user.provider = auth["provider"]  
-      user.uid = auth["uid"]  
-      user.name = auth["user_info"]["name"]
+      user.provider = provider
+      user.uid = user_id 
+      user.name = name
     end
   end  
 end

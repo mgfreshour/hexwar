@@ -13,6 +13,7 @@ HexGame::Application.routes.draw do
   resources :unit_types
 
   get "sessions/create"
+  get "sessions/new"
 
   resources :players
 

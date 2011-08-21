@@ -1,0 +1,23 @@
+
+<br />
+<br />
+<div style="padding:10px">
+  <h1>Welcome to Hexwars!</h1>
+
+   <p>
+     Hexwar is a simple turn based, hexagon map, strategy game in the tradition of games like
+		<a href="http://en.wikipedia.org/wiki/Panzer_General">Panzer General</a>, 
+		<a href="http://uniwar.com">Uniwar</a>,
+		and <a href="http://www.wesnoth.org">Battle for Wesnoth</a>.
+   </p>
+
+  <div style="text-align:center">
+    <fb:login-button perms="<%=Facebook::PERMISSIONS%>" show-faces="true"></fb:login-button>
+  </div>
+</div>
+
+<script type="text/javascript">
+FB.Event.subscribe('auth.login', function(response) {
+	window.location = '/';
+});
+</script>

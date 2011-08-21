@@ -43,10 +43,19 @@ module HexGame
   end
 end
 
+module MyHost
+  if Rails.env == 'development'
+    HOST = 'http://localhost:3000'
+  else
+    HOST = 'http://hexwar.mgfstudios.com'
+  end
+end
+
 module Facebook
   CONFIG = YAML.load_file(Rails.root.join("config/facebook.yml"))[Rails.env]
   APP_ID = CONFIG['app_id']
   SECRET = CONFIG['secret_key']
+  PERMISSIONS = CONFIG['permissions']
 end
 
 module Gmail

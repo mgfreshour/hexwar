@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Hexwar. The hex map, turn based, strategy game from your browser!</title>
+	<script src="http://connect.facebook.net/en_US/all.js"></script>
 	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-darkness/jquery-ui.css" />
 	<% if Rails.env == 'development' %>
@@ -82,6 +83,20 @@
 			</fieldset>
 		<% end %>	
 	<% end %>
+
+	<div id="fb-root"></div>
+	<script type="text/javascript">
+		FB.init({
+			appId  : '<%=Facebook::APP_ID.to_s%>',
+			status : true, // check login status
+			cookie : true, // enable cookies to allow the server to access the session
+			xfbml  : true, // parse XFBML
+			channelUrl : '<%=MyHost::HOST%>/channel.html', // channel.html file
+			oauth  : false // disable OAuth 2.0
+		});
+
+		FB.Canvas.setAutoResize();
+	</script>
 
 	<%= yield %>
 	</div>

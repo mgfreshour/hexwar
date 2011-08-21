@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
   before_filter :need_to_update_profile
   before_filter :create_facebook_access
   
+  def oauth
+    if @oauth.nil? 
+      @oauth = Koala::Facebook::OAuth.new
+    end
+    return @oauth
+  end
+  
   private   
   def check_authentication
     if session[:expires].nil? || session[:last_seen].nil? || (session[:expires] < Time.now && session[:last_seen] < Time.now - 30.minutes)
@@ -15,7 +22,8 @@ class ApplicationController < ActionController::Base
     @current_player ||= Player.find(session[:player_id]) if session[:player_id] 
     session[:last_seen] = Time.now
 
-    redirect_to '/auth/facebook' unless @current_player
+    session[:signed_request] = params[:signed_request]
+    redirect_to '/sessions/new' unless @current_player
   end
   
   def need_to_update_profile
