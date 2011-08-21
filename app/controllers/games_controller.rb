@@ -38,7 +38,10 @@ class GamesController < ApplicationController
     @game = Game.new
     map_id = params[:map] ? params[:map] : @maps[0].id
     @game.map_id = map_id
-    @players = Player.find(:all, :conditions => ["id <> #{@current_player.id}"])
+    
+    friend_list = @facebook_rest.rest_call('friends_getAppUsers');
+    @players = Player.find(:all, :conditions => ["id <> #{@current_player.id} AND uid IN (?)", friend_list])
+
     @game.game_players = [GamePlayer.new({:team => 'red', :player => @current_player}),
                           GamePlayer.new({:team=>'green'})];
     @game.game_players << GamePlayer.new({:team=>'white'}) if @game.map.number_of_players >= 3

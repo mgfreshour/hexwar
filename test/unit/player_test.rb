@@ -14,6 +14,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: players
@@ -29,5 +30,6 @@ end
 #  notify_by_email      :boolean
 #  real_name            :string(255)
 #  available_for_random :boolean
+#  token                :string(255)
 #
 

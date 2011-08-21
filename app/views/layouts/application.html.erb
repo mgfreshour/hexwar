@@ -38,8 +38,6 @@
   <script type="text/javascript">
     $(function() {
     	$('.button').button();
-
-		var notifier = new Hexwar.NotificationPoller(<%= @current_player.id %>);
 		
 		<% if notice %>
 			Hexwar.UI.notify('<%= notice %>');
@@ -50,30 +48,39 @@
 </head>
 <body>
 	<div id="facebook_canvas">
-	<fieldset id="admin_nav">
-		<legend><%= @current_player.name %></legend>
-		<%= link_to 'My Games', games_path, :class=>'button' %>
-		<%= link_to 'View Unit Types', unit_types_path, :class=>'button' %>
-		<%= link_to 'My Profile', edit_player_path(@current_player), :class=>'button' %>
-		<%= link_to 'Sign Out', signout_path, :class=>'button' %>
 
-		<% if @current_player && @current_player.admin %>
-			<br />
-			<%= link_to 'Maps', maps_path, :class=>'button' %>
-			<%= link_to 'Players', players_path, :class=>'button' %>
-			<%= link_to 'TileTypes', tile_types_path, :class=>'button' %>
-			<%= link_to 'Messages', messages_path, :class=>'button' %>
-		<% end %>
-		<br /> 
-	</fieldset>
+	<% if @current_player # ensure no crash at logout %>
+		<script type="text/javascript">
+		    $(function() {
+				var notifier = new Hexwar.NotificationPoller(<%= @current_player.id %>);
+		    });
+	  	</script>
 
-	<br />
+		<fieldset id="admin_nav">
+			<legend><%= @current_player.name %></legend>
+			<%= link_to 'My Games', games_path, :class=>'button' %>
+			<%= link_to 'View Unit Types', unit_types_path, :class=>'button' %>
+			<%= link_to 'My Profile', edit_player_path(@current_player), :class=>'button' %>
+			<%= link_to 'Sign Out', signout_path, :class=>'button' %>
 
-	<% @current_player.messages.each do |message| %>
-		<fieldset id="message<%= message.id %>"><legend><%= message.title %></legend>
-			<pre style="background:#333"><%= message.text %></pre><br />	
-			<%= link_to 'Mark Read', {:id => message.id, :controller=>:messages, :action=>:mark_read}, :class=>'button', :remote => true %>
+			<% if @current_player && @current_player.admin %>
+				<br />
+				<%= link_to 'Maps', maps_path, :class=>'button' %>
+				<%= link_to 'Players', players_path, :class=>'button' %>
+				<%= link_to 'TileTypes', tile_types_path, :class=>'button' %>
+				<%= link_to 'Messages', messages_path, :class=>'button' %>
+			<% end %>
+			<br /> 
 		</fieldset>
+
+		<br />
+
+		<% @current_player.messages.each do |message| %>
+			<fieldset id="message<%= message.id %>"><legend><%= message.title %></legend>
+				<pre style="background:#333"><%= message.text %></pre><br />	
+				<%= link_to 'Mark Read', {:id => message.id, :controller=>:messages, :action=>:mark_read}, :class=>'button', :remote => true %>
+			</fieldset>
+		<% end %>	
 	<% end %>
 
 	<%= yield %>
