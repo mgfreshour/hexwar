@@ -51,12 +51,23 @@
 	<div id="facebook_canvas">
 
 	<% if @current_player # ensure no crash at logout %>
+		<script type="text/javascript">
+		    $(function() {
+				var notifier = new Hexwar.NotificationPoller(<%= @current_player.id %>);
+				
+				$('#btn_invite_friends').click(function(){
+					FB.ui({method: 'apprequests'
+						, message: 'Turn based strategy game for Facebook.'});
+				})
+		    });
+	  	</script>
+
 		<fieldset id="admin_nav">
 			<legend><%= @current_player.name %></legend>
 			<%= link_to 'My Games', games_path, :class=>'button' %>
 			<%= link_to 'View Unit Types', unit_types_path, :class=>'button' %>
 			<%= link_to 'My Profile', edit_player_path(@current_player), :class=>'button' %>
-			<%= link_to 'Sign Out', signout_path, :class=>'button' %>
+			<button id="btn_invite_friends" class="button">Invite Friends</button>
 
 			<% if @current_player && @current_player.admin %>
 				<br />
@@ -64,6 +75,7 @@
 				<%= link_to 'Players', players_path, :class=>'button' %>
 				<%= link_to 'TileTypes', tile_types_path, :class=>'button' %>
 				<%= link_to 'Messages', messages_path, :class=>'button' %>
+				<%= link_to 'Sign Out', signout_path, :class=>'button' %>
 			<% end %>
 			<br /> 
 		</fieldset>
