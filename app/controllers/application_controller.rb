@@ -8,11 +8,12 @@ class ApplicationController < ActionController::Base
   
   private   
   def check_authentication
-    if session[:expires].nil? || session[:expires] < Time.now
+    if session[:expires].nil? || session[:last_seen].nil? || (session[:expires] < Time.now && session[:last_seen] < Time.now - 30.minutes)
       session[:player_id] = nil
     end
 
     @current_player ||= Player.find(session[:player_id]) if session[:player_id] 
+    session[:last_seen] = Time.now
 
     redirect_to '/auth/facebook' unless @current_player
   end
