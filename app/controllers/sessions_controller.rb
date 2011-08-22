@@ -25,9 +25,10 @@ class SessionsController < ApplicationController
     if from_cookies && from_cookies['access_token'] && from_cookies['uid']
       return fb_login_user(from_cookies['access_token'], from_cookies['uid'])
     end
-    
+logger.debug "\nSESS\n" + session.to_s
     if session[:signed_request]
       auth = oauth.parse_signed_request(session[:signed_request])
+      logger.debug auth.to_s
       if auth['user_id'] && auth[:oauth_token]
         return self.fb_login_user(auth[:oauth_token], from_cookie[:user_id])
       end

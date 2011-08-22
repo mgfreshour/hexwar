@@ -37,6 +37,7 @@ module HexGame
     config.encoding = "utf-8"
     
     config.action_controller.allow_forgery_protection = false
+    config.middleware.insert_before ActionDispatch::Session::CookieStore, Rack::P3p
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]

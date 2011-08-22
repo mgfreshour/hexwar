@@ -16,6 +16,7 @@ gem 'capistrano'
 
 # Bundle the extra gems:
 gem 'omniauth'
+gem 'rack-p3p'
 gem 'acts_as_list'
 gem 'koala', '~>1.1.0'
 gem 'jammit'
