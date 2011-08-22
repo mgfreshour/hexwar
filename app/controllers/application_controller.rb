@@ -38,11 +38,17 @@ class ApplicationController < ActionController::Base
   def create_facebook_access
     return unless @current_player
   
-    @facebook_rest = Koala::Facebook::RestAPI.new(@current_player.token)
-    #arguments_hash = { :message => 'Hello World From HexWars!' }
-    #@facebook_rest.rest_call("email")
+	begin
+      @facebook_rest = Koala::Facebook::RestAPI.new(@current_player.token)
+      #arguments_hash = { :message => 'Hello World From HexWars!' }
+      #@facebook_rest.rest_call("email")
     
-    @faceboook_graph = Koala::Facebook::GraphAPI.new(@current_player.token)
+      @faceboook_graph = Koala::Facebook::GraphAPI.new(@current_player.token)
+	rescue OAuthException
+	  # It appears we have a bad token, send them to get a new one
+	  redirect_to '/sessions/new'
+	end
+
     profile = @faceboook_graph.get_object("me")
     
     save = false;
