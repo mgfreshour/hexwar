@@ -21,17 +21,22 @@ class SessionsController < ApplicationController
   end
   
   def new
-    from_cookies = oauth.get_user_info_from_cookies(cookies)
-    if from_cookies && from_cookies['access_token'] && from_cookies['uid']
-      return fb_login_user(from_cookies['access_token'], from_cookies['uid'])
-    end
-
-    if session[:signed_request]
-      auth = oauth.parse_signed_request(session[:signed_request])
-      logger.debug auth.to_s
-      if auth['user_id'] && auth[:oauth_token]
-        return self.fb_login_user(auth[:oauth_token], from_cookie[:user_id])
+    begin
+      from_cookies = oauth.get_user_info_from_cookies(cookies)
+      if from_cookies && from_cookies['access_token'] && from_cookies['uid'] && Time.now.to_i < from_cookies['expires'].to_i
+        return fb_login_user(from_cookies['access_token'], from_cookies['uid'])
       end
+
+      if session[:signed_request]
+        auth = oauth.parse_signed_request(session[:signed_request])
+        logger.debug auth.to_s
+        if auth['user_id'] && auth[:oauth_token]
+          return self.fb_login_user(auth[:oauth_token], from_cookie[:user_id])
+        end
+      end
+
+    rescue Koala::Facebook::APIError => e
+      # Seems somthing is wrong with our login.  Make em do it again
     end
 
     #redirect_to '/auth/facebook' unless @current_player
