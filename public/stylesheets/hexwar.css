@@ -6,7 +6,8 @@ body {
 }
 
 #facebook_canvas {
-/*	width:760px;*/
+  width:740px;
+	height: 100%;
 	margin:0px;
 	border: solid 1px white;
 	display:inline-block;
