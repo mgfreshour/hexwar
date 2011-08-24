@@ -142,7 +142,7 @@ Hexwar.UnitController.prototype.battle = function(attacker, defender) {
  * @param {Unit} unit
  * @return {Hexwar.MapViewMask}
  */
-Hexwar.UnitController.prototype.generateMoveMask = function(unit) {
+Hexwar.UnitController.prototype.generateMoveMask = function(unit, show_attack_mask) {
 	var viewmask = new Hexwar.MapViewMask(this.map);	
 	var mask = new Array2d(this.map.height, this.map.width);
 	var move_mask = new Array2d(this.map.height, this.map.width);
@@ -198,7 +198,9 @@ Hexwar.UnitController.prototype.generateMoveMask = function(unit) {
 	viewmask.mask = move_mask;
 	viewmask.filterByCallback(callback);
 	viewmask.maskOccupied();
-	this.maskForAttack(viewmask, unit);
+	if (show_attack_mask) {
+		this.maskForAttack(viewmask, unit);
+	}
 
 	// DEBUG (comment out drawMask below)
 	//this.mapview.drawTextBitmap(viewmask.mask.data);
@@ -251,13 +253,16 @@ Hexwar.UnitController.prototype.attemptUnitSelect = function(x,y) {
 		}
 		this.selected_unit = unit;
 		if (unit.team == this.current_player && !unit.getActed()) {
-			var mask = this.generateMoveMask(unit);
+			var mask = this.generateMoveMask(unit, true);
 		
 			this.mapview.setDelegateClick(this.onUnitMoveClick.createDelegate(this, [unit, mask], true));
 			this.mapview.setCursor(x,y);
 			return true;
+		} else {
+				var mask = this.generateMoveMask(unit, false);
 		}
 	} else {
+		this.mapview.clearMask();
 		this.selected_unit = null;
 	}
 	
