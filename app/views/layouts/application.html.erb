@@ -81,13 +81,6 @@
 		</fieldset>
 
 		<br />
-
-		<% @current_player.messages.each do |message| %>
-			<fieldset id="message<%= message.id %>"><legend><%= message.title %></legend>
-				<pre style="background:#333"><%= message.text %></pre><br />	
-				<%= link_to 'Mark Read', {:id => message.id, :controller=>:messages, :action=>:mark_read}, :class=>'button', :remote => true %>
-			</fieldset>
-		<% end %>	
 	<% end %>
 
 	<div id="fb-root"></div>
