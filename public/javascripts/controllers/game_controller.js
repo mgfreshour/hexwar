@@ -228,17 +228,17 @@ Hexwar.GameController.prototype.healNonActedUnits = function() {
 /**
  * ...
  */
-Hexwar.GameController.prototype.endTurn = function() {
+Hexwar.GameController.prototype.endTurn = function(game_winner) {
 	this.healNonActedUnits();
 
 	// give some time for the healed unit animation to happen
-	setTimeout(this._saveTurn.createDelegate(this), 1000);
+	setTimeout(this._saveTurn.createDelegate(this,[game_winner]), 1000);
 }
 
 /**
  * ...
  */
-Hexwar.GameController.prototype._saveTurn = function() {
+Hexwar.GameController.prototype._saveTurn = function(game_winner) {
 	var unit_data = [];
 	var tile_owner_data = [];
 	
@@ -254,9 +254,9 @@ Hexwar.GameController.prototype._saveTurn = function() {
 			tile_owner_data.push({x:x, y:y, owner:tile.owner});
 		}
 	});
-
-	var game_winner = this.checkForGameWinner();
 	
+	game_winner = !game_winner ? this.checkForGameWinner() : game_winner;
+
 	var saveFunction = function() {
 		$.ajax({ 
 			  type:'post'
