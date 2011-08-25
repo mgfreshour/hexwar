@@ -2,9 +2,11 @@
 <html>
 <head>
 	<title>Hexwar. The hex map, turn based, strategy game from your browser!</title>
-	<script src="http://connect.facebook.net/en_US/all.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-darkness/jquery-ui.css" />
+	<%= include_stylesheets(:common) %>
+
 	<% if Rails.env == 'development' %>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.js"></script>
@@ -12,7 +14,7 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
 	<% end %>
-	<%= include_stylesheets(:common) %>
+	<script src="http://connect.facebook.net/en_US/all.js"></script>
 	<%= include_javascripts(:rails) %>
 	<%= include_javascripts(:common) %>
 	<%= csrf_meta_tag %>
