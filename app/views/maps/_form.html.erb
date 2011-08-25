@@ -1,9 +1,12 @@
 
 <script type="text/javascript">
+$(function(){
 	var tile_factory = Hexwar.ServiceContainer.get('TileFactory');
 	tile_types = tile_factory.tile_types;
 	var unit_factory = Hexwar.ServiceContainer.get('UnitFactory');
 	unit_types = unit_factory.unit_types;
+	var maped = new Hexwar.MapEditor(map);
+});
 </script>
 <h1>Map Editor</h1>
 <%= link_to 'Back to List', maps_path %><br /><br />
@@ -17,8 +20,4 @@
 <div id="hexmap01" class="hexmap">
 </div>
 <div id="toolbox" title="Toolbox" class="dialog"></div>
-<script type="text/javascript">
-$(function() {
-	var maped = new Hexwar.MapEditor(map);
-})
-</script>
+
