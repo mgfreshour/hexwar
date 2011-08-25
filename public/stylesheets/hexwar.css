@@ -16,6 +16,10 @@ a, a:visited {
 	color:white;
 }
 
+.ui-pnotify a, .ui-pnotify a:visited {
+	color: black;
+}
+
 .button a:visited {
 	color:white;
 }
