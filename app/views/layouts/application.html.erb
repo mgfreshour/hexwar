@@ -43,11 +43,28 @@
 		<% if notice %>
 			Hexwar.UI.notify('<%= notice %>');
 		<% end %>
+
+		FB.init({
+			appId  : '<%=Facebook::APP_ID.to_s%>',
+			status : true, // check login status
+			cookie : true, // enable cookies to allow the server to access the session
+			xfbml  : true, // parse XFBML
+			channelUrl : '<%=MyHost::HOST%>/channel.html', // channel.html file
+			oauth  : false // disable OAuth 2.0
+		});
+
+		FB.Canvas.setSize({ height: 1070 });
+		
+		Hexwar.config = {
+			  unit_url: '/unit_types.json?cache=<%=resource_mtime('public/unit_types.json')%>'
+			, tile_url: '/tile_types.json?cache=<%=resource_mtime('public/tile_types.json')%>'
+		}
     });
   </script>
 
 </head>
 <body>
+	<div id="fb-root"></div>
 	<div id="facebook_canvas">
 
 	<% if @current_player # ensure no crash at logout %>
@@ -58,7 +75,7 @@
 				$('#btn_invite_friends').click(function(){
 					FB.ui({method: 'apprequests'
 						, message: 'Turn based strategy game for Facebook.'});
-				})
+				});
 		    });
 	  	</script>
 
@@ -82,20 +99,6 @@
 
 		<br />
 	<% end %>
-
-	<div id="fb-root"></div>
-	<script type="text/javascript">
-		FB.init({
-			appId  : '<%=Facebook::APP_ID.to_s%>',
-			status : true, // check login status
-			cookie : true, // enable cookies to allow the server to access the session
-			xfbml  : true, // parse XFBML
-			channelUrl : '<%=MyHost::HOST%>/channel.html', // channel.html file
-			oauth  : false // disable OAuth 2.0
-		});
-
-		FB.Canvas.setSize({ height: 1070 });
-	</script>
 
 	<%= yield %>
 	</div>

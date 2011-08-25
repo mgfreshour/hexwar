@@ -12,7 +12,7 @@ Hexwar.UnitFactory = function () {
  * @param {String} url
  */
 Hexwar.UnitFactory.prototype.loadFromServer = function(url) {
-	url = url || '/unit_types.json';
+	url = url || Hexwar.config.unit_url;
 	
 	var successFunction = function(data, textStatus, jqXHR) {
 		var obj, move_costs, defense_bonuses;
