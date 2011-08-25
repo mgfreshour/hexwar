@@ -195,7 +195,7 @@ terrain_modifiers_028:
   unit_type_id: 6
   tile_type_id: 14
   defense_bonus: 0
-  movement_cost: 3
+  movement_cost: 1
   tile_type_name: hills
 
 

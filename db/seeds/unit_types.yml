@@ -117,7 +117,7 @@ undead_archer:
   hard_attack_power: 7
   defense_power: 5
   defense_type: soft
-  price: 150
+  price: 250
 
 undead_fighter:
   id: 9
