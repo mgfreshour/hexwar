@@ -29,7 +29,9 @@
 
 			<% unless game.game_winner.nil? || game.game_winner.empty? %>
 			<% end %>
+			<% if @current_player.admin %>
     		<%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete, :class=>:button %>
+			<% end %>
 		</td>
   </tr>
 <% end %>
