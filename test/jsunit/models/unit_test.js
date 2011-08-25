@@ -1,10 +1,10 @@
 module('Unit');
 test('Unit constructor should set correct internal values', function() {
 	var name='type name', img='type image', img_x=13, img_y=24, range=7, move_range=8, move_costs=[1,2,3], defense_bonuses=[4,5,6];
-	var type = new UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
+	var type = new Hexwar.UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
 	var health=3;
 	
-	var testee = new Unit(type, health);
+	var testee = new Hexwar.Unit(type, health);
 	
 	deepEqual(testee.type, type, 'type');
 	equal(testee.health, health, 'health');
@@ -13,9 +13,9 @@ test('Unit constructor should set correct internal values', function() {
 
 test('Unit constructor sets type health (hard-coded to 10) when health is not provided', function() {
 	var name='type name', img='type image', img_x=13, img_y=24, range=7, move_range=8, move_costs=[1,2,3], defense_bonuses=[4,5,6];
-	var type = new UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
+	var type = new Hexwar.UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
 	
-	var testee = new Unit(type);
+	var testee = new Hexwar.Unit(type);
 	
 	deepEqual(testee.type, type, 'type');
 	equal(testee.health, 10, 'health');
@@ -24,9 +24,9 @@ test('Unit constructor sets type health (hard-coded to 10) when health is not pr
 
 test('move() sets internal values', function() {
 	var name='type name', img='type image', img_x=13, img_y=24, range=7, move_range=8, move_costs=[1,2,3], defense_bonuses=[4,5,6];
-	var type = new UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
+	var type = new Hexwar.UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
 	
-	var testee = new Unit(type);
+	var testee = new Hexwar.Unit(type);
 	
 	testee.move(12,47);
 	equal(testee.x, 12, 'x');
@@ -35,9 +35,9 @@ test('move() sets internal values', function() {
 
 test('move() notifies listeners correctly', function() {
 	var name='type name', img='type image', img_x=13, img_y=24, range=7, move_range=8, move_costs=[1,2,3], defense_bonuses=[4,5,6];
-	var type = new UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
+	var type = new Hexwar.UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
 	
-	var testee = new Unit(type);
+	var testee = new Hexwar.Unit(type);
 	var listener = function(x,y,unit) {
 		equal(x,12,'x');
 		equal(y,47,'y');
@@ -51,9 +51,9 @@ test('move() notifies listeners correctly', function() {
 
 test('changeHealth() sets internal values', function() {
 	var name='type name', img='type image', img_x=13, img_y=24, range=7, move_range=8, move_costs=[1,2,3], defense_bonuses=[4,5,6];
-	var type = new UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
+	var type = new Hexwar.UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
 	
-	var testee = new Unit(type, 10);
+	var testee = new Hexwar.Unit(type, 10);
 	
 	testee.changeHealth(-2);
 	equal(testee.health, 8);
@@ -68,9 +68,9 @@ test('changeHealth() sets internal values', function() {
 
 test('changeHealth() notifies listeners correctly', function() {
 	var name='type name', img='type image', img_x=13, img_y=24, range=7, move_range=8, move_costs=[1,2,3], defense_bonuses=[4,5,6];
-	var type = new UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
+	var type = new Hexwar.UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
 	
-	var testee = new Unit(type,10);
+	var testee = new Hexwar.Unit(type,10);
 	var listener = function(health, delta, unit) {
 		equal(health,7);
 		equal(delta,-3);
@@ -84,9 +84,9 @@ test('changeHealth() notifies listeners correctly', function() {
 
 test('changeHealth() notifies death listeners correctly', function() {
 	var name='type name', img='type image', img_x=13, img_y=24, range=7, move_range=8, move_costs=[1,2,3], defense_bonuses=[4,5,6];
-	var type = new UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
+	var type = new Hexwar.UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
 	
-	var testee = new Unit(type,10);
+	var testee = new Hexwar.Unit(type,10);
 	var listener = function(unit) {
 		deepEqual(unit,testee, 'unit');
 		equal(unit.alive, false);

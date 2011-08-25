@@ -1,6 +1,6 @@
 module('UnitType');
 test('Constructor sets internal values', function() {
-	var testee = new UnitType('type name', 'image', 13, 24, 7, 8, [1,2,3], [4,5,6]);
+	var testee = new Hexwar.UnitType('type name', 'image', 13, 24, 7, 8, [1,2,3], [4,5,6]);
 	
 	equal(testee.range, 7, 'range');
 	equal(testee.move_range, 8, 'move range');

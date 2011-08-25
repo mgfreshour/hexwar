@@ -1,8 +1,8 @@
 module('UnitFactory');
 test('UnitFactory::addUnitType() works', function() {
-	var testee = new UnitFactory();
+	var testee = new Hexwar.UnitFactory();
 	var name='type name', img='type image', img_x=13, img_y=24, range=7, move_range=8, move_costs=[1,2,3], defense_bonuses=[4,5,6];
-	var type = new UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
+	var type = new Hexwar.UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
 	var pre_add_count = testee.unit_types.length;
 	var idx = testee.addUnitType(type);
 	var post_add_count = testee.unit_types.length;
@@ -19,7 +19,7 @@ test('UnitFactory::addUnitType() works', function() {
 });
 
 test('UnitFactory::createUnitType() works', function() {
-	var testee = new UnitFactory();
+	var testee = new Hexwar.UnitFactory();
 	var pre_add_count = testee.unit_types.length;
 	var name='type name', img='type image', img_x=13, img_y=24, range=7, move_range=8, move_costs=[1,2,3], defense_bonuses=[4,5,6];
 	var idx = testee.createUnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
@@ -38,9 +38,9 @@ test('UnitFactory::createUnitType() works', function() {
 
 
 test('UnitFactory::createUnit() with number creates correct unit', function() {
-	var testee = new UnitFactory();
+	var testee = new Hexwar.UnitFactory();
 	var name='type name', img='type image', img_x=13, img_y=24, range=7, move_range=8, move_costs=[1,2,3], defense_bonuses=[4,5,6];
-	var type = new UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
+	var type = new Hexwar.UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
 	var idx = testee.addUnitType(type);
 	var team='red', x=1, y=2, health=3;
 
@@ -56,9 +56,9 @@ test('UnitFactory::createUnit() with number creates correct unit', function() {
 });
 
 test('UnitFactory::createUnit() with name creates correct unit', function() {
-	var testee = new UnitFactory();
+	var testee = new Hexwar.UnitFactory();
 	var name='type name', img='type image', img_x=13, img_y=24, range=7, move_range=8, move_costs=[1,2,3], defense_bonuses=[4,5,6];
-	var type = new UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
+	var type = new Hexwar.UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
 	var idx = testee.addUnitType(type);
 	var team='red', x=1, y=2, health=3;
 
@@ -74,7 +74,7 @@ test('UnitFactory::createUnit() with name creates correct unit', function() {
 });
 
 test('UnitFactory::createUnit() with name throws exception when unknown name', function() {
-	var testee = new UnitFactory();
+	var testee = new Hexwar.UnitFactory();
 
 	raises(function() {
 		testee.createUnit('bad name');
@@ -82,9 +82,9 @@ test('UnitFactory::createUnit() with name throws exception when unknown name', f
 });
 
 test('UnitFactory::createUnit() with UnitType creates correct unit', function() {
-	var testee = new UnitFactory();
+	var testee = new Hexwar.UnitFactory();
 	var name='type name', img='type image', img_x=13, img_y=24, range=7, move_range=8, move_costs=[1,2,3], defense_bonuses=[4,5,6];
-	var type = new UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
+	var type = new Hexwar.UnitType(name, img, img_x, img_y, range, move_range, move_costs, defense_bonuses);
 	var idx = testee.addUnitType(type);
 	var team='red', x=1, y=2, health=3;
 
@@ -100,7 +100,7 @@ test('UnitFactory::createUnit() with UnitType creates correct unit', function() 
 });
 
 test('UnitFactory::createUnit() with name throws exception when unknown type passed', function() {
-	var testee = new UnitFactory();
+	var testee = new Hexwar.UnitFactory();
 
 	raises(function() {
 		testee.createUnit(new Array());
