@@ -8,7 +8,7 @@ test('Hex::getAdjacentCoords() works from the middle', function() {
 				    {x: 1,y: 2},
 				    {x: 0,y: 1},
 				    {x: 0,y: 2}];
-	same(Hex.getAdjacentCoords(1,1,height, width), expected);
+	same(Hexwar.Hex.getAdjacentCoords(1,1,height, width), expected);
 });
 
 test('Hex::getAdjacentCoords() works from the edge', function() {
@@ -19,7 +19,7 @@ test('Hex::getAdjacentCoords() works from the edge', function() {
 					{x: 1,y: 1},
 					{x: 0,y: 0},
 					{x: 0,y: 1}];
-	same(Hex.getAdjacentCoords(1,0,height, width), expected);
+	same(Hexwar.Hex.getAdjacentCoords(1,0,height, width), expected);
 });
 
 test('Hex::getAdjacentCoords() works from the corner', function() {
@@ -27,7 +27,7 @@ test('Hex::getAdjacentCoords() works from the corner', function() {
 	var expected = [{x: 1,y: 0},
 					{x: 0,y: 0},
 					{x: 0,y: 1}];
-	same(Hex.getAdjacentCoords(0,0,height, width), expected);
+	same(Hexwar.Hex.getAdjacentCoords(0,0,height, width), expected);
 });
 
 test('Hex::walkAdjacent() works from corner', function() {
@@ -44,6 +44,6 @@ test('Hex::walkAdjacent() works from corner', function() {
 			test_values.set(x,y, current_depth);
 		}
 	};
-	Hex.walkAdjacent(0,0,max_depth, callback, height,width)
+	Hexwar.Hex.walkAdjacent(0,0,max_depth, callback, height,width)
 	same(test_values.data, expected);
 });
