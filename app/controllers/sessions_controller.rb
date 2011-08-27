@@ -2,26 +2,6 @@ class SessionsController < ApplicationController
   skip_filter :check_authentication
   skip_filter :check_admin
   
-  private
-  def fb_login_user(token, user_id)
-    player = Player.find_by_provider_and_uid('facebook', user_id)
-    if !player
-      faceboook_graph = Koala::Facebook::GraphAPI.new(token)
-      profile = faceboook_graph.get_object("me")
-      Player.create_with_omniauth('facebook', user_id, profile[:name])
-    end
-
-    if player.token != token
-      player.token = token
-      player.save
-    end
-
-    session[:player_id] = player.id
-    session[:expires] = Time.now + 1.day
-
-    redirect_to root_url
-  end
-  
   def new
     begin
       from_cookies = oauth.get_user_info_from_cookies(cookies)
@@ -75,5 +55,24 @@ class SessionsController < ApplicationController
     respond_to do |format|
       format.html
     end 
+  end
+
+  private #####################################################################
+
+  def fb_login_user(token, user_id)
+    player = Player.find_by_provider_and_uid('facebook', user_id)
+    if !player
+      faceboook_graph = Koala::Facebook::GraphAPI.new(token)
+      profile = faceboook_graph.get_object("me")
+      Player.create_with_omniauth('facebook', user_id, profile[:name])
+    end
+
+    player.token = token
+    player.save
+
+    session[:player_id] = player.id
+    session[:expires] = Time.now + 1.day
+
+    redirect_to root_url
   end
 end

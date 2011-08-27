@@ -60,7 +60,7 @@ Hexwar.GameController.prototype.loadTurnData = function(url) {
 				x = parseFloat(unit.x);
 				y = parseFloat(unit.y);
 				unit = this.unit_factory.createUnit(unit.type_index, unit.team, x, y, parseFloat(unit.health));
-				unit.setActed(unit.team != data.game_turn.player);
+				unit.setActed(unit.team != data.game_turn.team);
 			
 				tile = this.map.getTile(x, y);
 

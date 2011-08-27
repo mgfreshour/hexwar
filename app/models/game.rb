@@ -25,8 +25,9 @@ class Game < ActiveRecord::Base
   end
   
   def create_new_turn(team, turn_data)
-    round_number = current_turn ? current_turn.round_number+1 : 1
-    @current_turn = GameTurn.new(turn_data.merge({:game=>self, :team=>team, :round_number=>round_number}))
+    round_number = @current_turn ? @current_turn.round_number+1 : 1
+    turn_data = turn_data.merge({:game=>self, :team=>team, :round_number=>round_number})
+    @current_turn = GameTurn.new(turn_data)
     @current_turn.save
   end
   
@@ -77,7 +78,8 @@ class Game < ActiveRecord::Base
   
   def clear_notifications(current_player)
     if is_players_turn(current_player)
-      current_player.turn_notifications.find_by_game_id(self.id).destroy
+      tn = current_player.turn_notifications.find_by_game_id(self.id)
+      tn.destroy unless tn.nil?
     end
   end
 end

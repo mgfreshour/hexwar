@@ -1,21 +1,21 @@
 HexGame::Application.routes.draw do
   get "dev/qunit"
 
-  resources :messages
+  get 'sessions/create'
+  get 'sessions/new'
 
   match '/games/end_turn' => 'games#end_turn'
   match '/games/get_turn' => 'games#get_turn'
   match '/games/is_it_my_turn' => 'games#is_it_my_turn'
   match '/messages/:id/mark_read' => 'messages#mark_read'
 
+  resources :messages
+
   resources :turn_actions
 
   resources :tile_types
 
   resources :unit_types
-
-  get "sessions/create"
-  get "sessions/new"
 
   resources :players
 

@@ -39,7 +39,7 @@ class GamesController < ApplicationController
     map_id = params[:map] ? params[:map] : @maps[0].id
     @game.map_id = map_id
     
-    friend_list = @facebook_rest.rest_call('friends_getAppUsers');
+    friend_list = facebook_rest.rest_call('friends_getAppUsers');
     @players = Player.find(:all, :conditions => ["id <> #{@current_player.id} AND uid IN (?)", friend_list])
 
     @game.game_players = [GamePlayer.new({:team => 'red', :player => @current_player}),
@@ -80,7 +80,7 @@ class GamesController < ApplicationController
     @game = Game.new(params[:game])
 
     respond_to do |format|
-      if @game.save && @game.create_new_turn('red', @game.map.unit_data)
+      if @game.save && @game.create_new_turn('red', { current_unit_data:@game.map.unit_data })
         # Create the first game turn
         format.html { redirect_to(games_url, :notice => 'Game was successfully created.') }
       else

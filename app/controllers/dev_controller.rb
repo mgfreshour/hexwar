@@ -4,12 +4,13 @@ class DevController < ApplicationController
   skip_filter :need_to_update_profile
   before_filter :check_is_dev
   
-  private 
-  def check_is_dev
-    redirect_to root_url unless Rails.env == 'development' || Rails.env == 'test'
+  def qunit
   end
   
-  def qunit
+  private #####################################################################
+
+  def check_is_dev
+    redirect_to root_url unless Rails.env == 'development' || Rails.env == 'test'
   end
 
 end

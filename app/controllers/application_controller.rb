@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   before_filter :check_admin
   before_filter :need_to_update_profile
   
+  
+  private #####################################################################
+
   def oauth
     @oauth ||= Koala::Facebook::OAuth.new
   end
@@ -13,7 +16,7 @@ class ApplicationController < ActionController::Base
     return unless @current_player
   
   	begin
-      @facebook_rest = Koala::Facebook::RestAPI.new(@current_player.token)
+      @facebook_rest ||= Koala::Facebook::RestAPI.new(@current_player.token)
       #arguments_hash = { :message => 'Hello World From HexWars!' }
       #@facebook_rest.rest_call("email")
     rescue Koala::Facebook::APIError => e
@@ -26,14 +29,13 @@ class ApplicationController < ActionController::Base
     return unless @current_player
   
   	begin
-        @faceboook_graph = Koala::Facebook::GraphAPI.new(@current_player.token)
+        @faceboook_graph ||= Koala::Facebook::GraphAPI.new(@current_player.token)
   	rescue Koala::Facebook::APIError => e
   	  # It appears we have a bad token, send them to get a new one
   	  redirect_to '/sessions/new'
   	end
   end
-  
-  private   
+ 
   def check_authentication
     if session[:expires].nil? || session[:last_seen].nil? || (session[:expires] < Time.now && session[:last_seen] < Time.now - 30.minutes)
       session[:player_id] = nil
