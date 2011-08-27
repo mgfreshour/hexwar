@@ -21,7 +21,7 @@ class TurnNotification < ActiveRecord::Base
   
   def self.notify_by_email
     ret = "Notifying :\n"
-    TurnNotification.find(:all, :conditions=>['updated_at < ? AND notify_by_email IS NOT NULL', Time.now-30.minutes]).each do |note|
+    TurnNotification.find(:all, :conditions=>['updated_at < ? AND notify_by_email IS NOT NULL', Time.now-10.minutes]).each do |note|
       Notifier.notify_turn(note.game_name, note.game_id, note.player_email, note.player_id).deliver
       ret += " - #{note.player_email}\t\t- #{note.game_name}\n"
       note.destroy
