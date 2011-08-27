@@ -43,6 +43,7 @@ module HexGame
     config.filter_parameters += [:password]
     
     config.hexwar = YAML.load_file(Rails.root.join("config/config.yml"))[Rails.env]
+    config.action_mailer.default_url_options = { :host => config.hexwar['host'] }
   end
 end
 
