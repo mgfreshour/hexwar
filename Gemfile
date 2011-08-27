@@ -15,7 +15,7 @@ gem 'capistrano'
 # gem 'ruby-debug'
 
 # Bundle the extra gems:
-gem 'omniauth'
+gem 'omniauth', '~>0.2.6'
 gem 'rack-p3p'
 gem 'acts_as_list'
 gem 'koala', '~>1.1.0'
