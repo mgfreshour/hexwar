@@ -6,6 +6,11 @@ class GameTurn < ActiveRecord::Base
   serialize :end_unit_data
   serialize :current_tile_owner_data
   serialize :resource_data
+  
+  def current_unit_data=(data)
+    self.start_unit_data ||= data
+    super(data)
+  end
 end
 
 

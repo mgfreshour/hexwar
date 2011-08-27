@@ -34,10 +34,10 @@ group :production do
 end
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
+
+	gem 'rspec-rails'
+	gem 'spork', '~> 0.9.0.rc'
+  gem 'factory_girl_rails'
+  gem 'capybara'
 end
 
-gem "rspec-rails", :group => [:test, :development]
-group :test do
-  gem "factory_girl_rails"
-  gem "capybara"
-end

@@ -10,64 +10,66 @@ class Game < ActiveRecord::Base
   validates :map, :presence=>true, :associated=>true
   
   def is_players_turn(player)
+    # TODO - I've got the player, I should just lookup based on that
     self.game_players.each do |game_player|
       if game_player.player == player && game_player.team == self.current_turn.player
         return true
       end
     end
-    
+
     return false
   end
   
   def current_turn
-    @current_turn ||= self.game_turns.find(:all, :order => "created_at DESC", :limit => 1).first
+    @current_turn ||= self.game_turns.find(:all, :order => "round_number DESC", :limit => 1).first
   end
   
   def create_new_turn(team, turn_data)
-    game_turn = GameTurn.new()
-    game_turn.game = self
-    game_turn.start_unit_data = turn_data[:current_unit_data]
-    game_turn.current_unit_data = turn_data[:current_unit_data]
-    game_turn.current_tile_owner_data = turn_data[:current_tile_owner_data]
-    game_turn.resource_data = turn_data[:resource_data]
-    game_turn.player = team
-    game_turn.save
+    round_number = current_turn ? current_turn.round_number+1 : 1
+    @current_turn = GameTurn.new(turn_data.merge({:game=>self, :player=>team, :round_number=>round_number}))
+    @current_turn.save
   end
   
   def save_current_turn(turn_data)
     current_turn.current_unit_data = turn_data[:current_unit_data]
     current_turn.end_unit_data = turn_data[:current_unit_data]
-    logger.info "\n-----------------------------------------------------\n"
-    logger.info turn_data[:resource_data].to_yaml
     current_turn.resource_data = turn_data[:resource_data]
     current_turn.save
   end
   
-  def end_turn(current_player, turn_data)
-    # make sure it's your turn to end
-    if current_player.game_players.find_by_game_id(self.id).team != current_turn.player
-      raise 'Problem, end turn - '+current_player.game_players.find_by_game_id(self.id).player+' != '+current_turn.player
+  def get_next_game_player
+    # Nope, stil going. Who plays next?
+    current_player_found = false
+    next_player = nil
+    self.game_players.each do |game_player|
+      if current_player_found
+        next_player = game_player
+        break
+      end  
+      current_player_found = true if is_players_turn(game_player.player)
     end
+  
+    # was it the last one?
+    next_player = self.game_players.first if next_player.nil?
+    
+    return next_player
+  end
+  
+  def end_turn(current_player, turn_data)
+    # make sure it's their turn to end
+    raise 'Trying to end turn with incorrect current_player!' unless is_players_turn(current_player)
 
-    current_turn.player
     save_current_turn(turn_data)
     
-    # Nope, stil going. Who plays next?
-    player_order = { 'red' => 'green', 'green' => 'red' } if map.number_of_players == 2
-    player_order = { 'red' => 'green', 'green' => 'blue', 'blue' => 'red' } if map.number_of_players == 3
-    player_order = { 'red' => 'green', 'green' => 'blue', 'blue' => 'white', 'white' => 'red' } if map.number_of_players == 4
-    next_player_team = player_order[current_turn.player]
+    next_player = get_next_game_player
 
-    create_new_turn(next_player_team, turn_data)
+    create_new_turn(next_player.team, turn_data)
     
-    next_player = game_players.find_by_team(next_player_team)
     create_notifications(next_player)
   end
   
   def create_notifications(next_player)    
-    turn_notification = TurnNotification.new
-    turn_notification.player = next_player.player
-    turn_notification.game = self
+    turn_notification = TurnNotification.new({:player=>next_player.player, :game=>self})
     unless turn_notification.save
       raise 'Failed to create turn notification!'
     end

@@ -1,6 +1,6 @@
 class Notifier < ActionMailer::Base
   default :from => "hexwar@mgfstudios.com"
-  @host = HexGame::Application.config.hexwar['host']
+  #@host = HexGame::Application.config.hexwar['host']
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
