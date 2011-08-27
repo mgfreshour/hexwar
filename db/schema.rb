@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110827163948) do
+ActiveRecord::Schema.define(:version => 20110827164618) do
 
   create_table "game_players", :force => true do |t|
     t.integer  "game_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20110827163948) do
     t.text     "resource_data"
   end
 
-  add_index "game_turns", ["game_id", "created_at"], :name => "game_order_id_idx"
+  add_index "game_turns", ["game_id", "round_number"], :name => "index_game_turns_on_game_id_and_round_number"
 
   create_table "games", :force => true do |t|
     t.integer  "map_id"

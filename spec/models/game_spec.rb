@@ -72,6 +72,7 @@ describe Game do
     green_player.player.turn_notifications.first.game_id.should == game.id
   end
 end
+
 # == Schema Information
 #
 # Table name: games
