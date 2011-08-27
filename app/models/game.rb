@@ -76,8 +76,8 @@ class Game < ActiveRecord::Base
   end
   
   def clear_notifications(current_player)
-    if current_player.game_players.find_by_game_id(self.id).team == current_turn.player
-      TurnNotification.delete_all(['player_id=? AND game_id=?', current_player.id, self.id])
+    if is_players_turn(current_player)
+      current_player.turn_notifications.find_by_game_id(self.id).destroy
     end
   end
 end
