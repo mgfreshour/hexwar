@@ -1,4 +1,6 @@
 HexGame::Application.routes.draw do
+  get "dev/qunit"
+
   resources :messages
 
   match '/games/end_turn' => 'games#end_turn'

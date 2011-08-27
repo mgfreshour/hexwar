@@ -4,10 +4,33 @@ class ApplicationController < ActionController::Base
   before_filter :check_authentication, :except => [:check_authentication]
   before_filter :check_admin
   before_filter :need_to_update_profile
-  before_filter :create_facebook_access
   
   def oauth
     @oauth ||= Koala::Facebook::OAuth.new
+  end
+  
+  def facebook_rest
+    return unless @current_player
+  
+  	begin
+      @facebook_rest = Koala::Facebook::RestAPI.new(@current_player.token)
+      #arguments_hash = { :message => 'Hello World From HexWars!' }
+      #@facebook_rest.rest_call("email")
+    rescue Koala::Facebook::APIError => e
+  	  # It appears we have a bad token, send them to get a new one
+  	  redirect_to '/sessions/new'
+  	end
+  end
+  
+  def facebook_graph
+    return unless @current_player
+  
+  	begin
+        @faceboook_graph = Koala::Facebook::GraphAPI.new(@current_player.token)
+  	rescue Koala::Facebook::APIError => e
+  	  # It appears we have a bad token, send them to get a new one
+  	  redirect_to '/sessions/new'
+  	end
   end
   
   private   
@@ -30,36 +53,6 @@ class ApplicationController < ActionController::Base
       flash[:notice] = "Please update your profile as there have been additions"
       redirect_to edit_player_path(@current_player)
     end
-  end
-  
-  def create_facebook_access
-    return unless @current_player
-  
-  	begin
-        @facebook_rest = Koala::Facebook::RestAPI.new(@current_player.token)
-        #arguments_hash = { :message => 'Hello World From HexWars!' }
-        #@facebook_rest.rest_call("email")
-    
-        @faceboook_graph = Koala::Facebook::GraphAPI.new(@current_player.token)
-        profile = @faceboook_graph.get_object("me")
-  	rescue Koala::Facebook::APIError => e
-  	  # It appears we have a bad token, send them to get a new one
-  	  redirect_to '/sessions/new'
-  	end
-    
-    save = false;
-
-    if @current_player.real_name.nil?
-      @current_player.real_name = @current_player.name
-      save = true
-    end
-
-    if @current_player.email.nil?
-      @current_player.email = profile['email']
-      save = true
-    end
-
-    @current_player.save if save
   end
   
   def check_admin

@@ -48,6 +48,22 @@ javascripts:
     - public/javascripts/map_editor/toolbox.js
     - public/javascripts/map_editor/new_dialog.js
     - public/javascripts/map_editor/map_editor.js
+    
+  qunit:    
+    - public/javascripts/qunit/test_library/qunit.js
+    - public/javascripts/qunit/test_library/jquery.xmldom.js
+    - public/javascripts/qunit/test_library/json2.js
+    - public/javascripts/qunit/test_library/jquery.mockjax.js
+    - public/javascripts/qunit/utils/array_2d_test.js
+    - public/javascripts/qunit/utils/observable_test.js
+    - public/javascripts/qunit/utils/hex_test.js
+    - public/javascripts/qunit/models/map_test.js
+    - public/javascripts/qunit/models/tile_test.js
+    - public/javascripts/qunit/models/tile_type_test.js
+    - public/javascripts/qunit/models/tile_factory_test.js
+    - public/javascripts/qunit/models/unit_type_test.js
+    - public/javascripts/qunit/models/unit_factory_test.js
+    - public/javascripts/qunit/models/unit_test.js
 
 stylesheets:
   common:
@@ -55,5 +71,8 @@ stylesheets:
     - public/stylesheets/jquery.pnotify.default.css
     - public/stylesheets/map_editor.css
     - public/stylesheets/silk-sprite.css
+    
+  qunit:
+    - public/stylesheets/qunit.css
 
 
