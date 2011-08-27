@@ -51,7 +51,7 @@
 			status : true, // check login status
 			cookie : true, // enable cookies to allow the server to access the session
 			xfbml  : true, // parse XFBML
-			channelUrl : '<%=MyHost::HOST%>/channel.html', // channel.html file
+			channelUrl : '<%=HexGame::Application.config.hexwar['host']%>/channel.html', // channel.html file
 			oauth  : false // disable OAuth 2.0
 		});
 

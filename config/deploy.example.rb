@@ -41,11 +41,11 @@ namespace :deploy do
   end
 end
 
-after 'deploy:update_code', 'deploy:symlink_facebook'
+after 'deploy:update_code', 'deploy:symlink_config'
 namespace :deploy do
-  desc "Symlinks the facebook.yml"
+  desc "Symlinks the config.yml"
   task :symlink_facebook, :roles => :app do
-    run "ln -nfs #{deploy_to}/shared/config/facebook.yml #{release_path}/config/facebook.yml"
+    run "ln -nfs #{deploy_to}/shared/config/config.yml #{release_path}/config/config.yml"
   end
 end
 

@@ -27,9 +27,9 @@ HexGame::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => Gmail::DOMAIN.to_s,
-    :user_name            => Gmail::USERNAME.to_s,
-    :password             => Gmail::PASSWORD.to_s,
+    :domain               => HexGame::Application.config.hexwar['gmail']['domain'],
+    :user_name            => HexGame::Application.config.hexwar['gmail']['username'],
+    :password             => HexGame::Application.config.hexwar['gmail']['password'],
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }

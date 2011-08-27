@@ -1,0 +1,41 @@
+development:
+  host: localhost:3000
+  gmail:
+    domain: domain.com
+    username: email@domain.com
+    password: password
+  facebook:
+    app_id: app id
+    secret_key: secret
+    permissions: 'publish_stream,email'
+  adsense:
+    google_ad_client: client
+    google_ad_slot: 1234
+
+test:
+  host: localhost:3000
+  gmail:
+    domain: YOUR DOMAIN
+    username: YOUR USERNAME
+    password: YOUR PASSWORD
+  facebook:
+    app_id: YOUR APP ID
+    secret_key: YOUR SECRET
+    permissions: 'publish_stream,email'
+  adsense:
+    google_ad_client: stuff
+    google_ad_slot: stuff
+
+production:  
+  host: hexwar.mgfstudios.com 
+  gmail:
+    domain: domain.com
+    username: user@domain.com
+    password: password123
+  facebook:
+    app_id: 1234
+    secret_key: secret
+    permissions: 'publish_stream,email'
+  adsense:
+    google_ad_client: 1234
+    google_ad_slot: 1234

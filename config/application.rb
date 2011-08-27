@@ -41,33 +41,8 @@ module HexGame
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    config.hexwar = YAML.load_file(Rails.root.join("config/config.yml"))[Rails.env]
   end
 end
 
-module MyHost
-  if Rails.env == 'development'
-    HOST = 'http://localhost:3000'
-  else
-    HOST = 'http://hexwar.mgfstudios.com'
-  end
-end
-
-module Facebook
-  CONFIG = YAML.load_file(Rails.root.join("config/facebook.yml"))[Rails.env]
-  APP_ID = CONFIG['app_id']
-  SECRET = CONFIG['secret_key']
-  PERMISSIONS = CONFIG['permissions']
-end
-
-module Gmail
-  CONFIG = YAML.load_file(Rails.root.join("config/gmail.yml"))[Rails.env]
-  DOMAIN = CONFIG['domain']
-  USERNAME = CONFIG['username']
-  PASSWORD = CONFIG['password']
-end
-
-module GoogleAdsense
-  CONFIG = YAML.load_file(Rails.root.join("config/google_adsense.yml"))[Rails.env]
-  CLIENT = CONFIG['google_ad_client']
-  SLOT = CONFIG['google_ad_slot']
-end

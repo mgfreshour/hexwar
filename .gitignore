@@ -8,10 +8,8 @@ vendor/cache/*
 .bundle
 .DS_Store
 config/database.yml
-config/facebook.yml
-config/gmail.yml
 config/deploy.rb
-config/google_adsense.yml
+config/config.yml
 public/assets
 Gemfile.lock
 nbproject
