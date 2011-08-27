@@ -14,7 +14,7 @@ test('Observable::bindEvent() only accepts functions as callback', function() {
 		ok(true, 'Exception thrown');
 	}
 	try {
-		testee.bindEvent('test event', { function: true });
+		testee.bindEvent('test event', { bobo: true });
 		ok(false, 'We needed an exception here!');
 	} catch (e) {
 		ok(true, 'Exception thrown');

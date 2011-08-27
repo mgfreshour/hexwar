@@ -13,4 +13,5 @@ config/config.yml
 public/assets
 nbproject
 .project
+Gemfile.lock
 capistrano
