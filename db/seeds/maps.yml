@@ -91,3 +91,256 @@ maps_002:
     \ type_index: '0'\n  team: red\n'3':\n  x: '7'\n  y: '7'\n  type_index: '0'\n
     \ team: green\n"
   number_of_players: 2
+
+map_003:
+  id: '4'
+  name: Great Divide
+  tile_data: ! "---\n'0':\n  '0':\n    type_index: '12'\n  '1':\n    type_index: '12'\n
+    \ '2':\n    type_index: '0'\n  '3':\n    type_index: '0'\n  '4':\n    type_index:
+    '0'\n  '5':\n    type_index: '0'\n  '6':\n    type_index: '0'\n  '7':\n    type_index:
+    '8'\n  '8':\n    type_index: '3'\n  '9':\n    type_index: '2'\n'1':\n  '0':\n
+    \   type_index: '12'\n  '1':\n    type_index: '12'\n  '2':\n    type_index: '0'\n
+    \ '3':\n    type_index: '0'\n  '4':\n    type_index: '0'\n  '5':\n    type_index:
+    '8'\n  '6':\n    type_index: '8'\n  '7':\n    type_index: '0'\n  '8':\n    type_index:
+    '15'\n  '9':\n    type_index: '0'\n'2':\n  '0':\n    type_index: '10'\n  '1':\n
+    \   type_index: '10'\n  '2':\n    type_index: '10'\n  '3':\n    type_index: '10'\n
+    \ '4':\n    type_index: '10'\n  '5':\n    type_index: '8'\n  '6':\n    type_index:
+    '10'\n  '7':\n    type_index: '10'\n  '8':\n    type_index: '10'\n  '9':\n    type_index:
+    '10'\n'3':\n  '0':\n    type_index: '4'\n  '1':\n    type_index: '4'\n  '2':\n
+    \   type_index: '4'\n  '3':\n    type_index: '4'\n  '4':\n    type_index: '4'\n
+    \ '5':\n    type_index: '7'\n  '6':\n    type_index: '4'\n  '7':\n    type_index:
+    '4'\n  '8':\n    type_index: '4'\n  '9':\n    type_index: '4'\n'4':\n  '0':\n
+    \   type_index: '4'\n  '1':\n    type_index: '4'\n  '2':\n    type_index: '4'\n
+    \ '3':\n    type_index: '4'\n  '4':\n    type_index: '4'\n  '5':\n    type_index:
+    '7'\n  '6':\n    type_index: '4'\n  '7':\n    type_index: '4'\n  '8':\n    type_index:
+    '4'\n  '9':\n    type_index: '4'\n'5':\n  '0':\n    type_index: '4'\n  '1':\n
+    \   type_index: '4'\n  '2':\n    type_index: '4'\n  '3':\n    type_index: '4'\n
+    \ '4':\n    type_index: '4'\n  '5':\n    type_index: '7'\n  '6':\n    type_index:
+    '4'\n  '7':\n    type_index: '4'\n  '8':\n    type_index: '4'\n  '9':\n    type_index:
+    '4'\n'6':\n  '0':\n    type_index: '4'\n  '1':\n    type_index: '4'\n  '2':\n
+    \   type_index: '4'\n  '3':\n    type_index: '4'\n  '4':\n    type_index: '4'\n
+    \ '5':\n    type_index: '7'\n  '6':\n    type_index: '4'\n  '7':\n    type_index:
+    '4'\n  '8':\n    type_index: '4'\n  '9':\n    type_index: '4'\n'7':\n  '0':\n
+    \   type_index: '10'\n  '1':\n    type_index: '10'\n  '2':\n    type_index: '10'\n
+    \ '3':\n    type_index: '10'\n  '4':\n    type_index: '10'\n  '5':\n    type_index:
+    '8'\n  '6':\n    type_index: '10'\n  '7':\n    type_index: '10'\n  '8':\n    type_index:
+    '10'\n  '9':\n    type_index: '10'\n'8':\n  '0':\n    type_index: '0'\n  '1':\n
+    \   type_index: '15'\n  '2':\n    type_index: '0'\n  '3':\n    type_index: '8'\n
+    \ '4':\n    type_index: '8'\n  '5':\n    type_index: '0'\n  '6':\n    type_index:
+    '0'\n  '7':\n    type_index: '0'\n  '8':\n    type_index: '12'\n  '9':\n    type_index:
+    '12'\n'9':\n  '0':\n    type_index: '2'\n  '1':\n    type_index: '3'\n  '2':\n
+    \   type_index: '8'\n  '3':\n    type_index: '0'\n  '4':\n    type_index: '0'\n
+    \ '5':\n    type_index: '0'\n  '6':\n    type_index: '0'\n  '7':\n    type_index:
+    '0'\n  '8':\n    type_index: '12'\n  '9':\n    type_index: '12'\n"
+  created_at: '2011-08-25 11:15:45'
+  updated_at: '2011-08-25 11:15:45'
+  height: '10'
+  width: '10'
+  unit_data: ! "---\n'0':\n  x: '8'\n  y: '1'\n  type_index: '0'\n  team: red\n'1':\n
+    \ x: '9'\n  y: '0'\n  type_index: '0'\n  team: red\n'2':\n  x: '8'\n  y: '0'\n
+    \ type_index: '0'\n  team: red\n'3':\n  x: '1'\n  y: '8'\n  type_index: '0'\n
+    \ team: green\n'4':\n  x: '1'\n  y: '9'\n  type_index: '0'\n  team: green\n'5':\n
+    \ x: '0'\n  y: '9'\n  type_index: '0'\n  team: green\n"
+  number_of_players: '2'
+  
+map_004:
+  id: '5'
+  name: Test
+  tile_data: ! "---\n'0':\n  '0':\n    type_index: '2'\n  '1':\n    type_index: '0'\n
+    \ '2':\n    type_index: '4'\n  '3':\n    type_index: '4'\n  '4':\n    type_index:
+    '4'\n  '5':\n    type_index: '4'\n  '6':\n    type_index: '4'\n  '7':\n    type_index:
+    '3'\n  '8':\n    type_index: '4'\n  '9':\n    type_index: '4'\n  '10':\n    type_index:
+    '4'\n  '11':\n    type_index: '4'\n  '12':\n    type_index: '4'\n  '13':\n    type_index:
+    '0'\n  '14':\n    type_index: '2'\n'1':\n  '0':\n    type_index: '0'\n  '1':\n
+    \   type_index: '4'\n  '2':\n    type_index: '4'\n  '3':\n    type_index: '4'\n
+    \ '4':\n    type_index: '4'\n  '5':\n    type_index: '14'\n  '6':\n    type_index:
+    '2'\n  '7':\n    type_index: '3'\n  '8':\n    type_index: '2'\n  '9':\n    type_index:
+    '14'\n  '10':\n    type_index: '4'\n  '11':\n    type_index: '4'\n  '12':\n    type_index:
+    '4'\n  '13':\n    type_index: '4'\n  '14':\n    type_index: '0'\n'2':\n  '0':\n
+    \   type_index: '7'\n  '1':\n    type_index: '4'\n  '2':\n    type_index: '4'\n
+    \ '3':\n    type_index: '13'\n  '4':\n    type_index: '14'\n  '5':\n    type_index:
+    '14'\n  '6':\n    type_index: '2'\n  '7':\n    type_index: '3'\n  '8':\n    type_index:
+    '2'\n  '9':\n    type_index: '14'\n  '10':\n    type_index: '14'\n  '11':\n    type_index:
+    '13'\n  '12':\n    type_index: '4'\n  '13':\n    type_index: '4'\n  '14':\n    type_index:
+    '7'\n'3':\n  '0':\n    type_index: '7'\n  '1':\n    type_index: '13'\n  '2':\n
+    \   type_index: '13'\n  '3':\n    type_index: '13'\n  '4':\n    type_index: '14'\n
+    \ '5':\n    type_index: '14'\n  '6':\n    type_index: '14'\n  '7':\n    type_index:
+    '8'\n  '8':\n    type_index: '14'\n  '9':\n    type_index: '14'\n  '10':\n    type_index:
+    '14'\n  '11':\n    type_index: '13'\n  '12':\n    type_index: '13'\n  '13':\n
+    \   type_index: '13'\n  '14':\n    type_index: '7'\n'4':\n  '0':\n    type_index:
+    '13'\n  '1':\n    type_index: '13'\n  '2':\n    type_index: '13'\n  '3':\n    type_index:
+    '13'\n  '4':\n    type_index: '13'\n  '5':\n    type_index: '12'\n  '6':\n    type_index:
+    '14'\n  '7':\n    type_index: '8'\n  '8':\n    type_index: '14'\n  '9':\n    type_index:
+    '12'\n  '10':\n    type_index: '13'\n  '11':\n    type_index: '13'\n  '12':\n
+    \   type_index: '13'\n  '13':\n    type_index: '13'\n  '14':\n    type_index:
+    '13'\n'5':\n  '0':\n    type_index: '13'\n  '1':\n    type_index: '13'\n  '2':\n
+    \   type_index: '13'\n  '3':\n    type_index: '12'\n  '4':\n    type_index: '12'\n
+    \ '5':\n    type_index: '0'\n  '6':\n    type_index: '12'\n  '7':\n    type_index:
+    '8'\n  '8':\n    type_index: '12'\n  '9':\n    type_index: '0'\n  '10':\n    type_index:
+    '12'\n  '11':\n    type_index: '12'\n  '12':\n    type_index: '13'\n  '13':\n
+    \   type_index: '13'\n  '14':\n    type_index: '13'\n'6':\n  '0':\n    type_index:
+    '13'\n  '1':\n    type_index: '12'\n  '2':\n    type_index: '12'\n  '3':\n    type_index:
+    '0'\n  '4':\n    type_index: '0'\n  '5':\n    type_index: '0'\n  '6':\n    type_index:
+    '0'\n  '7':\n    type_index: '8'\n  '8':\n    type_index: '0'\n  '9':\n    type_index:
+    '0'\n  '10':\n    type_index: '0'\n  '11':\n    type_index: '0'\n  '12':\n    type_index:
+    '12'\n  '13':\n    type_index: '12'\n  '14':\n    type_index: '13'\n'7':\n  '0':\n
+    \   type_index: '12'\n  '1':\n    type_index: '12'\n  '2':\n    type_index: '0'\n
+    \ '3':\n    type_index: '0'\n  '4':\n    type_index: '0'\n  '5':\n    type_index:
+    '0'\n  '6':\n    type_index: '0'\n  '7':\n    type_index: '8'\n  '8':\n    type_index:
+    '0'\n  '9':\n    type_index: '0'\n  '10':\n    type_index: '0'\n  '11':\n    type_index:
+    '0'\n  '12':\n    type_index: '0'\n  '13':\n    type_index: '12'\n  '14':\n    type_index:
+    '12'\n'8':\n  '0':\n    type_index: '13'\n  '1':\n    type_index: '13'\n  '2':\n
+    \   type_index: '12'\n  '3':\n    type_index: '12'\n  '4':\n    type_index: '0'\n
+    \ '5':\n    type_index: '0'\n  '6':\n    type_index: '0'\n  '7':\n    type_index:
+    '8'\n  '8':\n    type_index: '0'\n  '9':\n    type_index: '0'\n  '10':\n    type_index:
+    '0'\n  '11':\n    type_index: '12'\n  '12':\n    type_index: '12'\n  '13':\n    type_index:
+    '13'\n  '14':\n    type_index: '13'\n'9':\n  '0':\n    type_index: '13'\n  '1':\n
+    \   type_index: '13'\n  '2':\n    type_index: '13'\n  '3':\n    type_index: '13'\n
+    \ '4':\n    type_index: '12'\n  '5':\n    type_index: '12'\n  '6':\n    type_index:
+    '9'\n  '7':\n    type_index: '8'\n  '8':\n    type_index: '9'\n  '9':\n    type_index:
+    '12'\n  '10':\n    type_index: '12'\n  '11':\n    type_index: '13'\n  '12':\n
+    \   type_index: '13'\n  '13':\n    type_index: '13'\n  '14':\n    type_index:
+    '13'\n'10':\n  '0':\n    type_index: '13'\n  '1':\n    type_index: '13'\n  '2':\n
+    \   type_index: '13'\n  '3':\n    type_index: '13'\n  '4':\n    type_index: '13'\n
+    \ '5':\n    type_index: '9'\n  '6':\n    type_index: '9'\n  '7':\n    type_index:
+    '8'\n  '8':\n    type_index: '9'\n  '9':\n    type_index: '9'\n  '10':\n    type_index:
+    '13'\n  '11':\n    type_index: '13'\n  '12':\n    type_index: '13'\n  '13':\n
+    \   type_index: '13'\n  '14':\n    type_index: '13'\n'11':\n  '0':\n    type_index:
+    '7'\n  '1':\n    type_index: '4'\n  '2':\n    type_index: '13'\n  '3':\n    type_index:
+    '13'\n  '4':\n    type_index: '9'\n  '5':\n    type_index: '9'\n  '6':\n    type_index:
+    '9'\n  '7':\n    type_index: '2'\n  '8':\n    type_index: '9'\n  '9':\n    type_index:
+    '9'\n  '10':\n    type_index: '9'\n  '11':\n    type_index: '13'\n  '12':\n    type_index:
+    '13'\n  '13':\n    type_index: '4'\n  '14':\n    type_index: '7'\n'12':\n  '0':\n
+    \   type_index: '7'\n  '1':\n    type_index: '4'\n  '2':\n    type_index: '4'\n
+    \ '3':\n    type_index: '4'\n  '4':\n    type_index: '9'\n  '5':\n    type_index:
+    '9'\n  '6':\n    type_index: '2'\n  '7':\n    type_index: '15'\n  '8':\n    type_index:
+    '2'\n  '9':\n    type_index: '9'\n  '10':\n    type_index: '9'\n  '11':\n    type_index:
+    '4'\n  '12':\n    type_index: '4'\n  '13':\n    type_index: '4'\n  '14':\n    type_index:
+    '7'\n'13':\n  '0':\n    type_index: '0'\n  '1':\n    type_index: '0'\n  '2':\n
+    \   type_index: '4'\n  '3':\n    type_index: '4'\n  '4':\n    type_index: '4'\n
+    \ '5':\n    type_index: '4'\n  '6':\n    type_index: '15'\n  '7':\n    type_index:
+    '15'\n  '8':\n    type_index: '15'\n  '9':\n    type_index: '4'\n  '10':\n    type_index:
+    '4'\n  '11':\n    type_index: '4'\n  '12':\n    type_index: '4'\n  '13':\n    type_index:
+    '0'\n  '14':\n    type_index: '0'\n'14':\n  '0':\n    type_index: '2'\n  '1':\n
+    \   type_index: '0'\n  '2':\n    type_index: '4'\n  '3':\n    type_index: '4'\n
+    \ '4':\n    type_index: '4'\n  '5':\n    type_index: '4'\n  '6':\n    type_index:
+    '4'\n  '7':\n    type_index: '4'\n  '8':\n    type_index: '4'\n  '9':\n    type_index:
+    '4'\n  '10':\n    type_index: '4'\n  '11':\n    type_index: '4'\n  '12':\n    type_index:
+    '4'\n  '13':\n    type_index: '0'\n  '14':\n    type_index: '2'\n"
+  created_at: '2011-08-25 12:17:43'
+  updated_at: '2011-08-25 12:17:43'
+  height: '15'
+  width: '15'
+  unit_data: ! "---\n'0':\n  x: '7'\n  y: '1'\n  type_index: '0'\n  team: red\n'1':\n
+    \ x: '8'\n  y: '3'\n  type_index: '0'\n  team: red\n'2':\n  x: '6'\n  y: '3'\n
+    \ type_index: '0'\n  team: red\n'3':\n  x: '7'\n  y: '12'\n  type_index: '6'\n
+    \ team: green\n'4':\n  x: '6'\n  y: '11'\n  type_index: '6'\n  team: green\n'5':\n
+    \ x: '8'\n  y: '11'\n  type_index: '6'\n  team: green\n"
+  number_of_players: '2'
+  
+map_005:
+  id: '6'
+  name: Steel Vs Magic
+  tile_data: ! "---\n'0':\n  '0':\n    type_index: '3'\n  '1':\n    type_index: '8'\n
+    \ '2':\n    type_index: '13'\n  '3':\n    type_index: '13'\n  '4':\n    type_index:
+    '13'\n  '5':\n    type_index: '13'\n  '6':\n    type_index: '13'\n  '7':\n    type_index:
+    '13'\n'1':\n  '0':\n    type_index: '13'\n  '1':\n    type_index: '8'\n  '2':\n
+    \   type_index: '13'\n  '3':\n    type_index: '0'\n  '4':\n    type_index: '13'\n
+    \ '5':\n    type_index: '0'\n  '6':\n    type_index: '13'\n  '7':\n    type_index:
+    '0'\n'2':\n  '0':\n    type_index: '0'\n  '1':\n    type_index: '8'\n  '2':\n
+    \   type_index: '0'\n  '3':\n    type_index: '0'\n  '4':\n    type_index: '0'\n
+    \ '5':\n    type_index: '0'\n  '6':\n    type_index: '0'\n  '7':\n    type_index:
+    '0'\n'3':\n  '0':\n    type_index: '0'\n  '1':\n    type_index: '0'\n  '2':\n
+    \   type_index: '8'\n  '3':\n    type_index: '8'\n  '4':\n    type_index: '0'\n
+    \ '5':\n    type_index: '0'\n  '6':\n    type_index: '0'\n  '7':\n    type_index:
+    '0'\n'4':\n  '0':\n    type_index: '0'\n  '1':\n    type_index: '0'\n  '2':\n
+    \   type_index: '0'\n  '3':\n    type_index: '0'\n  '4':\n    type_index: '8'\n
+    \ '5':\n    type_index: '8'\n  '6':\n    type_index: '0'\n  '7':\n    type_index:
+    '0'\n'5':\n  '0':\n    type_index: '0'\n  '1':\n    type_index: '0'\n  '2':\n
+    \   type_index: '0'\n  '3':\n    type_index: '0'\n  '4':\n    type_index: '0'\n
+    \ '5':\n    type_index: '8'\n  '6':\n    type_index: '0'\n  '7':\n    type_index:
+    '0'\n'6':\n  '0':\n    type_index: '0'\n  '1':\n    type_index: '0'\n  '2':\n
+    \   type_index: '0'\n  '3':\n    type_index: '0'\n  '4':\n    type_index: '0'\n
+    \ '5':\n    type_index: '8'\n  '6':\n    type_index: '0'\n  '7':\n    type_index:
+    '0'\n'7':\n  '0':\n    type_index: '12'\n  '1':\n    type_index: '12'\n  '2':\n
+    \   type_index: '12'\n  '3':\n    type_index: '12'\n  '4':\n    type_index: '12'\n
+    \ '5':\n    type_index: '12'\n  '6':\n    type_index: '8'\n  '7':\n    type_index:
+    '3'\n"
+  created_at: '2011-08-25 17:49:02'
+  updated_at: '2011-08-25 17:49:02'
+  height: '8'
+  width: '8'
+  unit_data: ! "---\r\n'0':\r\n  x: '2'\r\n  y: '0'\r\n  type_index: '4'\r\n  team:
+    red\r\n'1':\r\n  x: '4'\r\n  y: '0'\r\n  type_index: '4'\r\n  team: red\r\n'2':\r\n
+    \ x: '6'\r\n  y: '0'\r\n  type_index: '4'\r\n  team: red\r\n'3':\r\n  x: '0'\r\n
+    \ y: '0'\r\n  type_index: '4'\r\n  team: red\r\n'4':\r\n  x: '1'\r\n  y: '0'\r\n
+    \ type_index: '10'\r\n  team: red\r\n'5':\r\n  x: '3'\r\n  y: '0'\r\n  type_index:
+    '10'\r\n  team: red\r\n'6':\r\n  x: '5'\r\n  y: '0'\r\n  type_index: '10'\r\n
+    \ team: red\r\n'7':\r\n  x: '7'\r\n  y: '7'\r\n  type_index: '3'\r\n  team: green\r\n'8':\r\n
+    \ x: '6'\r\n  y: '7'\r\n  type_index: '3'\r\n  team: green\r\n'9':\r\n  x: '5'\r\n
+    \ y: '7'\r\n  type_index: '3'\r\n  team: green\r\n'10':\r\n  x: '4'\r\n  y: '7'\r\n
+    \ type_index: '3'\r\n  team: green\r\n'11':\r\n  x: '3'\r\n  y: '7'\r\n  type_index:
+    '3'\r\n  team: green\r\n'12':\r\n  x: '2'\r\n  y: '7'\r\n  type_index: '3'\r\n
+    \ team: green\r\n'13':\r\n  x: '1'\r\n  y: '7'\r\n  type_index: '3'\r\n  team:
+    green\r\n'14':\r\n  x: '0'\r\n  y: '7'\r\n  type_index: '3'\r\n  team: green\r\n'15':\r\n
+    \ x: '7'\r\n  y: '0'\r\n  type_index: '10'\r\n  team: red\r\n"
+  number_of_players: '2'
+  
+map_007:
+  id: '7'
+  name: Chess
+  tile_data: ! "---\n'0':\n  '0':\n    type_index: '0'\n  '1':\n    type_index: '0'\n
+    \ '2':\n    type_index: '0'\n  '3':\n    type_index: '0'\n  '4':\n    type_index:
+    '0'\n  '5':\n    type_index: '0'\n  '6':\n    type_index: '0'\n  '7':\n    type_index:
+    '0'\n'1':\n  '0':\n    type_index: '1'\n  '1':\n    type_index: '0'\n  '2':\n
+    \   type_index: '1'\n  '3':\n    type_index: '0'\n  '4':\n    type_index: '1'\n
+    \ '5':\n    type_index: '0'\n  '6':\n    type_index: '1'\n  '7':\n    type_index:
+    '0'\n'2':\n  '0':\n    type_index: '0'\n  '1':\n    type_index: '1'\n  '2':\n
+    \   type_index: '0'\n  '3':\n    type_index: '1'\n  '4':\n    type_index: '0'\n
+    \ '5':\n    type_index: '1'\n  '6':\n    type_index: '0'\n  '7':\n    type_index:
+    '1'\n'3':\n  '0':\n    type_index: '0'\n  '1':\n    type_index: '0'\n  '2':\n
+    \   type_index: '0'\n  '3':\n    type_index: '0'\n  '4':\n    type_index: '0'\n
+    \ '5':\n    type_index: '0'\n  '6':\n    type_index: '0'\n  '7':\n    type_index:
+    '0'\n'4':\n  '0':\n    type_index: '1'\n  '1':\n    type_index: '0'\n  '2':\n
+    \   type_index: '1'\n  '3':\n    type_index: '0'\n  '4':\n    type_index: '1'\n
+    \ '5':\n    type_index: '0'\n  '6':\n    type_index: '1'\n  '7':\n    type_index:
+    '0'\n'5':\n  '0':\n    type_index: '0'\n  '1':\n    type_index: '1'\n  '2':\n
+    \   type_index: '0'\n  '3':\n    type_index: '1'\n  '4':\n    type_index: '0'\n
+    \ '5':\n    type_index: '1'\n  '6':\n    type_index: '0'\n  '7':\n    type_index:
+    '1'\n'6':\n  '0':\n    type_index: '0'\n  '1':\n    type_index: '0'\n  '2':\n
+    \   type_index: '0'\n  '3':\n    type_index: '0'\n  '4':\n    type_index: '0'\n
+    \ '5':\n    type_index: '0'\n  '6':\n    type_index: '0'\n  '7':\n    type_index:
+    '0'\n'7':\n  '0':\n    type_index: '1'\n  '1':\n    type_index: '0'\n  '2':\n
+    \   type_index: '1'\n  '3':\n    type_index: '0'\n  '4':\n    type_index: '1'\n
+    \ '5':\n    type_index: '0'\n  '6':\n    type_index: '1'\n  '7':\n    type_index:
+    '0'\n"
+  created_at: '2011-08-25 18:54:45'
+  updated_at: '2011-08-25 18:54:45'
+  height: '8'
+  width: '8'
+  unit_data: ! "---\n'0':\n  x: '6'\n  y: '1'\n  type_index: '0'\n  team: red\n'1':\n
+    \ x: '6'\n  y: '3'\n  type_index: '0'\n  team: red\n'2':\n  x: '6'\n  y: '5'\n
+    \ type_index: '0'\n  team: red\n'3':\n  x: '6'\n  y: '7'\n  type_index: '0'\n
+    \ team: red\n'4':\n  x: '7'\n  y: '1'\n  type_index: '3'\n  team: red\n'5':\n
+    \ x: '7'\n  y: '2'\n  type_index: '1'\n  team: red\n'6':\n  x: '7'\n  y: '3'\n
+    \ type_index: '4'\n  team: red\n'7':\n  x: '7'\n  y: '7'\n  type_index: '11'\n
+    \ team: red\n'8':\n  x: '7'\n  y: '5'\n  type_index: '7'\n  team: red\n'9':\n
+    \ x: '7'\n  y: '6'\n  type_index: '9'\n  team: red\n'10':\n  x: '6'\n  y: '6'\n
+    \ type_index: '6'\n  team: red\n'11':\n  x: '6'\n  y: '4'\n  type_index: '6'\n
+    \ team: red\n'12':\n  x: '6'\n  y: '2'\n  type_index: '6'\n  team: red\n'13':\n
+    \ x: '6'\n  y: '0'\n  type_index: '6'\n  team: red\n'14':\n  x: '1'\n  y: '0'\n
+    \ type_index: '0'\n  team: green\n'15':\n  x: '1'\n  y: '2'\n  type_index: '0'\n
+    \ team: green\n'16':\n  x: '1'\n  y: '4'\n  type_index: '0'\n  team: green\n'17':\n
+    \ x: '1'\n  y: '6'\n  type_index: '0'\n  team: green\n'18':\n  x: '0'\n  y: '7'\n
+    \ type_index: '11'\n  team: green\n'19':\n  x: '0'\n  y: '6'\n  type_index: '9'\n
+    \ team: green\n'20':\n  x: '0'\n  y: '1'\n  type_index: '3'\n  team: green\n'21':\n
+    \ x: '0'\n  y: '2'\n  type_index: '7'\n  team: green\n'22':\n  x: '0'\n  y: '5'\n
+    \ type_index: '1'\n  team: green\n'23':\n  x: '0'\n  y: '3'\n  type_index: '10'\n
+    \ team: green\n'24':\n  x: '0'\n  y: '4'\n  type_index: '4'\n  team: green\n'25':\n
+    \ x: '7'\n  y: '4'\n  type_index: '10'\n  team: red\n'26':\n  x: '7'\n  y: '0'\n
+    \ type_index: '5'\n  team: red\n'27':\n  x: '0'\n  y: '0'\n  type_index: '5'\n
+    \ team: green\n'28':\n  x: '1'\n  y: '1'\n  type_index: '6'\n  team: green\n'29':\n
+    \ x: '1'\n  y: '3'\n  type_index: '6'\n  team: green\n'30':\n  x: '1'\n  y: '5'\n
+    \ type_index: '6'\n  team: green\n'31':\n  x: '1'\n  y: '7'\n  type_index: '6'\n
+    \ team: green\n"
+  number_of_players: '2'
