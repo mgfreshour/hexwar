@@ -1,7 +1,7 @@
 module('TileFactory');
 test('TileFactory::addTileType() works', function() {
-	var testee = new TileFactory();
-	var type = new TileType('tile name', 'tile image', 43, 57);
+	var testee = new Hexwar.TileFactory();
+	var type = new Hexwar.TileType('tile name', 'tile image', 43, 57);
 	var pre_add_count = testee.tile_types.length;
 	var idx = testee.addTileType(type);
 	var post_add_count = testee.tile_types.length;
@@ -14,7 +14,7 @@ test('TileFactory::addTileType() works', function() {
 });
 
 test('TileFactory::createTileType() works', function() {
-	var testee = new TileFactory();
+	var testee = new Hexwar.TileFactory();
 	var pre_add_count = testee.tile_types.length;
 	var idx = testee.createTileType('tile name', 'tile image', 43, 57);
 	var post_add_count = testee.tile_types.length;
@@ -28,8 +28,8 @@ test('TileFactory::createTileType() works', function() {
 
 
 test('TileFactory::createTile() with number creates correct tile', function() {
-	var testee = new TileFactory();
-	var type = new TileType('tile name', 'tile image', 43, 57);
+	var testee = new Hexwar.TileFactory();
+	var type = new Hexwar.TileType('tile name', 'tile image', 43, 57);
 	var idx = testee.addTileType(type);
 
 	var tile = testee.createTile(idx);
@@ -38,8 +38,8 @@ test('TileFactory::createTile() with number creates correct tile', function() {
 });
 
 test('TileFactory::createTile() with name creates correct tile', function() {
-	var testee = new TileFactory();
-	var type = new TileType('tile name', 'tile image', 43, 57);
+	var testee = new Hexwar.TileFactory();
+	var type = new Hexwar.TileType('tile name', 'tile image', 43, 57);
 	var idx = testee.addTileType(type);
 
 	var tile = testee.createTile('tile name');
@@ -48,7 +48,7 @@ test('TileFactory::createTile() with name creates correct tile', function() {
 });
 
 test('TileFactory::createTile() with name throws exception when unknown name', function() {
-	var testee = new TileFactory();
+	var testee = new Hexwar.TileFactory();
 
 	raises(function() {
 		testee.createTile('bad name');
@@ -56,8 +56,8 @@ test('TileFactory::createTile() with name throws exception when unknown name', f
 });
 
 test('TileFactory::createTile() with object creates correct tile', function() {
-	var testee = new TileFactory();
-	var type = new TileType('tile name', 'tile image', 43, 57);
+	var testee = new Hexwar.TileFactory();
+	var type = new Hexwar.TileType('tile name', 'tile image', 43, 57);
 	var idx = testee.addTileType(type);
 
 	var tile = testee.createTile(type);
@@ -67,7 +67,7 @@ test('TileFactory::createTile() with object creates correct tile', function() {
 
 
 test('TileFactory::createTile() with name throws exception when unknown type passed', function() {
-	var testee = new TileFactory();
+	var testee = new Hexwar.TileFactory();
 
 	raises(function() {
 		testee.createTile(new Array());
