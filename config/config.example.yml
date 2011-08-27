@@ -6,7 +6,7 @@ development:
     password: password
   facebook:
     app_id: app id
-    secret_key: secret
+    secret: secret
     permissions: 'publish_stream,email'
   adsense:
     google_ad_client: client
@@ -20,7 +20,7 @@ test:
     password: YOUR PASSWORD
   facebook:
     app_id: YOUR APP ID
-    secret_key: YOUR SECRET
+    secret: YOUR SECRET
     permissions: 'publish_stream,email'
   adsense:
     google_ad_client: stuff
@@ -34,7 +34,7 @@ production:
     password: password123
   facebook:
     app_id: 1234
-    secret_key: secret
+    secret: secret
     permissions: 'publish_stream,email'
   adsense:
     google_ad_client: 1234
