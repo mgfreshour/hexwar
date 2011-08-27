@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110821122956) do
+ActiveRecord::Schema.define(:version => 20110827163948) do
 
   create_table "game_players", :force => true do |t|
     t.integer  "game_id"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20110821122956) do
     t.text     "start_unit_data"
     t.text     "current_unit_data"
     t.text     "end_unit_data"
-    t.string   "player"
+    t.string   "team"
     t.text     "current_tile_owner_data"
     t.text     "resource_data"
   end

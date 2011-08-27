@@ -1,14 +1,6 @@
 require 'spec_helper'
 
-describe Game do
-  it "does something" do
-    game = Factory(:game)
-    game.game_players << Factory(:game_player, :team=>'red')
-    game.game_players << Factory(:game_player, :team=>'green')
-    #puts game.game_players.to_s
-
-  end
-  
+describe Game do  
   it "should create a new turn correctly" do
     game = Factory(:game)
     turn_data = {:current_unit_data=>'test', :current_tile_owner_data=>'test2',:resource_data=>'test3'}
@@ -19,7 +11,7 @@ describe Game do
     game.current_turn.resource_data.should == turn_data[:resource_data]
     game.current_turn.current_tile_owner_data.should == turn_data[:current_tile_owner_data]
     game.current_turn.end_unit_data.should be_nil
-    game.current_turn.player.should == 'red'
+    game.current_turn.team.should == 'red'
     game.current_turn.round_number.should == 1
   end
   
@@ -64,7 +56,7 @@ describe Game do
     turn_data = {:current_unit_data=>'test', :current_tile_owner_data=>'test2',:resource_data=>'test3'}
     game.create_new_turn('red', turn_data)
     game.end_turn(red_player.player, turn_data)
-    game.current_turn.player.should == 'green'
+    game.current_turn.team.should == 'green'
   end
   
   it "should create a notification for the next players turn" do
@@ -80,3 +72,15 @@ describe Game do
     green_player.player.turn_notifications.first.game_id.should == game.id
   end
 end
+# == Schema Information
+#
+# Table name: games
+#
+#  id          :integer         not null, primary key
+#  map_id      :integer
+#  name        :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  game_winner :string(255)
+#
+

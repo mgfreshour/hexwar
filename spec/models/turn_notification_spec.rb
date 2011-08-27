@@ -26,3 +26,17 @@ describe TurnNotification do
     TurnNotification.find(:all).length.should == 0
   end
 end
+# == Schema Information
+#
+# Table name: turn_notifications
+#
+#  id              :integer         not null, primary key
+#  player_id       :integer
+#  game_id         :integer
+#  game_name       :string(255)
+#  player_email    :string(255)
+#  notify_by_email :boolean
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+

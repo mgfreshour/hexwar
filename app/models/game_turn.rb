@@ -17,6 +17,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: game_turns
@@ -29,7 +30,7 @@ end
 #  start_unit_data         :text
 #  current_unit_data       :text
 #  end_unit_data           :text
-#  player                  :string(255)
+#  team                    :string(255)
 #  current_tile_owner_data :text
 #  resource_data           :text
 #

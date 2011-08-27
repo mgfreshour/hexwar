@@ -12,7 +12,7 @@ class Game < ActiveRecord::Base
   def is_players_turn(player)
     # TODO - I've got the player, I should just lookup based on that
     self.game_players.each do |game_player|
-      if game_player.player == player && game_player.team == self.current_turn.player
+      if game_player.player == player && game_player.team == self.current_turn.team
         return true
       end
     end
@@ -26,7 +26,7 @@ class Game < ActiveRecord::Base
   
   def create_new_turn(team, turn_data)
     round_number = current_turn ? current_turn.round_number+1 : 1
-    @current_turn = GameTurn.new(turn_data.merge({:game=>self, :player=>team, :round_number=>round_number}))
+    @current_turn = GameTurn.new(turn_data.merge({:game=>self, :team=>team, :round_number=>round_number}))
     @current_turn.save
   end
   
