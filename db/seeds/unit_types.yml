@@ -50,7 +50,7 @@ human_knight:
   img: /images/units.png
   position: 4
   attack_range: 1
-  move_range: 4
+  move_range: 5
   img_x: 0
   img_y: 216
   soft_attack_power: 17
@@ -65,7 +65,7 @@ archmage:
   img: /images/units.png
   position: 5
   attack_range: 3
-  move_range: 2
+  move_range: 3
   img_x: 0
   img_y: 288
   soft_attack_power: 15
@@ -80,7 +80,7 @@ griffin:
   img: /images/units.png
   position: 6
   attack_range: 1
-  move_range: 4
+  move_range: 5
   img_x: 0
   img_y: 360
   soft_attack_power: 15
@@ -95,7 +95,7 @@ undead_thrall:
   img: /images/units.png
   position: 7
   attack_range: 1
-  move_range: 2
+  move_range: 3
   img_x: 0
   img_y: 432
   soft_attack_power: 7
@@ -110,7 +110,7 @@ undead_archer:
   img: /images/units.png
   position: 8
   attack_range: 2
-  move_range: 2
+  move_range: 3
   img_x: 0
   img_y: 504
   soft_attack_power: 9
@@ -125,7 +125,7 @@ undead_fighter:
   img: /images/units.png
   position: 9
   attack_range: 1
-  move_range: 2
+  move_range: 3
   img_x: 0
   img_y: 576
   soft_attack_power: 12
@@ -140,7 +140,7 @@ undead_knight:
   img: /images/units.png
   position: 10
   attack_range: 1
-  move_range: 4
+  move_range: 5
   img_x: 0
   img_y: 648
   soft_attack_power: 18
@@ -155,7 +155,7 @@ necromancer:
   img: /images/units.png
   position: 11
   attack_range: 3
-  move_range: 2
+  move_range: 3
   img_x: 0
   img_y: 720
   soft_attack_power: 15
@@ -170,7 +170,7 @@ bone_dragon:
   img: /images/units.png
   position: 12
   attack_range: 1
-  move_range: 2
+  move_range: 3
   img_x: 0
   img_y: 792
   soft_attack_power: 20

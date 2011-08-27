@@ -18,7 +18,7 @@ terrain_modifiers_003:
   unit_type_id: 10
   tile_type_id: 10
   defense_bonus: 1
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: swamp
 terrain_modifiers_004:
   id: 4
@@ -32,7 +32,7 @@ terrain_modifiers_005:
   unit_type_id: 10
   tile_type_id: 11
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: desert
 terrain_modifiers_006:
   id: 6
@@ -81,7 +81,7 @@ terrain_modifiers_012:
   unit_type_id: 10
   tile_type_id: 14
   defense_bonus: 1
-  movement_cost: 3
+  movement_cost: 2
   tile_type_name: hills
 terrain_modifiers_013:
   id: 13
@@ -95,7 +95,7 @@ terrain_modifiers_014:
   unit_type_id: 10
   tile_type_id: 15
   defense_bonus: 2
-  movement_cost: 4
+  movement_cost: 99
   tile_type_name: mountains
 terrain_modifiers_015:
   id: 15
@@ -276,7 +276,7 @@ terrain_modifiers_037:
   unit_type_id: 4
   tile_type_id: 11
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: desert
 
 
@@ -357,7 +357,7 @@ terrain_modifiers_046:
   unit_type_id: 4
   tile_type_id: 15
   defense_bonus: 1
-  movement_cost: 4
+  movement_cost: 99
   tile_type_name: mountains
 
 
@@ -402,7 +402,7 @@ terrain_modifiers_051:
   unit_type_id: 11
   tile_type_id: 10
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 3
   tile_type_name: swamp
 
 
@@ -420,7 +420,7 @@ terrain_modifiers_053:
   unit_type_id: 11
   tile_type_id: 11
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: desert
 
 
@@ -483,7 +483,7 @@ terrain_modifiers_060:
   unit_type_id: 11
   tile_type_id: 14
   defense_bonus: 2
-  movement_cost: 3
+  movement_cost: 2
   tile_type_name: hills
 
 
@@ -501,7 +501,7 @@ terrain_modifiers_062:
   unit_type_id: 11
   tile_type_id: 15
   defense_bonus: 3
-  movement_cost: 1
+  movement_cost: 3
   tile_type_name: mountains
 
 
@@ -546,7 +546,7 @@ terrain_modifiers_067:
   unit_type_id: 9
   tile_type_id: 10
   defense_bonus: 1
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: swamp
 
 
@@ -564,7 +564,7 @@ terrain_modifiers_069:
   unit_type_id: 9
   tile_type_id: 11
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: desert
 
 
@@ -618,7 +618,7 @@ terrain_modifiers_075:
   unit_type_id: 9
   tile_type_id: 13
   defense_bonus: 2
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: forest
 
 
@@ -627,7 +627,7 @@ terrain_modifiers_076:
   unit_type_id: 9
   tile_type_id: 14
   defense_bonus: 2
-  movement_cost: 3
+  movement_cost: 2
   tile_type_name: hills
 
 
@@ -645,7 +645,7 @@ terrain_modifiers_078:
   unit_type_id: 9
   tile_type_id: 15
   defense_bonus: 3
-  movement_cost: 1
+  movement_cost: 3
   tile_type_name: mountains
 
 
@@ -708,7 +708,7 @@ terrain_modifiers_085:
   unit_type_id: 1
   tile_type_id: 11
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: desert
 
 
@@ -834,7 +834,7 @@ terrain_modifiers_099:
   unit_type_id: 5
   tile_type_id: 10
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 3
   tile_type_name: swamp
 
 
@@ -852,7 +852,7 @@ terrain_modifiers_101:
   unit_type_id: 5
   tile_type_id: 11
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: desert
 
 
@@ -906,7 +906,7 @@ terrain_modifiers_107:
   unit_type_id: 5
   tile_type_id: 13
   defense_bonus: 2
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: forest
 
 
@@ -915,7 +915,7 @@ terrain_modifiers_108:
   unit_type_id: 5
   tile_type_id: 14
   defense_bonus: 2
-  movement_cost: 3
+  movement_cost: 2
   tile_type_name: hills
 
 
@@ -933,7 +933,7 @@ terrain_modifiers_110:
   unit_type_id: 5
   tile_type_id: 15
   defense_bonus: 3
-  movement_cost: 1
+  movement_cost: 3
   tile_type_name: mountains
 
 
@@ -978,7 +978,7 @@ terrain_modifiers_115:
   unit_type_id: 12
   tile_type_id: 10
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: swamp
 
 
@@ -996,7 +996,7 @@ terrain_modifiers_117:
   unit_type_id: 12
   tile_type_id: 11
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: desert
 
 
@@ -1077,7 +1077,7 @@ terrain_modifiers_126:
   unit_type_id: 12
   tile_type_id: 15
   defense_bonus: 0
-  movement_cost: 2
+  movement_cost: 99
   tile_type_name: mountains
 
 
@@ -1140,7 +1140,7 @@ terrain_modifiers_133:
   unit_type_id: 2
   tile_type_id: 11
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: desert
 
 
@@ -1266,7 +1266,7 @@ terrain_modifiers_147:
   unit_type_id: 8
   tile_type_id: 10
   defense_bonus: 2
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: swamp
 
 
@@ -1284,7 +1284,7 @@ terrain_modifiers_149:
   unit_type_id: 8
   tile_type_id: 11
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: desert
 
 
@@ -1338,7 +1338,7 @@ terrain_modifiers_155:
   unit_type_id: 8
   tile_type_id: 13
   defense_bonus: 2
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: forest
 
 
@@ -1347,7 +1347,7 @@ terrain_modifiers_156:
   unit_type_id: 8
   tile_type_id: 14
   defense_bonus: 2
-  movement_cost: 3
+  movement_cost: 2
   tile_type_name: hills
 
 
@@ -1365,7 +1365,7 @@ terrain_modifiers_158:
   unit_type_id: 8
   tile_type_id: 15
   defense_bonus: 3
-  movement_cost: 1
+  movement_cost: 3
   tile_type_name: mountains
 
 
@@ -1428,7 +1428,7 @@ terrain_modifiers_165:
   unit_type_id: 3
   tile_type_id: 11
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: desert
 
 
@@ -1509,7 +1509,7 @@ terrain_modifiers_174:
   unit_type_id: 3
   tile_type_id: 15
   defense_bonus: 3
-  movement_cost: 3
+  movement_cost: 99
   tile_type_name: mountains
 
 
@@ -1554,7 +1554,7 @@ terrain_modifiers_179:
   unit_type_id: 7
   tile_type_id: 10
   defense_bonus: 2
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: swamp
 
 
@@ -1572,7 +1572,7 @@ terrain_modifiers_181:
   unit_type_id: 7
   tile_type_id: 11
   defense_bonus: 0
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: desert
 
 
@@ -1626,7 +1626,7 @@ terrain_modifiers_187:
   unit_type_id: 7
   tile_type_id: 13
   defense_bonus: 2
-  movement_cost: 1
+  movement_cost: 2
   tile_type_name: forest
 
 
@@ -1635,7 +1635,7 @@ terrain_modifiers_188:
   unit_type_id: 7
   tile_type_id: 14
   defense_bonus: 2
-  movement_cost: 3
+  movement_cost: 2
   tile_type_name: hills
 
 
@@ -1653,7 +1653,7 @@ terrain_modifiers_190:
   unit_type_id: 7
   tile_type_id: 15
   defense_bonus: 3
-  movement_cost: 1
+  movement_cost: 3
   tile_type_name: mountains
 
 
