@@ -102,7 +102,7 @@ class GamesController < ApplicationController
   def end_turn
     @game = current_player.games.find(params[:id], :readonly => false)
 
-    unless params[:game_winner].blank?
+    unless params[:game_winner].blank? 
       @game.save_current_turn(params[:game_turn])
       @game.game_winner = params[:game_winner]
       @game.save
