@@ -19,7 +19,7 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-  <% f.fields_for :game_players do |player_form| %>
+  <%= f.fields_for :game_players do |player_form| %>
 		<div class="field">
 			<%= player_form.label :team, image_tag("misc/flag-#{player_form.object.team}-icon.png")+"#{player_form.object.team.capitalize} Player" %>
 			<% if player_form.object.player == @current_player %>

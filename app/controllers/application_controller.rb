@@ -18,18 +18,6 @@ class ApplicationController < ActionController::Base
     @oauth ||= Koala::Facebook::OAuth.new
   end
   
-  def facebook_rest
-    return unless @current_player
-  
-    @facebook_rest ||= Koala::Facebook::RestAPI.new(@current_player.token)
-  end
-  
-  def facebook_graph
-    return unless @current_player
-
-    @faceboook_graph ||= Koala::Facebook::GraphAPI.new(@current_player.token)
-  end
-  
   def current_player
     return @current_player
   end

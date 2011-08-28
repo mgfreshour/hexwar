@@ -65,7 +65,58 @@ describe GamesController do
   end # "GET show"
   
   describe "GET new" do
-    it "renders 'new' template"
+    it "renders 'new' template" do
+      Map.stub(:find=>[mock_model(Map).as_null_object])
+      get :new
+      response.should render_template('new')
+    end
+  end
+  
+  
+  describe "POST create" do
+    before(:each) do
+      @game_params = {"game"=>{"map_id"=>"1", "name"=>"sdfg", 
+        "game_players_attributes"=>{"0"=>{"team"=>"red", "player_id"=>"3"}, 
+                                    "1"=>{"team"=>"green", "player_id"=>""}}}}
+    end
+
+    context "game and turn are created successufully" do
+      it "redirects to root_url" do
+        Game.stub(:new=>mock_model('Game').as_null_object)
+        post :create, @game_params
+        response.should redirect_to(games_path)
+      end
+    
+      it "creates a new turn"
+      it "gets random players when told too"
+    end
+    
+    context "game save fails" do
+      it "renders 'new' template"
+    end
+  end
+  
+  describe "DELETE destroy" do
+    it "redirects to games root" do
+      delete :destroy, :id=>14
+      response.should  redirect_to(games_path)
+    end
+    
+    it "should flash notice about game deletion" do
+      delete :destroy, :id=>14
+      flash[:notice].should include('Game deleted')
+    end
   end
 
+  describe "POST end_turn" do
+    it "does something"
+  end
+  
+  describe "GET is_it_my_turn" do
+    it "does something"
+  end
+  
+  describe "GET get_turn" do
+    it "does something"
+  end
 end

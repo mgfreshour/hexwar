@@ -14,7 +14,33 @@ class Player < ActiveRecord::Base
       user.uid = user_id 
       user.name = name
     end
-  end  
+  end
+  
+  def facebook_graph
+    @faceboook_graph ||= Koala::Facebook::GraphAPI.new(@current_player.token)
+  end
+  
+  def facebook_rest
+    @facebook_rest ||= Koala::Facebook::RestAPI.new(self.token)
+  end
+  
+  def get_friends
+    friend_list = facebook_rest.rest_call('friends_getAppUsers');
+    Player.find(:all, :conditions => ["id <> #{self.id} AND uid IN (?)", friend_list])
+  end
+  
+  def get_random_opponent(exclude_list=[])
+    exclude_list << self.id
+    players = Player.find(:all, :conditions => ["id NOT IN (?)", exclude_list])
+    available_for_random = []
+    players.each do |player|
+      if player.available_for_random
+        available_for_random << player
+      end
+    end
+
+    available_for_random[rand(available_for_random.length)]
+  end
 end
 
 
