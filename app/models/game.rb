@@ -31,6 +31,15 @@ class Game < ActiveRecord::Base
     @current_turn.save
   end
   
+  def get_players_team(player)
+    team = false
+    self.game_players.each do |game_player|	
+		  team = game_player.team if game_player.player == player
+  	end
+  	
+  	return team
+  end
+  
   def save_current_turn(turn_data)
     current_turn.current_unit_data = turn_data[:current_unit_data]
     current_turn.end_unit_data = turn_data[:current_unit_data]

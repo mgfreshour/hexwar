@@ -5,8 +5,14 @@ class ApplicationController < ActionController::Base
   before_filter :check_admin
   before_filter :need_to_update_profile
   
+  rescue_from Koala::Facebook::APIError, :with=>:redirect_to_login
   
   private #####################################################################
+  
+  def redirect_to_login
+    # It appears we have a bad token, send them to get a new one
+	  redirect_to '/sessions/new'
+  end
 
   def oauth
     @oauth ||= Koala::Facebook::OAuth.new
@@ -15,25 +21,17 @@ class ApplicationController < ActionController::Base
   def facebook_rest
     return unless @current_player
   
-  	begin
-      @facebook_rest ||= Koala::Facebook::RestAPI.new(@current_player.token)
-      #arguments_hash = { :message => 'Hello World From HexWars!' }
-      #@facebook_rest.rest_call("email")
-    rescue Koala::Facebook::APIError => e
-  	  # It appears we have a bad token, send them to get a new one
-  	  redirect_to '/sessions/new'
-  	end
+    @facebook_rest ||= Koala::Facebook::RestAPI.new(@current_player.token)
   end
   
   def facebook_graph
     return unless @current_player
+
+    @faceboook_graph ||= Koala::Facebook::GraphAPI.new(@current_player.token)
+  end
   
-  	begin
-        @faceboook_graph ||= Koala::Facebook::GraphAPI.new(@current_player.token)
-  	rescue Koala::Facebook::APIError => e
-  	  # It appears we have a bad token, send them to get a new one
-  	  redirect_to '/sessions/new'
-  	end
+  def current_player
+    return @current_player
   end
  
   def check_authentication
@@ -45,7 +43,7 @@ class ApplicationController < ActionController::Base
     session[:last_seen] = Time.now
 
     session[:signed_request] = params[:signed_request]
-    redirect_to '/sessions/new' unless @current_player
+    redirect_to_login unless @current_player
   end
   
   def need_to_update_profile

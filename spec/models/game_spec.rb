@@ -30,7 +30,7 @@ describe Game do
     
   end
   
-  context "when game is on red's turn with two players" do
+  context "when it is red's turn with two players" do
     before(:each) do
       @game = Factory(:game)
       @red_player = Factory(:game_player, :team=>'red')
@@ -39,6 +39,18 @@ describe Game do
       @game.game_players << @green_player
       @turn_data = {:current_unit_data=>'test', :current_tile_owner_data=>'test2',:resource_data=>'test3'}
       @game.create_new_turn('red', @turn_data)  
+    end
+    
+    describe "Game#get_players_team" do
+      it "should return correct team for player" do
+        @game.get_players_team(@red_player.player).should == 'red'
+        @game.get_players_team(@green_player.player).should == 'green'
+      end
+      
+      it "should return false when player isn't part of game" do
+        purple_player = Factory(:player)
+        @game.get_players_team(purple_player).should == false
+      end
     end
     
     it "should throw an exception when wrong player tries to end turn" do

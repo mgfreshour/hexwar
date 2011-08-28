@@ -1,38 +1,43 @@
 class GamesController < ApplicationController
   skip_filter :check_admin
-    
+  
+  #
   # GET /games
-  # GET /games.xml
+  #
   def index
-    @games = @current_player.games.find(:all)
+    @games = current_player.games.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @games }
     end
   end
 
+  #
   # GET /games/1
-  # GET /games/1.xml
+  #
   def show
-    if @current_player.admin
-      @game = Game.find(params[:id])
-    else
-      @game = @current_player.games.find(params[:id])
-    end
-    
-    @game.game_players.each do |game_player|	
-		  @current_player_team = game_player.team if game_player.player == @current_player
-  	end
+    begin
+      if current_player.admin
+        @game = Game.find(params[:id])
+      else
+        @game = current_player.games.find(params[:id])
+      end
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @game }
+      @current_player_team = @game.get_players_team(current_player)
+
+      respond_to do |format|
+        format.html # show.html.erb
+      end
+
+    rescue ActiveRecord::RecordNotFound => e
+      flash[:notice] = "Unable to find game #{params[:id]}!"
+      redirect_to games_path
     end
   end
 
+  #
   # GET /games/new
-  # GET /games/new.xml
+  #
   def new
     @maps = Map.find(:all)
     @game = Game.new
@@ -49,7 +54,6 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @game }
     end
   end
 
@@ -59,8 +63,9 @@ class GamesController < ApplicationController
   #   redirect_to(@game) 
   # end
 
+  #
   # POST /games
-  # POST /games.xml
+  #
   def create
     @players = Player.find(:all, :conditions => ["id <> #{@current_player.id}"])
     available_for_random = []
@@ -105,8 +110,9 @@ class GamesController < ApplicationController
   #   end
   # end
 
+  #
   # DELETE /games/1
-  # DELETE /games/1.xml
+  #
   def destroy
     if @current_player.admin
       @game = Game.find(params[:id])
@@ -117,7 +123,6 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(games_url) }
-      format.xml  { head :ok }
     end
   end
   
