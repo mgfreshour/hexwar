@@ -35,15 +35,15 @@ class ApplicationController < ActionController::Base
   end
   
   def need_to_update_profile
-    return unless @current_player
+    return unless current_player
     
-    if @current_player.notify_by_email.nil? || @current_player.available_for_random.nil?
+    if current_player.notify_by_email.nil? || current_player.available_for_random.nil?
       flash[:notice] = "Please update your profile as there have been additions"
-      redirect_to edit_player_path(@current_player)
+      redirect_to edit_player_path(current_player)
     end
   end
   
   def check_admin
-    redirect_to root_path unless @current_player.admin
+    redirect_to root_path unless current_player.admin
   end
 end
