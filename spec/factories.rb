@@ -11,6 +11,10 @@ Factory.define :game_player do |f|
   f.association :game
 end
 
+Factory.define :game_turn do |f|
+  f.association :game
+end
+
 Factory.define :game do |f|
   f.name 'Test Game'
   f.association :map
@@ -28,4 +32,28 @@ end
 Factory.define :turn_notification do |f|
   f.association :player
   f.association :game
+end
+
+Factory.define :message do |f|
+  f.text 'Test Text'
+  f.association :player
+end
+
+Factory.define :message_viewer do |f|
+  f.association :message
+  f.association :player
+end
+
+Factory.define :terrain_modifier do |f|
+
+end
+
+Factory.define :tile_type do |f|
+  f.name 'test tile'
+  f.img 'my.png'
+end
+
+Factory.define :unit_type do |f|
+  f.name 'test unit'
+  f.img 'my.png'
 end

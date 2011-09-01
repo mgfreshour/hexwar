@@ -1,4 +1,5 @@
 class GameTurn < ActiveRecord::Base
+  validates :game, :presence=>true, :associated=>true
   belongs_to :game
   has_many :turn_actions, :dependent => :destroy
   serialize :start_unit_data

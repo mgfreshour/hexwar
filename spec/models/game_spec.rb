@@ -7,6 +7,20 @@ describe Game do
       @turn_data = {:current_unit_data=>'test', :current_tile_owner_data=>'test2',:resource_data=>'test3'}
     end
 
+    it "is valid with valid attributes" do
+      @game.should be_valid
+    end
+
+    it "is not valid without a name" do
+      @game.name = nil
+      @game.should_not be_valid
+    end
+
+    it "is not valid without a map" do
+      @game.map = nil
+      @game.should_not be_valid
+    end
+
     it "should create a new turn correctly" do
       @game.create_new_turn('red', @turn_data)
       @game.game_turns.length.should == 1

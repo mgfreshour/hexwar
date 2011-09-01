@@ -4,7 +4,7 @@ class GamePlayer < ActiveRecord::Base
   validates :player, :presence=>true, :associated=>true
   validates_uniqueness_of :player_id, :scope => :game_id
   belongs_to :game
-  validates :game, :associated=>true
+  validates :game, :presence=>true, :associated=>true
 end
 
 # == Schema Information
