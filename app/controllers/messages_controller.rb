@@ -2,7 +2,9 @@ class MessagesController < ApplicationController
   skip_filter :check_admin
   before_filter :check_admin, :except=>[:create,:mark_read]
   
+  #
   # GET /messages/1/mark_read
+  #
   def mark_read
     @message_id = params[:id]
     message_viewer = MessageViewer.find_by_player_id_and_message_id(@current_player.id, @message_id)
@@ -13,55 +15,58 @@ class MessagesController < ApplicationController
     end
   end
   
+  #
   # GET /messages
-  # GET /messages.xml
+  #
   def index
     @messages = Message.find_all_by_game_id(nil)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @messages }
     end
   end
 
+  #
   # GET /messages/1
-  # GET /messages/1.xml
+  #
   def show
     @message = Message.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @message }
     end
   end
 
+  #
   # GET /messages/new
-  # GET /messages/new.xml
+  #
   def new
     @message = Message.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @message }
     end
   end
 
+  #
   # GET /messages/1/edit
+  #
   def edit
     @message = Message.find(params[:id])
   end
 
+  #
   # POST /messages
-  # POST /messages.xml
+  #
   def create
-    if @current_player.admin && params[:message][:game_id].nil?
+    if current_player.admin && params[:message][:game_id].nil?
       @message = Message.new(params[:message])
       
       Player.find(:all).each do |player|
         @message.message_viewers << MessageViewer.new(:player=>player)
       end
     else
-        @game = @current_player.games.find(params[:message][:game_id])
+        @game = current_player.games.find(params[:message][:game_id])
         @message = @game.messages.new(params[:message])
     end
     
@@ -71,39 +76,36 @@ class MessagesController < ApplicationController
       if @message.save
         format.js
         format.html { redirect_to(messages_url, :notice => 'Message was successfully created.') }
-        format.xml  { render :xml => @message, :status => :created, :location => @message }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @message.errors, :status => :unprocessable_entity }
       end
     end
   end
 
+  #
   # PUT /messages/1
-  # PUT /messages/1.xml
+  #
   def update
     @message = Message.find(params[:id])
 
     respond_to do |format|
       if @message.update_attributes(params[:message])
         format.html { redirect_to(messages_url, :notice => 'Message was successfully updated.') }
-        format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @message.errors, :status => :unprocessable_entity }
       end
     end
   end
 
+  #
   # DELETE /messages/1
-  # DELETE /messages/1.xml
+  #
   def destroy
     @message = Message.find(params[:id])
     @message.destroy
 
     respond_to do |format|
       format.html { redirect_to(messages_url) }
-      format.xml  { head :ok }
     end
   end
 end

@@ -2,6 +2,10 @@ class SessionsController < ApplicationController
   skip_filter :check_authentication
   skip_filter :check_admin
   
+  #
+  # GET /sessions/new
+  # POST /sessions/new
+  #
   def new
     begin
       from_cookies = oauth.get_user_info_from_cookies(cookies)
@@ -50,6 +54,9 @@ class SessionsController < ApplicationController
   #   end
   # end
   
+  #
+  # GET /sessions/destroy
+  #
   def destroy
     session[:player_id] = nil  
     respond_to do |format|
