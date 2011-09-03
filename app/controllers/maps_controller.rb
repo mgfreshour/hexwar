@@ -6,60 +6,65 @@ class MapsController < ApplicationController
   
   caches_page :show, :if => Proc.new { |c| c.request.format.json? }
   
+  #
   # GET /maps
-  # GET /maps.xml
+  #
   def index
-    @maps = Map.all
+    @maps = Map.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @maps }
     end
   end
 
+  #
   # GET /maps/1
-  # GET /maps/1.xml
+  #
   def show
     @map = Map.find(params[:id])
 
     respond_to do |format|
       format.html   { check_authentication } # show.html.erb
       format.json { render :json => @map }
-      format.xml  { render :xml => @map }
       format.yaml { render :text => @map.to_yaml }
     end
   end
 
+  #
   # GET /maps/new
-  # GET /maps/new.xml
+  #
   def new
     @map = Map.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @map }
     end
   end
 
+  #
   # GET /maps/1/edit
+  #
   def edit
     @map = Map.find(params[:id])
   end
 
+  #
   # POST /maps
-  # POST /maps.xml
+  #
   def create
     save(params)
   end
 
+  #
   # PUT /maps/1
-  # PUT /maps/1.xml
+  #
   def update
     save(params)
   end
 
+  #
   # DELETE /maps/1
-  # DELETE /maps/1.xml
+  #
   def destroy
     @map = Map.find(params[:id])
     @map.destroy
@@ -73,6 +78,9 @@ class MapsController < ApplicationController
   end
   
   private
+  #
+  # Saves map, both new and existing
+  #
   def save(params)
     @map = params[:id] ? Map.find(params[:id]) : Map.new(params[:map])
     

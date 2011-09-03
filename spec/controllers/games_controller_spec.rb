@@ -11,6 +11,11 @@ describe GamesController do
   end
 
   describe "GET index" do
+    it "checks for an authenticated player" do
+      controller.should_receive(:check_authentication)
+      get :index
+    end
+
     it "looks up current player's games" do
       @player.should_receive(:games).once.and_return([1,2,3])
       get :index
@@ -23,6 +28,11 @@ describe GamesController do
   end # "GET index"
   
   describe "GET show" do
+    it "checks for an authenticated player" do
+      controller.should_receive(:check_authentication)
+      get :show, :id=>12
+    end
+
     context "player is admin" do
       it "should search all games" do
         @player.stub(:admin=>true)
@@ -65,6 +75,11 @@ describe GamesController do
   end # "GET show"
   
   describe "GET new" do
+    it "checks for an authenticated player" do
+      controller.should_receive(:check_authentication)
+      get :new
+    end
+
     it "renders 'new' template" do
       Map.stub(:find=>[mock_model(Map).as_null_object])
       get :new
@@ -78,6 +93,11 @@ describe GamesController do
       @game_params = {"game"=>{"map_id"=>"1", "name"=>"sdfg", 
         "game_players_attributes"=>{"0"=>{"team"=>"red", "player_id"=>"3"}, 
                                     "1"=>{"team"=>"green", "player_id"=>""}}}}
+    end
+
+    it "checks for an authenticated player" do
+      controller.should_receive(:check_authentication)
+      post :create, @game_params
     end
 
     context "game and turn are created successufully" do
@@ -113,6 +133,16 @@ describe GamesController do
   end
   
   describe "DELETE destroy" do
+    it "checks for an authenticated player" do
+      controller.should_receive(:check_authentication)
+      delete :destroy, :id=>14
+    end
+
+    # it "checks for admin rights" do
+    #   controller.should_receive(:check_admin)
+    #   delete :destroy, :id=>14
+    # end
+
     it "redirects to games root" do
       delete :destroy, :id=>14
       response.should  redirect_to(games_path)
@@ -125,6 +155,11 @@ describe GamesController do
   end
 
   describe "XHR POST end_turn" do
+    it "checks for an authenticated player" do
+      controller.should_receive(:check_authentication)
+      xhr :post, :end_turn
+    end
+
     it "returns true on success" do
       xhr :post, :end_turn
       response.body.should include(true.to_json)
@@ -146,6 +181,11 @@ describe GamesController do
   end
   
   describe "XHR GET is_it_my_turn" do
+    it "checks for an authenticated player" do
+      controller.should_receive(:check_authentication)
+      xhr :get, :is_it_my_turn
+    end
+    
     it "returns json of all notifications" do
       @player.turn_notifications.stub(:find=>['test1', 'test2'], :destroy_all=>true)
       xhr :get, :is_it_my_turn
@@ -160,6 +200,11 @@ describe GamesController do
   end
   
   describe "XHR GET get_turn" do
+    it "checks for an authenticated player" do
+      controller.should_receive(:check_authentication)
+      xhr :get, :get_turn
+    end
+
     it "return json of current turn" do
       game = mock_model(Game, :clear_notifications=>true, :current_turn=>{:uh=>'oh',:bobo=>'the clown'})
       @player.games.stub(:find=>game)
