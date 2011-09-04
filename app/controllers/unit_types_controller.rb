@@ -70,7 +70,6 @@ class UnitTypesController < ApplicationController
   # PUT /unit_types/1.xml
   def update
     @unit_type = UnitType.find(params[:id])
-    @tile_types = TileType.find(:all, :order => :position)
     
     expire_page :action=>'index', :format=>'json'
 

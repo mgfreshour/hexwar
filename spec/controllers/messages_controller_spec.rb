@@ -177,6 +177,12 @@ describe MessagesController do
       MessageViewer.should_receive(:find_by_player_id_and_message_id).with(@player.id,12).and_return(@message)
       post :mark_read, :id=>12
     end
+    
+    it "deletes users message" do
+      @message.should_receive(:destroy)
+      MessageViewer.stub(:find_by_player_id_and_message_id => @message)
+      post :mark_read, :id=>12
+    end
   end
 end
 

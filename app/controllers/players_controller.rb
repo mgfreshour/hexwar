@@ -40,10 +40,9 @@ class PlayersController < ApplicationController
   # GET /players/1/edit
   #
   def edit
-    if @current_player.admin
-      @player = Player.find(params[:id])
-    else
-      @player = @current_player
+    @player = Player.find(params[:id])
+    unless current_player.admin || @player.id == current_player.id
+     redirect_to(root_url)
     end
   end
 
@@ -55,7 +54,7 @@ class PlayersController < ApplicationController
 
     respond_to do |format|
       if @player.save
-        format.html { redirect_to(@player, :notice => 'Player was successfully created.') }
+        format.html { redirect_to(players_url, :notice => 'Player was successfully created.') }
       else
         format.html { render :action => "new" }
       end
@@ -66,11 +65,13 @@ class PlayersController < ApplicationController
   # PUT /players/1
   #
   def update
-    if @current_player.admin
-      @player = Player.find(params[:id])
-    else
-      @player = @current_player
-      params[:player][:admin] = 0
+    @player = Player.find(params[:id])
+    unless current_player.admin || @player.id == current_player.id
+     redirect_to(root_url)
+     return
+    end
+    unless current_player.admin
+      params[:player][:admin] = false
       
       profile = faceboook_graph.get_object("me")
       @player.real_name = profile['name']

@@ -56,7 +56,7 @@ class TileTypesController < ApplicationController
 
     respond_to do |format|
       if @tile_type.save
-        format.html { redirect_to(@tile_type, :notice => 'Tile type was successfully created.') }
+        format.html { redirect_to(tile_types_url, :notice => 'Tile type was successfully created.') }
         format.xml  { render :xml => @tile_type, :status => :created, :location => @tile_type }
       else
         format.html { render :action => "new" }
@@ -65,8 +65,9 @@ class TileTypesController < ApplicationController
     end
   end
 
+  #
   # PUT /tile_types/1
-  # PUT /tile_types/1.xml
+  #
   def update
     @tile_type = TileType.find(params[:id])
     
@@ -74,11 +75,9 @@ class TileTypesController < ApplicationController
 
     respond_to do |format|
       if @tile_type.update_attributes(params[:tile_type])
-        format.html { redirect_to(@tile_type, :notice => 'Tile type was successfully updated.') }
-        format.xml  { head :ok }
+        format.html { redirect_to(tile_types_url, :notice => 'Tile type was successfully updated.') }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @tile_type.errors, :status => :unprocessable_entity }
       end
     end
   end
