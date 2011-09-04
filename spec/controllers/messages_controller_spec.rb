@@ -97,21 +97,42 @@ describe MessagesController do
     end
     
     context "player is admin posting system wide message" do
-      it "creates message views for all players" # TODO - this belongs in the message model
-
       it "redirects to messages url when record saved successfully" do
         post :create, @params
         response.should redirect_to(messages_url)
       end
 
-      it "renders the new template when record fails to save"
+      it "renders the new template when record fails to save" do
+        @message.stub(:save=>false)
+        Message.stub(:new=>@message)
+        post :create, @params
+        response.should render_template('new')
+      end
     end
     
-    context "player is posting a game message" do
-      it "finds the game for that player"
-      it "returns a json error when game for player is not found"
-      it "returns a json okay when saved successfully"
-      it "returns a json error when save fails"
+    context "player is posting through XHR a game message" do
+      before(:each) do
+        @params[:message][:game_id] = 12
+      end
+      it "finds the game for that player" do
+        @player.games.should_receive(:find).with(@params[:message][:game_id]).and_return(mock_model(Game).as_null_object)
+        xhr :post, :create, @params
+      end
+      it "returns a json error when game for player is not found" do
+        @player.games.should_receive(:find).and_raise(ActiveRecord::RecordNotFound)
+        xhr :post, :create, @params
+        response.body.should include(false.to_json)
+      end
+      it "returns renders 'create' template when saved successfully" do
+        xhr :post, :create, @params
+        response.should render_template('create')
+      end
+      it "returns a json error when save fails" do
+        Message.stub(:new=>@message)
+        @message.stub(:save=>false)
+        xhr :post, :create, @params
+        response.body.should include(false.to_json)
+      end
     end
   end
   
@@ -126,8 +147,15 @@ describe MessagesController do
       put :update, :id=>12
     end
     
-    it "renders 'edit' template when save fails"
-    it "redirects to message root when save suceeds"
+    it "renders 'edit' template when save fails" do
+      @message.should_receive(:update_attributes).and_return(false)
+      put :update, :id=>12
+      response.should render_template('edit')
+    end
+    it "redirects to message root when save suceeds" do
+      put :update, :id=>12
+      response.should redirect_to(messages_url)
+    end
     
   end
   
@@ -144,8 +172,11 @@ describe MessagesController do
     end
   end
   
-  describe "GET mark_as_read" do
-    it "does something"
+  describe "POST mark_read" do
+    it "searches for message belonging to current user" do
+      MessageViewer.should_receive(:find_by_player_id_and_message_id).with(@player.id,12).and_return(@message)
+      post :mark_read, :id=>12
+    end
   end
 end
 

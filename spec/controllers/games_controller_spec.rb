@@ -69,7 +69,7 @@ describe GamesController do
       
       it "should flash notice that game is not found" do
         get :show, :id=>14
-        flash[:notice].should include('Unable to find game 14!')
+        flash[:notice].should include('Unable to find game')
       end
     end
   end # "GET show"
@@ -105,6 +105,7 @@ describe GamesController do
         @game = mock_model('Game').as_null_object
         Game.stub(:new=>@game)
       end
+
       it "redirects to root_url" do
         Game.stub(:new=>mock_model('Game').as_null_object)
         post :create, @game_params

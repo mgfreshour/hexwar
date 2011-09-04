@@ -4,6 +4,15 @@ class Message < ActiveRecord::Base
   belongs_to :game
   belongs_to :player
   has_many :message_viewers, :dependent => :destroy
+  
+  def save
+    super()
+    if self.game_id.nil?
+      Player.find(:all).each do |audience|
+        self.message_viewers << MessageViewer.new(:player=>audience)
+      end
+    end
+  end
 end
 
 # == Schema Information

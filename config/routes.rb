@@ -4,24 +4,20 @@ HexGame::Application.routes.draw do
   get 'sessions/create'
   get 'sessions/new'
 
-  match '/games/end_turn' => 'games#end_turn'
-  match '/games/get_turn' => 'games#get_turn'
-  match '/games/is_it_my_turn' => 'games#is_it_my_turn'
-  match '/messages/:id/mark_read' => 'messages#mark_read'
-
-  resources :messages
-
-  resources :turn_actions
-
-  resources :tile_types
-
-  resources :unit_types
-
-  resources :players
+  post '/games/end_turn' => 'games#end_turn'
+  get '/games/get_turn' => 'games#get_turn'
+  get '/games/is_it_my_turn' => 'games#is_it_my_turn'
+  post '/messages/:id/mark_read' => 'messages#mark_read'
 
   resources :games
-
   resources :maps
+  resources :messages
+  resources :players
+  resources :tile_types
+  resources :unit_types
+
+
+
   
   match "/auth/:provider/callback" => "sessions#create" 
   match "/auth/failure" => "sessions#failure"

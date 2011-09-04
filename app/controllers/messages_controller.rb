@@ -3,11 +3,11 @@ class MessagesController < ApplicationController
   before_filter :check_admin, :except=>[:create,:mark_read]
   
   #
-  # GET /messages/1/mark_read
+  # POST /messages/1/mark_read
   #
   def mark_read
     @message_id = params[:id]
-    message_viewer = MessageViewer.find_by_player_id_and_message_id(@current_player.id, @message_id)
+    message_viewer = MessageViewer.find_by_player_id_and_message_id(current_player.id, @message_id)
     message_viewer.destroy
     
     respond_to do |format|
@@ -61,24 +61,25 @@ class MessagesController < ApplicationController
   def create
     if current_player.admin && params[:message][:game_id].nil?
       @message = Message.new(params[:message])
-      
-      Player.find(:all).each do |player|
-        @message.message_viewers << MessageViewer.new(:player=>player)
-      end
     else
-        @game = current_player.games.find(params[:message][:game_id])
-        @message = @game.messages.new(params[:message])
+      @message = Message.new(params[:message])
+      @message.game = current_player.games.find(params[:message][:game_id])
     end
     
-    @message.player = @current_player
+    @message.player = current_player
 
     respond_to do |format|
       if @message.save
         format.js
         format.html { redirect_to(messages_url, :notice => 'Message was successfully created.') }
       else
+        format.js { render :json => false }
         format.html { render :action => "new" }
       end
+    end
+  rescue ActiveRecord::RecordNotFound
+    respond_to do |format|
+      format.js { render :json => false }
     end
   end
 
