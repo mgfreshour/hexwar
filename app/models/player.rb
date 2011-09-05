@@ -8,16 +8,27 @@ class Player < ActiveRecord::Base
   validates :uid, :presence=>true
   validates :provider, :presence=>true
   
-  def self.create_with_omniauth(provider, user_id, name)      
+  def self.create_with_omniauth(provider, user_id, token)
+    faceboook_graph = Koala::Facebook::GraphAPI.new(token)
+    profile = faceboook_graph.get_object("me")
+
     create! do |user|  
       user.provider = provider
       user.uid = user_id 
-      user.name = name
+      user.token = token
+      user.name = profile[:name]
+      user.email = profile[:email]
+      user.real_name = profile[:name]
     end
+    
+  end
+  
+  def update_from_facebook
+    profile = faceboook_graph.get_object("me")
   end
   
   def facebook_graph
-    @faceboook_graph ||= Koala::Facebook::GraphAPI.new(@current_player.token)
+    @faceboook_graph ||= Koala::Facebook::GraphAPI.new(self.token)
   end
   
   def facebook_rest

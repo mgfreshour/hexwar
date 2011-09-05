@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       if session[:signed_request]
         auth = oauth.parse_signed_request(session[:signed_request])
         if auth['user_id'] && auth[:oauth_token]
-          return fb_login_user(auth[:oauth_token], from_cookie[:user_id])
+          return fb_login_user(auth[:oauth_token], auth['user_id'])
         end
       end
 
@@ -69,13 +69,8 @@ class SessionsController < ApplicationController
   def fb_login_user(token, user_id)
     player = Player.find_by_provider_and_uid('facebook', user_id)
     if !player
-      faceboook_graph = Koala::Facebook::GraphAPI.new(token)
-      profile = faceboook_graph.get_object("me")
-      Player.create_with_omniauth('facebook', user_id, profile[:name])
+      player = Player.create_with_omniauth('facebook', user_id, token)
     end
-
-    player.token = token
-    player.save
 
     session[:player_id] = player.id
     session[:expires] = Time.now + 1.day
