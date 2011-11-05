@@ -117,9 +117,6 @@ describe PlayersController do
     it "updates the real_name and email from facebook data" do
       @player.stub(:admin=>false)
       @found_player.stub(:id=>@player.id)
-      @fb_graph.should_receive(:get_object).with('me').and_return('name'=>'bobo the clown', 'email'=>'bobo@clown.com')
-      @found_player.should_receive(:real_name=).with('bobo the clown')
-      @found_player.should_receive(:email=).with('bobo@clown.com')
       put :update, { :id=>@player.id, :player => { } }
     end
     it "renders 'edit' template when save fails" do

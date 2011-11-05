@@ -16,16 +16,16 @@ class Player < ActiveRecord::Base
       user.provider = provider
       user.uid = user_id 
       user.token = token
-      user.name = profile[:name]
-      user.email = profile[:email]
-      user.real_name = profile[:name]
+      user.name = profile['name']
+      user.email = profile['email']
+      user.real_name = profile['name']
     end
     
   end
   
-  def update_from_facebook
-    profile = faceboook_graph.get_object("me")
-  end
+  # def update_from_facebook
+  #   profile = faceboook_graph.get_object("me")
+  # end
   
   def facebook_graph
     @faceboook_graph ||= Koala::Facebook::GraphAPI.new(self.token)
@@ -33,6 +33,14 @@ class Player < ActiveRecord::Base
   
   def facebook_rest
     @facebook_rest ||= Koala::Facebook::RestAPI.new(self.token)
+  end
+  
+  def update_attributes(params)
+    profile = self.facebook_graph.get_object("me")
+    @name = profile['name']
+    @email = profile['email']
+    @real_name = profile['real_name']
+    super(params)
   end
   
   def get_friends

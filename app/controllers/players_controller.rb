@@ -73,9 +73,9 @@ class PlayersController < ApplicationController
     unless current_player.admin
       params[:player][:admin] = false
       
-      profile = faceboook_graph.get_object("me")
-      @player.real_name = profile['name']
-      @player.email = profile['email']
+      #profile = faceboook_graph.get_object("me")
+      #@player.real_name = profile['name']
+      #@player.email = profile['email']
     end
     respond_to do |format|
       if @player.update_attributes(params[:player])
