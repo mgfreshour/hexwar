@@ -62,9 +62,9 @@ class GamesController < ApplicationController
     exclude_list = []
     params[:game][:game_players_attributes].each_pair do |idx,game_player|
       if params[:game][:game_players_attributes][idx][:player_id] == ''
-        opponent = current_player.get_random_opponent(exclude_list).id
-        exclude_list << opponent
-        params[:game][:game_players_attributes][idx][:player_id] = opponent
+        opponent_id = current_player.get_random_opponent(exclude_list).id
+        exclude_list << opponent_id
+        params[:game][:game_players_attributes][idx][:player_id] = opponent_id
       end
     end
 

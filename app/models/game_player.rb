@@ -1,10 +1,10 @@
 class GamePlayer < ActiveRecord::Base
   belongs_to :player
-  accepts_nested_attributes_for :player
+  #accepts_nested_attributes_for :player
   validates :player, :presence=>true, :associated=>true
   validates_uniqueness_of :player_id, :scope => :game_id
   belongs_to :game
-  validates :game, :presence=>true, :associated=>true
+  #validates :game, :presence=>true, :associated=>true
 end
 
 # == Schema Information

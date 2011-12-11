@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
   
   private #####################################################################
   
-  def redirect_to_login
+  def redirect_to_login(exception=nil)
+    logger.info exception.to_s unless exception.nil?
     # It appears we have a bad token, send them to get a new one
 	  redirect_to '/sessions/new'
   end
@@ -24,6 +25,7 @@ class ApplicationController < ActionController::Base
  
   def check_authentication
     if session[:expires].nil? || session[:last_seen].nil? || (session[:expires] < Time.now && session[:last_seen] < Time.now - 30.minutes)
+      logger.info "Expiring Player Session #{session[:player_id]}"
       session[:player_id] = nil
     end
 

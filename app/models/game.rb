@@ -3,6 +3,7 @@ class Game < ActiveRecord::Base
   has_many :game_turns, :dependent => :destroy
   has_many :game_players, :dependent => :destroy
   accepts_nested_attributes_for :game_players, :reject_if => proc { |attributes| attributes[:player_id].blank? }
+  #attr_accessible :game_players_attributes
   has_many :players, :through => :game_players
   has_many :messages
   has_many :turn_notifications

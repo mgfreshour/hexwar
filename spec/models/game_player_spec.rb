@@ -14,9 +14,9 @@ describe GamePlayer do
     @game_player.should_not be_valid
   end
 
-  it "is not valid without a game" do
-    @game_player.game = nil
-    @game_player.should_not be_valid
-  end
+  # it "is not valid without a game" do
+  #   @game_player.game = nil
+  #   @game_player.should_not be_valid
+  # end
 end
 

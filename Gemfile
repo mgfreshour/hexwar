@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails', '3.0.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -15,10 +15,10 @@ gem 'capistrano'
 # gem 'ruby-debug'
 
 # Bundle the extra gems:
-gem 'omniauth', '~>0.2.6'
+gem 'omniauth', '1.0.1'
 gem 'rack-p3p'
 gem 'acts_as_list'
-gem 'koala', '~>1.1.0'
+gem 'koala', '1.2.1'
 gem 'jammit'
 gem 'closure-compiler'
 gem 'win32-open3-19', :platforms => [:mswin, :mingw]

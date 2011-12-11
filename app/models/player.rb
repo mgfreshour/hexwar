@@ -27,6 +27,13 @@ class Player < ActiveRecord::Base
   #   profile = faceboook_graph.get_object("me")
   # end
   
+  def reset_facebook_token(token)
+    @facebook_graph = nil
+    @facebook_rest = nil
+    self.token = token
+    self.save!
+  end
+
   def facebook_graph
     @faceboook_graph ||= Koala::Facebook::GraphAPI.new(self.token)
   end
@@ -57,7 +64,7 @@ class Player < ActiveRecord::Base
         available_for_random << player
       end
     end
-
+logger.info available_for_random
     available_for_random[rand(available_for_random.length)]
   end
 end

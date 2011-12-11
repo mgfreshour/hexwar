@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
   def new
     begin
       from_cookies = oauth.get_user_info_from_cookies(cookies)
+
       if from_cookies && from_cookies['access_token'] && from_cookies['uid'] && Time.now.to_i < from_cookies['expires'].to_i
         return fb_login_user(from_cookies['access_token'], from_cookies['uid'])
       end
@@ -71,6 +72,8 @@ class SessionsController < ApplicationController
     if !player
       player = Player.create_with_omniauth('facebook', user_id, token)
     end
+
+    player.reset_facebook_token(token)
 
     session[:player_id] = player.id
     session[:expires] = Time.now + 1.day
