@@ -64,7 +64,7 @@ class Player < ActiveRecord::Base
         available_for_random << player
       end
     end
-logger.info available_for_random
+
     available_for_random[rand(available_for_random.length)]
   end
 end
