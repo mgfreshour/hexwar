@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
     begin
       from_cookies = oauth.get_user_info_from_cookies(cookies)
 
-      if from_cookies && from_cookies['access_token'] && from_cookies['uid'] && Time.now.to_i < from_cookies['expires'].to_i
-        return fb_login_user(from_cookies['access_token'], from_cookies['uid'])
+      if from_cookies && from_cookies['access_token'] && from_cookies['user_id']
+        return fb_login_user(from_cookies['access_token'], from_cookies['user_id'])
       end
 
       if session[:signed_request]

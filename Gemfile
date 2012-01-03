@@ -18,7 +18,7 @@ gem 'capistrano'
 gem 'omniauth', '1.0.1'
 gem 'rack-p3p'
 gem 'acts_as_list'
-gem 'koala', '1.2.1'
+gem 'koala', '1.3.0rc2'
 gem 'jammit'
 gem 'closure-compiler'
 gem 'win32-open3-19', :platforms => [:mswin, :mingw]
