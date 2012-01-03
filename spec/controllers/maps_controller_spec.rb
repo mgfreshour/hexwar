@@ -107,7 +107,7 @@ describe MapsController do
     end
 
     it "loads and updates a new map" do
-      Map.should_receive(:find).with(12).and_return(@map)
+      Map.should_receive(:find).with('12').and_return(@map)
       @map.should_receive(:update_attributes).and_return(true)
       put :update, :id=>12
     end
@@ -126,7 +126,7 @@ describe MapsController do
 
     it "loads and deletes the correct record" do
       @map.should_recieve(:destroy)
-      Map.should_receive(:find).with(12).and_return(@map)
+      Map.should_receive(:find).with('12').and_return(@map)
       delete :destroy, :id=>12
     end
   end

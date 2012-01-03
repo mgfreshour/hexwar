@@ -122,7 +122,9 @@ class GamesController < ApplicationController
     turn_notifications = current_player.turn_notifications.find(:all)
 
     respond_to do |format|
-      format.json { render :json => turn_notifications }
+      # for some reason the below triggers a deprecated notice
+      #format.json { render :json => turn_notifications }
+      format.json { render :text => turn_notifications.to_json }
     end
     
     current_player.turn_notifications.destroy_all()
@@ -137,7 +139,9 @@ class GamesController < ApplicationController
     @game.clear_notifications(current_player)
     
     respond_to do |format|
-      format.json { render :json => @game.current_turn }
+      # for some reason the below triggers a deprecated notice
+      #format.json { render :json => @game.current_turn }
+      format.json { render :text => @game.current_turn.to_json }
     end
   end
 end

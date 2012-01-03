@@ -36,14 +36,14 @@ describe GamesController do
     context "player is admin" do
       it "should search all games" do
         @player.stub(:admin=>true)
-        Game.should_receive(:find).with(12).once.and_return(mock_model(Game).as_null_object)
+        Game.should_receive(:find).with('12').once.and_return(mock_model(Game).as_null_object)
         get :show, :id=>12
       end
     end
     
     context "player is not admin" do
       it "should search player's games" do
-        @player.games.should_receive(:find).with(12).once.and_return(mock_model(Game).as_null_object)
+        @player.games.should_receive(:find).with('12').once.and_return(mock_model(Game).as_null_object)
         get :show, :id=>12
       end
     end

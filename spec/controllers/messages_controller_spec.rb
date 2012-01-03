@@ -115,7 +115,7 @@ describe MessagesController do
         @params[:message][:game_id] = 12
       end
       it "finds the game for that player" do
-        @player.games.should_receive(:find).with(@params[:message][:game_id]).and_return(mock_model(Game).as_null_object)
+        @player.games.should_receive(:find).with(@params[:message][:game_id].to_s).and_return(mock_model(Game).as_null_object)
         xhr :post, :create, @params
       end
       it "returns a json error when game for player is not found" do
@@ -174,7 +174,7 @@ describe MessagesController do
   
   describe "POST mark_read" do
     it "searches for message belonging to current user" do
-      MessageViewer.should_receive(:find_by_player_id_and_message_id).with(@player.id,12).and_return(@message)
+      MessageViewer.should_receive(:find_by_player_id_and_message_id).with(@player.id,'12').and_return(@message)
       post :mark_read, :id=>12
     end
     
