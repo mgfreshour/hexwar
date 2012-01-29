@@ -13,8 +13,8 @@ gem 'omniauth', '1.0.1'
 gem 'rack-p3p'
 gem 'acts_as_list'
 gem 'koala', '1.3.0'
-gem 'jammit'
-gem 'closure-compiler'
+# gem 'jammit'
+# gem 'closure-compiler'
 gem 'rake', '~>0.9.2'
 gem 'whenever'
 
@@ -26,7 +26,7 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
+#gem 'jquery-rails'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
