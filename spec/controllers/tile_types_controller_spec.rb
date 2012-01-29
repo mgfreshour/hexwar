@@ -105,6 +105,7 @@ describe TileTypesController do
       put :update, :id=>12
     end
     it "redirects to tile type index when save suceeds" do
+      @tile_type.stub(:update_attributes=>true)
       put :update, :id=>12
       response.should redirect_to(tile_types_url)
     end

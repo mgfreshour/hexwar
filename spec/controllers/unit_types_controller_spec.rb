@@ -110,6 +110,7 @@ describe UnitTypesController do
       put :update, @params
     end
     it "redirects to unit type index when save suceeds" do
+      @unit_type.stub(:update_attributes=>true)
       put :update, @params
       response.should redirect_to(unit_types_url)
     end

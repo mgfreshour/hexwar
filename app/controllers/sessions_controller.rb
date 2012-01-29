@@ -69,10 +69,11 @@ class SessionsController < ApplicationController
 
   def fb_login_user(token, user_id)
     player = Player.find_by_provider_and_uid('facebook', user_id)
+
     if !player
       player = Player.create_with_omniauth('facebook', user_id, token)
     end
-
+    
     player.reset_facebook_token(token)
 
     session[:player_id] = player.id

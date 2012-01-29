@@ -27,6 +27,7 @@ describe ApplicationController do
     it "should redirect to player edit when missing attributes" do
       @player = mock_model(Player, :notify_by_email=>nil).as_null_object
       controller.stub(:check_authentication)
+      controller.stub(:check_admin)
       controller.stub(:current_player).and_return(@player)
       get :index
       response.should redirect_to(edit_player_path(@player))

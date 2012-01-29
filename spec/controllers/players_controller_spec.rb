@@ -82,6 +82,7 @@ describe PlayersController do
       post :create
     end
     it "redirects to player index when save suceeds" do
+      @found_player.stub(:save=>true)
       Player.stub(:new=>@found_player)
       post :create
       response.should redirect_to(players_url)

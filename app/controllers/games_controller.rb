@@ -62,9 +62,10 @@ class GamesController < ApplicationController
     exclude_list = []
     params[:game][:game_players_attributes].each_pair do |idx,game_player|
       if params[:game][:game_players_attributes][idx][:player_id] == ''
-        opponent_id = current_player.get_random_opponent(exclude_list).id
-        exclude_list << opponent_id
-        params[:game][:game_players_attributes][idx][:player_id] = opponent_id
+        opponent = current_player.get_random_opponent(exclude_list)
+        raise "Unable to find random opponent!" if opponent.nil?
+        exclude_list << opponent.id
+        params[:game][:game_players_attributes][idx][:player_id] = opponent.id
       end
     end
 
@@ -137,7 +138,7 @@ class GamesController < ApplicationController
     @game = current_player.games.find(params[:id])
 
     @game.clear_notifications(current_player)
-    
+
     respond_to do |format|
       # for some reason the below triggers a deprecated notice
       #format.json { render :json => @game.current_turn }

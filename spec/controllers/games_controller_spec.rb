@@ -4,7 +4,8 @@ describe GamesController do
   before(:each) do
     # "Log in" a player
     @player = mock_model(Player, :admin=>false).as_null_object
-    @player.games = mock('Games')
+    @player.stub(:games).and_return(mock('Games').as_null_object)
+    @player.stub(:turn_notifications).and_return(mock('TurnNotifications'))
     controller.stub(:check_authentication)
     controller.stub(:need_to_update_profile)
     controller.stub(:current_player).and_return(@player)
@@ -93,6 +94,7 @@ describe GamesController do
       @game_params = {"game"=>{"map_id"=>"1", "name"=>"sdfg", 
         "game_players_attributes"=>{"0"=>{"team"=>"red", "player_id"=>"3"}, 
                                     "1"=>{"team"=>"green", "player_id"=>""}}}}
+      @player.stub(:get_random_opponent).and_return(mock(Player).as_null_object)
     end
 
     it "checks for an authenticated player" do
@@ -100,14 +102,14 @@ describe GamesController do
       post :create, @game_params
     end
 
-    context "game and turn are created successufully" do
+    context "game and turn are created successfully" do
       before(:each) do
         @game = mock_model('Game').as_null_object
+        @game.stub(:save=>true, :create_new_turn=>true, :map=>mock_model('Map').as_null_object)
         Game.stub(:new=>@game)
       end
 
       it "redirects to root_url" do
-        Game.stub(:new=>mock_model('Game').as_null_object)
         post :create, @game_params
         response.should redirect_to(games_path)
       end
@@ -183,6 +185,7 @@ describe GamesController do
   
   describe "XHR GET is_it_my_turn" do
     it "checks for an authenticated player" do
+      @player.turn_notifications.stub(:find=>true, :destroy_all=>true)
       controller.should_receive(:check_authentication)
       xhr :get, :is_it_my_turn
     end
@@ -215,7 +218,7 @@ describe GamesController do
     
     it "clears current players notifications for game" do
       game = mock_model(Game, :current_turn=>{:uh=>'oh',:bobo=>'the clown'})
-      game.should_receive(:clear_notifications).once.with(@player)
+      game.should_receive(:clear_notifications).once
       @player.games.stub(:find=>game)
       xhr :get, :get_turn
     end

@@ -6,11 +6,11 @@ describe SessionsController do
       @oauth = mock.as_null_object
       controller.stub(:oauth=>@oauth)
       @player = mock_model(Player).as_null_object
-      @player.stub(:id=>57)
+      @player.stub(:id=>57, :uid=>888)
     end
 
     it "attempts to log existing player in with facebook cookies" do
-      from_cookies = { 'access_token'=>'myToken', 'uid'=>@player.uid, 'expires'=>Time.now+15.minutes }
+      from_cookies = { 'access_token'=>'myToken', 'user_id'=>@player.uid, 'expires'=>Time.now+15.minutes }
       @oauth.stub(:get_user_info_from_cookies=>from_cookies)
       Player.stub(:find_by_provider_and_uid=>@player)
       get :new
@@ -27,7 +27,7 @@ describe SessionsController do
     end
 
     it "creates a new player with facebook cookies" do
-      from_cookies = { 'access_token'=>'myToken', 'uid'=>@player.uid, 'expires'=>Time.now+15.minutes }
+      from_cookies = { 'access_token'=>'myToken', 'user_id'=>@player.uid, 'expires'=>Time.now+15.minutes }
       @oauth.stub(:get_user_info_from_cookies=>from_cookies)
       Player.stub(:find_by_provider_and_uid=>false)
       Player.should_receive(:create_with_omniauth).with('facebook',@player.uid,from_cookies['access_token']).and_return(@player)

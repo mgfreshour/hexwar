@@ -4,6 +4,7 @@ describe MessagesController do
   before(:each) do
     # "Log in" a player
     @player = mock_model(Player, :admin=>true).as_null_object
+    @player.stub(:games=>mock('Games').as_null_object)
     controller.stub(:check_authentication)
     controller.stub(:need_to_update_profile)
     controller.stub(:current_player).and_return(@player)
@@ -88,6 +89,7 @@ describe MessagesController do
   describe "POST create" do
     before(:each) do
       @params = { :message => { }}
+        @message.stub(:save=>true)
       Message.stub(:new=>@message)
     end
 
@@ -123,7 +125,7 @@ describe MessagesController do
         xhr :post, :create, @params
         response.body.should include(false.to_json)
       end
-      it "returns renders 'create' template when saved successfully" do
+      it "returns rendered 'create' template when saved successfully" do
         xhr :post, :create, @params
         response.should render_template('create')
       end
@@ -153,6 +155,7 @@ describe MessagesController do
       response.should render_template('edit')
     end
     it "redirects to message root when save suceeds" do
+      @message.stub(:update_attributes=>true)
       put :update, :id=>12
       response.should redirect_to(messages_url)
     end

@@ -2,9 +2,12 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# If you have a Gemfile, require the gems listed there, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
+if defined?(Bundler)
+  # If you precompile assets before deploying to production, use this line
+  Bundler.require(*Rails.groups(:assets => %w(development test)))
+  # If you want your assets lazily compiled in production, use this line
+  # Bundler.require(:default, :assets, Rails.env)
+end
 
 module HexGame
   class Application < Rails::Application
@@ -30,20 +33,26 @@ module HexGame
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # JavaScript files you want as :defaults (application.js is always included).
-    # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
-
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
-    
-    config.action_controller.allow_forgery_protection = false
-    config.middleware.insert_before ActionDispatch::Session::CookieStore, Rack::P3p
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-    
+
+    config.action_controller.allow_forgery_protection = false
+    # old? config.middleware.insert_before ActionDispatch::Session::CookieStore, Rack::P3p
+
+    # Configure sensitive parameters which will be filtered from the log file.
+    config.filter_parameters += [:password]
+
     config.hexwar = YAML.load_file(Rails.root.join("config/config.yml"))[Rails.env]
+    
     config.action_mailer.default_url_options = { :host => config.hexwar['host'] }
+
+    # Enable the asset pipeline
+    config.assets.enabled = true
+
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.0'
   end
 end
-

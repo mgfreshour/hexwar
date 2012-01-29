@@ -25,7 +25,8 @@ class MapsController < ApplicationController
 
     respond_to do |format|
       format.html   { check_authentication } # show.html.erb
-      format.json { render :json => @map }
+      #format.json { render :json => @map } # odd deprecated warnign
+      format.json { render :text => @map.to_json }
       format.yaml { render :text => @map.to_yaml }
     end
   end

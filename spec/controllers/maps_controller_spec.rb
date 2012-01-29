@@ -10,7 +10,7 @@ describe MapsController do
   end
 
   before(:each) do
-    @map = mock_model(Map).as_null_object
+    @map = Map.new
     Map.stub(:find=>@map)
   end
 
@@ -125,7 +125,9 @@ describe MapsController do
     end
 
     it "loads and deletes the correct record" do
+      @map = mock_model(Map).as_null_object
       @map.should_recieve(:destroy)
+      Map.stub(:find=>@map)
       Map.should_receive(:find).with('12').and_return(@map)
       delete :destroy, :id=>12
     end
