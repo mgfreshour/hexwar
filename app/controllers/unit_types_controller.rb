@@ -9,7 +9,7 @@ class UnitTypesController < ApplicationController
   # GET /unit_types
   # GET /unit_types.xml
   def index
-    @unit_types = UnitType.find(:all, :order => "position")
+    @unit_types = UnitType.find(:all, :order => "position", :include => [:terrain_modifiers])
 
     respond_to do |format|
       format.html  { check_authentication } # index.html.erb

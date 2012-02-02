@@ -5,7 +5,7 @@ class GamesController < ApplicationController
   # GET /games
   #
   def index
-    @games = current_player.games.find(:all)
+    @games = current_player.games.find(:all, :include => [:game_players, :players, :map])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,9 +18,9 @@ class GamesController < ApplicationController
   def show
     begin
       if current_player.admin
-        @game = Game.find(params[:id])
+        @game = Game.find(params[:id], :include => [:game_players, :players, :map])
       else
-        @game = current_player.games.find(params[:id])
+        @game = current_player.games.find(params[:id], :include => [:game_players, :players, :map])
       end
 
       @current_player_team = @game.get_players_team(current_player)
