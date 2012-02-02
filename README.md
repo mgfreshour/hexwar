@@ -33,6 +33,6 @@ Oh, and you might find it easiest to mark you accounts as admins. Use `rails dbc
 then run `UPDATE players SET admin=1`.  The reason you'll probably need this is there
 are no seeded maps yet, and only admins can make new maps.
 
-You can use my hosted [Facebook User Manage](http://fbusers.mgfstudios.com) to create
-test accounts and login as those drivers.
+I recommend [Facebook User Manage](https://github.com/rdohms/facebook-testuser-manager) 
+to create test accounts and login as those drivers.
 
