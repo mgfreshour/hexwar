@@ -28,6 +28,13 @@ HexGame::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+  
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.rails_logger = true
+    Bullet.console = true
+    Bullet.disable_browser_cache = true
+  end
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {

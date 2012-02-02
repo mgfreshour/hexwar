@@ -44,6 +44,9 @@ group :development, :test do
 	gem 'capybara'
 	gem 'win32-open3-19', :platforms => [:mswin, :mingw]
 	gem 'win32console', :platforms => [:mswin, :mingw]
+	
+	gem "bullet"
+	gem "ruby-growl"
 
 	# Deploy with Capistrano
 	gem 'capistrano'
