@@ -33,7 +33,7 @@ end
 # and rake tasks are available in development mode:
 group :production do
   gem 'ruby-mysql'
-	# gem 'mysql2', '> 0.3'
+  gem 'mysql2'
 end
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
