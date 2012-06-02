@@ -32,7 +32,6 @@ end
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :production do
-  gem 'ruby-mysql'
   gem 'mysql2'
 end
 group :development, :test do
